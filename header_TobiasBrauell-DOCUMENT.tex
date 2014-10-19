@@ -1,0 +1,237 @@
+% Copyright © 2014 Tobias Brauell <tobiasbrauell@gmail.com>
+
+% This is my general purpose LaTeX header file for writing German documents.
+% Ideally, you include this using a simple ``\input{header.tex}`` in your main
+% document and start with ``\title`` and ``\begin{document}`` afterwards.
+
+% If you need to add additional packages, I recommend not doing this in this
+% file, but in your main document. That way, you can just drop in a new
+% ``header.tex`` and get all the new commands without having to merge manually.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Locale, date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[german]{isodate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Margins and other spacing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[activate]{pdfcprot}
+% \usepackage[parfill]{parskip}
+\usepackage{setspace}
+  \setlength{\columnsep}{2cm}
+  \setlength{\parindent}{0 pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Input encoding
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Indexing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{makeidx}
+  \makeindex
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Blindtext
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{blindtext}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Global Counter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{layout}
+% \usepackage[scale=0.8]{geometry}
+%   \geometry{textheight=1.05\textheight, marginparwidth=50 pt}
+
+% \usepackage{multirow}
+% \usepackage{dcolumn}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pagestyle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{fancyhdr}
+% \usepackage{microtype} 
+
+% \pagestyle{fancy}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Fonts/Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}
+\usepackage{xcolor}
+% This replaces all fonts with Bitstream Charter, Bitstream Vera Sans and
+% Bitstream Vera Mono. Math will be rendered in Charter.
+% \usepackage[charter, greekuppercase=italicized]{mathdesign}
+% \usepackage{beramono}
+% \usepackage{berasans}
+
+% Bold, sans-serif tensors. This fragment is taken from “egreg” from
+% http://tex.stackexchange.com/a/82747/8945 and licensed under `CC-BY-SA
+% <https://creativecommons.org/licenses/by-sa/3.0/>`_.
+% \usepackage{bm}
+%   \DeclareMathAlphabet{\mathsfit}{\encodingdefault}{\sfdefault}{m}{sl}
+%   \SetMathAlphabet{\mathsfit}{bold}{\encodingdefault}{\sfdefault}{bx}{sl}
+%   \newcommand{\tens}[1]{\bm{\mathsfit{#1}}}
+
+% Bold vectors.
+% \renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Code/Listings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Enumerations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+\usepackage{paralist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\makeatletter \newcommand\hyper@makecurrent[1]{} \makeatother
+\usepackage{caption}
+% \usepackage{subcaption}
+
+\addto\captionsUKenglish{\renewcommand{\figurename}{Fig.}}
+\addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PDF Pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pdfpages}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Personal Graphics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+% \usepackage{tikz-3dplot}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{decorations.markings}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Math
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{dcolumn}
+\usepackage{siunitx}
+% \usepackage{feynmf}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referenzen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\usepackage{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
+% \usepackage[ngerman]{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Table's
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{tabularx}
+  \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+  \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+  \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Todo's
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{todonotes} %\todo{text} oder \todo[inline]{text}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cancel}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \lhead{text}
+% \chead{text}
+% \rhead{text}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tobias Brauell       	Versuch....		Ruth Jacobs
+% \renewcommand\footrulewidth{.4pt}
+% \lfoot{\scriptsize Ruth Jacobs - Tobias Brauell \\ {\ \ \ \ \ \ \ \ \ \ } Gruppe $\alpha 9$} 
+% \cfoot{\thepage\ / \ \pageref{LastPage}}
+% \rfoot{\scriptsize Versuch 518: Höhenstrahlung \\ Tutor: Christoph Krieger {\ \ \ } } 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \title[ITER { } International Thermonuclear Experimental Reactor]{\huge{\bf{ITER}} \\ \large{\bf{International Thermonuclear Experimental Reactor}}}
+% \author[T. Brauell]{Tobias Brauell}
+% \institute{Universität Bonn}
+% 
+% \date{09.~Dez.~2013}
+% \logo{\includegraphics[width=.15\textwidth]{Figures/toplogo.png}}
+
+

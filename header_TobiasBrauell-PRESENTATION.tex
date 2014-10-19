@@ -1,0 +1,288 @@
+% Copyright © 2014 Tobias Brauell <tobiasbrauell@gmail.com>
+
+% This is my general purpose LaTeX header file for writing German documents.
+% Ideally, you include this using a simple ``\input{header.tex}`` in your main
+% document and start with ``\title`` and ``\begin{document}`` afterwards.
+
+% If you need to add additional packages, I recommend not doing this in this
+% file, but in your main document. That way, you can just drop in a new
+% ``header.tex`` and get all the new commands without having to merge manually.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[scale=0.8]{geometry}
+% \usepackage{multirow}
+% \usepackage{dcolumn}
+
+% \geometry{headheight=15pt,bottom=60pt,top=70pt,left=60pt,right=60pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pagestyle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{fancyhdr}
+% \usepackage{microtype} 
+
+% \pagestyle{fancy}
+% \setbeamersize{sidebar width left=300pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Fonts/Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}
+\usepackage{xcolor}
+
+% \setbeamerfont{normal}{size*={8.00}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Code/Listings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Enumerations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{enumitem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+% \usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\makeatletter \newcommand\hyper@makecurrent[1]{} \makeatother
+\usepackage{caption}
+% \usepackage{subcaption}
+
+\addto\captionsUKenglish{\renewcommand{\figurename}{Fig.}}
+\addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PDF Pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pdfpages}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Personal Graphics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Math
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{siunitx}
+% \usepackage{feynmf}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Referenzen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\usepackage[ngerman]{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Table's
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{multirow}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Todo's
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{todonotes} %\todo{text} oder \todo[inline]{text}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \hypersetup{
+%   pdftitle={},%
+%   pdfauthor={Tobias Brauell}%
+% }
+
+% \AtBeginSection[]
+% {
+%  \begin{frame}
+% %   \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+% }
+% \beamerdefaultoverlayspecification{<+->}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usetheme[width=2.0cm]{Berkeley}
+% \usecolortheme{beaver}
+% 
+% \setbeamercolor{title}{fg=red!40!black}
+% \setbeamercolor{palette primary}{bg=black!10}
+% \setbeamercolor{palette secondary}{bg=black!15}
+% 
+% % \setbeamercolor{sidebar}{fg=}
+% \setbeamercolor{sidebar}{bg=black!10}
+% 
+% % \setbeamercolor{headline}{fg=}
+% \setbeamercolor{frametitle}{bg=black!10}
+% 
+% \setbeamercolor{palette sidebar primary}{fg=red!40!black}
+% \setbeamercolor{palette sidebar secondary}{fg=red!40!black}
+% \setbeamercolor{palette sidebar tertiary}{fg=red!40!black}
+% \setbeamercolor{palette sidebar quaternary}{fg=red!40!black}
+% 
+% \setbeamercolor{palette sidebar primary}{bg=black!20}
+% \setbeamercolor{palette sidebar secondary}{bg=black!20}
+% \setbeamercolor{palette sidebar tertiary}{bg=black!20}
+% \setbeamercolor{palette sidebar quaternary}{bg=black!20}
+% 
+% \setbeamercolor{block title}{fg=red!40!black}
+% \setbeamercolor{block title}{bg=black!20}
+% \setbeamercolor{block body}{fg=black}
+% \setbeamercolor{block body}{bg=black!10}
+% 
+% \setbeamercolor{enumerate item}{fg=red!40!black}
+% \setbeamercolor{enumerate item}{bg=red!40!black}
+% 
+% \setbeamercolor{itemize item}{fg=red!40!black}
+% \setbeamercolor{itemize item}{bg=red!40!black}
+% \setbeamercolor{itemize subitem}{fg=red!40!black}
+% \setbeamercolor{itemize subitem}{bg=red!40!black}
+% 
+% \setbeamercolor{description item}{fg=red!40!black}
+% \setbeamercolor{description item}{bg=red!40!black}
+% 
+% \setbeamercolor{item projected}{fg=white}
+% \setbeamercolor{item projected}{bg=red!40!black}
+% 
+% \makeatletter
+% \setbeamertemplate{frametitle}{%
+%     \nointerlineskip%
+%     \vskip-\beamer@headheight%
+%     \vbox to \beamer@headheight{%
+%       \vfil
+%       \leftskip=-\beamer@leftmargin%
+%       \advance\leftskip by0.3cm%
+%       \rightskip=-\beamer@rightmargin%
+%       \advance\rightskip by0.3cm plus1fil%
+%       {\usebeamercolor[fg]{frametitle}
+%           \usebeamerfont{frametitle}\insertframetitle\hfill\insertframenumber\par}% added number
+%       {\usebeamercolor[fg]{framesubtitle}
+%            \usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+%       \vbox{}%
+%       \vskip-1em%
+%       \vfil
+%     }%
+%   }
+% \makeatother
+
+
+
+% \usepackage{beamerthemesplit}
+
+% %% Colors
+% \setbeamercolor{palette primary}{bg=blue!40!black} % Main theme background color, previously light blue
+% \setbeamercolor{palette primary}{fg=black!15} % Main theme foreground color, previously white
+% \setbeamercolor{palette quaternary}{bg=black!70}
+
+% \setbeamercolor{sidebar}{bg=black!30}
+
+% 
+% %%% change the behaviour of the title
+% \setbeamercolor{frametitle}{bg=}
+% \setbeamercolor{frametitle}{fg=black!70}
+% \setbeamertemplate{frametitle}
+% {
+%   \vspace{-1mm}
+%   \begin{centering}
+%     \textbf{\insertframetitle}
+%     \par
+%   \end{centering}
+%   \vspace{-1mm}
+% }
+% \setbeamercolor{title}{bg=}
+% \setbeamercolor{title}{fg=black!70}
+% 
+% 
+% \setbeamertemplate{navigation symbols}{}
+% 
+% %%% useable Page size
+% \setbeamersize{text margin left=0.025\textwidth}
+% \setbeamersize{text margin right=0.025\textwidth}
+% 
+% %%% Footline
+% \newcommand{\footlinetext}{Proseminar WS 13/14}
+% \setbeamertemplate{footline}{%
+%   \leavevmode%
+%   \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=5.ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+%       \usebeamerfont{author in head/foot}\insertshortauthor \vspace{3pt}\quad {\insertshorttitle}
+%     \end{beamercolorbox}%
+%     \begin{beamercolorbox}[wd=.5\paperwidth,ht=5.ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+%       \usebeamerfont{title in head/foot}\footlinetext \hfill \insertframenumber
+%     \end{beamercolorbox}}%
+%   \vskip0pt%
+% }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \lhead{text}
+% \chead{text}
+% \rhead{text}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tobias Brauell       	Versuch....		Ruth Jacobs
+% \renewcommand\footrulewidth{.4pt}
+% \lfoot{\scriptsize Ruth Jacobs - Tobias Brauell \\ {\ \ \ \ \ \ \ \ \ \ } Gruppe $\alpha 9$} 
+% \cfoot{\thepage\ / \ \pageref{LastPage}}
+% \rfoot{\scriptsize Versuch 518: Höhenstrahlung \\ Tutor: Christoph Krieger {\ \ \ } } 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \title[ITER { } International Thermonuclear Experimental Reactor]{\huge{\bf{ITER}} \\ \large{\bf{International Thermonuclear Experimental Reactor}}}
+% \author[T. Brauell]{Tobias Brauell}
+% \institute{Universität Bonn}
+% 
+% \date{09.~Dez.~2013}
+% \logo{\includegraphics[width=.15\textwidth]{Figures/toplogo.png}}
+
+
