@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[pdftex, a4paper,11pt, twoside]{report}
+\documentclass[pdftex, a4paper,11pt, twoside, ngerman]{report}
 % \documentclass[11pt,xcolor=dvipsnames]{beamer}
 
 % \usepackage[utf8x]{inputenc} 		%für deutsche zeichen äüö ohne kile auto-ersetzen
@@ -48,6 +48,7 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
+    Für die Durchführung eines jeden Labor-Versuches ist es wichtig bereits vor dem eigentlichen Beginn des Versuches die benötigte Theorie zu kennen und zu verstehen. Daher werden hier zu aller erst die beteiligten theoretischen und physikalischen Grundlagen erklärt.
     
     
     
@@ -64,14 +65,28 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Photoeffekt}
 	\label{chp:TheoriePhotoelektrischesWirkungsquantumPhotoeffekt}
+	Der Photoeffekt, oder auch Photoelektrischer Effekt genannt, bezeichnet eine physikalische Eigenschaft der Atomhülle mithilfe derer die Energie eines Hüllenelektrons beeinflusst werden kann. Dabei wechselwirkt ein energiereiches Photon mit einem Hüllenelektron und übergibt diesem seinem gesamten Impuls und ändert somit die Energie des Elektrons. Die Energie des Photons ist nach Einstein mit der \cref{eq:EnergiePhoton} gegeben.
+	\begin{equation}
+	  \label{eq:EnergiePhoton}
+	  E=h\nu=\frac{hc}{\lambda}
+	\end{equation}
+	Daraus geht also hervor, dass die Energie antiproportional zur Wellenlänge des Photons ist. Abhängig von der Energie des absorbierten Photons reagiert das Elektron mit einer Änderung seiner Bahn um den Atomkern. Das nun angeregte Elektron wechselt in eine höhere Schale. Erhält das Elektron genügend Energie, so kann es komplett aus dem Atom entfernt werden. Diese Energie wird als \textit{Ionisierungsenergie} bezeichnet.
+	
+	\todo[inline]{Reicht das hier schon?}
 	
 	\begin{figure}[htbp]
-	  \begin{center}
-	    \includegraphics[width=.6\textwidth]{Figures/photoeffekt.png}
-	    \caption{Schematische Wirkungsweise des Photoeffekts.\cite{bib:Photoeffekt}}\label{fig:Photoeffekt}
-	  \end{center}
+	  \centering
+	  \begin{minipage}{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=.9\textwidth]{Figures/photoeffekt.png}
+	    \caption{Schematische Darstellung der Wirkungsweise des Photoeffekts.\cite{bib:Photoeffekt}}\label{fig:Photoeffekt}
+	  \end{minipage}\quad
+	  \begin{minipage}{0.48\textwidth}
+	    \centering
+	    \includegraphics[width=.9\textwidth]{Figures/BohrschesAtommodellSerien.png}
+	    \caption{Bohrsches Atommodell zusammen mit den Übergangsserien.\cite{bib:BohrschesAtommodellSerien}}\label{fig:BohrschesAtommodellSerien}
+	  \end{minipage}
 	\end{figure}
-	
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -82,8 +97,18 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Photozelle}
 	\label{chp:TheoriePhotoelektrischesWirkungsquantumPhotozelle}
-	
-	\begin{figure}[htbp]
+	In diesem Versuch wird der Photoeffekt u.A. dafür genutzt um Elektronen aus einer Metallplatte heraus zu lösen. Dabei trifft ein Laser mit einer ionisierenden Wellenlänge auf eine negativ geladene Metallplatte. Um ein Elektron aus der Oberfläche zu lösen muss die spezifische Austrittsarbeit des verwendeten Metalls erreicht werden. Aus der Austrittsarbeit ergibt sich mithilfe von \cref{eq:Grenzfrequenz} die sog. \textit{Grenzfrequenz}.
+	\begin{equation}
+	  \label{eq:Grenzfrequenz}
+	  \nu_{0}=\frac{W_{A}}{h}
+	\end{equation}
+	Die ausgelösten Elektronen können anschließend in der Photozelle detektiert werden. Aufgebaut ist die Photozelle aus einem evakuierten Gehäuse in dem eine Metallplatte als Kathode angebracht ist. Auf der gegenüber liegenden Seite innerhalb des Gehäuses ist ein dünner Ringdraht als Anode angeschlossen. An Anode und Kathode kann nun eine Spannung angelegt werden um die ausgelösten Elektronen einem Potential auszusetzen. Wird nun Spannung erhöht, werden die Elektronen zur Anode hin beschleunigt und können als Strom mit einem Amperemeter gemessen werden. Wird die Spannung umgepolt, werden die Elektronen also wieder zurück auf die Metallplatte beschleunigt. So kann man die kinetische Energie der ausgelösten Elektronen finden indem man die Grenzspannung bestimmt, bei der kein Anodenstrom mehr gemessen werden kann. Die kinetische Energie ergibt sich dann aus der Differenz der Energie des Photons und der Austrittsarbeit mit \cref{eq:Ekin}.
+	\begin{equation}
+	  \label{eq:Ekin}
+	  eU_{0}=h\nu-W_{A}
+	\end{equation}
+	\todo[inline]{Richtige Formel?}
+	\begin{figure}[b]
 	  \begin{center}
 	    \includegraphics[width=.8\textwidth]{Figures/photozelle_mit_aufbau.png}
 	    \caption{Schematischer Aufbau einer Photozelle.\cite{bib:PhotozelleAufbau}}\label{fig:PhotozelleAufbau}
@@ -299,6 +324,7 @@
     \bibitem{bib:PhotozelleAufbau}\url{http://www.leifiphysik.de/sites/default/files/medien/Kennlinie_einer_Fotozelle_Bild_2.gif}
     \bibitem{bib:Photoeffekt}\url{http://web-docs.gsi.de/~wolle/TELEKOLLEG/ATOM/IMAGES/photoeffekt1.gif}
     \bibitem{bib:BalmerserieEmissionAbsorption}\url{http://scienceblogs.de/primaklima/wp-content/blogs.dir/29/files/2012/06/i-86621a49589f7ddc22387aa065cef996-Balmerserie.jpg}
+    \bibitem{bib:BohrschesAtommodellSerien}\url{http://www.systemdesign.ch/images/4/4e/BohrschesAtommodellSerien.jpg}
     
 %     \cite{ALEPH:2005ab}
 %     \bibitem{ALEPH:2005ab}

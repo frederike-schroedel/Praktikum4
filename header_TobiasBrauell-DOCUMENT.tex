@@ -164,8 +164,9 @@
 %%% Referenzen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
-\usepackage{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
-% \usepackage[ngerman]{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
+\usepackage[obeyspaces, spaces]{url}
+% \usepackage{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
+\usepackage[ngerman]{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
 
 
 
@@ -185,8 +186,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Todo's
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{xkeyval}
 \usepackage{todonotes} %\todo{text} oder \todo[inline]{text}
-
+%   \presetkeys{todonotes}{inline}{}
+%   \let\todox\todo
+%   \renewcommand\todo{1}{\todox[inline]{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
