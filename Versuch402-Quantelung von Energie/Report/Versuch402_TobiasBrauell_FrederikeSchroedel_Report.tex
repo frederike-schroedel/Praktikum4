@@ -72,7 +72,7 @@
 	\end{equation}
 	Daraus geht also hervor, dass die Energie antiproportional zur Wellenlänge des Photons ist. Abhängig von der Energie des absorbierten Photons reagiert das Elektron mit einer Änderung seiner Bahn um den Atomkern. Das nun angeregte Elektron wechselt in eine höhere Schale. Erhält das Elektron genügend Energie, so kann es komplett aus dem Atom entfernt werden. Diese Energie wird als \textit{Ionisierungsenergie} bezeichnet.
 	
-	\todo[inline]{Reicht das hier schon?}
+	\todo[inline]{Reicht das hier schon? vielleicht noch etwas zu Absorptionslinien und Emissionslinien}
 	
 	\begin{figure}[htbp]
 	  \centering
@@ -87,6 +87,7 @@
 	    \caption{Bohrsches Atommodell zusammen mit den Übergangsserien.\cite{bib:BohrschesAtommodellSerien}}\label{fig:BohrschesAtommodellSerien}
 	  \end{minipage}
 	\end{figure}
+	
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -102,19 +103,31 @@
 	  \label{eq:Grenzfrequenz}
 	  \nu_{0}=\frac{W_{A}}{h}
 	\end{equation}
-	Die ausgelösten Elektronen können anschließend in der Photozelle detektiert werden. Aufgebaut ist die Photozelle aus einem evakuierten Gehäuse in dem eine Metallplatte als Kathode angebracht ist. Auf der gegenüber liegenden Seite innerhalb des Gehäuses ist ein dünner Ringdraht als Anode angeschlossen. An Anode und Kathode kann nun eine Spannung angelegt werden um die ausgelösten Elektronen einem Potential auszusetzen. Wird nun Spannung erhöht, werden die Elektronen zur Anode hin beschleunigt und können als Strom mit einem Amperemeter gemessen werden. Wird die Spannung umgepolt, werden die Elektronen also wieder zurück auf die Metallplatte beschleunigt. So kann man die kinetische Energie der ausgelösten Elektronen finden indem man die Grenzspannung bestimmt, bei der kein Anodenstrom mehr gemessen werden kann. Die kinetische Energie ergibt sich dann aus der Differenz der Energie des Photons und der Austrittsarbeit mit \cref{eq:Ekin}.
+	Die ausgelösten Elektronen können anschließend in der Photozelle detektiert werden. Aufgebaut ist die Photozelle aus einem evakuierten Gehäuse in dem eine Metallplatte als Kathode angebracht ist. Auf der gegenüber liegenden Seite innerhalb des Gehäuses ist ein dünner Ringdraht als Anode angeschlossen. An Anode und Kathode kann nun eine Spannung angelegt werden um die ausgelösten Elektronen einem Potential auszusetzen. Wird nun Spannung erhöht, werden die Elektronen zur Anode hin beschleunigt und können als Strom mit einem Amperemeter gemessen werden. Wird die Spannung umgepolt, so werden die Elektronen zurück auf die Metallplatte beschleunigt und der Anodenstrom verringert sich. So kann man die kinetische Energie der ausgelösten Elektronen finden indem man die Grenzspannung bestimmt, bei der kein Anodenstrom mehr gemessen werden kann. Die maximale kinetische Energie ergibt sich dann aus der Differenz der Energie des Photons und der Austrittsarbeit mit \cref{eq:Ekin}.
 	\begin{equation}
 	  \label{eq:Ekin}
-	  eU_{0}=h\nu-W_{A}
+	  E_{kin}=eU_{0}=h\nu-W_{A}
 	\end{equation}
-	\todo[inline]{Richtige Formel?}
+	
 	\begin{figure}[b]
 	  \begin{center}
 	    \includegraphics[width=.8\textwidth]{Figures/photozelle_mit_aufbau.png}
 	    \caption{Schematischer Aufbau einer Photozelle.\cite{bib:PhotozelleAufbau}}\label{fig:PhotozelleAufbau}
 	  \end{center}
 	\end{figure}
-
+	
+	Um möglichst genaue Messwerte zu erhalten werden Anode und Kathode aus Materialien mit unterschiedlichen Ionisierungsenergien verwendet. Dadurch kann es vermieden werden, dass der Anodenstrom durch Elektronen verfälscht wird, die aus der Anode selbst gelöst wurden. Die Verbindung unterschiedlicher Materialien bringt allerdings den Nachteil mit sich, dass zwischen ihnen ein sog. \textit{Kontaktpotential} entsteht. Dieses Kontaktpotential entsteht, da sich die Potentiale (oder Fermi-Niveaus) beider Kontakte im Gleichgewicht befinden müssen. Daher kommt zu dieser Gleichung noch eine Korrektur für das Kontaktpotential zwischen den Materialien hinzu die in \cref{eq:KontaktpotentialKorrektur} gegeben ist.
+	\begin{equation}
+	  \label{eq:KontaktpotentialKorrektur}
+	  W_{K}^{12}=\left|W_{A}^{1}-W_{A}^{2}\right|
+	\end{equation}
+	Daraus ergibt sich somit die Kontaktpotential korrigierte Formel für die kinetische Energie \cref{eq:EkinKontaktpotential}.
+	\begin{equation}
+	  \label{eq:EkinKontaktpotential}
+	  E_{kin}=eU_{0}-W_{K}=h\nu-W_{A}-W_{K}
+	\end{equation}
+	
+	\todo[inline]{Sind alle Formel richtig?}
 	
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,19 +141,39 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Balmer-Serie}
-      \label{chp:TheorieBalmerSerie}
+    \begin{section}{Bohrsches Atommodell und Balmer-Serie}
+      \label{chp:TheorieBohrBalmerSerie}
       
       
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Aufbau der Atomhülle}
-	\label{chp:TheorieBalmerSerieAufbauAtomhuelle}
-       
-       
-       
+      \begin{subsection}{Aufbau des Borschen Atoms}
+	\label{chp:TheorieBohrBalmerSerieAufbauAtomhuelle}
+	Das Bohrsche Atommodell ist das wohl bekannteste Atommodell. Für sein Modell postulierte Bohr $1913$ die folgenden drei Postulate.
+	\begin{enumerate}
+	  \item Elektronen umkreisen den Atomkern auf festen Bahnen.
+	  \item Das Elektron kann den Kern nur stabil und ohne Energieabstrahlung auf bestimmten, diskreten Bahnen mit festen Energien umkreisen.
+	  \item Elektronen können ihre Energie nur durch Emission oder Absorption elektromagnetischer Strahlung ändern.
+	\end{enumerate}
+	Die Radien der diskreten Bahnen dieser Postulate sind mit \cref{eq:Bohrradius} und deren Energien mit \cref{eq:BohrradiusEnergien}.
+	\newline
+	\begin{minipage}{.48\textwidth}
+	  \begin{equation}
+	    \label{eq:Bohrradius}
+	    r_{n}=\frac{n^{2}}{Z}a_{0}=\frac{n^{2}h^{2}\epsilon_{0}}{\pi\nu Ze^{2}}
+	  \end{equation}
+	\end{minipage}
+	\begin{minipage}{.48\textwidth}
+	  \begin{equation}
+	    \label{eq:BohrradiusEnergien}
+	    E_{n}=-R_{y}\frac{Z^{2}}{n^{2}}
+	  \end{equation}
+	\end{minipage}
+	
+	\todo[inline]{Hier muss noch was weiter gemacht werden. vielleicht etwas zu bahnwechseln ueber Absorption und Emission.}
+	
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -150,7 +183,8 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Spektroskopie}
-	\label{chp:TheorieBalmerSerieSpektroskopie}
+	\label{chp:TheorieBohrBalmerSerieSpektroskopie}
+	
 	
 	\begin{figure}[htbp]
 	  \begin{center}
@@ -320,7 +354,6 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    \bibitem{bib:Photozelle}\url{http://www.chemgapedia.de/vsengine/media/vsc/de/ch/3/anc/ir_spek/raman_spektroskopie/raman_geraetetechnik/ra_1_2_1/photozelle1_m35bi0101.gif}
     \bibitem{bib:PhotozelleAufbau}\url{http://www.leifiphysik.de/sites/default/files/medien/Kennlinie_einer_Fotozelle_Bild_2.gif}
     \bibitem{bib:Photoeffekt}\url{http://web-docs.gsi.de/~wolle/TELEKOLLEG/ATOM/IMAGES/photoeffekt1.gif}
     \bibitem{bib:BalmerserieEmissionAbsorption}\url{http://scienceblogs.de/primaklima/wp-content/blogs.dir/29/files/2012/06/i-86621a49589f7ddc22387aa065cef996-Balmerserie.jpg}
