@@ -1,5 +1,7 @@
 import numpy as np
+import scipy.optimize as op
 import matplotlib.pyplot as plt
+import Gnuplot
 
 
 """============================================================================
@@ -513,7 +515,214 @@ def Versuch402_1_planck():
     #filename=x_label + "_" + y_label
     #filename=filename.replace(" ", "")
     write_file("Versuch402_1_PlanckschesWirkungsquant")
+
+
+def normal_distribution(x, integral, mean, sigma):
+    return integral / np.sqrt(2*np.pi) / sigma *np.exp(- x**2 / sigma**2)
+
+
+def plot_gaussian_fit1(i, x, y, ylabel): #martin
+    plt.figure(i)
+    
+    # gauss fit
+    popt, pconv = op.curve_fit(normal_distribution, x, y)
+    #fehler = np.sqrt(pconv.diagonal())
+    
+    fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+    fitted_y = normal_distribution(fitted_x, *popt)
+    
+    # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
+    # einer Linie verbunden.
+    plt.plot(x, y, ".", label=ylabel)
+
+    # Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit einer Linie.
+    plt.plot(fitted_x, fitted_y, label="Fit: ")
+    
+    # set axis labels
+    plt.title("Versuch 402-2: Winkel - " + ylabel)
+    plt.xlabel("Pixel")
+    plt.ylabel("Intensitaet")
+    
+    
+    # place a Legend in the plot
+    plt.legend(prop={'size':9})
+    #plt.legend(bbox_to_anchor=(0., 0.97, 1., .102), loc=3, ncol=2,
+                #mode="expand", borderaxespad=0.)
+    
+    # display grid
+    plt.grid(True)
+    
+    # save the plot in file
+    filename = "Versuch402_2_" + ylabel
+    filename = filename.replace(" ", "")
+    write_file(filename)
+
+
+def gnuplot_gauss(i, x, y, ylabel):
+    plt.figure(i)
+    #Instantiate Gnuplot object
+    g = Gnuplot.Gnuplot(persist = 1)
+    g('set title "ylabel"')
+    g('set xlabel "Pixel"')
+    g('set ylabel "Intensitaet"')
+    #set yrange [-10:*]
+    g('set fit errorvariables')
+    g('set terminal png')
+    g('set grid')
+    g('set output "./test.png"')
+    
+    
+    g('gauss(x) = a / (sigma*sqrt(0.5*3.1415926)) * ' +
+      'exp(-2.0*((x-p)/sigma)**2.0) + y0 + b / (sigm * ' +
+      'sqrt(0.5*3.1415926)) * exp(-2.0*((x-q)/sigm)**2.0) + y1')
+    
+    g('a=100.0') # hoehe erster peak
+    g('p=0.0') # position erster peak
+    g('b=35.0') # hoehe zweiter peak
+    g('q=0.03') # position zweiter peak
+    g('y0=1.0')
+    g('y1=1.0')
+    
+    g('fit [-0.05:0.05] gauss(x) "Data/402BalmerAlle.txt" using 1:3 via a, ' +
+      'b, sigm, sigma, p, q, y0, y1')
+
+    g('A1=sigma/p')
+    g('A2=sigm/q')
+
+    g('plot [-0.05:0.05] "Data/402BalmerAlle.txt" using 1:3, gauss(x)')
+
+
+# Setting up test data
+def norm(x, mean, sd):
+    norm = []
+    for i in range(x.size):
+        norm += [1.0/(sd*np.sqrt(2*np.pi))*np.exp(-(x[i] - mean)**2/(2*sd**2))]
+    return np.array(norm)
+
+
+def res(p, y, x):
+    m, dm, sd1, sd2 = p
+    m1 = m
+    m2 = m1 + dm
+    y_fit = norm(x, m1, sd1) + norm(x, m2, sd2)
+    err = y - y_fit
+    return err
+
+
+def plot_gaussian_fit2(i, x, y_real, ylabel):
+    mean1, mean2 = 0, -1
+    std1, std2 = 0.5, 1 
+    
+    
+    
+    
+    # Solving
+    m, dm, sd1, sd2 = [0.1, 0.13, 1, 1]
+    p = [m, dm, sd1, sd2] # Initial guesses for op.leastsq
+    y_init = norm(x, m, sd1) + norm(x, m + dm, sd2) # For final comparison plot
+
+    plsq = op.leastsq(res, p, args = (y_real, x))
+
+    y_est = norm(x, plsq[0][0], plsq[0][2]) + norm(x, plsq[0][0] + plsq[0][1], 
+    plsq[0][3])
+
+    plt.plot(x, y_real, ".", label=ylabel)
+    plt.plot(x, y_est, 'g', label='Fitted')
+    
+    # set axis labels
+    plt.title("Versuch 402-2: Winkel - " + ylabel)
+    plt.xlabel("Pixel")
+    plt.ylabel("Intensitaet")
+    
+    
+    # place a Legend in the plot
+    plt.legend(prop={'size':9})
+    #plt.legend(bbox_to_anchor=(0., 0.97, 1., .102), loc=3, ncol=2,
+                #mode="expand", borderaxespad=0.)
+    
+    # display grid
+    plt.grid(True)
+    
+    # save the plot in file
+    filename = "Versuch402_2_" + ylabel
+    filename = filename.replace(" ", "")
+    write_file(filename)
+
+
+def shift(var, varshift):
+    i=0
+    while i < len(var):
+        var[i] += varshift
+        i += 1
+    return var
+
+
+def reduce_by_min(var):
+    i=0
+    varmin = min(var)
+    while i < len(var):
+        var[i] -= varmin
+        i += 1
+    return var
+
+
+def Versuch402_2_cam():
+    """========================================================================
+    
+    ===========================================================================
+    """
+    data = np.loadtxt('Data/402BalmerAlle.txt')
+    x = data[:, 0]
+    gruen1 = data[:, 1]
+    rot1 = data[:, 2]
+    rot2 = data[:, 3]
+    tuerkis = data[:, 4]
+    violet = data[:, 5]
+    violetX2 = data[:, 6]
+    
+    # Martins Algorithmus
+    first = 950
+    last = 1130
+    plot_gaussian_fit1(7, x[first:last], gruen1[first:last],
+                       "Gruene Linie")
+    first = 1010
+    last = 1035
+    plot_gaussian_fit1(8, x[first:last], rot1[first:last],
+                       "erste Rote Linie")
+    first = 0
+    last = 2048
+    plot_gaussian_fit1(9, x[first:last], rot2[first:last],
+                       "zweite Rote Linie")
+    first = 0
+    last = 2048
+    plot_gaussian_fit1(10, x[first:last], tuerkis[first:last],
+                       "Tuerkise Linie")
+    first = 0
+    last = 2048
+    plot_gaussian_fit1(11, x[first:last], violet[first:last],
+                       "Violette Linie")
+    first = 0
+    last = 2048
+    plot_gaussian_fit1(12, x[first:last], violetX2[first:last],
+                      "Violette Doppelinie")
+    
+    
+    # Gnuplot variante
+    #first = 1010
+    #last = 1035
+    #gnuplot_gauss(7, x[first:last], rot1[first:last], "erste Rote Linie")
+    
+    
+    # Internet variante
+    #first = 1005
+    #last = 1045
+    #plot_gaussian_fit2(7, shift(x[first:last], 0.1), rot1[first:last],
+                       #"erste Rote Linie")
     
 
 
-Versuch402_1_planck()
+
+#Versuch402_1_planck()
+Versuch402_2_cam()
+
+

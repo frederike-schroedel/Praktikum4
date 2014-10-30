@@ -1,0 +1,43 @@
+#!/bin/bash
+
+
+function gruen1(){
+gnuplot << EOF
+set title "ylabel"
+set xlabel "Pixel"
+set ylabel "Intensitaet"
+set yrange [16:*]
+set fit errorvariables
+set terminal png
+set grid
+set output "./test.png"
+
+gauss(x) = a / (sigma*sqrt(0.5*3.1415926)) * exp(-2.0*((x-p)/sigma)**2.0) + y0 + b / (sigm * sqrt(0.5*3.1415926)) * exp(-2.0*((x-q)/sigm)**2.0) + y1
+
+a=16.5 # hoehe erster peak
+p=-0.55 # position erster peak
+b=18.0 # hoehe zweiter peak
+q=-0.15 # position zweiter peak
+y0=5
+y1=5
+
+fit [-1:-0.4] gauss(x) "Data/402BalmerAlle.txt" using 1:7 via a, b, sigm, sigma, p, q, y0, y1
+
+A1=sigma/p
+A2=sigm/q
+plot [-1:-0.4] "Data/402BalmerAlle.txt" using 1:7, gauss(x) t sprintf("P1 = %.3f \261 %.3f ; FWHM_1 = %.3f \261 %.3f \n P2 = %.3f \261 %.3f", p, p_err, sigma, sigma_err, q, q_err)
+
+
+EOF
+}
+
+
+
+
+
+
+
+
+
+
+gruen1
