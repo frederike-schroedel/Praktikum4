@@ -558,38 +558,43 @@ def plot_gaussian_fit1(i, x, y, ylabel): #martin
     write_file(filename)
 
 
-def gnuplot_gauss(i, x, y, ylabel):
+def gnuplot_gauss(i, x, y, ylabel, first, last, a, p, b, q, y0, y1):
     plt.figure(i)
+    filename = "Versuch402_2_" + ylabel + "GNUplot"
+    filename = filename.replace(" ", "")
     #Instantiate Gnuplot object
     g = Gnuplot.Gnuplot(persist = 1)
-    g('set title "ylabel"')
+    g('set title "' + ylabel + '"')
     g('set xlabel "Pixel"')
     g('set ylabel "Intensitaet"')
     #set yrange [-10:*]
     g('set fit errorvariables')
     g('set terminal png')
     g('set grid')
-    g('set output "./test.png"')
+    g('set output "Figures/' + filename + '.png"')
     
     
     g('gauss(x) = a / (sigma*sqrt(0.5*3.1415926)) * ' +
       'exp(-2.0*((x-p)/sigma)**2.0) + y0 + b / (sigm * ' +
       'sqrt(0.5*3.1415926)) * exp(-2.0*((x-q)/sigm)**2.0) + y1')
     
-    g('a=100.0') # hoehe erster peak
-    g('p=0.0') # position erster peak
-    g('b=35.0') # hoehe zweiter peak
-    g('q=0.03') # position zweiter peak
-    g('y0=1.0')
-    g('y1=1.0')
+    g('a=' + a) # hoehe erster peak
+    g('p=' + p) # position erster peak
+    g('b=' + b) # hoehe zweiter peak
+    g('q=' + q) # position zweiter peak
+    g('y0=' + y0)
+    g('y1=' + y1)
     
-    g('fit [-0.05:0.05] gauss(x) "Data/402BalmerAlle.txt" using 1:3 via a, ' +
-      'b, sigm, sigma, p, q, y0, y1')
+    g('fit ['+ first +':'+ last+'] gauss(x) "Data/402BalmerAlle.txt" using '+
+      x +':'+ y +' via a, b, sigm, sigma, p, q, y0, y1')
 
     g('A1=sigma/p')
     g('A2=sigm/q')
 
-    g('plot [-0.05:0.05] "Data/402BalmerAlle.txt" using 1:3, gauss(x)')
+    g('plot ['+ first +':'+ last+'] "Data/402BalmerAlle.txt" using '+
+      x +':'+ y +', gauss(x) ')#t sprintf("P1 = %.3f \261 %.3f ; ' + 
+      #'FWHM_1 = %.3f \261 %.3f \n P2 = %.3f \261 %.3f", p, p_err, ' +
+      #'sigma, sigma_err, q, q_err)')
 
 
 # Setting up test data
@@ -708,9 +713,30 @@ def Versuch402_2_cam():
     
     
     # Gnuplot variante
+    #first = 950
+    #last = 1130
+    #gnuplot_gauss(13, str(1), str(2), "Gruene Linie", str(first), str(last),
+                  #str(1), str(10), str(2), str(5), str(1), str(1))
     #first = 1010
     #last = 1035
-    #gnuplot_gauss(7, x[first:last], rot1[first:last], "erste Rote Linie")
+    #gnuplot_gauss(14, str(1), str(3), "erste Rote Linie", str(first), 
+                  #str(last), str(1), str(10), str(2), str(5), str(1), str(1))
+    #first = 0
+    #last = 2048
+    #gnuplot_gauss(15, str(1), str(4), "zweite Rote Linie", str(first),
+                  #str(last), str(1), str(10), str(2), str(5), str(1), str(1))
+    #first = 0
+    #last = 2048
+    #gnuplot_gauss(16, str(1), str(5), "Tuerkise Linie", str(first), str(last),
+                  #str(1), str(10), str(2), str(5), str(1), str(1))
+    #first = 0
+    #last = 2048
+    #gnuplot_gauss(17, str(1), str(6), "Violette Linie", str(first), str(last),
+                  #str(1), str(10), str(2), str(5), str(1), str(1))
+    #first = 0
+    #last = 2048
+    #gnuplot_gauss(18, str(1), str(7), "Violette Doppelinie", str(first),
+                  #str(last), str(1), str(10), str(2), str(5), str(1), str(1))
     
     
     # Internet variante
