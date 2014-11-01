@@ -8,7 +8,7 @@
 % \usepackage[ansinew]{inputenc}	%kile auto-ersetzen: einstellungen->latex:general-> hacken bei special characters
 % \usepackage[UKenglish]{babel}  	%Englisch
 \usepackage[ngerman]{babel}  	%Deutsch
-
+\usepackage{siunitx}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -234,7 +234,7 @@ Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Versuchsaufbau und Durchführung}
+  \begin{chapter}{Versuchsaufbau und Durchführung - Photoeffekt}
     \label{chp:Aufbau}
         
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -246,24 +246,34 @@ Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass 
        \todo{skizze}
     Wie in der Skizze zu sehen besteht der Aufbau aus einer Hg Lampe, einer Blende, einer Linse, dem Filterrad und der Photozelle. 
     Man nutzt eine Hg Lampe, da diese bereits ein diskretes Spektrum hat, so dass Filter, die einige Nanometer um dem Bereichen der Emissinoslinien liegen, ausreichend sind um einen genügend scharfen Wellenlängen bereich zu nutzen. 
-   % Das dient dazu, die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchten zu können.
-    Bei dem Aufbau ist wichtig das alle Bauteile so positioniert sind, dass die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchtet wird.
+      Bei dem Aufbau ist wichtig das alle Bauteile so positioniert sind, dass die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchtet wird.
     Zunächst ist zu beachten das die Bauteile in der oben genannten Reinfolge auf der gleichen höhe angeordnet sind.
-    Hierzu wir die 
-    Nun ist
+    Hierzu wir die Hg Lampe angestellt, die Schutzkappe der Photozelle entfernt und das Filterrad auf $\lambda = \SI{578}{\nano\meter}$ gestellt.
+    Nun schließt man die Irisblend soweit, dass zwar ein Punkt auf der Kathode erscheint, aber die Ringanode nicht beleuchtet wird und stellt diesen Punkt mit Hilfe der Linse scharf.
+    Zuletzt wird die Schutzkappe wieder über die Photozelle gestülpt und so ausgerichtet, dass das Licht durch das Streulicht begrenzende Rohr Weiterhin auf die Kathode fällt.
 
-    
-
+    Nach der Jusiterung des Aufbaus ist es wichtig die Fotozelle richtig an zu schließen.
+    Wir wollen zwischen Anode und Kathode ein variierbares Gegenfeld haben, um die ausgelösten Elektronen auszubremsen und darüber deren Energie zu bestimmen.
+    Hierfür schließt man die Anode an den negativen Ausgang eines Spannungsteilers angeschlossen und die Kathode an den Postiven, welcher auf Masse gezogen wird.
+    Ein Netzgerät mit bis zu $\SI{12}{\volt}$ liegt an den Spanungsteiler an, zwischen dessen Ausgängen ein Spannungsmessgerät geschaltet ist.
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{ERSTER UNTERTEIL}
+
+      \begin{section}{Durchführung}
 	\label{chp:Aufbau:sec:ERSTERTEIL:subsec:UNTERTEIL}
        
+       Wir beginnen die Durchführung, indem wir das Filterrad auf den kurzwelligsten Filter stellen, an dem Netzgeräte die Gegenspannung hoch drehen, bis kein Photostrom mehr fließt und uns aus der größe der Spannung überlegen wie der Spannungsteile zusammen gestellt werden soll.
+       Wir haben aus den vorhanenden Wiederständen (zwei mal $\SI{100}{\ohm}$, und je einmal $\SI{220}{\ohm}$ und $\SI{330}{\ohm}$) ein eine Spannungsteilerschaltung mit einem Verhältnis von $\frac{100}{330}$ gewählt.
+
+       Nun sollen für die verschiedenen Filter jeweils zwei mal die Kennlinien aufgenommen werden.
+       %Hierzu ermittelt man zuerst den kleinst möglichen Strom, unser $I_0$ 
+       Um die Kennlinie zu bestimmen beginnt man bei $U=\SI{0}{\volt}$ und erhöht langsam die Spannung, bis $I=\SI{0}{\ampere}$, also bis sich die Werte für den Strom nicht mehr ändern. 
+
+       Im Anschluss wird für die Wellenlänge $\lambda = \SI{365}{\nano\meter}$ die Intesität deutlich vergrößert und erneut eine Kennlinie aufgenommen.  
        
-       
-      \end{subsection}
+      \end{section}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
       
@@ -345,6 +355,15 @@ Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass 
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
+  \begin{chapter}{Versuchsaufbau und Durchführung - Balmer-Serie}
+
+      \begin{section}{Aufbau und Justage}
+
+          \todo{skizze}
+
+      \end{section}
+
+  \end{chapter}
   
   
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
