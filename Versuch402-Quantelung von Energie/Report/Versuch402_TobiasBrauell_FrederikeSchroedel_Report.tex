@@ -36,7 +36,7 @@
 %   \setcounter{page}{2}
   
   \begin{chapter}*{Abstract}
-    test
+    Ziel des Versuchs ist es den Zusammenhang zwischen Energie und Frequenz des Lichts zu bestimmen. Hierzu wird die Quantelung der Energie sowohl durch den Photoeffekt, als auch durch die Messung der Balmerserie von Wasserstoff und Deuterium bestimmt. Somit erhalten wir Werte fùr das Planksche Wirkungsquantum die im Anschluss verglichen werden. 
   \end{chapter}
   
   \tableofcontents
@@ -65,6 +65,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Photoeffekt}
 	\label{chp:TheoriePhotoelektrischesWirkungsquantumPhotoeffekt}
+        %Unter dem Photoeffekt versteht man den klassisch betrachtet verblüffenden Effekt, dass die Energie eines Elektrons, welches durch ein Photon aus einer Photokathode ausgelöst wird, nur von der Frequenz des Lichts, aber nicht von der Intensität abhängt. 
 	Der Photoeffekt, oder auch Photoelektrischer Effekt genannt, bezeichnet eine physikalische Eigenschaft der Atomhülle mithilfe derer die Energie eines Hüllenelektrons beeinflusst werden kann. Dabei wechselwirkt ein energiereiches Photon mit einem Hüllenelektron und übergibt diesem seinem gesamten Impuls und ändert somit die Energie des Elektrons. Die Energie des Photons ist nach Einstein mit der \cref{eq:EnergiePhoton} gegeben.
 	\begin{equation}
 	  \label{eq:EnergiePhoton}
@@ -98,7 +99,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Photozelle}
 	\label{chp:TheoriePhotoelektrischesWirkungsquantumPhotozelle}
-	In diesem Versuch wird der Photoeffekt u.A. dafür genutzt um Elektronen aus einer Metallplatte heraus zu lösen. Dabei trifft ein Laser mit einer ionisierenden Wellenlänge auf eine negativ geladene Metallplatte. Um ein Elektron aus der Oberfläche zu lösen muss die spezifische Austrittsarbeit des verwendeten Metalls erreicht werden. Aus der Austrittsarbeit ergibt sich mithilfe von \cref{eq:Grenzfrequenz} die sog. \textit{Grenzfrequenz}.
+	In diesem Versuch wird der Photoeffekt u.A. dafür genutzt um Elektronen aus einer Metallplatte heraus zu lösen. Dabei trifft Das Licht einer Quecksilberdampflampe mit einer ionisierenden Wellenlänge auf eine negativ geladene Metallplatte. Um ein Elektron aus der Oberfläche zu lösen muss die spezifische Austrittsarbeit des verwendeten Metalls erreicht werden. Aus der Austrittsarbeit ergibt sich mithilfe von \cref{eq:Grenzfrequenz} die sog. \textit{Grenzfrequenz}.
 	\begin{equation}
 	  \label{eq:Grenzfrequenz}
 	  \nu_{0}=\frac{W_{A}}{h}
@@ -192,7 +193,32 @@
 	    \caption{Emissions- und Absorptionslinien der Balmer Übergänge im Wasserstoff Atom.\cite{bib:BalmerserieEmissionAbsorption}}\label{fig:BalmerserieEmissionAbsorption}
 	  \end{center}
 	\end{figure}
+
+        Unter den Begriff Spektroskopie fasst man verschiedene Verfahren zusammen, Energie in ihr Spektrum zerlegen.
+        Wir haben es hier mit der Spektroskopie an einem Refelktionsgitter zu tun.
+        Zur späteren bestimmung der Gitterkonstante $g$ nutzen wir die Gittergleichung:
+        \[
+            g(\sin(\alpha)+\sin(\beta))=m\lambda
+        \]
+        \todo{skizze}
+
+        Es werden die Emissionspektren der Quecksilberdampflampe und der Balmer Lampe hiermit sichtbar gemacht.
+
+        \begin{subsubsection}{Linienbreite}
 	
+Ein wichtiger Punkt bei der Spektroskopie ist die Linienbreite. Es gibt verschiedene Effekte, welche die Linienbreite beeinflussen. 
+Die natürliche Linienbreite, minimale Breite der Spektrallinie, tritt sogar bei einem völlig isolierten Atom. Sie entsteht auf Grund der endlichen Strahlungsdauer des Atoms. Hierdurch kommt es zu einer Energie-Zeitunschärfe, in der Form einer Resonazkurve.
+
+Zusätzlich zu der natürlichen Linienbreite gibt es die Dopplerverbreiterung, welche durch die Summe  der Bewegung der einzelnen Teilchen in unterschiedliche Raumrichtungen entsteht. 
+Bei höheren Temperaturen verstärkt sich dieser Effekt, durch die steigende mittlere geschwindigkeit der Teilchen.
+
+Die Stoßverbreiterung bewirkt bei benachbarten Atomen eine Verschiebung der Energieniveaus.
+Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass die Energie unschärfer wird.
+
+
+\todo{formel}
+\end{subsubsection}
+
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -210,16 +236,24 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Versuchsaufbau und Durchführung}
     \label{chp:Aufbau}
-    
-    
-    
+        
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{ERSTER TEIL}
+    \begin{section}{Aufbau und Justage}
       \label{chp:Aufbau:sec:ERSTERTEIL}
       
-      
+       \todo{skizze}
+    Wie in der Skizze zu sehen besteht der Aufbau aus einer Hg Lampe, einer Blende, einer Linse, dem Filterrad und der Photozelle. 
+    Man nutzt eine Hg Lampe, da diese bereits ein diskretes Spektrum hat, so dass Filter, die einige Nanometer um dem Bereichen der Emissinoslinien liegen, ausreichend sind um einen genügend scharfen Wellenlängen bereich zu nutzen. 
+   % Das dient dazu, die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchten zu können.
+    Bei dem Aufbau ist wichtig das alle Bauteile so positioniert sind, dass die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchtet wird.
+    Zunächst ist zu beachten das die Bauteile in der oben genannten Reinfolge auf der gleichen höhe angeordnet sind.
+    Hierzu wir die 
+    Nun ist
+
+    
+
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
