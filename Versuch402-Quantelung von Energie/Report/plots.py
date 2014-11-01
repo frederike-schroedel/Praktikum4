@@ -518,8 +518,7 @@ def Versuch402_1_planck():
 
 
 def normal_distribution(x, integral, mean, sigma):
-    return integral / np.sqrt(2*np.pi) / sigma *np.exp(- x**2 / sigma**2)
-
+    return integral / np.sqrt(2*np.pi)/sigma*np.exp(-(x-mean)**2./sigma**2.)
 
 def plot_gaussian_fit1(i, x, y, ylabel): #martin
     plt.figure(i)
@@ -653,6 +652,51 @@ def plot_gaussian_fit2(i, x, y_real, ylabel):
     filename = filename.replace(" ", "")
     write_file(filename)
 
+def gauss_fkt_1(x, *p0):
+    a, p, sigma, y0 = p0
+    return a / (sigma*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p)/sigma)**2.0)+y0
+
+def gauss_fkt_2(x, *p0):
+    a1, p1, sigma1, y1, a2, p2, sigma2, y2 = p0
+    f1 = a1/(sigma1*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p1)/sigma1)**2.0)+y1
+    f2 = a2/(sigma2*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p2)/sigma2)**2.0)+y2
+    return f1 +f2
+
+def plot_gaussian_fit_eigen(i, x, y, ylabel, p0): # ich
+    plt.figure(i)
+    
+    # gauss fit
+    parameter, varianz = op.curve_fit(gauss_fkt_2, x, y, p0=p0)
+    
+    fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+    fitted_y = gauss_fkt_2(fitted_x, *parameter)
+    
+    # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
+    # einer Linie verbunden.
+    plt.plot(x, y, ".", label=ylabel)
+
+    # Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit einer Linie.
+    plt.plot(fitted_x, fitted_y, label="Fit: ")
+    
+    # set axis labels
+    plt.title("Versuch 402-2: Winkel - " + ylabel)
+    plt.xlabel("Pixel")
+    plt.ylabel("Intensitaet")
+    
+    
+    # place a Legend in the plot
+    plt.legend(prop={'size':9})
+    #plt.legend(bbox_to_anchor=(0., 0.97, 1., .102), loc=3, ncol=2,
+                #mode="expand", borderaxespad=0.)
+    
+    # display grid
+    plt.grid(True)
+    
+    # save the plot in file
+    filename = "Versuch402_2_" + ylabel
+    filename = filename.replace(" ", "")
+    write_file(filename)
+
 
 def shift(var, varshift):
     i=0
@@ -677,39 +721,46 @@ def Versuch402_2_cam():
     ===========================================================================
     """
     data = np.loadtxt('Data/402BalmerAlle.txt')
-    x = data[:, 0]
-    gruen1 = data[:, 1]
-    rot1 = data[:, 2]
-    rot2 = data[:, 3]
-    tuerkis = data[:, 4]
-    violet = data[:, 5]
-    violetX2 = data[:, 6]
+    pixel = data[:, 0]
+    x = data[:, 1]
+    gruen1 = data[:, 2]
+    rot1 = data[:, 3]
+    rot2 = data[:, 4]
+    tuerkis = data[:, 5]
+    violet = data[:, 6]
+    violetX2 = data[:, 7]
     
     # Martins Algorithmus
-    first = 950
+    first = 970
     last = 1130
-    plot_gaussian_fit1(7, x[first:last], gruen1[first:last],
-                       "Gruene Linie")
-    first = 1010
-    last = 1035
-    plot_gaussian_fit1(8, x[first:last], rot1[first:last],
-                       "erste Rote Linie")
-    first = 0
-    last = 2048
-    plot_gaussian_fit1(9, x[first:last], rot2[first:last],
-                       "zweite Rote Linie")
-    first = 0
-    last = 2048
-    plot_gaussian_fit1(10, x[first:last], tuerkis[first:last],
-                       "Tuerkise Linie")
-    first = 0
-    last = 2048
-    plot_gaussian_fit1(11, x[first:last], violet[first:last],
-                       "Violette Linie")
-    first = 0
-    last = 2048
-    plot_gaussian_fit1(12, x[first:last], violetX2[first:last],
-                      "Violette Doppelinie")
+    p0 = [40., 1050.0, 1.0, 16.0, 37., 1060.0, 1.0, 16.0]
+    plot_gaussian_fit_eigen(7, pixel[first:last], gruen1[first:last],
+                       "Gruene Linie", p0)
+    first = 1000
+    last = 1040
+    p0 = [35., 1012.0, 1.0, 20.0, 100., 1024.0, 1.0, 20.0]
+    plot_gaussian_fit_eigen(8, pixel[first:last], rot1[first:last],
+                       "erste Rote Linie", p0)
+    first = 1130
+    last = 1240
+    p0 = [18., 1180.0, 1.0, 15.0, 17., 1205.0, 1.0, 15.0]
+    plot_gaussian_fit_eigen(9, pixel[first:last], rot2[first:last],
+                       "zweite Rote Linie", p0)
+    first = 1280
+    last = 1330
+    p0 = [18., 1280.0, 1.0, 13.0, 30., 1300.0, 1.0, 13.0]
+    plot_gaussian_fit_eigen(10, pixel[first:last], tuerkis[first:last],
+                       "Tuerkise Linie", p0)
+    first = 1235
+    last = 1275
+    p0 = [18., 1250.0, 1.0, 13.0, 16.5, 1258.0, 1.0, 13.0]
+    plot_gaussian_fit_eigen(11, pixel[first:last], violet[first:last],
+                       "Violette Linie", p0)
+    first = 1000
+    last = 1280
+    p0 = [18., 1100.0, 1.0, 14.0, 16.5, 1225.0, 1.0, 14.0]
+    plot_gaussian_fit_eigen(12, pixel[first:last], violetX2[first:last],
+                      "Violette Doppelinie", p0)
     
     
     # Gnuplot variante
@@ -748,7 +799,19 @@ def Versuch402_2_cam():
 
 
 
+
 #Versuch402_1_planck()
 Versuch402_2_cam()
+
+
+
+
+
+
+
+
+
+
+
 
 
