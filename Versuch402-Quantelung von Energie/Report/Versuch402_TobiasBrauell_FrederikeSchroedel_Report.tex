@@ -4,10 +4,10 @@
 \documentclass[pdftex, a4paper,11pt, twoside, ngerman]{report}
 % \documentclass[11pt,xcolor=dvipsnames]{beamer}
 
-% \usepackage[utf8x]{inputenc} 		%für deutsche zeichen äüö ohne kile auto-ersetzen
-% \usepackage[ansinew]{inputenc}	%kile auto-ersetzen: einstellungen->latex:general-> hacken bei special characters
-% \usepackage[UKenglish]{babel}  	%Englisch
-\usepackage[ngerman]{babel}  	%Deutsch
+% \usepackage[utf8x]{inputenc}                 %für deutsche zeichen äüö ohne kile auto-ersetzen
+% \usepackage[ansinew]{inputenc}        %kile auto-ersetzen: einstellungen->latex:general-> hacken bei special characters
+% \usepackage[UKenglish]{babel}          %Englisch
+\usepackage[ngerman]{babel}          %Deutsch
 
 
 
@@ -36,7 +36,7 @@
 %   \setcounter{page}{2}
   
   \begin{chapter}*{Abstract}
-    Ziel des Versuchs ist es den Zusammenhang zwischen Energie und Frequenz des Lichts zu bestimmen. Hierzu wird die Quantelung der Energie sowohl durch den Photoeffekt, als auch durch die Messung der Balmerserie von Wasserstoff und Deuterium bestimmt. Somit erhalten wir Werte fùr das Planksche Wirkungsquantum die im Anschluss verglichen werden. 
+    Ziel des Versuchs ist es den Zusammenhang zwischen Energie und Frequenz des Lichts zu bestimmen. Hierzu wird die Quantelung der Energie sowohl durch den Photoeffekt, als auch durch die Messung der Balmerserie von Wasserstoff und Deuterium bestimmt. Somit erhalten wir Werte für das Plancksche Wirkungsquantum die im Anschluss verglichen werden. 
   \end{chapter}
   
   \tableofcontents
@@ -64,31 +64,31 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Photoeffekt}
-	\label{chp:TheoriePhotoelektrischesWirkungsquantumPhotoeffekt}
+        \label{chp:TheoriePhotoelektrischesWirkungsquantumPhotoeffekt}
         %Unter dem Photoeffekt versteht man den klassisch betrachtet verblüffenden Effekt, dass die Energie eines Elektrons, welches durch ein Photon aus einer Photokathode ausgelöst wird, nur von der Frequenz des Lichts, aber nicht von der Intensität abhängt. 
-	Der Photoeffekt, oder auch Photoelektrischer Effekt genannt, bezeichnet eine physikalische Eigenschaft der Atomhülle mithilfe derer die Energie eines Hüllenelektrons beeinflusst werden kann. Dabei wechselwirkt ein energiereiches Photon mit einem Hüllenelektron und übergibt diesem seinem gesamten Impuls und ändert somit die Energie des Elektrons. Die Energie des Photons ist nach Einstein mit der \cref{eq:EnergiePhoton} gegeben.
-	\begin{equation}
-	  \label{eq:EnergiePhoton}
-	  E=h\nu=\frac{hc}{\lambda}
-	\end{equation}
-	Daraus geht also hervor, dass die Energie antiproportional zur Wellenlänge des Photons ist. Abhängig von der Energie des absorbierten Photons reagiert das Elektron mit einer Änderung seiner Bahn um den Atomkern. Das nun angeregte Elektron wechselt in eine höhere Schale. Erhält das Elektron genügend Energie, so kann es komplett aus dem Atom entfernt werden. Diese Energie wird als \textit{Ionisierungsenergie} bezeichnet.
-	
-	\todo[inline]{Reicht das hier schon? vielleicht noch etwas zu Absorptionslinien und Emissionslinien}
-	
-	\begin{figure}[htbp]
-	  \centering
-	  \begin{minipage}{0.48\textwidth}
-	    \centering
-	    \includegraphics[width=.9\textwidth]{Figures/photoeffekt.png}
-	    \caption{Schematische Darstellung der Wirkungsweise des Photoeffekts.\cite{bib:Photoeffekt}}\label{fig:Photoeffekt}
-	  \end{minipage}\quad
-	  \begin{minipage}{0.48\textwidth}
-	    \centering
-	    \includegraphics[width=.9\textwidth]{Figures/BohrschesAtommodellSerien.png}
-	    \caption{Bohrsches Atommodell zusammen mit den Übergangsserien.\cite{bib:BohrschesAtommodellSerien}}\label{fig:BohrschesAtommodellSerien}
-	  \end{minipage}
-	\end{figure}
-	
+        Der Photoeffekt, oder auch Photoelektrischer Effekt genannt, bezeichnet eine physikalische Eigenschaft der Atomhülle mithilfe derer die Energie eines Hüllenelektrons beeinflusst werden kann. Dabei wechselwirkt ein energiereiches Photon mit einem Hüllenelektron und übergibt diesem seinem gesamten Impuls und ändert somit die Energie des Elektrons. Die Energie des Photons ist nach Einstein mit der \cref{eq:EnergiePhoton} gegeben.
+        \begin{equation}
+          \label{eq:EnergiePhoton}
+          E=h\nu=\frac{hc}{\lambda}
+        \end{equation}
+        Daraus geht also hervor, dass die Energie antiproportional zur Wellenlänge des Photons ist. Abhängig von der Energie des absorbierten Photons reagiert das Elektron mit einer Änderung seiner Bahn um den Atomkern. Das nun angeregte Elektron wechselt in eine höhere Schale. Erhält das Elektron genügend Energie, so kann es komplett aus dem Atom entfernt werden. Diese Energie wird als \textit{Ionisierungsenergie} bezeichnet.
+        
+        \todo[inline]{Reicht das hier schon? vielleicht noch etwas zu Absorptionslinien und Emissionslinien}
+        
+        \begin{figure}[htbp]
+          \centering
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=.9\textwidth]{Figures/photoeffekt.png}
+            \caption{Schematische Darstellung der Wirkungsweise des Photoeffekts.\cite{bib:Photoeffekt}}\label{fig:Photoeffekt}
+          \end{minipage}\quad
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=.9\textwidth]{Figures/BohrschesAtommodellSerien.png}
+            \caption{Bohrsches Atommodell zusammen mit den Übergangsserien.\cite{bib:BohrschesAtommodellSerien}}\label{fig:BohrschesAtommodellSerien}
+          \end{minipage}
+        \end{figure}
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -98,38 +98,38 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Photozelle}
-	\label{chp:TheoriePhotoelektrischesWirkungsquantumPhotozelle}
-	In diesem Versuch wird der Photoeffekt u.A. dafür genutzt um Elektronen aus einer Metallplatte heraus zu lösen. Dabei trifft Das Licht einer Quecksilberdampflampe mit einer ionisierenden Wellenlänge auf eine negativ geladene Metallplatte. Um ein Elektron aus der Oberfläche zu lösen muss die spezifische Austrittsarbeit des verwendeten Metalls erreicht werden. Aus der Austrittsarbeit ergibt sich mithilfe von \cref{eq:Grenzfrequenz} die sog. \textit{Grenzfrequenz}.
-	\begin{equation}
-	  \label{eq:Grenzfrequenz}
-	  \nu_{0}=\frac{W_{A}}{h}
-	\end{equation}
-	Die ausgelösten Elektronen können anschließend in der Photozelle detektiert werden. Aufgebaut ist die Photozelle aus einem evakuierten Gehäuse in dem eine Metallplatte als Kathode angebracht ist. Auf der gegenüber liegenden Seite innerhalb des Gehäuses ist ein dünner Ringdraht als Anode angeschlossen. An Anode und Kathode kann nun eine Spannung angelegt werden um die ausgelösten Elektronen einem Potential auszusetzen. Wird nun Spannung erhöht, werden die Elektronen zur Anode hin beschleunigt und können als Strom mit einem Amperemeter gemessen werden. Wird die Spannung umgepolt, so werden die Elektronen zurück auf die Metallplatte beschleunigt und der Anodenstrom verringert sich. So kann man die kinetische Energie der ausgelösten Elektronen finden indem man die Grenzspannung bestimmt, bei der kein Anodenstrom mehr gemessen werden kann. Die maximale kinetische Energie ergibt sich dann aus der Differenz der Energie des Photons und der Austrittsarbeit mit \cref{eq:Ekin}.
-	\begin{equation}
-	  \label{eq:Ekin}
-	  E_{kin}=eU_{0}=h\nu-W_{A}
-	\end{equation}
-	
-	\begin{figure}[b]
-	  \begin{center}
-	    \includegraphics[width=.8\textwidth]{Figures/photozelle_mit_aufbau.png}
-	    \caption{Schematischer Aufbau einer Photozelle.\cite{bib:PhotozelleAufbau}}\label{fig:PhotozelleAufbau}
-	  \end{center}
-	\end{figure}
-	
-	Um möglichst genaue Messwerte zu erhalten werden Anode und Kathode aus Materialien mit unterschiedlichen Ionisierungsenergien verwendet. Dadurch kann es vermieden werden, dass der Anodenstrom durch Elektronen verfälscht wird, die aus der Anode selbst gelöst wurden. Die Verbindung unterschiedlicher Materialien bringt allerdings den Nachteil mit sich, dass zwischen ihnen ein sog. \textit{Kontaktpotential} entsteht. Dieses Kontaktpotential entsteht, da sich die Potentiale (oder Fermi-Niveaus) beider Kontakte im Gleichgewicht befinden müssen. Daher kommt zu dieser Gleichung noch eine Korrektur für das Kontaktpotential zwischen den Materialien hinzu die in \cref{eq:KontaktpotentialKorrektur} gegeben ist.
-	\begin{equation}
-	  \label{eq:KontaktpotentialKorrektur}
-	  W_{K}^{12}=\left|W_{A}^{1}-W_{A}^{2}\right|
-	\end{equation}
-	Daraus ergibt sich somit die Kontaktpotential korrigierte Formel für die kinetische Energie \cref{eq:EkinKontaktpotential}.
-	\begin{equation}
-	  \label{eq:EkinKontaktpotential}
-	  E_{kin}=eU_{0}-W_{K}=h\nu-W_{A}-W_{K}
-	\end{equation}
-	
-	\todo[inline]{Sind alle Formel richtig?}
-	
+        \label{chp:TheoriePhotoelektrischesWirkungsquantumPhotozelle}
+        In diesem Versuch wird der Photoeffekt u.A. dafür genutzt um Elektronen aus einer Metallplatte heraus zu lösen. Dabei trifft Das Licht einer Quecksilberdampflampe mit einer ionisierenden Wellenlänge auf eine negativ geladene Metallplatte. Um ein Elektron aus der Oberfläche zu lösen muss die spezifische Austrittsarbeit des verwendeten Metalls erreicht werden. Aus der Austrittsarbeit ergibt sich mithilfe von \cref{eq:Grenzfrequenz} die sog. \textit{Grenzfrequenz}.
+        \begin{equation}
+          \label{eq:Grenzfrequenz}
+          \nu_{0}=\frac{W_{A}}{h}
+        \end{equation}
+        Die ausgelösten Elektronen können anschließend in der Photozelle detektiert werden. Aufgebaut ist die Photozelle aus einem evakuierten Gehäuse in dem eine Metallplatte als Kathode angebracht ist. Auf der gegenüber liegenden Seite innerhalb des Gehäuses ist ein dünner Ringdraht als Anode angeschlossen. An Anode und Kathode kann nun eine Spannung angelegt werden um die ausgelösten Elektronen einem Potential auszusetzen. Wird nun Spannung erhöht, werden die Elektronen zur Anode hin beschleunigt und können als Strom mit einem Amperemeter gemessen werden. Wird die Spannung umgepolt, so werden die Elektronen zurück auf die Metallplatte beschleunigt und der Anodenstrom verringert sich. So kann man die kinetische Energie der ausgelösten Elektronen finden indem man die Grenzspannung bestimmt, bei der kein Anodenstrom mehr gemessen werden kann. Die maximale kinetische Energie ergibt sich dann aus der Differenz der Energie des Photons und der Austrittsarbeit mit \cref{eq:Ekin}.
+        \begin{equation}
+          \label{eq:Ekin}
+          E_{kin}=eU_{0}=h\nu-W_{A}
+        \end{equation}
+        
+        \begin{figure}[b]
+          \begin{center}
+            \includegraphics[width=.8\textwidth]{Figures/photozelle_mit_aufbau.png}
+            \caption{Schematischer Aufbau einer Photozelle.\cite{bib:PhotozelleAufbau}}\label{fig:PhotozelleAufbau}
+          \end{center}
+        \end{figure}
+        
+        Um möglichst genaue Messwerte zu erhalten werden Anode und Kathode aus Materialien mit unterschiedlichen Ionisierungsenergien verwendet. Dadurch kann es vermieden werden, dass der Anodenstrom durch Elektronen verfälscht wird, die aus der Anode selbst gelöst wurden. Die Verbindung unterschiedlicher Materialien bringt allerdings den Nachteil mit sich, dass zwischen ihnen ein sog. \textit{Kontaktpotential} entsteht. Dieses Kontaktpotential entsteht, da sich die Potentiale (oder Fermi-Niveaus) beider Kontakte im Gleichgewicht befinden müssen. Daher kommt zu dieser Gleichung noch eine Korrektur für das Kontaktpotential zwischen den Materialien hinzu die in \cref{eq:KontaktpotentialKorrektur} gegeben ist.
+        \begin{equation}
+          \label{eq:KontaktpotentialKorrektur}
+          W_{K}^{12}=\left|W_{A}^{1}-W_{A}^{2}\right|
+        \end{equation}
+        Daraus ergibt sich somit die Kontaktpotential korrigierte Formel für die kinetische Energie \cref{eq:EkinKontaktpotential}.
+        \begin{equation}
+          \label{eq:EkinKontaktpotential}
+          E_{kin}=eU_{0}-W_{K}=h\nu-W_{A}-W_{K}
+        \end{equation}
+        
+        \todo[inline]{Sind alle Formel richtig?}
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -151,30 +151,30 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Aufbau des Borschen Atoms}
-	\label{chp:TheorieBohrBalmerSerieAufbauAtomhuelle}
-	Das Bohrsche Atommodell ist das wohl bekannteste Atommodell. Für sein Modell postulierte Bohr $1913$ die folgenden drei Postulate.
-	\begin{enumerate}
-	  \item Elektronen umkreisen den Atomkern auf festen Bahnen.
-	  \item Das Elektron kann den Kern nur stabil und ohne Energieabstrahlung auf bestimmten, diskreten Bahnen mit festen Energien umkreisen.
-	  \item Elektronen können ihre Energie nur durch Emission oder Absorption elektromagnetischer Strahlung ändern.
-	\end{enumerate}
-	Die Radien der diskreten Bahnen dieser Postulate sind mit \cref{eq:Bohrradius} und deren Energien mit \cref{eq:BohrradiusEnergien}.
-	\newline
-	\begin{minipage}{.48\textwidth}
-	  \begin{equation}
-	    \label{eq:Bohrradius}
-	    r_{n}=\frac{n^{2}}{Z}a_{0}=\frac{n^{2}h^{2}\epsilon_{0}}{\pi\nu Ze^{2}}
-	  \end{equation}
-	\end{minipage}
-	\begin{minipage}{.48\textwidth}
-	  \begin{equation}
-	    \label{eq:BohrradiusEnergien}
-	    E_{n}=-R_{y}\frac{Z^{2}}{n^{2}}
-	  \end{equation}
-	\end{minipage}
-	
-	\todo[inline]{Hier muss noch was weiter gemacht werden. vielleicht etwas zu bahnwechseln ueber Absorption und Emission.}
-	
+        \label{chp:TheorieBohrBalmerSerieAufbauAtomhuelle}
+        Das Bohrsche Atommodell ist das wohl bekannteste Atommodell. Für sein Modell postulierte Bohr $1913$ die folgenden drei Postulate.
+        \begin{enumerate}
+          \item Elektronen umkreisen den Atomkern auf festen Bahnen.
+          \item Das Elektron kann den Kern nur stabil und ohne Energieabstrahlung auf bestimmten, diskreten Bahnen mit festen Energien umkreisen.
+          \item Elektronen können ihre Energie nur durch Emission oder Absorption elektromagnetischer Strahlung ändern.
+        \end{enumerate}
+        Die Radien der diskreten Bahnen dieser Postulate sind mit \cref{eq:Bohrradius} und deren Energien mit \cref{eq:BohrradiusEnergien}.
+        \newline
+        \begin{minipage}{.48\textwidth}
+          \begin{equation}
+            \label{eq:Bohrradius}
+            r_{n}=\frac{n^{2}}{Z}a_{0}=\frac{n^{2}h^{2}\epsilon_{0}}{\pi\nu Ze^{2}}
+          \end{equation}
+        \end{minipage}
+        \begin{minipage}{.48\textwidth}
+          \begin{equation}
+            \label{eq:BohrradiusEnergien}
+            E_{n}=-R_{y}\frac{Z^{2}}{n^{2}}
+          \end{equation}
+        \end{minipage}
+        
+        \todo[inline]{Hier muss noch was weiter gemacht werden. vielleicht etwas zu bahnwechseln ueber Absorption und Emission.}
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -184,30 +184,31 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Spektroskopie}
-	\label{chp:TheorieBohrBalmerSerieSpektroskopie}
-	Unter den Begriff Spektroskopie fasst man verschiedene Verfahren zusammen, Energie in ihr Spektrum zerlegen.
+        \label{chp:TheorieBohrBalmerSerieSpektroskopie}
+        Unter den Begriff Spektroskopie fasst man verschiedene Verfahren zusammen, Energie in ihr Spektrum zerlegen.
         Wir haben es hier mit der Spektroskopie an einem Refelktionsgitter zu tun.
-	\begin{figure}[b]
-	  \begin{center}
-	    \includegraphics[width=.9\textwidth]{Figures/BalmerserieEmissionAbsorption.png}
-	    \caption{Emissions- und Absorptionslinien der Balmer Übergänge im Wasserstoff Atom.\cite{bib:BalmerserieEmissionAbsorption}}\label{fig:BalmerserieEmissionAbsorption}
-	  \end{center}
-	\end{figure}
-        Zur späteren bestimmung der Gitterkonstante $g$ nutzen wir die Gittergleichung:
-        \[
-            g(\sin(\alpha)+\sin(\beta))=m\lambda
-        \]
+        \begin{figure}[b]
+          \begin{center}
+            \includegraphics[width=.9\textwidth]{Figures/BalmerserieEmissionAbsorption.png}
+            \caption{Emissions- und Absorptionslinien der Balmer Übergänge im Wasserstoff Atom.\cite{bib:BalmerserieEmissionAbsorption}}\label{fig:BalmerserieEmissionAbsorption}
+          \end{center}
+        \end{figure}
+        Zur späteren Bestimmung der Gitterkonstante $g$ nutzen wir die Gittergleichung:
+        \begin{equation}
+          \label{eq:Gittergleichung}
+          g(\sin(\alpha)+\sin(\beta))=m\lambda
+        \end{equation}
         
         \todo[inline]{skizze}
         
         Es werden die Emissionspektren der Quecksilberdampflampe und der Balmer Lampe hiermit sichtbar gemacht.
         
-	\begin{subsubsection}{Linienbreite}
-	  Ein wichtiger Punkt bei der Spektroskopie ist die Linienbreite. Es gibt verschiedene Effekte, welche die Linienbreite beeinflussen. Die natürliche Linienbreite, minimale Breite der Spektrallinie, tritt sogar bei einem völlig isolierten Atom. Sie entsteht auf Grund der endlichen Strahlungsdauer des Atoms. Hierdurch kommt es zu einer Energie-Zeitunschärfe, in der Form einer Resonazkurve. Zusätzlich zu der natürlichen Linienbreite gibt es die Dopplerverbreiterung, welche durch die Summe  der Bewegung der einzelnen Teilchen in unterschiedliche Raumrichtungen entsteht. Bei höheren Temperaturen verstärkt sich dieser Effekt, durch die steigende mittlere geschwindigkeit der Teilchen. Die Stoßverbreiterung bewirkt bei benachbarten Atomen eine Verschiebung der Energieniveaus. Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass die Energie unschärfer wird.
-	
-	  \todo[inline]{formel}
-	
-	\end{subsubsection}
+        \begin{subsubsection}{Linienbreite}
+          Ein wichtiger Punkt bei der Spektroskopie ist die Linienbreite. Es gibt verschiedene Effekte, welche die Linienbreite beeinflussen. Die natürliche Linienbreite, minimale Breite der Spektrallinie, tritt sogar bei einem völlig isolierten Atom. Sie entsteht auf Grund der endlichen Strahlungsdauer des Atoms. Hierdurch kommt es zu einer Energie-Zeitunschärfe, in der Form einer Resonazkurve. Zusätzlich zu der natürlichen Linienbreite gibt es die Dopplerverbreiterung, welche durch die Summe  der Bewegung der einzelnen Teilchen in unterschiedliche Raumrichtungen entsteht. Bei höheren Temperaturen verstärkt sich dieser Effekt, durch die steigende mittlere Geschwindigkeit der Teilchen. Die Stoßverbreiterung bewirkt bei benachbarten Atomen eine Verschiebung der Energieniveaus. Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass die Energie unschärfer wird.
+        
+          \todo[inline]{formel}
+        
+        \end{subsubsection}
 
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -217,15 +218,15 @@
 
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	  
-	  
-	  
+          
+          
+          
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Versuchsaufbau und Durchführung}
     \label{chp:Aufbau}
-	
+        
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -233,9 +234,9 @@
       \label{chp:Aufbau:sec:ERSTERTEIL}
       
       \todo[inline]{skizze}
-      Wie in der Skizze zu sehen besteht der Aufbau aus einer Hg Lampe, einer Blende, einer Linse, dem Filterrad und der Photozelle. Man nutzt eine Hg Lampe, da diese bereits ein diskretes Spektrum hat, so dass Filter, die einige Nanometer um dem Bereichen der Emissinoslinien liegen, ausreichend sind um einen genügend scharfen Wellenlängen bereich zu nutzen. 
+      Wie in der Skizze zu sehen besteht der Aufbau aus einer Hg Lampe, einer Blende, einer Linse, dem Filterrad und der Photozelle. Man nutzt eine Hg-Lampe, da diese bereits ein diskretes Spektrum hat, so dass Filter, die einige Nanometer um dem Bereichen der Emissionslinien liegen, ausreichend sind um einen genügend scharfen Wellenlängen Bereich zu nutzen. 
     % Das dient dazu, die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchten zu können.
-      Bei dem Aufbau ist wichtig das alle Bauteile so positioniert sind, dass die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchtet wird. Zunächst ist zu beachten das die Bauteile in der oben genannten Reinfolge auf der gleichen höhe angeordnet sind.
+      Bei dem Aufbau ist wichtig das alle Bauteile so positioniert sind, dass die in der Photozelle befindliche Kathode mit Licht verschiedener Frequenzen beleuchtet wird. Zunächst ist zu beachten das die Bauteile in der oben genannten Reihenfolge auf der gleichen Höhe angeordnet sind.
       Hierzu wir die 
       Nun ist
       
@@ -243,7 +244,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{ERSTER UNTERTEIL}
-	\label{chp:Aufbau:sec:ERSTERTEIL:subsec:UNTERTEIL}
+        \label{chp:Aufbau:sec:ERSTERTEIL:subsec:UNTERTEIL}
        
        
        
@@ -279,7 +280,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{ERSTER UNTERTEIL}
-	\label{chp:Auswertung:sec:ERSTERTEIL:subsec:UNTERTEIL}
+        \label{chp:Auswertung:sec:ERSTERTEIL:subsec:UNTERTEIL}
        
        
        
@@ -315,7 +316,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{ERSTER UNTERTEIL}
-	\label{chp:Fazit:sec:ERSTERTEIL:subsec:UNTERTEIL}
+        \label{chp:Fazit:sec:ERSTERTEIL:subsec:UNTERTEIL}
        
        
        
@@ -351,7 +352,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{section}{ERSTER UNTERTEIL}
-	\label{Anhang:chp:ERSTERTEIL:sec:UNTERTEIL}
+        \label{Anhang:chp:ERSTERTEIL:sec:UNTERTEIL}
        
        
        
