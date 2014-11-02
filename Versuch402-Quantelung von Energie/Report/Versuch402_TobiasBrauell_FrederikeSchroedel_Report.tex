@@ -269,7 +269,12 @@ Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass 
 
        Nun sollen für die verschiedenen Filter jeweils zwei mal die Kennlinien aufgenommen werden.
        %Hierzu ermittelt man zuerst den kleinst möglichen Strom, unser $I_0$ 
-       Um die Kennlinie zu bestimmen beginnt man bei $U=\SI{0}{\volt}$ und erhöht langsam die Spannung, bis $I=\SI{0}{\ampere}$, also bis sich die Werte für den Strom nicht mehr ändern. 
+       Um die Kennlinie zu bestimmen beginnt man bei $U=\SI{0}{\volt}$ und erhöht langsam die Spannung, bis $I=\SI{0}{\ampere}$, also bis sich die Werte für den Strom nicht mehr ändern.
+
+       An dieser Stelle sind wir zunächst jeden Filter einmal durchgegangen.
+       Vor dem zweiten Durchgang haben wir festgestellt, dass die Schutzkappe verrutscht ist, wodurch die Intensität, welche die Kathode erreicht hat mit der Zeit langsam abgeschwächt wurde.
+       Um das im nächsten Durchgang zu vermeiden haben wir die Schutzkappe erneut ausgerichtet und mit Klebeband fixiert.
+       Hierdurch ist es zu einer großen Intesitätsdifferenz zwischen den beide aufgenommenen Kennlinien gekommen.
 
        Im Anschluss wird für die Wellenlänge $\lambda = \SI{365}{\nano\meter}$ die Intesität deutlich vergrößert und erneut eine Kennlinie aufgenommen.  
        
@@ -374,21 +379,53 @@ Durch Stöße wird die Lebensdauer eines angeregten Zustandes verkürzt, sodass 
           \begin{subsection}{Justierung}
 
           Zunächst ist der Anfangsaufbau mit der Hg Lampe zu Justieren.
-          Diese benutzen wir, da sie eine hohe Intesität hat, so dass die Spektrallinien gut sichtbar sind. 
-          Außerdem haben kennen wir deren Wellenlängen und können so diese den beobachteten Wellenlängen identifizieren um die Gitterkonstante zu bestimmen.
-
+        
           Nach einsetzen der Lampe wird die erste Linse ($f=\SI{50}{\milli\meter}$) so eingesetzt, das sie die Lichtquelle auf die schrägen Flanken des senkrecht stehenden Splates abbildet.
           Als nächstes wird das Objektiv eingesetzt und mit Hilfe der Autokollimation justiert.
           Das lässt sich realisieren, indem man das Gitter so dreht, dass die Reflektion erneut durch das Objektiv fällt und somit den Spalt neben den Spalt abbildet. 
           Wenn man diese Abbildung des Splates nun scharf stellt, ist diese nach dem Objektiv auf Unendlich fokussiert.
           Nun legen wir die Abbildung des Spaltes über dem Spalt und stellen den Winkel zwischen den Armen der optischen Bänke auf $\alpha-\beta = \SI{30}{\degree}$.
+          Dieser Winkel wird von uns den ganzen Versuch über nicht geändert.
           Am Ende des zweiten Armses wird das Okular so montiert, dass die Skala gut abzulesen ist. 
           Um die verschiedenen Spektrallinien auf die Skala scharf ab zu bilden stellen man die letzte Linse in den Strahlen gang und verschiebt diese je nach bedarf.
+          So entsteht ein Beobachtungsteleskop.
 
       \end{subsection}
 
       \begin{subsection}{Bestimmung der Gitterkonstante}
 
+          Um Gitterkonstante zu bestimmen nehmen wir die Hg Lampe.
+          Diese benutzen wir, da sie eine hohe Intesität hat, wodurch die Spektrallinien gut sichtbar sind.
+          Außerdem haben kennen wir deren Wellenlängen und können so diese den beobachteten Wellenlängen identifizieren um die Gitterkonstante zu bestimmen.
+          Wir drehen an der Gittersäule so, um die ersten Linien im Okular sichtabr zu machen.
+          Nun stellen wir mit Hilfe der $f=\SI{300}{\milli\meter}$ Linse die Linien scharf und notieren uns die Farbe und den Gitterwinkel $\omega_G$. 
+          So gehen wir vor bis wir alle sichtbaren Linien notiert haben.
+          Durch den vergleich mit den gegebenen Wellenlängen für Spektrallinien lassen sich so den Winkel Wellenlängen zu ordnen.
+          \todo{Tabelle}
+
+      \end{subsection}
+
+      \begin{subsection}{Untersuchung der Balmer-Linie mit einem Okular}
+
+          Als nächstes tauschen wir die Hg Lampe durch eine Balmer-Lampe und überprüfen die Justierung.
+          Dann suchen wir durch drehen der Gittersäule erneut die erste Linie und notieren uns die Farbe, den Winkel und die Breite der Linien $d$, welche den Abstand der Aufspaltung der Linienbreite representiert.
+          Hierfür ist besonders wichtig die Linen auf die Skala scharf zu stellen.
+          Für die anderen Linien wiederholen wir dieses Vorgehen.
+          \todo{tabelle}
+
+      \end{subsection}
+
+      \begin{subsection}{Untersuchung der Balmerlinie mit der CCD-Kamera}
+
+          Für den nächsten Versuchteil wird das Okular durch die CCD-Kamera ersätzt. 
+          Dabei muss dadrauf geachtet werden, dass CCD-Zeile beleuchtet wird.
+          Die Kamera wird an den PC angeschlossen und mit Strom versorgt.
+          Auf dem PC öffnet man Das Programm VideoCom und wählt die Einstellungen aus der Versuchsanleitung.
+          Wir wollen die Isotropieaufspaltung messen, also suchen wir nach Ausschlägen, indem wir mit der Gittersäule die Winkel ansteuern, die wir zuvor ermittelt haben.
+          Sobald auf dem Monitor einer dieser Ausschläge erscheint, versuchen wir durch Vergrößerung des Abschnittes, Mittelwertbildung der Intesität und verschieben der letzten Linse zwei scharfe getrennte Spitzen oder Überlagerungen zu erhalten.
+          Aus den so aufgenommenen Messdaten lässt sich die Linienverbreiterung bestimmen.
+
+          \todo{messwerte?}
 
       \end{subsection}
 
