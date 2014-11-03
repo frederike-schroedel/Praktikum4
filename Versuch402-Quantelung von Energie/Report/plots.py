@@ -956,13 +956,13 @@ def Versuch402_1_planck():
     
     # plot y against x 
     plt.errorbar(Freq, U_Grenz, dU_Grenz, label="Grenzspannungen", fmt=".")
-    plt.plot(Freq, fit_f(Freq), label=u"f(x)=(%.2e±%.2e)x+(%.2e±%.2e)" %
+    plt.plot(Freq, fit_f(Freq), label=u"f(x)=(%.2e±%.2e)x+(%.4e±%.2e)" %
              (f[0], df[0], f[1], df[1]))
     
     # Berechnung von h
     h = e * f[0]
     dh = e * df[0]
-    print h, dh
+    print u"h=(%.4e±%.4e)" % (h, dh)
     
     # set axis labels
     plt.title("Versuch 402-1: Grenzspannungen")
@@ -998,17 +998,21 @@ def plot_gaussian_fit_eigen(i, x, y, ylabel, p0): # ich
     plt.figure(i)
     
     # gauss fit
-    parameter, varianz = op.curve_fit(gauss_fkt_2, x, y, p0=p0)
+    f, varianz = op.curve_fit(gauss_fkt_2, x, y, p0=p0)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
     
     fitted_x = np.linspace(np.min(x), np.max(x), 1000)
-    fitted_y = gauss_fkt_2(fitted_x, *parameter)
+    fitted_y = gauss_fkt_2(fitted_x, *f)
     
     # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
     # einer Linie verbunden.
     plt.plot(x, y, ".", label=ylabel)
 
     # Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit einer Linie.
-    plt.plot(fitted_x, fitted_y, label="Fit: ")
+    plt.plot(fitted_x, fitted_y, label=u"Fit: \nPeak 1  : (%.1f±%.1f)" % 
+             (f[1], df[1]) + u"\nFHMW 1: (%.1f±%.1f) \nPeak 2  : (%.1f±%.1f)"
+             % (f[2], df[2], f[5], df[5]) + u"\nFHMW 2: (%.1f±%.1f)" % 
+             (f[6], df[6] ) )
     
     # set axis labels
     plt.title("Versuch 402-2: Winkel - " + ylabel)
@@ -1028,6 +1032,8 @@ def plot_gaussian_fit_eigen(i, x, y, ylabel, p0): # ich
     filename = "Versuch402_2_" + ylabel
     filename = filename.replace(" ", "")
     write_file(filename)
+    
+    return f, df
 
 
 def reduce_by_min(var):
@@ -1058,33 +1064,38 @@ def Versuch402_2_cam():
     first = 970
     last = 1130
     p0 = [40., 1050.0, 1.0, 16.0, 37., 1060.0, 1.0, 16.0]
-    plot_gaussian_fit_eigen(7, pixel[first:last], gruen1[first:last],
-                       "Gruene Linie", p0)
+    f_g, df_g = plot_gaussian_fit_eigen(7, pixel[first:last],
+                                        gruen1[first:last], "Gruene Linie", p0)
     first = 1000
     last = 1040
     p0 = [35., 1012.0, 1.0, 20.0, 100., 1024.0, 1.0, 20.0]
-    plot_gaussian_fit_eigen(8, pixel[first:last], rot1[first:last],
-                       "erste Rote Linie", p0)
+    f_r1, df_r1 = plot_gaussian_fit_eigen(8, pixel[first:last],
+                                          rot1[first:last],"erste Rote Linie",
+                                          p0)
     first = 1130
     last = 1240
     p0 = [18., 1180.0, 1.0, 15.0, 17., 1205.0, 1.0, 15.0]
-    plot_gaussian_fit_eigen(9, pixel[first:last], rot2[first:last],
-                       "zweite Rote Linie", p0)
+    f_r2, df_r2 = plot_gaussian_fit_eigen(9, pixel[first:last],
+                                          rot2[first:last],
+                                          "zweite Rote Linie", p0)
     first = 1280
     last = 1330
     p0 = [18., 1280.0, 1.0, 13.0, 30., 1300.0, 1.0, 13.0]
-    plot_gaussian_fit_eigen(10, pixel[first:last], tuerkis[first:last],
-                       "Tuerkise Linie", p0)
+    f_t, df_t = plot_gaussian_fit_eigen(10, pixel[first:last],
+                                        tuerkis[first:last], "Tuerkise Linie",
+                                        p0)
     first = 1235
     last = 1275
     p0 = [18., 1250.0, 1.0, 13.0, 16.5, 1258.0, 1.0, 13.0]
-    plot_gaussian_fit_eigen(11, pixel[first:last], violet[first:last],
-                       "Violette Linie", p0)
+    f_v, df_v = plot_gaussian_fit_eigen(11, pixel[first:last],
+                                        violet[first:last], "Violette Linie",
+                                        p0)
     first = 1000
     last = 1280
     p0 = [18., 1100.0, 1.0, 14.0, 16.5, 1225.0, 1.0, 14.0]
-    plot_gaussian_fit_eigen(12, pixel[first:last], violetX2[first:last],
-                      "Violette Doppelinie", p0)
+    f_vx2, df_vx2 = plot_gaussian_fit_eigen(12, pixel[first:last],
+                                            violetX2[first:last],
+                                            "Violette Doppellinie", p0)
     
 
 
@@ -1094,7 +1105,7 @@ def Versuch402_2_cam():
 #Versuch402_1_alle()
 
 Versuch402_1_planck()
-#Versuch402_2_cam()
+Versuch402_2_cam()
 
 
 

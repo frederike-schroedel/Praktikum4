@@ -485,10 +485,21 @@
           \label{fig:Versuch402_1_578}
         \end{minipage}
       \end{figure}
-     
-      \begin{figure}[htbp]
+      
+      Aus dem Y-Achsen Schnittpunk der angepassten Geraden in 
+      \cref{fig:Versuch402_1_PlanckschesWirkungsquant} und \cref{eq:Ekin} 
+      lässt sich außerdem noch eine Aussage über die Größe des Störterms aus 
+      \cref{eq:Ekin} treffen. Der Schnittpunk mit der Y-Achse entspricht 
+      hierbei der Summe von Auslösearbeit und Kontaktpotential in 
+      $\SI{}{\electronvolt}$. Aus den Parametern der angepassten Geraden 
+      beläuft sich diese Summe auf 
+      $W_{A}+W_{K}=(1.3759\pm0.0675)\SI{}{\electronvolt}$. Da die verwendeten 
+      Materialien der Photozelle nicht bekannt sind kann diese Summe leider 
+      nicht weiter differenziert werden.
+      
+      \begin{figure}[ht]
         \begin{center}
-          \includegraphics[width=.8\textwidth]
+          \includegraphics[width=\textwidth]
           {Figures/Versuch402_1_PlanckschesWirkungsquant.png}
           \caption{Graphische Darstellung aller Grenzspannungen zur Bestimmung
               des Planckschen Wirkungsquantum.}
@@ -525,8 +536,11 @@
       Somit können wir abschließen, dass wir diesen Versuch mit für uns
       akzeptabler genauigkeit durchgeführt haben. Das Experiment selbst 
       hingegen scheint noch unberücksichtigte Fehlerquellen zu beinhalten
-      die wir leider mit einbeziehen konnten.
+      die wir leider mit einbeziehen konnten.\\
+      Alle berechneten Fehler resultieren hierbei aus der Fehlerfortpflanzung.
       
+      \todo[inline]{sollten wir hier noch etwas zusammenfassendes zu der 
+          Ausloesearbeit und dem Kontaktpotential schreiben?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -563,9 +577,9 @@
       Refelxionsgitter,eine weitere Linse mit $f=\SI{300}{\milli\meter}$ und
       zu guter letztdas Okular, beziehungsweise die CCD-Kamera.
       
-      \begin{figure}[b!]
+      \begin{figure}[h]
         \begin{center}
-          \includegraphics[width=.6\textwidth]{Figures/Balmeraufbau.png}
+          \includegraphics[width=.7\textwidth]{Figures/Balmeraufbau.png}
           \caption{Versuchsaufbau zur Messung der Balmer-Serie.
               \cite{bib:LDDidactic}}
           \label{fig:BalmerAufbau}
@@ -661,6 +675,8 @@
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
+     
+     
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -677,19 +693,23 @@
         \begin{table}[htbp]
           \centering
           \footnotesize
-          \begin{tabular}{|c|c|c|c|c|c|}
+          \begin{tabular}{|c|c|c|c|c|c|c|c|}
             \hline
-            Farbe & Winkel & rel. Int. & Linienbreite & Wellenlänge $\lambda$ 
-                [nm] & Fehler $\Delta \lambda$ \\ \hline \hline 
-            Rot & 70.0 & 3.0 & 0.4 & 665.21 & 9.0 \\ \hline 
-            Rot & 65.2 & 1.0 & 0.3 & 623.90 & 8.91 \\ \hline 
-            Gelb & 61.4 & 0.05 & 0.1 & 588.08 & 8.83 \\ \hline 
-            Grün & 57.5 & 0.3 & 0.2 & 548.63 & 8.74 \\ \hline 
-            Grün & 56.8 & 0.3 & 0.2 & 541.27 & 8.72 \\ \hline 
-            Türkis & 52.5 & 3.0 & 0.3 & 494.36 & 8.62 \\ \hline 
-            Violett & 47.9 & 0.5 & 0.2 & 441.10 & 8.51 \\ \hline 
-            Violett & 47.7 & 1.0 & 0.2 & 438.71 & 8.51 \\ \hline 
-            Violett & 45.8 & 0.05 & 0.2 & 415.81 & 8.46 \\ \hline 
+            Farbe & Winkel & rel. Int. & Lin. Breite & $\lambda$ 
+                [nm] & Fehler $\Delta \lambda$ & Isotr.Aufsp. 
+                $d\lambda_{Iso}$ & $\Delta d\lambda_{Iso}$ \\ \hline \hline 
+            Rot & 70.0 & 3.0 & 0.4 & 665.21 & 9.0 & 0.196 & 0.108 \\ \hline 
+            Rot & 65.2 & 1.0 & 0.3 & 623.90 & 8.91 & 0.180 & 0.114 \\ \hline 
+            Gelb & 61.4 & 0.05 & 0.1 & 588.08 & 8.83 & 0.068 & 0.120 \\ \hline 
+            Grün & 57.5 & 0.3 & 0.2 & 548.63 & 8.74 & 0.153 & 0.124 \\ \hline 
+            Grün & 56.8 & 0.3 & 0.2 & 541.27 & 8.72 & 0.155 & 0.125 \\ \hline 
+            Türkis & 52.5 & 3.0 & 0.3 & 494.36 & 8.62 & 0.259 & 0.130 \\ \hline
+            Violett & 47.9 & 0.5 & 0.2 & 441.10 & 8.51 & 0.190 & 0.133 \\ 
+                \hline 
+            Violett & 47.7 & 1.0 & 0.2 & 438.71 & 8.51 & 0.190 & 0.134 \\ 
+                \hline 
+            Violett & 45.8 & 0.05 & 0.2 & 415.81 & 8.46 & 0.197 & 0.135 \\ 
+                \hline 
           \end{tabular}
           \caption{Messreihe zur Bestimmung der Wellenlängen der Balmer-Serie 
               mithilde der H/D-Lampe. Mit einem Ablesefehler auf die Winkel 
@@ -699,6 +719,8 @@
 
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     
+     
      
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -717,8 +739,52 @@
         der Intesität und verschieben der letzten Linse zwei scharfe getrennte
         Spitzen oder Überlagerungen zu erhalten. Aus den so aufgenommenen
         Messdaten lässt sich die Linienverbreiterung bestimmen.
-
-        \todo[inline]{messwerte?}
+        
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch402_2_ersteRoteLinie.png}
+          \caption{Messdaten der erste rote Linie.}
+          \label{fig:Versuch402_2_ersteRoteLinie}
+        \end{minipage}\quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch402_2_zweiteRoteLinie.png}
+          \caption{Messdaten der zweite rote Linie.}
+          \label{fig:Versuch402_2_zweiteRoteLinie}
+        \end{minipage}
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch402_2_GrueneLinie.png}
+          \caption{Messdaten der grüne Linie.}
+          \label{fig:Versuch402_2_GrueneLinie}
+        \end{minipage}\quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch402_2_TuerkiseLinie.png}
+          \caption{Messdaten der türkise Linie.}
+          \label{fig:Versuch402_2_TuerkiseLinie}
+        \end{minipage}
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch402_2_VioletteLinie.png}
+          \caption{Messdaten der violette Linie.}
+          \label{fig:Versuch402_2_VioletteLinie}
+        \end{minipage}\quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch402_2_VioletteDoppellinie.png}
+          \caption{Messdaten der violetten Doppellinie.}
+          \label{fig:Versuch402_2_VioletteDoppellinie}
+        \end{minipage}
+      \end{figure}
 
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -769,6 +835,19 @@
         
         \todo[inline]{Literaturwerte? passen unsere werte?}
         
+        Außerdem haben wir bei unseren Messungen die Aufspaltung der einzelnen 
+        Linien mit einer, im Okular angebrachten Messskala beobachtet. Aus der 
+        Linienbreite lässt sich mit \cref{eq:Isotropieaufspaltung} die 
+        Isotropieaufspaltung der Balmerlinien berechnen.
+        \begin{equation}
+          \label{eq:Isotropieaufspaltung}
+          \Delta\lambda=\frac{dgcos(\beta)}{f}
+        \end{equation}
+        Wobei in \cref{eq:Isotropieaufspaltung} \textbf{d} die abgelesene 
+        Breite der Linie im Okular (in $\SI{}{\milli\meter}$) und \textbf{f} 
+        die Brennweite der Fokuslinse vor dem Okular (ebenfalls in 
+        $\SI{}{\milli\meter}$) ist.
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -780,6 +859,9 @@
       \begin{subsection}{Bestimmung der Balmer-Linien mit der CCD-Kamera}
         \label{chp:Balmer:sec:Auswertung:subsec:CCD}
         
+        \todo[inline]{hier muss noch die Isotropieaufspaltung aus den peaks 
+            und den FHMWs bestimmt werden. Ausserdem muss aus den Wellenlängen
+            noch die Rydberg konstante berechnet werden.}
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -794,50 +876,21 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit}
       \label{chp:Balmer:sec:Fazit}
-     
+      
+      
+      Alle berechneten Fehler resultieren hierbei aus der Fehlerfortpflanzung.
+      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
- 
- 
-  %%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%
-  \begin{appendix}
-    \label{Anhang}
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{chapter}{ERSTER TEIL}
-      \label{Anhang:chp:ERSTERTEIL}
-     
-     
-     
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{section}{ERSTER UNTERTEIL}
-        \label{Anhang:chp:ERSTERTEIL:sec:UNTERTEIL}
-      
-      
-      
-      \end{section}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     
-     
-    \end{chapter}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-  \end{appendix}
-  %%%%%%%%%%%%%%%%%%%%
- 
- 
- 
+  
+  
+  
+  \input{./Versuch402_TobiasBrauell_FrederikeSchroedel_Appendix.tex}
+  
+  
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
