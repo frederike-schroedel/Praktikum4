@@ -1,101 +1,223 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 %%% Document
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[pdftex, a4paper,11pt, twoside]{report}
+%%%%%%%%%%%%%%%%%%%%
+\documentclass[pdftex, a4paper,11pt, twoside, ngerman]{report}
 % \documentclass[11pt,xcolor=dvipsnames]{beamer}
 
-% \usepackage[utf8x]{inputenc} 		%für deutsche zeichen äüö ohne kile auto-ersetzen
-% \usepackage[ansinew]{inputenc}	%kile auto-ersetzen: einstellungen->latex:general-> hacken bei special characters
-% \usepackage[UKenglish]{babel}  	%Englisch
-\usepackage[ngerman]{babel}  	%Deutsch
+% für deutsche zeichen äüö ohne kile auto-ersetzen
+% \usepackage[utf8x]{inputenc}
+
+% kile auto-ersetzen: einstellungen->latex:general-> hacken bei special
+% characters
+% \usepackage[ansinew]{inputenc}
+% \usepackage[UKenglish]{babel}          %Englisch
+\usepackage[ngerman]{babel}          %Deutsch
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
 %%% Geometry
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
 % \usepackage{showframe}
 \usepackage[scale=0.8, hmarginratio=4:2]{geometry}
-  \geometry{textheight=1.05\textheight, textwidth=.95\textwidth, marginparwidth=25 pt}
+  \geometry{textheight=1.05\textheight, textwidth=.95\textwidth,
+            marginparwidth=25 pt}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
 %%% Packages (aus header datei)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\IfFileExists{header_TobiasBrauell-DOCUMENT.tex}{\input{header_TobiasBrauell-DOCUMENT.tex}}{\input{../../header_TobiasBrauell-DOCUMENT.tex}}
+%%%%%%%%%%
+\IfFileExists{header_TobiasBrauell-DOCUMENT.tex}{
+    \input{header_TobiasBrauell-DOCUMENT.tex}}{
+    \input{../../header_TobiasBrauell-DOCUMENT.tex}}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
+%%%%%%%%%%
+%%%%%%%%%%
 \begin{document}
 %   \layout
+  
+  
+  
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
   \input{./Titlepage-Versuch441.tex}
+  %%%%%%%%%%%%%%%%%%%%
+  
+  
+  
 %   \setcounter{page}{2}
   
   \begin{chapter}*{Abstract}
-    test
+    Ziel des Versuchs ist es...
+    
+    \todo[inline]{TO-DO}
+    
   \end{chapter}
   
   \tableofcontents
   
   
   
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
     
     
     
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{ERSTER TEIL}
-      \label{chp:Theorie:sec:ERSTERTEIL}
+  \end{chapter}
+  %%%%%%%%%%%%%%%%%%%%
+         
+         
+         
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  \begin{chapter}{Erster Versuchsteil - Photoeffekt}
+    \label{chp:Photoeffekt}
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Aufbau und Justage}
+      \label{chp:photoeffekt:sec:AufbauJustage}
       
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{ERSTER UNTERTEIL}
-       
-       
-       
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
       
     \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Durchführung}
+      \label{chp:Aufbau:sec:ERSTERTEIL:subsec:UNTERTEIL}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Auswertung des ersten Versuchstages}
+      \label{chp:Photoeffekt:sec:Auswertung}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Fazit - Photoeffekt}
+      \label{chp:Photoeffekt:sec:Fazit}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
   \end{chapter}
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+ 
+ 
+ 
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  \begin{chapter}{Zweiter Versuchsteil - Balmer-Serie}
+    \label{chp:Balmer}
+ 
+ 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Aufbau}
+      \label{chp:Balmer:sec:Aufbau}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Justierung und Durchführung}
+      \label{chp:Balmer:sec:JusitierungDurchfuehrung}
+     
+     
+    
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Auswertung}
+      \label{chp:Balmer:sec:Auswertung}
+      
+      
+     
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Fazit}
+      \label{chp:Balmer:sec:Fazit}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+  \end{chapter}
+  %%%%%%%%%%%%%%%%%%%%
   
   
   
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  \input{./Versuch401_TobiasBrauell_FrederikeSchroedel_Appendix.tex}
+  %%%%%%%%%%%%%%%%%%%%
+  
+  
+  
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    \bibitem{bib:Doppelpendel}\url{http://upload.wikimedia.org/wikipedia/commons/d/d7/Doppelpendel_mit_Bezeichnungen.jpg}
     
-%     \cite{ALEPH:2005ab}
-%     \bibitem{ALEPH:2005ab}
-%     S.~Schael {\it et al.}  [ALEPH and DELPHI and L3 and OPAL and SLD and LEP Electroweak Working Group and SLD Electroweak Group and SLD Heavy Flavour Group Collaborations],
-%     %``Precision electroweak measurements on the $Z$ resonance,''
-%     Phys.\ Rept.\  {\bf 427} (2006) 257
-%     [hep-ex/0509008];\\
-%     %%CITATION = HEP-EX/0509008;%%
-%     %868 citations counted in INSPIRE as of 16 Oct 2013
-%     \texttt{http://lepewwg.web.cern.ch/LEPEWWG/plots/winter2012/}.
+   
   \end{thebibliography}
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
+  %%%%%%%%%%%%%%%%%%%%
+ 
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
