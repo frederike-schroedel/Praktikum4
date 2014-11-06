@@ -103,7 +103,7 @@
           \label{eq:EnergiePhoton}
           E=h\nu=\frac{hc}{\lambda}
         \end{equation}
-        Daraus geht also hervor, dass die Energie antiproportional zur
+        Daraus geht also hervor, dass die Energie anti-proportional zur
         Wellenlänge des Photons ist. Abhängig von der Energie des absorbierten
         Photons reagiert das Elektron mit einer Änderung seiner Bahn um den
         Atomkern. Das nun angeregte Elektron wechselt in eine höhere Schale.
@@ -120,7 +120,7 @@
             \centering
             \includegraphics[width=.9\textwidth]{Figures/photoeffekt.png}
             \caption{Schematische Darstellung der Wirkungsweise des
-                Photoeffekts.\cite{bib:Photoeffekt}}
+                Photoeffektes.\cite{bib:Photoeffekt}}
             \label{fig:Photoeffekt}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
@@ -842,10 +842,7 @@
         H/D-Lampe deren Wellenlängen berechnen. Dazu benutzen wir wieder 
         \cref{eq:Gittergleichung} und erhalten so die jeweiligen Wellenlängen. 
         Die Ergebnisse dieser Rechnung sind in \cref{tab:BalmerserieOkular} 
-        festgehalten.
-        
-        \todo[inline]{Literaturwerte? passen unsere werte?}
-        
+        festgehalten. \\
         Außerdem haben wir bei unseren Messungen die Aufspaltung der einzelnen 
         Linien mit einer, im Okular angebrachten Messskala beobachtet. Aus der 
         Linienbreite lässt sich mit \cref{eq:Isotropieaufspaltung} die 
@@ -867,12 +864,29 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Bestimmung der Balmer-Linien mit der CCD-Kamera}
+      \begin{subsection}{Bestimmung des Planckschen Wirkungsquantum mit der
+          CCD-Kamera}
         \label{chp:Balmer:sec:Auswertung:subsec:CCD}
-        
-        \todo[inline]{hier muss noch die Isotropieaufspaltung aus den peaks 
-            und den FHMWs bestimmt werden. Ausserdem muss aus den Wellenlängen
-            noch die Rydberg konstante berechnet werden.}
+        Aus den angepassten Gauss-Kurven lässt sich nun die 
+        Isotropieaufspaltung bestimmen. Leider erhalten wir bei unseren 
+        Rechnungen dazu nur Ergebnisse der Isotropieaufspaltung im Bereich von
+        einigen Nanometern bis hin zu über $100nm$. Diese Werte sind 
+        physikalisch natürlich nicht sinnvoll, sodass wir auch nach langer
+        Fehlersuche und merfach wiederholtem, neuen erstellen der Rechnungen 
+        leider zu keinem sinnvollen Ergebnissen kommen. \\
+        Theoretisch hätte aus der Isotropieaufspaltung nun die 
+        Rydberg-Konstante mit:
+        \begin{equation}
+          C = \frac{1}{R}=\frac{8\epsilon_0^2ch^3}{e^4m_e}
+        \end{equation}
+        bestimmt werden sollen. Mit dieser Methode sollte das bestimmte 
+        Plancksche Wirkungsquantum deutlich näher am Literaturwert liegen als 
+        mit der Methode aus dem ersten Versuchsteil. Da aber unsere Rechnungen
+        leider keine sinnvollen Ergebnisse liefern könne wir dies hier nicht 
+        mehr an unseren Messwerten zeigen. Im gegensatz zu unseren Rechnungen 
+        machten unsere Messwerte allerdings einen plausiblen Eindruck, sodass 
+        wir davon ausgehen müssen, dass der Fehler trotz allen Bemühungen sich
+        irgendwo in unseren Berechnungen befinden muss. 
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -887,8 +901,12 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit}
       \label{chp:Balmer:sec:Fazit}
-      
-      \todo[inline]{tatsächliche auswertung schreiben!}
+      Abschließend könne wir sagen, dass unsere Messungen und die bestimmten
+      Werte für die Versuchsteile mit dem Okular plausible und richtig 
+      erscheinen. Für den Teil mit der CCD-Kammera widerrum müssen wir davon 
+      ausgehen das unsere Berechnungen einen bis jetzt unentdeckten Fehler 
+      haben und wir daher zu keiner sinnvollen Auswertung dieses Versuchsteils 
+      kommen konnten. \\
       
       Alle berechneten Fehler resultieren hierbei aus der Fehlerfortpflanzung.
       
@@ -1003,7 +1021,8 @@
         i-86621a49589f7ddc22387aa065cef996-Balmerserie.jpg}
     \bibitem{bib:BohrschesAtommodellSerien}\url{http://www.systemdesign.ch/
         images/4/4e/BohrschesAtommodellSerien.jpg}
-    \bibitem{bib:LDDidactic} \url{TODO}
+    \bibitem{bib:LDDidactic} \url{http://www.ld-didactic.de/ 
+        phk/gruppen.asp?PT=VP6&L=1}
    
   \end{thebibliography}
   %%%%%%%%%%%%%%%%%%%%
