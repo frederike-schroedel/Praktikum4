@@ -844,78 +844,47 @@ MAIN --- running procedures
 savefig_pdf = 0
 savefig_png = 1
 
+# RAW DATA
 CCD_Pixel_plotting = 0
 CCD_Winkel_plotting = 0
+# FITTINGS
 CCD_ZoomFit_Pixel_plotting = 0
 CCD_ZoomFit_Winkel_plotting = 0
 
+# RAW DATA
 FH_SingleRAW_plotting = 0
 FH_Vergleiche_plotting = 0
-FH_B_Gauss_plotting = 1
-FH_T_Gauss_plotting = 1
+# FITTINGS
+FH_B_Gauss_plotting = 0
+FH_T_Gauss_plotting = 0
 
+# RAW DATA
 MF_plotting = 0
 
 
+def plot():
+    if CCD_Pixel_plotting == 1 or CCD_Winkel_plotting == 1:
+        CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "Winkel",
+                "Intensitaet")
 
-if CCD_Pixel_plotting == 1 or CCD_Winkel_plotting == 1:
-    CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "Winkel",
-        "Intensitaet")
+    if CCD_ZoomFit_Pixel_plotting == 1 or CCD_ZoomFit_Winkel_plotting == 1:
+        CCD_ZoomFit(1175, 1255, 0, 80, "Versuch401 - FPE Ausschnitt --- ",
+                    "Pixel", "Winkel", "Intensitaet", "Messwerte")
 
-if CCD_ZoomFit_Pixel_plotting == 1 or CCD_ZoomFit_Winkel_plotting == 1:
-    CCD_ZoomFit(1175, 1255, 0, 80, "Versuch401 - FPE Ausschnitt --- ",
-                "Pixel", "Winkel", "Intensitaet", "Messwerte")
+    if FH_SingleRAW_plotting == 1 or FH_Vergleiche_plotting == 1:
+        FranckHertz_RAW("Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
+                        "Anodenstrom")
 
-if FH_SingleRAW_plotting == 1 or FH_Vergleiche_plotting == 1:
-    FranckHertz_RAW("Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
-                  "Anodenstrom")
+    if FH_B_Gauss_plotting == 1 or FH_T_Gauss_plotting == 1:
+        FH_Fit(0, 12, "Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
+               "Anodenstrom")
 
-if FH_B_Gauss_plotting == 1 or FH_T_Gauss_plotting == 1:
-    FH_Fit(0, 12, "Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
-                  "Anodenstrom")
+    if MF_plotting == 1:
+        Magnetfeld_Kalibrierung_RAW("Versuch401 - Kalibrierung der " +
+                                    "Magnetfeldes", "Spulenstrom",
+                                    "Magnetfeld")
 
-if MF_plotting == 1:
-    Magnetfeld_Kalibrierung_RAW("Versuch401 - Kalibrierung der Magnetfeldes",
-                            "Spulenstrom", "Magnetfeld")
-
-
-
-
-        #CCD_p0 = [50.0, 830.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 855.0, 1.0, 30.0]
-        #CCD_p1 = [50.0, 830.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 855.0, 1.0, 30.0]
-        #CCD_p2 = [50.0, 830.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 855.0, 1.0, 30.0]
-        #CCD_p3 = [50.0, 830.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 855.0, 1.0, 30.0]
-        #CCD_p4 = [50.0, 830.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 855.0, 1.0, 30.0]
-        #CCD_p5 = [50.0, 830.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 855.0, 1.0, 30.0]
-        #CCD_p6 = [50.0, 825.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 865.0, 1.0, 30.0]
-        #CCD_p7 = [50.0, 820.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 865.0, 1.0, 30.0]
-        #CCD_p8 = [50.0, 820.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 865.0, 1.0, 30.0]
-        #CCD_p9 = [50.0, 820.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 865.0, 1.0, 30.0]
-        #CCD_p10= [50.0, 820.0, 1.0, 30.0,
-                  #70.0, 845.0, 1.0, 30.0,
-                  #50.0, 865.0, 1.0, 30.0]
-
-
+plot()
 
 
 
