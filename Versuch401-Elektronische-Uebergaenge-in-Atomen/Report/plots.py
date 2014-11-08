@@ -30,6 +30,7 @@ def set_legend(location):
     leg.get_frame().set_alpha(0.5)
 
 
+
 """============================================================================
 Useful functions for plotting and fitting
 ===============================================================================
@@ -63,6 +64,41 @@ def gauss_fkt_3(x, *p0):
     f2 = a2/(sigma2*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p2)/sigma2)**2.0)+y2
     f3 = a3/(sigma3*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p3)/sigma3)**2.0)+y3
     return f1 + f2 + f3
+
+def gauss_fkt_2x3(x, *p0):
+    (a1, p1, sigma1, a2, p2, sigma2, a) = p0
+    f1 = a1/(sigma1*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p1)/sigma1)**2.0)
+    f2 = a2/(sigma2*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p2)/sigma2)**2.0)
+    f3 = a*x**3
+    return f1 + f2 + f3
+
+def gauss_fkt_3x3(x, *p0):
+    (a1, p1, sigma1, a2, p2, sigma2, a3, p3, sigma3, a) = p0
+    f1 = a1/(sigma1*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p1)/sigma1)**2.0)
+    f2 = a2/(sigma2*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p2)/sigma2)**2.0)
+    f3 = a3/(sigma3*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p3)/sigma3)**2.0)
+    f4 = a*x**3
+    return f1 + f2 + f3 + f4
+
+def gauss_fkt_4x3(x, *p0):
+    (a1, p1, sigma1, a2, p2, sigma2, a3, p3, sigma3, a4, p4, sigma4, a) = p0
+    f1 = a1/(sigma1*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p1)/sigma1)**2.0)
+    f2 = a2/(sigma2*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p2)/sigma2)**2.0)
+    f3 = a3/(sigma3*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p3)/sigma3)**2.0)
+    f4 = a4/(sigma4*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p4)/sigma4)**2.0)
+    f5 = a*x**3
+    return f1 + f2 + f3 + f4 +f5
+
+def gauss_fkt_5x3(x, *p0):
+    (a1, p1, sigma1, a2, p2, sigma2, a3, p3, sigma3, a4, p4, sigma4, a5, p5,
+     sigma5, a) = p0
+    f1 = a1/(sigma1*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p1)/sigma1)**2.0)
+    f2 = a2/(sigma2*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p2)/sigma2)**2.0)
+    f3 = a3/(sigma3*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p3)/sigma3)**2.0)
+    f4 = a4/(sigma4*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p4)/sigma4)**2.0)
+    f5 = a5/(sigma5*np.sqrt(np.pi/2.0)) * np.exp(-2.0*((x-p5)/sigma5)**2.0)
+    f6 = a*x**3
+    return f1 + f2 + f3 + f4 +f5 +f6
 
 def plot_gaussian1_fit(x, y, ylabel, p0): # ich
     plt.figure()
@@ -230,8 +266,7 @@ def plot_data_error(x, y, title, xlabel, ylabel, yerror, plotcolor):
 Plotting RAW data
 ===============================================================================
 """
-
-def CCD(title, xlabel1, xlabel2, ylabel):
+def CCD_RAW(title, xlabel1, xlabel2, ylabel):
     """========================================================================
     Interferenzmuster aufgenommen mit CCD Kamera
     ===========================================================================
@@ -259,7 +294,7 @@ def CCD(title, xlabel1, xlabel2, ylabel):
                       xlabel2, ylabel,"red")
             i += 1
 
-def FranckHertz(title, xlabel, ylabel):
+def FranckHertz_RAW(title, xlabel, ylabel):
     """========================================================================
     Franck Hertz Versuch - F�r unterschiedliche Bremsspannungen
     ===========================================================================
@@ -275,8 +310,8 @@ def FranckHertz(title, xlabel, ylabel):
     """
     data = np.loadtxt('Data/FH_Temperatur.csv')
     Temp = [130, 140, 150, 165, 175]
-    FH_T = [data[:,0], data[:,1], data[:,2], data[:,3], data[:,4],
-            data[:,5], data[:,6], data[:,7], data[:,8], data[:,9]]
+    FH_T = [data[:, 0], data[:, 1], data[:, 2], data[:, 3], data[:, 4],
+            data[:, 5], data[:, 6], data[:, 7], data[:, 8], data[:, 9]]
     
     
     def SingleRAW():
@@ -402,7 +437,7 @@ def FranckHertz(title, xlabel, ylabel):
     if FH_Vergleiche_plotting == 1:
         Vergleiche()
 
-def Magnetfeld_Kalibrierung(title, xlabel, ylabel):
+def Magnetfeld_Kalibrierung_RAW(title, xlabel, ylabel):
     """========================================================================
     Kalibrierung des Magnetfeldes
     ===========================================================================
@@ -440,13 +475,7 @@ def Magnetfeld_Kalibrierung(title, xlabel, ylabel):
 Fitting functions, analysing data and calculating stuff
 ===============================================================================
 """
-
-Gausstitle = ""
-GaussXLabel = ""
-GaussYLabel = ""
-
-def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel,
-                legendlabel):
+def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel, ll):
     """========================================================================
     Aufspaltung der Interferenzmuster bei angelegtem Magnetfeld.
     Aufgenommen mit der CCD Kamera.
@@ -474,16 +503,16 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel,
         
         # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
         # einer Linie verbunden.
-        plt.plot(x, y, ".", label=legendlabel, color=plotcolor)
+        plt.plot(x, y, ".", label=ll, color=plotcolor)
 
         # Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit einer Linie.
         plt.plot(fitted_x, fitted_y, label=u"Fit: " + 
-                 u"\nPeak 1: (%.1f±%.1f)" % (f[1], df[1]) +
-                 u"\nFHMW 1: (%.1f±%.1f)" % (f[2], df[2]) +
-                 u"\nPeak 2: (%.1f±%.1f)" % (f[5], df[5]) +
-                 u"\nFHMW 2: (%.1f±%.1f)" % (f[6], df[6]) +
-                 u"\nPeak 3: (%.1f±%.1f)" % (f[9], df[9]) +
-                 u"\nFHMW 3: (%.1f±%.1f)" % (f[10], df[10]))
+                 u"\nPeak 1: (%.2f±%.2f)" % (f[1], df[1]) +
+                 u"\nFHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
+                 u"\nPeak 2: (%.2f±%.2f)" % (f[5], df[5]) +
+                 u"\nFHMW 2: (%.2f±%.2f)" % (f[6], df[6]) +
+                 u"\nPeak 3: (%.2f±%.2f)" % (f[9], df[9]) +
+                 u"\nFHMW 3: (%.2f±%.2f)" % (f[10], df[10]))
         
         # set axis labels
         plt.title(title)
@@ -544,9 +573,8 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel,
                  CCD_p7, CCD_p8, CCD_p9, CCD_p10]
         i = 0
         while i < 11:
-            ZoomFit(Pixel, Amp[i], title +
-                      str(Amps[i]) + "A Magnetstrom", xlabel1, ylabel, "red",
-                      CCD_p[i])
+            ZoomFit(Pixel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
+                    xlabel1, ylabel, "red", CCD_p[i])
             i += 1
             
     if CCD_ZoomFit_Winkel_plotting == 1:
@@ -587,10 +615,219 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel,
                  CCD_p7, CCD_p8, CCD_p9, CCD_p10]
         i = 0
         while i < 11:
-            ZoomFit(Winkel, Amp[i], title +
-                      str(Amps[i]) + "A Magnetstrom", xlabel2, ylabel,"red",
-                      CCD_p[i])
+            ZoomFit(Winkel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
+                    xlabel2, ylabel,"red", CCD_p[i])
             i += 1
+
+def FH_Fit(bottom, top, title, xlabel, ylabel):
+    """========================================================================
+    Franck Hertz Versuch - F�r unterschiedliche Bremsspannungen
+    ===========================================================================
+    """
+    data = np.loadtxt('Data/FH_Bremsspannung.csv')
+    Brems = [1.5, 2.0, 2.5, 3.0, 3.5]
+    FH_B = [data[:, 0], data[:, 1], data[:, 2], data[:, 3], data[:, 4],
+            data[:, 5], data[:, 6], data[:, 7], data[:, 8], data[:, 9]]
+    
+    """========================================================================
+    Franck Hertz Versuch - F�r unterschiedliche Temperaturen
+    ===========================================================================
+    """
+    data = np.loadtxt('Data/FH_Temperatur.csv')
+    Temp = [130, 140, 150, 165, 175]
+    FH_T = [data[:, 0], data[:, 1], data[:, 2], data[:, 3], data[:, 4],
+            data[:, 5], data[:, 6], data[:, 7], data[:, 8], data[:, 9]]
+    
+    def plot_fit(n, x, y, title, xlabel, ylabel, plotcolor, p0, ll):
+        plt.figure()
+        
+        # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
+        # einer Linie verbunden.
+        plt.plot(x, y, ".", label=ll, color=plotcolor)
+        
+        # gauss fit
+        if n == 2:
+            f, varianz = op.curve_fit(gauss_fkt_2x3, x, y, p0=p0)
+            df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+            fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+            fitted_y = gauss_fkt_2x3(fitted_x, *f)
+            
+            Abstand = (f[4] - f[1])
+            
+            """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
+            einer Linie.
+            """
+            plt.plot(fitted_x, fitted_y, label=u"Fit: " + 
+                     u"\nPeak 1: (%.2f±%.2f)" % (f[1], df[1]) +
+                     u"  FHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
+                     u"\nPeak 2: (%.2f±%.2f)" % (f[4], df[4]) +
+                     u"  FHMW 2: (%.2f±%.2f)" % (f[5], df[5]) +
+                     u"\nAbstand (Mittelwert): %.2f" % (Abstand))
+        
+        if n == 3:
+            f, varianz = op.curve_fit(gauss_fkt_3x3, x, y, p0=p0)
+            df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+            fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+            fitted_y = gauss_fkt_3x3(fitted_x, *f)
+            
+            Abstand = ((f[4] - f[1]) + (f[7] - f[4])) / 2
+            
+            """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
+            einer Linie.
+            """
+            plt.plot(fitted_x, fitted_y, label=u"Fit: " + 
+                     u"\nPeak 1: (%.2f±%.2f)" % (f[1], df[1]) +
+                     u"  FHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
+                     u"\nPeak 2: (%.2f±%.2f)" % (f[4], df[4]) +
+                     u"  FHMW 2: (%.2f±%.2f)" % (f[5], df[5]) +
+                     u"\nPeak 3: (%.2f±%.2f)" % (f[7], df[7]) +
+                     u"  FHMW 3: (%.2f±%.2f)" % (f[8], df[8]) +
+                     u"\nAbstand (Mittelwert): %.2f" % (Abstand))
+        
+        if n == 4:
+            f, varianz = op.curve_fit(gauss_fkt_4x3, x, y, p0=p0)
+            df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+            fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+            fitted_y = gauss_fkt_4x3(fitted_x, *f)
+            
+            Abstand = ((f[4]-f[1]) + (f[7]-f[4]) + (f[10]-f[7])) / 3
+            
+            """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
+            einer Linie.
+            """
+            plt.plot(fitted_x, fitted_y, label=u"Fit: " + 
+                     u"\nPeak 1: (%.2f±%.2f)" % (f[1], df[1]) +
+                     u"  FHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
+                     u"\nPeak 2: (%.2f±%.2f)" % (f[4], df[4]) +
+                     u"  FHMW 2: (%.2f±%.2f)" % (f[5], df[5]) +
+                     u"\nPeak 3: (%.2f±%.2f)" % (f[7], df[7]) +
+                     u"  FHMW 3: (%.2f±%.2f)" % (f[8], df[8]) +
+                     u"\nPeak 4: (%.2f±%.2f)" % (f[10], df[10]) +
+                     u"  FHMW 4: (%.2f±%.2f)" % (f[11], df[11]) +
+                     u"\nAbstand (Mittelwert): %.2f" % (Abstand))
+        
+        if n == 5:
+            f, varianz = op.curve_fit(gauss_fkt_5x3, x, y, p0=p0)
+            df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+            fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+            fitted_y = gauss_fkt_5x3(fitted_x, *f)
+            
+            Abstand = ((f[4]-f[1]) + (f[7]-f[4]) + (f[10]-f[7]) +
+                       (f[13]-f[10])) / 4
+            
+            """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
+            einer Linie.
+            """
+            plt.plot(fitted_x, fitted_y, label=u"Fit: " + 
+                     u"\nPeak 1: (%.2f±%.2f)" % (f[1], df[1]) +
+                     u"  FHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
+                     u"\nPeak 2: (%.2f±%.2f)" % (f[4], df[4]) +
+                     u"  FHMW 2: (%.2f±%.2f)" % (f[5], df[5]) +
+                     u"\nPeak 3: (%.2f±%.2f)" % (f[7], df[7]) +
+                     u"  FHMW 3: (%.2f±%.2f)" % (f[8], df[8]) +
+                     u"\nPeak 4: (%.2f±%.2f)" % (f[10], df[10]) +
+                     u"  FHMW 4: (%.2f±%.2f)" % (f[11], df[11]) +
+                     u"\nPeak 5: (%.2f±%.2f)" % (f[13], df[13]) +
+                     u"  FHMW 5: (%.2f±%.2f)" % (f[14], df[14]) +
+                     u"\nAbstand (Mittelwert): %.2f" % (Abstand))
+        
+        # set axis labels
+        plt.title(title)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        
+        # set axis limits
+        #plt.xlim([first,last])
+        plt.ylim([bottom,top])
+        
+        # place a Legend in the plot
+        set_legend(1)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        filename = title + "_" + xlabel + "_" + ylabel
+        write_file(filename)
+        plt.close()
+    
+    if FH_B_Gauss_plotting == 1:
+        CCD_p0 = [1.0, 17.0, 1.0,
+                  3.0, 22.0, 1.0,
+                  5.0, 26.0, 1.0,
+                  7.0, 32.0, 1.0,
+                  9.0, 37.0, 1.0,
+                  0.1]
+        CCD_p1 = [1.0, 17.0, 1.0,
+                  2.0, 22.0, 1.0,
+                  4.0, 26.0, 1.0,
+                  6.0, 32.0, 1.0,
+                  9.0, 37.0, 1.0,
+                  0.1]
+        CCD_p2 = [0.8, 17.0, 1.0,
+                  1.5, 22.0, 1.0,
+                  2.5, 26.0, 1.0,
+                  4.0, 32.0, 1.0,
+                  5.5, 37.0, 1.0,
+                  0.1]
+        CCD_p3 = [0.5, 17.0, 1.0,
+                  0.9, 22.0, 1.0,
+                  1.6, 26.0, 1.0,
+                  2.4, 32.0, 1.0,
+                  3.5, 37.0, 1.0,
+                  0.1]
+        CCD_p4 = [1.0, 17.0, 1.0,
+                  3.0, 22.0, 1.0,
+                  5.0, 26.0, 1.0,
+                  7.0, 32.0, 1.0,
+                  9.0, 37.0, 1.0,
+                  0.1]
+        CCD_p = [CCD_p0, CCD_p1, CCD_p2, CCD_p3, CCD_p4]
+        npoly = [5.0, 5.0, 5.0, 5.0, 5.0]
+        i = 0
+        while i < 10:
+            plot_fit(npoly[i/2], FH_B[i], FH_B[i+1], title + str(Brems[i/2]) +
+                    "V Bremsspannung", xlabel, ylabel, "red", CCD_p[i/2],
+                    "Bremsspannung: " + str(Brems[i/2]))
+            i += 2
+    
+    if FH_T_Gauss_plotting == 1:
+        CCD_p0 = [4.4, 12.0, 1.0,
+                  11.0, 17.0, 1.0,
+                  0.1]
+        CCD_p1 = [1.7, 12.0, 1.0,
+                  5.8, 17.0, 1.0,
+                  11.0, 22.0, 1.0,
+                  0.1]
+        CCD_p2 = [3.0, 17.0, 1.0,
+                  6.0, 22.0, 1.0,
+                  11.0, 27.0, 1.0,
+                  0.1]
+        CCD_p3 = [1.0, 17.0, 1.0,
+                  2.2, 22.0, 1.0,
+                  3.8, 27.0, 1.0,
+                  5.7, 32.0, 1.0,
+                  8.6, 37.0, 1.0,
+                  0.1]
+        CCD_p4 = [1.2, 17.0, 1.0,
+                  2.4, 22.0, 1.0,
+                  4.1, 27.0, 1.0,
+                  6.0, 32.0, 1.0,
+                  9.5, 37.0, 1.0,
+                  0.1]
+        CCD_p = [CCD_p0, CCD_p1, CCD_p2, CCD_p3, CCD_p4]
+        npoly = [2.0, 3.0, 3.0, 5.0, 5.0]
+        i = 0
+        while i < 10:
+            plot_fit(npoly[i/2], FH_T[i], FH_T[i+1], title + str(Temp[i/2]) +
+                    "C Temperatur", xlabel, ylabel, "red", CCD_p[i/2],
+                    "Temperatur: " + str(Temp[i/2]))
+            i += 2
+
 
 
 
@@ -605,17 +842,19 @@ savefig_png = 1
 CCD_Pixel_plotting = 0
 CCD_Winkel_plotting = 0
 CCD_ZoomFit_Pixel_plotting = 0
-CCD_ZoomFit_Winkel_plotting = 1
+CCD_ZoomFit_Winkel_plotting = 0
 
 FH_SingleRAW_plotting = 0
 FH_Vergleiche_plotting = 0
+FH_B_Gauss_plotting = 0
+FH_T_Gauss_plotting = 0
 
 MF_plotting = 0
 
 
 
 if CCD_Pixel_plotting == 1 or CCD_Winkel_plotting == 1:
-    CCD("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "Winkel",
+    CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "Winkel",
         "Intensitaet")
 
 if CCD_ZoomFit_Pixel_plotting == 1 or CCD_ZoomFit_Winkel_plotting == 1:
@@ -623,11 +862,15 @@ if CCD_ZoomFit_Pixel_plotting == 1 or CCD_ZoomFit_Winkel_plotting == 1:
                 "Pixel", "Winkel", "Intensitaet", "Messwerte")
 
 if FH_SingleRAW_plotting == 1 or FH_Vergleiche_plotting == 1:
-    FranckHertz("Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
+    FranckHertz_RAW("Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
+                  "Anodenstrom")
+
+if FH_B_Gauss_plotting == 1 or FH_T_Gauss_plotting == 1:
+    FH_Fit(0, 12, "Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
                   "Anodenstrom")
 
 if MF_plotting == 1:
-    Magnetfeld_Kalibrierung("Versuch401 - Kalibrierung der Magnetfeldes",
+    Magnetfeld_Kalibrierung_RAW("Versuch401 - Kalibrierung der Magnetfeldes",
                             "Spulenstrom", "Magnetfeld")
 
 
