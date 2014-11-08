@@ -18,8 +18,11 @@ def write_file(filename):
     # show small side margins
     plt.margins(0.05, 0.05)
     
-    plt.savefig("Figures/" + filename + ".pdf")
-    plt.savefig("Figures/" + filename + ".png")
+    if savefig_pdf == 1:
+        plt.savefig("Figures/" + filename + ".pdf")
+    
+    if savefig_png == 1:
+        plt.savefig("Figures/" + filename + ".png")
 
 def set_legend(location):
     leg = plt.legend(prop={'size':9}, loc = location, numpoints=1,
@@ -596,6 +599,9 @@ MAIN --- running procedures
 ===============================================================================
 """
 # What to do?       0 = Do Not Do It        1 = Do It
+savefig_pdf = 0
+savefig_png = 1
+
 CCD_Pixel_plotting = 0
 CCD_Winkel_plotting = 0
 CCD_ZoomFit_Pixel_plotting = 0
@@ -627,7 +633,7 @@ if MF_plotting == 1:
 
 
 
-#CCD_p0 = [50.0, 830.0, 1.0, 30.0,
+        #CCD_p0 = [50.0, 830.0, 1.0, 30.0,
                   #70.0, 845.0, 1.0, 30.0,
                   #50.0, 855.0, 1.0, 30.0]
         #CCD_p1 = [50.0, 830.0, 1.0, 30.0,
