@@ -1,3 +1,7 @@
+\renewcommand{\arraystretch}{1.1}
+
+
+
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
@@ -9,10 +13,57 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{ERSTER TEIL}
+  \begin{chapter}{ERSTER TEIL - Zeeman-Effekt}
     \label{Anhang:chp:ERSTERTEIL}
     
     
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Magnetfeldkalibrierung}
+      \label{Anhang:chp:ERSTERTEILmagnetfeld}
+      
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          $I_{A}^{1}$ [A] & $B_{B}^{2}$ [mT] & $I_{A}^{2}$ [A] & $B_{B}^{2}$ 
+              [mT] \\ \hline
+          \input{./Tables/Magnetfeld_Kalibrierung.tex}
+        \end{tabular}
+        \caption{Messdaten der ersten und zweiten Messung der 
+            Magnetfeldkalibrierung.}
+        \label{tab:Magnetfeldkalibrierung}
+      \end{table}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{CCD Kamera}
+      \label{Anhang:chp:ERSTERTEILccd}
+      
+      \begin{scriptsize}
+        \begin{longtable}[htbp]{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+          \hline
+          \multicolumn{2}{|c|}{Position} & \multicolumn{11}{|c|}{Magnetstrom 
+              in Ampere}\\ \hline
+          Pixel & Winkel & $0.0$ & $1.9$ & $3.0$ & $3.8$ & $4.4$ & $5.1$ & 
+              $6.1$ & $6.8$ & $7.5$ & $8.0$ & $8.7$ \\ \hline\hline \endhead
+          \input{./Tables/CCD_ALL.tex}
+          \caption{Aufnahmen der CCD - Kamera.}
+          \label{tab:CCD}
+        \end{longtable}
+      \end{scriptsize}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,10 +73,65 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{ZWEITER TEIL}
+  \begin{chapter}{ZWEITER TEIL - Franck-Hertz-Versuch}
     \label{Anhang:chp:ZWEITERTEIL}
     
     
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Bremsspannung}
+      \label{Anhang:chp:ZWEITERTEILbremsspannung}
+      
+      \begin{scriptsize}
+        \begin{longtable}[htbp]{|c|c|c|c|c|c|c|c|c|c|}
+          \hline
+          \multicolumn{10}{|c|}{Bremsspannungen in Volt} \\ \hline 
+          \multicolumn{2}{|c|}{1.5} & \multicolumn{2}{|c|}{2.0} &
+          \multicolumn{2}{|c|}{2.5} & \multicolumn{2}{|c|}{3.0} & 
+          \multicolumn{2}{|c|}{3.5} \\ \hline
+          $U_{B}$ [V] & $U_{A}$ [V] & $U_{B}$ [V] & $U_{A}$ [V] &
+          $U_{B}$ [V] & $U_{A}$ [V] & $U_{B}$ [V] & $U_{A}$ [V] &
+          $U_{B}$ [V] & $U_{A}$ [V] \\ \hline\hline \endhead
+          \input{./Tables/FH_Bremsspannung.tex}
+          \caption{Messreihen zur Abhängigkeit des Anodenstroms von der
+              Bremsspannung.}
+          \label{tab:FHbremsspannung}
+        \end{longtable}
+      \end{scriptsize}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    \newpage
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Temperatur}
+      \label{Anhang:chp:ZWEITERTEILtemperatur}
+      
+      \begin{scriptsize}
+        \begin{longtable}[htbp]{|c|c|c|c|c|c|c|c|c|c|}
+          \hline
+          \multicolumn{10}{|c|}{Temperaturen in $°C$} \\ \hline 
+          \multicolumn{2}{|c|}{130} & \multicolumn{2}{|c|}{140} &
+          \multicolumn{2}{|c|}{150} & \multicolumn{2}{|c|}{165} & 
+          \multicolumn{2}{|c|}{175} \\ \hline
+          $U_{B}$ [V] & $U_{A}$ [V] & $U_{B}$ [V] & $U_{A}$ [V] &
+          $U_{B}$ [V] & $U_{A}$ [V] & $U_{B}$ [V] & $U_{A}$ [V] &
+          $U_{B}$ [V] & $U_{A}$ [V] \\ \hline\hline \endhead
+          \input{./Tables/FH_Temperatur.tex}
+          \caption{Messreihen zur Abhängigkeit des Anodenstroms von der
+              Temperatur.}
+          \label{tab:FHtemperatur}
+        \end{longtable}
+      \end{scriptsize}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
