@@ -103,7 +103,7 @@
     \begin{section}{Durchführung}
       \label{chp:Zeeman:sec:Durchfuehrung}
       
-      \begin{figure}[ht!]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=\textwidth]
             {Figures/Versuch401-KalibrierungdesMagnetfeldes.png}
@@ -130,7 +130,7 @@
       \begin{subsection}{Beobachtung des Zeeman-Effekts}
         \label{chp:Zeeman:sec:AuswertungBeobachtung}
         
-        \begin{figure}[ht!]
+        \begin{figure}[ht]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
@@ -138,7 +138,7 @@
                 {Figures/previewOHNEinv.png}
             \caption{Transversale Beobachtung der Interferenz ohne externes 
                 Magnetfeld. (Farben invertiert, d.h. Interferenzmaxima werden 
-                schwarz dargestellt)}
+                dadurch in schwarz dargestellt)}
             \label{fig:previewOHNEinv}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
@@ -147,14 +147,14 @@
                 {Figures/previewMITinv.png}
             \caption{Transversale Beobachtung der Interferenz mit 
                 eingeschaltetem Magnetfeld. (Farben invertiert, d.h. 
-                Interferenzmaxima werden schwarz dargestellt)}
+                Interferenzmaxima werden dadurch in schwarz dargestellt)}
             \label{fig:previewMITinv}
           \end{minipage}
         \end{figure}
         
         
         
-        \begin{figure}[ht!]
+        \begin{figure}[ht]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
@@ -178,7 +178,7 @@
         
         
         
-        \begin{figure}[ht!]
+        \begin{figure}[ht]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
@@ -289,8 +289,9 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Auswertung}
       \label{chp:FH:sec:Auswertung}
-      
-      \begin{figure}[ht!]
+      Die Messwerte unserer Messung haben wir für einen besseren Überblick in
+      \cref{fig:FHvergleich} getrennt dargestellt.
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=\textwidth]
             {Figures/Versuch401-Franck-Hertz-VergleichBremsspannungen-Temperaturen.png}
@@ -301,25 +302,99 @@
       
       
       
-      \begin{figure}[ht!]
-        \centering
-        \begin{minipage}{0.48\textwidth}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}{Bestimmung der Energiedifferenz}
+        \label{chp:FH:sec:AuswertungEnergiedifferenz}
+        Zuerst wollen wir aus dem Anodenstromkurven $I_{A}$ die Energiedifferenz
+        $\Delta E$ zwischen dem $6S$- und dem $6P$-Niveau des Hg-Atoms bestimmen.
+        Dazu passen wir an die genommenen Messwerte eine Kombination diverser
+        Gauss Funktionen an und vermessen den Abstand zwischen den
+        Peakschwerpunkten. In \cref{fig:FHB15V,fig:FHT140C} ist dies exemplarisch
+        einmal dargestellt. Um ein möglichst genaues Ergebnis zu erhalten,nehmen
+        wir nun den Mittelwert aller bestimmten Abstände der angepassten
+        Funktionen für alle Messungen und erhalten daraus direkt die
+        Energiedifferenz $\Delta E = (4.971\pm 0.070)\SI{}{\electronvolt}$.
+        Für die Breite der Peaks ergibt sich ein Mittelwert von
+        $E_{Breite} = (1.157\pm 0.082)\SI{}{\electronvolt}$.
+        Die benutzten Messdaten sind in \cref{tab:AbstandBreite} aufgelistet und die
+        Graphen der anderen Messungen sind in \cref{Anhang:chp:FH} zusammen
+        dargestellt. Der einzige Übergang im Hg-Atom,dem diese Energiedifferenz
+        entsprechen kann, ist der Übergang $6^{1}S_{0} \rightarrow 6^{3}P_{1}$.
+        \begin{table}[htbp]
           \centering
-          \includegraphics[width=\textwidth]
-              {Figures/Versuch401-Franck-Hertz-1_5VBremsspannung_Beschl_Spannung_Anodenspannung.png}
-          \caption{Angepasste Gauss-Funktion für ein Beispiel einer
-              Bremsspannung.}
-          \label{fig:FHB15V}
-        \end{minipage}\quad
-        \begin{minipage}{0.48\textwidth}
+          \footnotesize
+          \begin{tabular}{|c|c|c|c|}
+            \hline
+            $Temp.$ [\textdegree C] & $U_{Brems}$ [V] & $\Delta E$ [eV]
+            & $Breite$ [eV] \\ \hline
+            130 & 2.0 & $5.01\pm 0.21$ & $1.50\pm 0.22$ \\ \hline
+            140 & 2.0 & $4.98\pm 0.30$ & $1.18\pm 0.35$ \\ \hline
+            150 & 2.0 & $5.01\pm 0.14$ & $1.01\pm 0.16$ \\ \hline
+            165 & 2.0 & $4.96\pm 0.28$ & $0.99\pm 0.34$ \\ \hline
+            175 & 2.0 & $4.99\pm 0.22$ & $1.06\pm 0.24$ \\ \hline
+            165 & 1.5 & $4.96\pm 0.16$ & $1.21\pm 0.19$ \\ \hline
+            165 & 2.0 & $4.96\pm 0.25$ & $1.05\pm 0.31$ \\ \hline
+            165 & 2.5 & $4.96\pm 0.23$ & $1.14\pm 0.27$ \\ \hline
+            165 & 3.0 & $4.95\pm 0.20$ & $1.17\pm 0.23$ \\ \hline
+            165 & 3.5 & $4.93\pm 0.16$ & $1.26\pm 0.20$ \\ \hline
+          \end{tabular}
+          \caption{Ergebnisse der Funktionsanpassungen.}
+          \label{tab:AbstandBreite}
+        \end{table}
+        \newline
+        Der Literaturwert dieses Übergangs ist mit $\SI{4.89}{\electronvolt}$
+        angegeben und passt damit sogar beinahe in die von uns berechneten
+        Fehlergrenzen. Dieser Übergang besitzt außerdem bei etwa
+        $\SI{5}{\electronvolt}$ ein Maximum im totalen Wirkungsquerschnitt
+        wodurch wir davon ausgehen können das es in unserem Versuch hauptsächlich
+        zu dieser Art des Elektronenüberganges gekommen ist.
+        \begin{figure}[ht]
           \centering
-          \includegraphics[width=\textwidth]
-              {Figures/Versuch401-Franck-Hertz-140CTemperatur_Beschl_Spannung_Anodenspannung.png}
-          \caption{Angepasste Gauss-Funktion für ein Beispiel einer
-              Temperatur.}
-          \label{fig:FHT140C}
-        \end{minipage}
-      \end{figure}
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+                {Figures/Versuch401-Franck-Hertz-1_5VBremsspannung_Beschl_Spannung_Anodenspannung.png}
+            \caption{Angepasste Gauss-Funktion für ein Beispiel einer
+                Bremsspannung.}
+            \label{fig:FHB15V}
+          \end{minipage}\quad
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+                {Figures/Versuch401-Franck-Hertz-140CTemperatur_Beschl_Spannung_Anodenspannung.png}
+            \caption{Angepasste Gauss-Funktion für ein Beispiel einer
+                Temperatur.}
+            \label{fig:FHT140C}
+          \end{minipage}
+        \end{figure}
+        
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      
+      
+      
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}{Abhängigkeiten des Anodenstromes}
+        \label{chp:FH:sec:AuswertungAnodenstrom}
+        Als nächstes ist die Abhängigkeit des Anodenstromes 
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      
+      
+      
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}{Temperaturinterval}
+        \label{chp:FH:sec:AuswertungTemperatur}
+        Als nächstes ist zu klären weshalb die praktische Durchführung des
+        Versuches auf ein relativ kleines Temperaturinterval beschränkt ist.
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,7 +430,7 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    
+    \bibitem{bla}bla
    
   \end{thebibliography}
   %%%%%%%%%%%%%%%%%%%%

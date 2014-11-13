@@ -503,6 +503,9 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         fitted_x = np.linspace(np.min(x), np.max(x), 1000)
         fitted_y = gauss_fkt_3(fitted_x, *f)
         
+        yshift = f[3] + f[7] + f[11]
+        dyshift = np.sqrt(df[3]**2 + df[7]**2 + df[11]**2)
+        
         # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
         # einer Linie verbunden.
         plt.plot(x, y, ".", label=ll, color=plotcolor)
@@ -514,7 +517,8 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
                  u"\nPeak 2: (%.2f±%.2f)" % (f[5], df[5]) +
                  u"\nFHMW 2: (%.2f±%.2f)" % (f[6], df[6]) +
                  u"\nPeak 3: (%.2f±%.2f)" % (f[9], df[9]) +
-                 u"\nFHMW 3: (%.2f±%.2f)" % (f[10], df[10]))
+                 u"\nFHMW 3: (%.2f±%.2f)" % (f[10], df[10]) +
+                 u"\n    y : (%.2f±%.2f)" % (yshift, dyshift))
         
         # set axis labels
         plt.title(title)
@@ -657,6 +661,8 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
             
             A = (f[4] - f[1])
             dA = np.sqrt((df[4])**2 + (df[1])**2)
+            B = (f[2] + f[5])/n
+            dB = np.sqrt((df[2]/n)**2 + (df[5]/n)**2)
             
             """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
             einer Linie.
@@ -666,7 +672,8 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
                      u"  FHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
                      u"\nPeak 2: (%.2f±%.2f)" % (f[4], df[4]) +
                      u"  FHMW 2: (%.2f±%.2f)" % (f[5], df[5]) +
-                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA))
+                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA) +
+                     u"\nBreite     (Mittelwert): (%.2f±%.2f)" % (B, dB))
         
         if n == 3:
             f, varianz = op.curve_fit(gauss_fkt_3x3, x, y, p0=p0)
@@ -677,6 +684,8 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
             
             A = ((f[4] - f[1]) + (f[7] - f[4])) / 2
             dA = np.sqrt((df[1]/2)**2 + (2*df[4]/2)**2 + (df[7]/2)**2)
+            B = (f[2] + f[5] + f[8])/n
+            dB = np.sqrt((df[2]/n)**2 + (df[5]/n)**2 + (df[8]/n)**2)
             
             """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
             einer Linie.
@@ -688,7 +697,8 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
                      u"  FHMW 2: (%.2f±%.2f)" % (f[5], df[5]) +
                      u"\nPeak 3: (%.2f±%.2f)" % (f[7], df[7]) +
                      u"  FHMW 3: (%.2f±%.2f)" % (f[8], df[8]) +
-                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA))
+                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA) +
+                     u"\nBreite     (Mittelwert): (%.2f±%.2f)" % (B, dB))
         
         if n == 4:
             f, varianz = op.curve_fit(gauss_fkt_4x3, x, y, p0=p0)
@@ -700,6 +710,9 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
             A = ((f[4]-f[1]) + (f[7]-f[4]) + (f[10]-f[7])) / 3
             dA = np.sqrt((df[1]/3)**2 + (2*df[4]/3)**2 + (2*df[7]/3)**2 +
                          (df[10]/3)**2)
+            B = (f[2] + f[5] + f[8] + f[11])/n
+            dB = np.sqrt((df[2]/n)**2 + (df[5]/n)**2 + (df[8]/n)**2 +
+                         (df[11]/n)**2)
             
             """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
             einer Linie.
@@ -713,7 +726,8 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
                      u"  FHMW 3: (%.2f±%.2f)" % (f[8], df[8]) +
                      u"\nPeak 4: (%.2f±%.2f)" % (f[10], df[10]) +
                      u"  FHMW 4: (%.2f±%.2f)" % (f[11], df[11]) +
-                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA))
+                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA) +
+                     u"\nBreite     (Mittelwert): (%.2f±%.2f)" % (B, dB))
         
         if n == 5:
             f, varianz = op.curve_fit(gauss_fkt_5x3, x, y, p0=p0)
@@ -726,6 +740,9 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
                        (f[13]-f[10])) / 4
             dA = np.sqrt((df[1]/4)**2 + (2*df[4]/4)**2 + (2*df[7]/4)**2 +
                          (2*df[10]/4)**2 + (df[13]/4)**2)
+            B = (f[2] + f[5] + f[8] + f[11] + f[14])/n
+            dB = np.sqrt((df[2]/n)**2 + (df[5]/n)**2 + (df[8]/n)**2 +
+                         (df[11]/n)**2 + (df[14]/n)**2)
             
             """ Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit
             einer Linie.
@@ -741,7 +758,8 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
                      u"  FHMW 4: (%.2f±%.2f)" % (f[11], df[11]) +
                      u"\nPeak 5: (%.2f±%.2f)" % (f[13], df[13]) +
                      u"  FHMW 5: (%.2f±%.2f)" % (f[14], df[14]) +
-                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA))
+                     u"\nAbstand (Mittelwert): (%.2f±%.2f)" % (A, dA) +
+                     u"\nBreite     (Mittelwert): (%.2f±%.2f)" % (B, dB))
         
         # set axis labels
         plt.title(title)
@@ -857,8 +875,8 @@ CCD_ZoomFit_Winkel_plotting = 0
 FH_SingleRAW_plotting = 0
 FH_Vergleiche_plotting = 0
 # FITTINGS
-FH_B_Gauss_plotting = 0
-FH_T_Gauss_plotting = 0
+FH_B_Gauss_plotting = 1
+FH_T_Gauss_plotting = 1
 
 # RAW DATA
 MF_plotting = 0
