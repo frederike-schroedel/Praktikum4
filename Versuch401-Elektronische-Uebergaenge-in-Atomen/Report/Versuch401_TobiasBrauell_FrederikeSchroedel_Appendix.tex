@@ -1,7 +1,3 @@
-\renewcommand{\arraystretch}{1.1}
-
-
-
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
@@ -95,11 +91,57 @@
           $U_{B}$ [V] & $U_{A}$ [V] & $U_{B}$ [V] & $U_{A}$ [V] &
           $U_{B}$ [V] & $U_{A}$ [V] \\ \hline\hline \endhead
           \input{./Tables/FH_Bremsspannung.tex}
-          \caption{Messreihen zur Abhängigkeit des Anodenstroms von der
+          \caption{Messreihen zur Abhängigkeit des Anodenspannungs von der
               Bremsspannung.}
           \label{tab:FHbremsspannung}
         \end{longtable}
       \end{scriptsize}
+      
+      
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-1_5VBremsspannung_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Bremsspannung von 
+              $\SI{1.5}{\volt}$.}
+          \label{fig:AnhangFHB15V}
+        \end{minipage} \quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-2_0VBremsspannung_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Bremsspannung von 
+              $\SI{2.0}{\volt}$.}
+          \label{fig:AnhangFHB20V}
+        \end{minipage} \\
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-2_5VBremsspannung_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Bremsspannung von 
+              $\SI{2.5}{\volt}$.}
+          \label{fig:AnhangFHB25V}
+        \end{minipage} \quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-3_0VBremsspannung_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Bremsspannung von 
+              $\SI{3.0}{\volt}$.}
+          \label{fig:AnhangFHB30V}
+        \end{minipage} \\
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-3_5VBremsspannung_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Bremsspannung von 
+              $\SI{3.5}{\volt}$.}
+          \label{fig:AnhangFHB35V}
+        \end{minipage}
+      \end{figure}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,7 +158,7 @@
       \begin{scriptsize}
         \begin{longtable}[htbp]{|c|c|c|c|c|c|c|c|c|c|}
           \hline
-          \multicolumn{10}{|c|}{Temperaturen in $°C$} \\ \hline 
+          \multicolumn{10}{|c|}{Temperaturen in \textdegree $C$} \\ \hline 
           \multicolumn{2}{|c|}{130} & \multicolumn{2}{|c|}{140} &
           \multicolumn{2}{|c|}{150} & \multicolumn{2}{|c|}{165} & 
           \multicolumn{2}{|c|}{175} \\ \hline
@@ -124,11 +166,57 @@
           $U_{B}$ [V] & $U_{A}$ [V] & $U_{B}$ [V] & $U_{A}$ [V] &
           $U_{B}$ [V] & $U_{A}$ [V] \\ \hline\hline \endhead
           \input{./Tables/FH_Temperatur.tex}
-          \caption{Messreihen zur Abhängigkeit des Anodenstroms von der
+          \caption{Messreihen zur Abhängigkeit des Anodenspannungs von der
               Temperatur.}
           \label{tab:FHtemperatur}
         \end{longtable}
       \end{scriptsize}
+      
+      
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-130CTemperatur_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Temperatur von 
+              $\SI{130}{\celsius}$.}
+          \label{fig:AnhangFHT130C}
+        \end{minipage} \quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-140CTemperatur_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Temperatur von 
+              $\SI{140}{\celsius}$.}
+          \label{fig:AnhangFHT140C}
+        \end{minipage} \\
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-150CTemperatur_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Temperatur von 
+              $\SI{150}{\celsius}$.}
+          \label{fig:AnhangFHT150C}
+        \end{minipage} \quad
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-165CTemperatur_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Temperatur von 
+              $\SI{165}{\celsius}$.}
+          \label{fig:AnhangFHT165C}
+        \end{minipage} \\
+        \begin{minipage}{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-Franck-Hertz-175CTemperatur_Beschl_Spannung_Anodenspannung.png}
+          \caption{Angepasste Gauss-Funktion für eine Temperatur von 
+              $\SI{175}{\celsius}$.}
+          \label{fig:AnhangFHT175C}
+        \end{minipage}
+      \end{figure}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

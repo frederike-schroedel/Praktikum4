@@ -216,7 +216,7 @@ def plot_gaussian3_fit(x, y, ylabel, p0): # ich
     
     return f, df
 
-def plot_data(x, y, title, xlabel, ylabel, plotcolor):
+def plot_data(x, y, title, xlabel, xunit, ylabel, yunit, plotcolor):
     plt.figure()
     
     # plot y against x 
@@ -224,8 +224,8 @@ def plot_data(x, y, title, xlabel, ylabel, plotcolor):
     
     # set axis labels
     plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
+    plt.xlabel(xlabel + " " + xunit)
+    plt.ylabel(ylabel + " " + yunit)
     
     # place a Legend in the plot
     set_legend(1)
@@ -238,7 +238,7 @@ def plot_data(x, y, title, xlabel, ylabel, plotcolor):
     write_file(filename)
     plt.close()
 
-def plot_data_error(x, y, title, xlabel, ylabel, yerror, plotcolor):
+def plot_data_error(x, y, title, xlabel, xunit, ylabel, yunit, yerror, plotcolor):
     plt.figure()
     
     # plot y against x 
@@ -246,8 +246,8 @@ def plot_data_error(x, y, title, xlabel, ylabel, yerror, plotcolor):
     
     # set axis labels
     plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
+    plt.xlabel(xlabel + " " + xunit)
+    plt.ylabel(ylabel + " " + unit)
     
     # place a Legend in the plot
     set_legend(1)
@@ -266,7 +266,7 @@ def plot_data_error(x, y, title, xlabel, ylabel, yerror, plotcolor):
 Plotting RAW data
 ===============================================================================
 """
-def CCD_RAW(title, xlabel1, xlabel2, ylabel):
+def CCD_RAW(title, xlabel1, xunit1, xlabel2, xunit2, ylabel, yunit):
     """========================================================================
     Interferenzmuster aufgenommen mit CCD Kamera
     ===========================================================================
@@ -284,17 +284,17 @@ def CCD_RAW(title, xlabel1, xlabel2, ylabel):
         i = 0
         while i < 11:
             plot_data(Pixel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
-                      xlabel1, ylabel, "red")
+                      xlabel1, xunit1, ylabel, yunit, "red")
             i += 1
             
     if CCD_Winkel_plotting == 1:
         i = 0
         while i < 11:
             plot_data(Winkel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
-                      xlabel2, ylabel,"red")
+                      xlabel2, xunit2, ylabel, yunit,"red")
             i += 1
 
-def FranckHertz_RAW(title, xlabel, ylabel):
+def FranckHertz_RAW(title, xlabel, xunit, ylabel, yunit):
     """========================================================================
     Franck Hertz Versuch - Für unterschiedliche Bremsspannungen
     ===========================================================================
@@ -318,12 +318,12 @@ def FranckHertz_RAW(title, xlabel, ylabel):
         i = 0
         while i < 10:
             plot_data(FH_B[i], FH_B[i+1], title + str(Brems[i/2]) +
-                      "V Bremsspannung", xlabel, ylabel, "red")
+                      "V Bremsspannung", xlabel, xunit, ylabel, yunit, "red")
             i += 2
         i = 0
         while i < 10:
             plot_data(FH_T[i], FH_T[i+1], title + str(Temp[i/2])
-                      + "C Temperatur", xlabel, ylabel, "red")
+                      + "C Temperatur", xlabel, xunit, ylabel, yunit, "red")
             i += 2
     
     """========================================================================
@@ -344,11 +344,11 @@ def FranckHertz_RAW(title, xlabel, ylabel):
         
         # set axis labels
         plt.title(title + "Vergleich Bremsspannungen")
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
+        plt.xlabel(xlabel + " " + xunit)
+        plt.ylabel(ylabel + " " + yunit)
         
         # place a Legend in the plot
-        set_legend(1)
+        set_legend(2)
         
         # display grid
         plt.grid(True)
@@ -371,11 +371,11 @@ def FranckHertz_RAW(title, xlabel, ylabel):
         
         # set axis labels
         plt.title(title + "Vergleich Temperaturen")
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
+        plt.xlabel(xlabel + " " + xunit)
+        plt.ylabel(ylabel + " " + yunit)
         
         # place a Legend in the plot
-        set_legend(1)
+        set_legend(2)
         
         # display grid
         plt.grid(True)
@@ -409,9 +409,9 @@ def FranckHertz_RAW(title, xlabel, ylabel):
         
         # set axis labels
         ax1.set_title(title + "Vergleich Bremsspannungen - Temperaturen")
-        ax2.set_xlabel(xlabel)
-        ax1.set_ylabel(ylabel)
-        ax2.set_ylabel(ylabel)
+        ax2.set_xlabel(xlabel + " " + xunit)
+        ax1.set_ylabel(ylabel + " " + yunit)
+        ax2.set_ylabel(ylabel + " " + yunit)
         
         # place a Legend in the plot
         leg1 = ax1.legend(prop={'size':9}, loc = 2, numpoints=1,
@@ -437,7 +437,7 @@ def FranckHertz_RAW(title, xlabel, ylabel):
     if FH_Vergleiche_plotting == 1:
         Vergleiche()
 
-def Magnetfeld_Kalibrierung_RAW(title, xlabel, ylabel):
+def Magnetfeld_Kalibrierung_RAW(title, xlabel, xunit, ylabel, yunit):
     """========================================================================
     Kalibrierung des Magnetfeldes
     ===========================================================================
@@ -455,11 +455,11 @@ def Magnetfeld_Kalibrierung_RAW(title, xlabel, ylabel):
     
     # set axis labels
     plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
+    plt.xlabel(xlabel + " " + xunit)
+    plt.ylabel(ylabel + " " + yunit)
     
     # place a Legend in the plot
-    set_legend(1)
+    set_legend(2)
     
     # display grid
     plt.grid(True)
@@ -475,7 +475,7 @@ def Magnetfeld_Kalibrierung_RAW(title, xlabel, ylabel):
 Fitting functions, analysing data and calculating stuff
 ===============================================================================
 """
-def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel, ll):
+def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit2, ylabel, yunit, ll):
     """========================================================================
     Aufspaltung der Interferenzmuster bei angelegtem Magnetfeld.
     Aufgenommen mit der CCD Kamera.
@@ -491,11 +491,13 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel, ll):
            data[first:last, 8],data[first:last, 9],data[first:last, 10],
            data[first:last, 11],data[first:last, 12]]
     
-    def ZoomFit(x, y, title, xlabel, ylabel, plotcolor, p0):
+    def ZoomFit(x, y, title, xlabel, xunit, ylabel, yunit, plotcolor, p0):
         plt.figure()
         
+        #print p0
+        
         # gauss fit
-        f, varianz = op.curve_fit(gauss_fkt_3, x, y, p0=p0)
+        f, varianz = op.curve_fit(gauss_fkt_3, x, y, p0=p0, maxfev=1000000)
         df = np.sqrt(np.sqrt(varianz.diagonal()**2))
         
         fitted_x = np.linspace(np.min(x), np.max(x), 1000)
@@ -516,8 +518,8 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel, ll):
         
         # set axis labels
         plt.title(title)
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
+        plt.xlabel(xlabel + " " + xunit)
+        plt.ylabel(ylabel + " " + yunit)
         
         # set axis limits
         #plt.xlim([first,last])
@@ -574,7 +576,7 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel, ll):
         i = 0
         while i < 11:
             ZoomFit(Pixel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
-                    xlabel1, ylabel, "red", CCD_p[i])
+                    xlabel1, xunit1, ylabel, yunit, "red", CCD_p[i])
             i += 1
             
     if CCD_ZoomFit_Winkel_plotting == 1:
@@ -584,42 +586,42 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xlabel2, ylabel, ll):
         CCD_p1 = [50.0, -1.08, 1.0, 15.0,
                   60.0, -1.05, 1.0, 15.0,
                   50.0, -1.03, 1.0, 15.0]
-        CCD_p2 = [40.0, -1.20, 1.0, 15.0,
+        CCD_p2 = [50.0, -1.00, 1.0, 15.0,
                   60.0, -1.00, 1.0, 15.0,
-                  50.0, -0.80, 1.0, 15.0]
-        CCD_p3 = [50.0, -1.08, 1.0, 15.0,
-                  70.0, -1.05, 1.0, 15.0,
-                  50.0, -1.02, 1.0, 15.0]
-        CCD_p4 = [50.0, -1.08, 1.0, 30.0,
-                  70.0, -1.05, 1.0, 30.0,
-                  50.0, -1.02, 1.0, 30.0]
-        CCD_p5 = [50.0, -1.10, 1.0, 30.0,
-                  70.0, -1.05, 1.0, 30.0,
-                  40.0, -1.00, 1.0, 30.0]
-        CCD_p6 = [50.0, -1.10, 1.0, 30.0,
-                  70.0, -1.05, 1.0, 30.0,
+                  40.0, -1.00, 1.0, 15.0]
+        CCD_p3 = [50.0, -1.00, 1.0, 15.0,
+                  70.0, -1.00, 1.0, 15.0,
+                  50.0, -1.00, 1.0, 15.0]
+        CCD_p4 = [50.0, -0.98, 0.1, 15.0,
+                  60.0, -1.04, 0.1, 15.0,
+                  40.0, -0.99, 0.1, 15.0]
+        CCD_p5 = [40.0, -1.00, 1.0, 30.0,
+                  60.0, -1.00, 1.0, 30.0,
+                  50.0, -1.00, 1.0, 30.0]
+        CCD_p6 = [40.0, -1.00, 1.0, 30.0,
+                  50.0, -1.00, 1.0, 30.0,
+                  50.0, -1.00, 1.0, 30.0]
+        CCD_p7 = [55.0, -1.00, 1.0, 30.0,
+                  60.0, -1.00, 1.0, 30.0,
                   45.0, -1.00, 1.0, 30.0]
-        CCD_p7 = [55.0, -1.10, 1.0, 30.0,
-                  70.0, -1.05, 1.0, 30.0,
-                  45.0, -1.00, 1.0, 30.0]
-        CCD_p8 = [50.0, -1.10, 1.0, 30.0,
-                  70.0, -1.05, 1.0, 30.0,
+        CCD_p8 = [50.0, -1.00, 1.0, 30.0,
+                  60.0, -1.00, 1.0, 30.0,
                   50.0, -1.00, 1.0, 30.0]
-        CCD_p9 = [50.0, -1.10, 1.0, 30.0,
-                  70.0, -1.05, 1.0, 30.0,
+        CCD_p9 = [50.0, -1.00, 1.0, 30.0,
+                  60.0, -1.00, 1.0, 30.0,
                   50.0, -1.00, 1.0, 30.0]
-        CCD_p10= [55.0, -1.10, 1.0, 30.0,
-                  75.0, -1.05, 1.0, 30.0,
-                  50.0, -1.00, 1.0, 30.0]
+        CCD_p10= [50.0, -1.05, 0.1, 30.0,
+                  75.0, -1.00, 0.1, 30.0,
+                  55.0, -1.10, 0.1, 30.0]
         CCD_p = [CCD_p0, CCD_p1, CCD_p2, CCD_p3, CCD_p4, CCD_p5, CCD_p6,
                  CCD_p7, CCD_p8, CCD_p9, CCD_p10]
         i = 0
         while i < 11:
             ZoomFit(Winkel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
-                    xlabel2, ylabel,"red", CCD_p[i])
+                    xlabel2, xunit2, ylabel, yunit,"red", CCD_p[i])
             i += 1
 
-def FH_Fit(bottom, top, title, xlabel, ylabel):
+def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
     """========================================================================
     Franck Hertz Versuch - Für unterschiedliche Bremsspannungen
     ===========================================================================
@@ -638,7 +640,7 @@ def FH_Fit(bottom, top, title, xlabel, ylabel):
     FH_T = [data[:, 0], data[:, 1], data[:, 2], data[:, 3], data[:, 4],
             data[:, 5], data[:, 6], data[:, 7], data[:, 8], data[:, 9]]
     
-    def plot_fit(n, x, y, title, xlabel, ylabel, plotcolor, p0, ll):
+    def plot_fit(n, x, y, title, xlabel, xunit, ylabel, yunit, plotcolor, p0, ll):
         plt.figure()
         
         # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
@@ -743,15 +745,15 @@ def FH_Fit(bottom, top, title, xlabel, ylabel):
         
         # set axis labels
         plt.title(title)
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
+        plt.xlabel(xlabel + " " + xunit)
+        plt.ylabel(ylabel + " " + yunit)
         
         # set axis limits
         #plt.xlim([first,last])
         plt.ylim([bottom,top])
         
         # place a Legend in the plot
-        set_legend(1)
+        set_legend(2)
         
         # display grid
         plt.grid(True)
@@ -797,8 +799,8 @@ def FH_Fit(bottom, top, title, xlabel, ylabel):
         i = 0
         while i < 10:
             plot_fit(npoly[i/2], FH_B[i], FH_B[i+1], title + str(Brems[i/2]) +
-                    "V Bremsspannung", xlabel, ylabel, "red", CCD_p[i/2],
-                    "Bremsspannung: " + str(Brems[i/2]))
+                    "V Bremsspannung", xlabel, xunit, ylabel, yunit, "red",
+                    CCD_p[i/2], "Bremsspannung: " + str(Brems[i/2]))
             i += 2
     
     if FH_T_Gauss_plotting == 1:
@@ -830,8 +832,8 @@ def FH_Fit(bottom, top, title, xlabel, ylabel):
         i = 0
         while i < 10:
             plot_fit(npoly[i/2], FH_T[i], FH_T[i+1], title + str(Temp[i/2]) +
-                    "C Temperatur", xlabel, ylabel, "red", CCD_p[i/2],
-                    "Temperatur: " + str(Temp[i/2]))
+                    "C Temperatur", xlabel, xunit, ylabel, yunit, "red",
+                    CCD_p[i/2], "Temperatur: " + str(Temp[i/2]))
             i += 2
 
 
@@ -861,28 +863,43 @@ FH_T_Gauss_plotting = 0
 # RAW DATA
 MF_plotting = 0
 
+# ALL OF THEM
+everything = 0
+
+if everything == 1:
+    CCD_Pixel_plotting = 1
+    CCD_Winkel_plotting = 1
+    CCD_ZoomFit_Pixel_plotting = 1
+    CCD_ZoomFit_Winkel_plotting = 0
+    FH_SingleRAW_plotting = 1
+    FH_Vergleiche_plotting = 1
+    FH_B_Gauss_plotting = 1
+    FH_T_Gauss_plotting = 1
+    MF_plotting = 1
+
 
 def plot():
     if CCD_Pixel_plotting == 1 or CCD_Winkel_plotting == 1:
-        CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "Winkel",
-                "Intensitaet")
+        CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "[#]",
+                "Winkel", "[rad]", "Intensitaet", "[%]")
 
     if CCD_ZoomFit_Pixel_plotting == 1 or CCD_ZoomFit_Winkel_plotting == 1:
         CCD_ZoomFit(1175, 1255, 0, 80, "Versuch401 - FPE Ausschnitt --- ",
-                    "Pixel", "Winkel", "Intensitaet", "Messwerte")
+                    "Pixel", "[#]", "Winkel", "[rad]", "Intensitaet", "[%]",
+                    "Messwerte")
 
     if FH_SingleRAW_plotting == 1 or FH_Vergleiche_plotting == 1:
-        FranckHertz_RAW("Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
-                        "Anodenstrom")
+        FranckHertz_RAW("Versuch401 - Franck-Hertz --- ",
+                        "Beschl. Spannung", "[V]", "Anodenspannung", "[V]")
 
     if FH_B_Gauss_plotting == 1 or FH_T_Gauss_plotting == 1:
-        FH_Fit(0, 12, "Versuch401 - Franck-Hertz --- ", "Beschl. Spannung",
-               "Anodenstrom")
+        FH_Fit(0, 12, "Versuch401 - Franck-Hertz --- ",
+               "Beschl. Spannung", "[V]", "Anodenspannung", "[V]")
 
     if MF_plotting == 1:
-        Magnetfeld_Kalibrierung_RAW("Versuch401 - Kalibrierung der " +
-                                    "Magnetfeldes", "Spulenstrom",
-                                    "Magnetfeld")
+        Magnetfeld_Kalibrierung_RAW("Versuch401 - Kalibrierung des " +
+                                    "Magnetfeldes", "Spulenstrom", "[A]",
+                                    "Magnetfeld", "[T]")
 
 plot()
 
