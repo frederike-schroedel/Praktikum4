@@ -52,7 +52,9 @@
 %   \setcounter{page}{2}
   
   \begin{chapter}*{Abstract}
-    Ziel des Versuchs ist es...
+    Ziel des Versuchs ist es nachzuweisen, dass Atome Energieniveaus besitzen.
+    Hierfür nutzen wir die Beobachtung des Zeeman-Effektes mit einem Fabry-Perot-Etalon und den Franck-Hertz-Versuch.
+
     
     \todo[inline]{TO-DO}
     
@@ -68,7 +70,102 @@
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
     
+    \begin{section}{Zeeman-Effekt}
+
+        \begin{subsection}{Verhalten von Atomen in äußeren Feldern}
+            Atome haben auf grund ihres Aufbaus bestimmte Energieniveaus, in denen sie bei Anregung Licht abstrahlenen. 
+            %   Da der Aufbau der atomaren Form von verschiedenen Elementen immer ein wenig anders ist, sind auch die Energieniveaus anders, (sodass man an den absorbierten beziehungsweise emmitierten Spektrallinien Elemete unterscheiden kann.)
+            % so kommt es beim Übegang zwischen den Energienivaus zu charaktristischen Spektrallinine.
+            Bei einem Externenmagentfeld werden die Energieniveaus aufgespalten. 
+            Je nach stärke des Magnetfeldes unterscheidet man zwischen dem Zeeman-Effekt, 
+            für ein äußerdes Magnetfeld kleiner als das interne Magnetfeld durch die Spin-Bahnkopplung und dem Paschen-Back-Effekt, für ein größeres externes Feld.
+            Diese Effekte unterscheiden sich da drin, das bei dem Paschen-Back-Effekt die Spin-Bahn-Kopplung aufgehoben wird.
+
+            Den Zeeman-Effekt kann man wiederum aufteilen.
+            Es gibt den normalen Zeeman-Effekt, mit den der gesammt Spin $\vec S = 0$, was eigentlich der seltene Effekt ist, und den anormalen Zeeman-Effekt mit einem Spin der von 0 verschieden ist.
+
+            In diesen Versuch beschäfftigen wir uns mit dem normalen Zeeman-Effekt.
+            Insbesondere betrachten wir den den ${}^1P_1$ zu ${}^1D_2$ Übergang von Cadmium.
+            \todo{skizze}
+            In dieser Skizze ist die Aufspaltung der beiden zustände dargestellt.
+            Durch die Auswahlregeln, welche in diesen Fall $\Delta M_J = \pm$ für zirkular polarisiertes Licht und $\Delta M_J=0$ für linear polarisiertes Licht sind, erhält man die erlaubten Übergänge.
+            Da die Aufspaltung bei dem normalen Zeeman-Effekt äquidistant sind, erhält manletztendlich drei unterschiedliche Energiedifferenzen.
+
+        \end{subsection}
+        \begin{subsection}{Fabry-Pérot-Etalon}
+            Bei dem Fabry-Pérot-Etalon handelt es sich um Spektrometer aus Glas mit einem brechungsindex $>1$ mit planparallelen Oberflächen, welche zum Beispiel durch aufgedampftes Silber teilrefelktierend sind.
+            Fällt Licht in das Etalon ein, so wird ein Teil des Lichtes immer wieder refelktiert, wodurch ein Gangunterschied entsteht, welche für Interverenz sorgt.
+            \todo{skizz}
+            Der Gangunterschied hat die Form:
+            \[
+                g = 2d\sqrt{n^2-\sin^2(\alpha)}
+            \]
+            Für konstruktive Interverenz muss die Bedinung $g = m\lambda$ gelten.
+            \[
+                \implies \lambda = \frac{2d\sqrt{n^2-\sin^2(\alpha)}}m
+            \]
+            Die Finesse ist das verhältnis zwischen dem Abstand zwischen zwei Maxima $\Delta\lambda$ und er Halbwertsbreite $\delta\lambda$, welche die Breite des Maximums bei halber Intensität angibt.
+            \[
+                \mathcal{F}=\frac{\Delta\lambda}{\delta\lambda} = \frac{\pi\sqrt r}{1-r}
+            \]
+            wobei $r$ die Reflektivität ist.
+            Hierraus lässt sich nun das Auflösungsvermögen $R$ bestimmen:
+            \[
+                R = \mathcal{F}\frac{2nd}{\lambda}
+            \]
+
+            
+        \end{subsection}
+        \begin{subsection}{Natürliche Linienbreite und Linienverbreiterung}
+
+        \end{subsection}
+        \begin{subsection}{$\frac \lambda 4$ -Plättchen}
+            Hierbei handelt es sich um einen optisches Bauteil, mit dessen Hilfe sich zikulär polarisiertes Licht linear polarisieren lässt. 
+            Dies funktioniert auch in gegen Richtung. Dabei nutzt man einen doppelt brechenden Kristall. 
+            Innerhalb des Kristalls wird die Welle in zwei orthogonaleKomponenten aufgeteilt, welche Aufgrund der verschiedenen Brechungsindizes unterschiedlich schnell durch den Kristall kommen.
+            Wenn man nun die die Brechungsindizies und die dicke des Plättchens richtig wählt, so kann man eine Verzögerung von genau $\frac \lambda 4$ erreichen, was dann den gewünschten Effekt hat.
+
+        \end{subsection}
+        \begin{subsection}{Hall-Sonde}
+            Innerhalb einer Hall-Sonde befindeet sich ein Strom durchflossener Leiter. 
+            Tritt diese nun in ein senkrecht zum Stomfluss stehdens Magnetfeld ein, so entsteht auf grund der Lorentzkraft innerhalb des Leiters eine verschiebung der Ladungen und damit eine Spannung, die sogenntante Hall-Spannung.
+            Die Hall-Sonde wird genutzt, da mit ihr auch zeitlich konstante Magnetfelder gut gemessen werden können.
+            \todo{formel}
+
+        \end{subsection}
+    \end{section}
+
+    \begin{section}{Frank-Hertz-Versuch}
+        \todo{skizze}
+
+        \begin{subsection}{Aufbau und Funktionsweise}
+            Wie in der Zeichung zu erkennen Besteht der Aufbau aus einem evakuierten Glaskolbe, welchen mit dünnen Quecksilbergas gefüllt ist. 
+            An den entgegengesätzen Enden des Kolbens befinden sich ein Glühkathode und am anderen eine Anode. 
+            Zwischen Kathode und Anode befindet sich ein Gitter, welches wir so verschalten, dass zwischen Kathode und Gitter ein beschleunigungs Spannung anliegt und zwischen Gitter und Anode eine schwache Gegenspannung.
+            Wenn die Glühkathode betriebn wird bildet sich eine Elektronenwolke, aus der die Elektronen durch die Beschleunigungsspannung abgesaugt werden.
+            Während die Elektronen durch den Glaskolben beschleunigt werden stoßen sie mit den Quecksilber atomen.
+            Sobald sie genug Energie haben, um ein Quecksilberatom anzuregen geben sie bei nächsent Stoß genau die Energie ab und werden danach erneut beschleunigt.
+            Durch den Aufbau des Gittes ist es den Meisten möglich ungehindert hindurch zu gelangen und bei genügenthoher kinetischer Energie die Anode zu erreichen.
+            Dort können sie als Strom gemessen werden.
+         %   Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der gemessene Strom an, fällt dann aber stark ab.
+          %  Dies ist die Spannung, bei der die Elektronen genug Energie haben um bei einem inelastischen Stoß ihre Energie abzugeben.
+          %  Wird die Spannung immer weiter erhöht so stellt man fest, das in gleichbleibenden Abständen der Strom abfällt, bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
+            
+
+        \end{subsection}
+        \begin{subsection}{Beobachtung und Interpretertion}
+            Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der gemessene Strom an, fällt dann aber stark ab.
+            Dies ist die Spannung, bei der die Elektronen genug Energie haben um bei einem inelastischen Stoß ihre Energie abzugeben.
+            Wird die Spannung immer weiter erhöht so stellt man fest, das in gleichbleibenden Abständen der Strom abfällt, bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
+
+        \end{subsection}
+        \begin{subsection}{Quecksilberatom}
+
+        \end{subsection}
+
     
+
+    \end{section}
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
@@ -78,7 +175,7 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Erster Versuchsteil - Photoeffekt}
+  \begin{chapter}{Erster Versuchsteil - Zeeman-Effekt}
     \label{chp:Photoeffekt}
    
    
@@ -125,7 +222,7 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Fazit - Photoeffekt}
+    \begin{section}{Fazit - Zeeman-Effekt}
       \label{chp:Photoeffekt:sec:Fazit}
       
       
@@ -141,7 +238,7 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Zweiter Versuchsteil - Balmer-Serie}
+  \begin{chapter}{Zweiter Versuchsteil - Franck-Hertz-Versuch}
     \label{chp:Balmer}
  
  
