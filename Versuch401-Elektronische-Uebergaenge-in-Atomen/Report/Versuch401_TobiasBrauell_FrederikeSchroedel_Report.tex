@@ -103,13 +103,7 @@
     \begin{section}{Durchführung}
       \label{chp:Zeeman:sec:Durchfuehrung}
       
-      \begin{figure}[ht]
-        \centering
-        \includegraphics[width=\textwidth]
-            {Figures/Versuch401-KalibrierungdesMagnetfeldes.png}
-        \caption{Messung zur Kalibrierung des Magnetfeldes.}
-        \label{fig:MagnetfeldKalibrierung}
-      \end{figure}
+      
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,6 +115,44 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Auswertung des ersten Versuchstages}
       \label{chp:Zeeman:sec:Auswertung}
+      
+      
+      
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}{Kalibrierung des Magnetfeldes}
+        \label{chp:Zeeman:sec:AuswertungMagnetfeld}
+        Für die Kalibrierung des Magnetfeldes vermessen wir die Abhängigkeit
+        des Magnetfeldes vom Spulenstrom mithilfe einer Hall-Sonde. Dazu fahren
+        wir den Spulenstrom von $\SI{0.0}{\ampere}$ bis $\SI{10.0}{\ampere}$
+        durch und messen die jeweilige Stärke des Magnetfeldes mit einem
+        \textit{CASSY}-Modul. An die so gewonnenen Messdaten passen wir jetzt
+        ein Polynom dritten Grades an und erhalten dafür die in
+        \cref{fig:MagnetfeldKalibrierung} angezeigten Parameter des Polynomes.
+        \begin{figure}[ht]
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/Versuch401-KalibrierungdesMagnetfeldes.png}
+          \caption{Messung zur Kalibrierung des Magnetfeldes.}
+          \label{fig:MagnetfeldKalibrierung}
+        \end{figure}
+        \newline
+        Da sich die Temperatur der Magnetspulen allerdings im Betrieb ändert,
+        könnte sich der gefundene Zusammenhang zwischen Magnetfeld und
+        Spulenstrom im eigentlichen Betrieb mit der Zeit ebenfalls ändern.
+        Um die zeitliche Konsistenz des Zusammenhanges also zu überprüfen,
+        führen wir diese Messung sowohl vor beginn des Versuches als auch nach
+        der Beendigung des letzten Versuchteiles durch. Damit ist
+        gewährleistet, dass wir die Abhängigkeit des Magnetfeldes vom 
+        Spulenstrom sowohl für kalte als auch für eine warmgelaufene
+        Magnetspulen protokollieren.
+        \newline
+        Für folgenden Berechnungen des Magnetfeldes benutzen wir ab hier das,
+        an den Mittelwert angepasste Polynom.
+        
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
       
       
@@ -211,7 +243,24 @@
       \begin{subsection}{Messung des Zeeman-Effekts}
         \label{chp:Zeeman:sec:AuswertungMessung}
         
-        
+        \begin{figure}[ht]
+          \centering
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+                {Figures/Versuch401-Fabry-Perot-Etalon-KombinationZoom_Winkel_Intensitaet.png}
+            \caption{Entwicklung der Aufspaltung für verschiedene Stärken des
+                Magnetfeldes.}
+            \label{fig:FPEcombiZOOM}
+          \end{minipage}\quad
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+                {Figures/Versuch401-Fabry-Perot-Etalon-Kombination_Winkel_Intensitaet.png}
+            \caption{Vergrößerter Ausschnitt der Entwicklung.}
+            \label{fig:FPEcombi}
+          \end{minipage}
+        \end{figure}
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -348,8 +397,8 @@
         angegeben und passt damit sogar beinahe in die von uns berechneten
         Fehlergrenzen. Dieser Übergang besitzt außerdem bei etwa
         $\SI{5}{\electronvolt}$ ein Maximum im totalen Wirkungsquerschnitt
-        wodurch wir davon ausgehen können das es in unserem Versuch hauptsächlich
-        zu dieser Art des Elektronenüberganges gekommen ist.
+        wodurch wir davon ausgehen können das es in unserem Versuch
+        hauptsächlich zu dieser Art des Elektronenüberganges gekommen ist.
         \begin{figure}[ht]
           \centering
           \begin{minipage}{0.48\textwidth}

@@ -27,9 +27,13 @@ def write_file(filename):
 def set_legend(location):
     leg = plt.legend(prop={'size':9}, loc = location, numpoints=1,
                          fancybox=True)
-    leg.get_frame().set_alpha(0.5)
+    leg.get_frame().set_alpha(0.7)
 
-
+def set_log_axis(x, y):
+    if x == True:
+        plt.xscale('log')
+    if y == True:
+        plt.yscale('log')
 
 """============================================================================
 Useful functions for plotting and fitting
@@ -45,6 +49,11 @@ def reduce_by_min(var):
 
 def gerade(x, m, b):
     y = m*x + b
+    return y
+
+def polynom3(x, *p0):
+    (a, b, c, d) = p0
+    y = a*x**3 + b*x**2 + c*x + d
     return y
 
 def gauss_fkt_1(x, *p0):
@@ -294,6 +303,106 @@ def CCD_RAW(title, xlabel1, xunit1, xlabel2, xunit2, ylabel, yunit):
                       xlabel2, xunit2, ylabel, yunit,"red")
             i += 1
 
+    # plot RAW data Combination
+    if CCD_Pixel_combi_plotting == 1:
+        plt.figure()
+        
+        i = 0
+        while i < 11:
+            plt.plot(Pixel, Amp[i], label="I = %.1f" % (Amps[i]) + "A")
+            i += 1
+        
+        # set axis labels
+        plt.title(title + " Kombination")
+        plt.xlabel(xlabel1 + " " + xunit1)
+        plt.ylabel(ylabel + " " + yunit)
+        
+        # place a Legend in the plot
+        set_legend(1)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        filename = title + "Kombination" + "_" + xlabel1 + "_" + ylabel
+        write_file(filename)
+        plt.close()
+        
+        plt.figure()
+        
+        i = 0
+        while i < 11:
+            plt.plot(Pixel, Amp[i], label="I = %.1f" % (Amps[i]) + "A")
+            i += 1
+        
+        # set axis labels
+        plt.title(title + " Kombination Zoom")
+        plt.xlabel(xlabel1 + " " + xunit1)
+        plt.ylabel(ylabel + " " + yunit)
+        
+        plt.xlim([630,750])
+        
+        # place a Legend in the plot
+        set_legend(1)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        filename = title + "KombinationZoom" + "_" + xlabel1 + "_" + ylabel
+        write_file(filename)
+        plt.close()
+        
+        
+    if CCD_Winkel_combi_plotting == 1:
+        plt.figure()
+        
+        i = 0
+        while i < 11:
+            plt.plot(Winkel, Amp[i], label="I = %.1f" % (Amps[i]) + "A")
+            i += 1
+        
+        # set axis labels
+        plt.title(title + " Kombination")
+        plt.xlabel(xlabel2 + " " + xunit2)
+        plt.ylabel(ylabel + " " + yunit)
+        
+        # place a Legend in the plot
+        set_legend(1)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        filename = title + "Kombination" + "_" + xlabel2 + "_" + ylabel
+        write_file(filename)
+        plt.close()
+        
+        plt.figure()
+        
+        i = 0
+        while i < 11:
+            plt.plot(Winkel, Amp[i], label="I = %.1f" % (Amps[i]) + "A")
+            i += 1
+        
+        # set axis labels
+        plt.title(title + " Kombination Zoom")
+        plt.xlabel(xlabel2 + " " + xunit2)
+        plt.ylabel(ylabel + " " + yunit)
+        
+        plt.xlim([-2,-1.2])
+        
+        # place a Legend in the plot
+        set_legend(1)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        filename = title + "KombinationZoom" + "_" + xlabel2 + "_" + ylabel
+        write_file(filename)
+        plt.close()
+
 def FranckHertz_RAW(title, xlabel, xunit, ylabel, yunit):
     """========================================================================
     Franck Hertz Versuch - F�r unterschiedliche Bremsspannungen
@@ -447,19 +556,73 @@ def Magnetfeld_Kalibrierung_RAW(title, xlabel, xunit, ylabel, yunit):
     
     plt.figure()
     
+    x = np.array(MF[0])
+    y = np.array(MF[1])
+    p0 = [1.0, 1.0, 1.0, 1.0]
+    
+    f, varianz = op.curve_fit(polynom3, x, y, p0=p0)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+    fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+    fitted_y = polynom3(fitted_x, *f)
+    
     # plot y against x 
-    plt.plot(MF[0], MF[1], label="Erste Messung zu" +
-             "\nbeginn des Versuches")
-    plt.plot(MF[2], MF[3], label="Zweite Messung nach" +
-             "\nAbschluss des Versuches")
+    plt.plot(x, y, ".", label="Erste Messung zu" +
+             "\nbeginn des Versuches", color="green")
+    plt.plot(fitted_x, fitted_y, label=u"Fit: y = a*x**3 + b*x**2 + c*x + d" +
+             u"\na : (%.2f±%.2f)" % (f[0], df[0]) +
+             u"  b : (%.2f±%.2f)" % (f[1], df[1]) +
+             u"\nc : (%.2f±%.2f)" % (f[2], df[2]) +
+             u"  d : (%.2f±%.2f)" % (f[3], df[3]), color="green")
+    
+    x = np.array(MF[2])
+    y = np.array(MF[3])
+    p0 = [1.0, 1.0, 1.0, 1.0]
+    
+    f, varianz = op.curve_fit(polynom3, x, y, p0=p0)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+    fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+    fitted_y = polynom3(fitted_x, *f)
+    
+    # plot y against x 
+    plt.plot(x, y, ".", label="Zweite Messung nach" +
+             "\nAbschluss des Versuches", color="red")
+    plt.plot(fitted_x, fitted_y, label=u"Fit: y = a*x**3 + b*x**2 + c*x + d" +
+             u"\na : (%.2f±%.2f)" % (f[0], df[0]) +
+             u"  b : (%.2f±%.2f)" % (f[1], df[1]) +
+             u"\nc : (%.2f±%.2f)" % (f[2], df[2]) +
+             u"  d : (%.2f±%.2f)" % (f[3], df[3]), color="red")
+    
+    x = np.array((MF[0] + MF[2])/2)
+    y = np.array((MF[1] + MF[3])/2)
+    p0 = [1.0, 1.0, 1.0, 1.0]
+    
+    f, varianz = op.curve_fit(polynom3, x, y, p0=p0)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+            
+    fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+    fitted_y = polynom3(fitted_x, *f)
+    
+    # plot y against x 
+    #plt.plot(x, y, ".", label="Mittelwert der Messungen",
+             #color="blue")
+    plt.plot(fitted_x, fitted_y, label="Mittelwert der Messungen"
+             u"\nFit: y = a*x**3 + b*x**2 + c*x + d" +
+             u"\na : (%.2f±%.2f)" % (f[0], df[0]) +
+             u"  b : (%.2f±%.2f)" % (f[1], df[1]) +
+             u"\nc : (%.2f±%.2f)" % (f[2], df[2]) +
+             u"  d : (%.2f±%.2f)" % (f[3], df[3]), color="blue")
     
     # set axis labels
     plt.title(title)
     plt.xlabel(xlabel + " " + xunit)
     plt.ylabel(ylabel + " " + yunit)
     
+    set_log_axis(False, False)
+    
     # place a Legend in the plot
-    set_legend(2)
+    set_legend(4)
     
     # display grid
     plt.grid(True)
@@ -867,6 +1030,8 @@ savefig_png = 1
 # RAW DATA
 CCD_Pixel_plotting = 0
 CCD_Winkel_plotting = 0
+CCD_Pixel_combi_plotting = 1
+CCD_Winkel_combi_plotting = 1
 # FITTINGS
 CCD_ZoomFit_Pixel_plotting = 0
 CCD_ZoomFit_Winkel_plotting = 0
@@ -875,8 +1040,8 @@ CCD_ZoomFit_Winkel_plotting = 0
 FH_SingleRAW_plotting = 0
 FH_Vergleiche_plotting = 0
 # FITTINGS
-FH_B_Gauss_plotting = 1
-FH_T_Gauss_plotting = 1
+FH_B_Gauss_plotting = 0
+FH_T_Gauss_plotting = 0
 
 # RAW DATA
 MF_plotting = 0
@@ -887,8 +1052,10 @@ everything = 0
 if everything == 1:
     CCD_Pixel_plotting = 1
     CCD_Winkel_plotting = 1
+    CCD_Pixel_combi_plotting = 1
+    CCD_Winkel_combi_plotting = 1
     CCD_ZoomFit_Pixel_plotting = 1
-    CCD_ZoomFit_Winkel_plotting = 0
+    CCD_ZoomFit_Winkel_plotting = 1
     FH_SingleRAW_plotting = 1
     FH_Vergleiche_plotting = 1
     FH_B_Gauss_plotting = 1
@@ -897,7 +1064,8 @@ if everything == 1:
 
 
 def plot():
-    if CCD_Pixel_plotting == 1 or CCD_Winkel_plotting == 1:
+    if (CCD_Pixel_plotting == 1 or CCD_Winkel_plotting == 1 or
+        CCD_Pixel_combi_plotting == 1 or CCD_Winkel_combi_plotting == 1):
         CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "[#]",
                 "Winkel", "[rad]", "Intensitaet", "[%]")
 
