@@ -92,17 +92,19 @@
         Zeeman-Effekt, für ein äußerdes Magnetfeld kleiner als das interne
         Magnetfeld durch die Spin-Bahnkopplung und dem Paschen-Back-Effekt,
         für ein größeres externes Feld. Diese Effekte unterscheiden sich da
-        drin, das bei dem Paschen-Back-Effekt die Spin-Bahn-Kopplung aufgehoben wird.
-
-        Den Zeeman-Effekt kann man wiederum aufteilen.
-        Es gibt den normalen Zeeman-Effekt, mit den der gesammt Spin $\vec S = 0$, was eigentlich der seltene Effekt ist, und den anormalen Zeeman-Effekt mit einem Spin der von 0 verschieden ist.
-
-        In diesen Versuch beschäfftigen wir uns mit dem normalen Zeeman-Effekt.
-        Insbesondere betrachten wir den den ${}^1P_1$ zu ${}^1D_2$ Übergang von Cadmium.
-        \todo{skizze}
+        drin, das bei dem Paschen-Back-Effekt die Spin-Bahn-Kopplung aufgehoben
+        wird. Den Zeeman-Effekt kann man wiederum aufteilen. Es gibt den
+        normalen Zeeman-Effekt, mit den der gesammt Spin $\vec S = 0$, was
+        eigentlich der seltene Effekt ist, und den anormalen Zeeman-Effekt mit
+        einem Spin der von 0 verschieden ist. In diesen Versuch beschäfftigen
+        wir uns mit dem normalen Zeeman-Effekt. Insbesondere betrachten wir den
+        den ${}^1P_1$ zu ${}^1D_2$ Übergang von Cadmium.
         In dieser Skizze ist die Aufspaltung der beiden zustände dargestellt.
-        Durch die Auswahlregeln, welche in diesen Fall $\Delta M_J = \pm$ für zirkular polarisiertes Licht und $\Delta M_J=0$ für linear polarisiertes Licht sind, erhält man die erlaubten Übergänge.
-        Da die Aufspaltung bei dem normalen Zeeman-Effekt äquidistant sind, erhält manletztendlich drei unterschiedliche Energiedifferenzen.
+        Durch die Auswahlregeln, welche in diesen Fall $\Delta M_J = \pm$ für
+        zirkular polarisiertes Licht und $\Delta M_J=0$ für linear polarisiertes
+        Licht sind, erhält man die erlaubten Übergänge. Da die Aufspaltung bei
+        dem normalen Zeeman-Effekt äquidistant sind, erhält manletztendlich drei
+        unterschiedliche Energiedifferenzen.
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,28 +122,47 @@
         refelktiert, wodurch ein Gangunterschied entsteht, welche für
         Interverenz sorgt. 
         
-        \todo{skizz}
-        
         Der Gangunterschied hat die Form:
-        \[
+        \begin{equation}
+          \label{eq:Gangunterschied}
           g = 2d\sqrt{n^2-\sin^2(\alpha)}
-        \]
-        Für konstruktive Interverenz muss die Bedinung $g = m\lambda$ gelten.
-        \[
+        \end{equation}
+        Für konstruktive Interferenz muss die Bedienung $g = m\lambda$ gelten.
+        \begin{equation}
+          \label{eq:GangunterschiedLambda}
           \implies \lambda = \frac{2d\sqrt{n^2-\sin^2(\alpha)}}m
-        \]
+        \end{equation}
         Die Finesse ist das verhältnis zwischen dem Abstand zwischen zwei
         Maxima $\Delta\lambda$ und er Halbwertsbreite $\delta\lambda$, welche
         die Breite des Maximums bei halber Intensität angibt.
-        \[
-          \mathcal{F}=\frac{\Delta\lambda}{\delta\lambda} = \frac{\pi\sqrt r}{1-r}
-        \]
+        \begin{equation}
+          \label{eq:Finesse}
+          \mathcal{F}=\frac{\Delta\lambda}{\delta\lambda} =
+          \frac{\pi\sqrt r}{1-r}
+        \end{equation}
         wobei $r$ die Reflektivität ist.
-        Hierraus lässt sich nun das Auflösungsvermögen $R$ bestimmen:
-        \[
+        Hieraus lässt sich nun das Auflösungsvermögen $R$ bestimmen:
+        \begin{equation}
+          \label{eq:Aufloesung}
           R = \mathcal{F}\frac{2nd}{\lambda}
-        \]
-          
+        \end{equation}
+        \begin{figure}[b!]
+          \centering
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+            {Figures/strahlengang_fabry-perot-etalon.png}
+            \caption{Strahlengang eines \textit{Fabry-Perot-Etalon}'s.}
+            \label{fig:FPEstrahlengang}
+          \end{minipage}\quad
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+                {Figures/termschema.png}
+                \caption{Termschema des betrachteten Cadmium Übergangs.}
+            \label{fig:termschema}
+          \end{minipage}
+        \end{figure}
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -152,6 +173,8 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Natürliche Linienbreite und Linienverbreiterung}
         
+        \todo[inline]{TODO!}
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -160,7 +183,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{$\frac \lambda 4$ -Plättchen}
+      \begin{subsection}{$\frac{\lambda}{4}$ -Plättchen}
         Hierbei handelt es sich um einen optisches Bauteil, mit dessen Hilfe
         sich zikulär polarisiertes Licht linear polarisieren lässt. Dies
         funktioniert auch in gegen Richtung. Dabei nutzt man einen doppelt
@@ -180,14 +203,14 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Hall-Sonde}
-        Innerhalb einer Hall-Sonde befindeet sich ein Strom durchflossener
-        Leiter. Tritt diese nun in ein senkrecht zum Stomfluss stehdens
-        Magnetfeld ein, so entsteht auf grund der Lorentzkraft innerhalb des
-        Leiters eine verschiebung der Ladungen und damit eine Spannung, die
+        Innerhalb einer Hall-Sonde befindet sich ein Strom durchflossener
+        Leiter. Tritt diese nun in ein senkrecht zum Stomfluss stehendens
+        Magnetfeld ein, so entsteht auf Grund der Lorentzkraft innerhalb des
+        Leiters eine Verschiebung der Ladungen und damit eine Spannung, die
         sogenannte Hall-Spannung. Die Hall-Sonde wird genutzt, da mit ihr auch
         zeitlich konstante Magnetfelder gut gemessen werden können.
         
-        \todo{formel}
+        \todo[inline]{formel}
 
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -201,13 +224,14 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Frank-Hertz-Versuch}
-      \todo{skizze}
+      
+      
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Aufbau und Funktionsweise}
-        Wie in der Zeichung zu erkennen Besteht der Aufbau aus einem
+        Wie in \cref{fig:FHaufbau} zu erkennen Besteht der Aufbau aus einem
         evakuierten Glaskolbe, welchen mit dünnen Quecksilbergas gefüllt ist. 
         An den entgegengesätzen Enden des Kolbens befinden sich ein
         Glühkathode und am anderen eine Anode. Zwischen Kathode und Anode
@@ -226,8 +250,22 @@
       %   Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der gemessene Strom an, fällt dann aber stark ab.
       %  Dies ist die Spannung, bei der die Elektronen genug Energie haben um bei einem inelastischen Stoß ihre Energie abzugeben.
       %  Wird die Spannung immer weiter erhöht so stellt man fest, das in gleichbleibenden Abständen der Strom abfällt, bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
-          
-
+        \begin{figure}[ht]
+          \centering
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/hertz.png}
+            \caption{Schematischer Aufbau des Franck-Hertz-Versuches.}
+            \label{fig:FHaufbau}
+          \end{minipage}\quad
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/hall-sensor.png}
+                \caption{Schematischer Aufbau und Funktionsprinzip einer
+                    Hall-Sonde.}
+            \label{fig:hallsensor}
+          \end{minipage}
+        \end{figure}
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -253,11 +291,12 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Quecksilberatom}
-
+        
+        \todo[inline]{TODO!}
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-
+      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -298,6 +337,7 @@
     
     
     
+    \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -318,6 +358,12 @@
         \textit{CASSY}-Modul. An die so gewonnenen Messdaten passen wir jetzt
         ein Polynom dritten Grades an und erhalten dafür die in
         \cref{fig:MagnetfeldKalibrierung} angezeigten Parameter des Polynomes.
+        Ein Polynom höherer Ordnung würde sicherlich eine noch bessere
+        Anpassung darstellen würde allerdings auch die numerische Berechnung der
+        Anpassung womöglich destabilisieren. Außerdem liefert das Polynom
+        dritten Grades als erstes Polynom nach einer einfachen Parabel eine sehr
+        gut passende Funktion und wir halten es nicht für notwendig ein höheres
+        Polynom zu verwenden.
         \begin{figure}[ht]
           \centering
           \includegraphics[width=\textwidth]
@@ -328,12 +374,12 @@
         \newline
         Da sich die Temperatur der Magnetspulen allerdings im Betrieb ändert,
         könnte sich der gefundene Zusammenhang zwischen Magnetfeld und
-        Spulenstrom im eigentlichen Betrieb mit der Zeit ebenfalls ändern.
-        Um die zeitliche Konsistenz des Zusammenhanges also zu überprüfen,
-        führen wir diese Messung sowohl vor beginn des Versuches als auch nach
-        der Beendigung des letzten Versuchteiles durch. Damit ist
-        gewährleistet, dass wir die Abhängigkeit des Magnetfeldes vom 
-        Spulenstrom sowohl für kalte als auch für eine warmgelaufene
+        Spulenstrom im eigentlichen Betrieb mit der Zeit ebenfalls ändern. Um
+        die zeitliche Konsistenz des Zusammenhanges also zu überprüfen, führen
+        wir diese Messung sowohl vor beginn des Versuches als auch nach der
+        Beendigung des letzten Versuchteiles durch. Damit ist gewährleistet,
+        dass wir die Abhängigkeit des Magnetfeldes vom Spulenstrom sowohl für
+        kalte als auch für eine warmgelaufene
         Magnetspulen protokollieren.
         \newline
         Für folgenden Berechnungen des Magnetfeldes benutzen wir ab hier das,
@@ -349,8 +395,31 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Beobachtung des Zeeman-Effekts}
         \label{chp:Zeeman:sec:AuswertungBeobachtung}
-        
+        Bei der Beobachtung roten Emissionslinie durch einen Rot-Filter und das
+        \textit{Fabry-Perot-Etalon} erhalten wir ein doch sehr schönes Bild,
+        konzentrischer roter Kreise. Diese Kreis sind die Maxima der Intensität
+        der Interferenz am \textit{Fabry-Perot-Etalon}. In 
+        \cref{fig:previewOHNE} ist eine Aufnahme mit den originalen Farben.
         \begin{figure}[ht]
+          \centering
+          \includegraphics[width=\textwidth]{Figures/previewOHNEcut.jpg}
+          \caption{Transversale Beobachtung der Interferenz ohne externes 
+                Magnetfeld in originalen Farben.}
+          \label{fig:previewOHNE}
+        \end{figure}
+        \newline
+        Für einen besseren Kontrast und einfachere Erkennbarkeit haben wir die
+        Farben in den Aufnahmen dieser Beobachtung allerdings invertiert und den
+        Ausschnitt auf die innersten Intensitätsmaxima beschränkt. Ohne ein
+        extern angelegtes Magnetfeld sieht man die deutlichen und scharfen
+        Maxima als einzelne konzentrische Kreise da es ohne ein Magnetfeld noch
+        nicht zu einer Aufspaltung der Energieniveaus kommt. Schaltet man aber
+        nun das Magnetfeld ein, kann man in \cref{fig:previewMITinv} deutlich
+        sehen wie sich die Kreise mit ansteigender Magnetfeldstärke aufspalten
+        und aus den einzelnen Kreisen drei verschiedene werden. Damit haben wir
+        die Energiedifferenz der $\sigma^{\pm}$- und der $\pi$-polarisierten
+        Übergängen anschaulich dargestellt.
+        \begin{figure}[b!]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
@@ -371,52 +440,74 @@
             \label{fig:previewMITinv}
           \end{minipage}
         \end{figure}
-        
-        
-        
+        \newline
+        Um die Polarisation der aufgespaltenen Linien zu überprüfen, verändern
+        wir den Winkel des ebenfalls im Strahlengang eingebauten
+        Polarisations Filters hinter dem $\frac{\lambda}{4}$-Plättchen. Mit dem
+        Polarisations Filter haben wir festgestellt, dass die Polarisierung
+        beider $\sigma$ Linien gegen die zentrale $\pi$ Linie $\SI{90}{\degree}$
+        beträgt. Durch das verändern des Filterwinkels lässt sich also nur
+        entweder die einzelne zentrale Linie verbergen oder beide, Rechts und
+        Links neben der zentralen liegenden, Linien gemeinsam verbergen. In den
+        \cref{fig:quer2inv,fig:quer3inv} ist diese Trennung durch die
+        Polarisation sehr schön zu sehen. Im rechten Bild sieht man
+        beispielsweise das erste deutliche Maximum auf der Skala bei etwa $2.5$
+        und $7.5$ auf der gegenüberliegenden Seite. Dreht man nun den Pol-Filter
+        um genau $\SI{90}{\degree}$ verschwindet diese Linie, es tauchen dafür
+        aber die anderen Linien bei etwa $2.2$ und $2.8$ auf der Skala im linken
+        Bild auf.
         \begin{figure}[ht]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
                 {Figures/quer2inv.png}
-            \caption{Transversale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
+            \caption{Transversale Beobachtung der $\sigma$-polarisierten
+                Interferenz mit eingeschaltetem Magnetfeld und Polarisations
+                Filter um $\SI{90}{\degree}$ gedreht.}
             \label{fig:quer2inv}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
                 {Figures/quer3inv.png}
-            \caption{Transversale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
+            \caption{Transversale Beobachtung der $\pi$-polarisierten
+                Interferenz mit eingeschaltetem Magnetfeld und Polarisations
+                Filter um $\SI{0}{\degree}$ gedreht.}
             \label{fig:quer3inv}
           \end{minipage}
         \end{figure}
+        \newline
+        Ändern wir nun den Aufbau auf die longitudinale Beobachtung der Lampe,
+        sehen wir mit eingeschaltetem Magnetfeld nicht mehr drei
+        unterschiedliche Linien sonder nur noch die aufgespaltenen
+        $\sigma^{\pm}$-Komponenten. Überprüft man nun wieder deren Polarisation
+        mit dem $\frac{\lambda}{4}$-Plättchen erkennt man, dass aus dieser
+        Richtung beobachtet auch diese beiden Linien um $\SI{90}{\degree}$
+        verschoben polarisiert sind. In den \cref{fig:para4inv,fig:para5inv}
+        ist der Unterschied der Polarisation zu sehen.
         
+        \todo[inline]{FERTIG?}
         
-        
-        \begin{figure}[ht]
+        \begin{figure}[b!]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
                 {Figures/parallel4inv.png}
             \caption{Longitudinale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
+                eingeschaltetem Magnetfeld und Polarisations Filter um
+                $\SI{135}{\degree}$ gedreht.}
             \label{fig:para4inv}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
-                {Figures/parallel1inv.png}
+                {Figures/parallel5inv.png}
             \caption{Longitudinale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
-            \label{fig:para1inv}
+                eingeschaltetem Magnetfeld und Polarisations Filter um 
+                $\SI{45}{\degree}$ gedreht.}
+            \label{fig:para5inv}
           \end{minipage}
         \end{figure}
         
@@ -430,24 +521,100 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Messung des Zeeman-Effekts}
         \label{chp:Zeeman:sec:AuswertungMessung}
-        
+        Zum messen der Verschiebung der Wellenlängen beim Zeeman-Effekt und zur
+        Bestimmung des Bohrschen Magnetons nehmen wir Entwicklung der
+        Aufspaltung mit der CCD-Kamera auf. Die Daten dieser Messung sind in
+        \cref{fig:FPEcombi} über den gesamten CCD-Chip graphisch dargestellt.
+        Da es in einer etwas engeren Ansicht deutlich einfacher zu erkennen ist,
+        haben wir \cref{fig:FPEcombiZOOM} auf drei Linien beschränkt.
         \begin{figure}[ht]
           \centering
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
-                {Figures/Versuch401-Fabry-Perot-Etalon-KombinationZoom_Winkel_Intensitaet.png}
+      {Figures/Versuch401-Fabry-Perot-Etalon-Kombination_Winkel_Intensitaet.png}
             \caption{Entwicklung der Aufspaltung für verschiedene Stärken des
                 Magnetfeldes.}
-            \label{fig:FPEcombiZOOM}
+            \label{fig:FPEcombi}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
-                {Figures/Versuch401-Fabry-Perot-Etalon-Kombination_Winkel_Intensitaet.png}
-            \caption{Vergrößerter Ausschnitt der Entwicklung.}
-            \label{fig:FPEcombi}
+                {Figures/Versuch401-Fabry-Perot-Etalon-KombinationZoom_Winkel_Intensitaet.png}
+                \caption{Vergrößerter Ausschnitt der Entwicklung.}
+            \label{fig:FPEcombiZOOM}
           \end{minipage}
+        \end{figure}
+        \newline
+        Es ist deutlich zu sehen wie sich die Emissionslinie mit steigendem
+        Magnetfeld langsam aufspaltet und wie sich die Intensitäten der
+        einzelnen Linien ebenfalls langsam angleichen. Um die Aufspaltung
+        mathematisch genauer verfolgen zu können, haben wir für jede einzelne
+        Messung eine Kombination von drei Gauss-Kurven angepasst und aus deren
+        Peakschwerpunkten die relative Aufspaltung der Wellenlängen mit
+        \cref{eq:dlprol} berechnet.
+        \begin{equation}
+          \label{eq:dlprol}
+          \frac{\Delta\lambda}{\lambda} = \frac{\lambda_{\sigma^{\pm}}-
+          \lambda_{\pi}^{0}}{\lambda_{\pi}^{0}} = \frac{\lambda_{\sigma^{\pm}}} 
+          {\lambda_{\pi}^{0}}-1 = \sqrt{\frac{n^{2}-sin^{2}
+          (\alpha_{\sigma^{\pm}})}{n^{2}-sin^{2}
+          (\alpha_{\pi}^{0})}}-1
+        \end{equation}
+        \begin{figure}[b!]
+          \centering
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+      {Figures/Versuch401-FPEAusschnitt-4_4AMagnetstrom_Pixel_Intensitaet.png}
+            \caption{Anpassung der Gauss-Kurve an die Messdaten bei einem
+                Spulenstrom von $\SI{4.4}{\ampere}$.}
+            \label{fig:FPEAusschnitt44}
+          \end{minipage}\quad
+          \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]
+      {Figures/Versuch401-FPEAusschnitt-8_0AMagnetstrom_Pixel_Intensitaet.png}
+                \caption{Anpassung der Gauss-Kurve an die Messdaten bei einem
+                Spulenstrom von $\SI{8.0}{\ampere}$..}
+            \label{fig:FPEAusschnitt80}
+          \end{minipage}
+        \end{figure}
+        Zwei Beispiele dieser Anpassung sind in
+        \cref{fig:FPEAusschnitt44,fig:FPEAusschnitt80} gezeigt. Mit der daraus
+        gefundenen relativen Wellenlängenverschiebung und \cref{eq:dE} kann dann
+        die Energieverschiebung $\Delta E$ berechnet werden.
+        \begin{equation}
+          \label{eq:dE}
+          \Delta E = -\frac{hc}{\lambda_{\pi}^{0}}
+          \frac{\Delta\lambda}{\lambda_{\pi}^{0}}
+        \end{equation}
+        Aus der Versuchsanleitung ist $n=1.457$ und
+        $\lambda_{\pi}^{0}=\SI{643.8}{\nano\meter}$ bekannt. Um nun das
+        Bohrschen Magneton zu bestimmen muss die Energieverschiebung $\Delta E$
+        gegen die magnetische Flussdichte $B$ aufgetragen werden. 
+        \begin{equation}
+          \label{eq:BohrschesMagneton}
+          \Delta E = g_{J}\mu_{B}\Delta M_{J}B = \pm\mu_{B}B
+        \end{equation}
+        Aus den damit erhaltenen Steigung der angepassten Geraden für die
+        $\sigma^{\pm}$ Linien bestimmen wir mit \cref{eq:BohrschesMagneton} nun
+        das Bohrschen Magneton. Da bei diesem Versuch $\Delta M_{J}$ die Werte
+        $\pm1$ annehmen kann und $g_{J}=1$ beträgt erhalten wir für unsere
+        Messwerte für $\sigma^{+}$ : $\mu_{B}=(5.74\pm0.23) \times10^{-5}
+        \SI{}{\electronvolt\per\tesla}$ und für $\sigma^{-}$ : $\mu_{B}=
+        (5.73\pm0.23) \times10^{-5}\SI{}{\electronvolt\per\tesla}$.
+        Beide Werte liegen damit mit ihren Fehlergrenzen gut am Literaturwert
+        von $\mu_{B}^{Lit}=\SI{5.81e-5}{\electronvolt\per\tesla}$.
+        Die von uns erhaltenen Werte und deren angepassten Geraden sind in
+        \cref{fig:BohrschesMagneton} aufgetragen.
+        \begin{figure}[ht]
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/BohrschesMagneton_Magnetfeld_dE.png}
+          \caption{Entwicklung der Energiedifferenzen zur Bestimmung des
+              Bohr'schen Magnetons.}
+          \label{fig:BohrschesMagneton}
         \end{figure}
         
       \end{subsection}
@@ -461,7 +628,7 @@
       \begin{subsection}{Weiterführende Überlegungen}
         \label{chp:Zeeman:sec:AuswertungWeiteres}
         
-        
+        \todo[inline]{Finesse und auflösung fehlen noch!!!}
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -476,9 +643,17 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit - Zeeman-Effekt}
       \label{chp:ZeemanEffekt:sec:Fazit}
-      
-      
-      
+      Betrachtet man die Interferenzmuster einer Hg-Lampe durch ein
+      \textit{Fabry-Perot-Etalon} kann man nicht nur das wunderschöne Muster
+      optisch betrachten, setzt man die Lampe einem externen Magnetfeld aus,
+      so lässt sich außerdem auch die Spin-Entartung
+      \todo[inline]{Spin richtig?}
+      beobachten und das Bohrschen Magneton aus den aufspaltenden
+      Energiedifferenzen berechnen. Der von uns bestimmte Wert für das Bohrsche
+      Magneton passt außerdem auch noch erstaunlich gut mit seinen Fehlergrenzen
+      zum Literaturwert.
+      Alle Fehler wurden bei den benutzten Rechnungen mithilfe der
+      Fehlerfortpflanzung bestimmt.
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -521,6 +696,7 @@
     
     
     
+    \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -531,7 +707,7 @@
       \begin{figure}[ht]
         \centering
         \includegraphics[width=\textwidth]
-            {Figures/Versuch401-Franck-Hertz-VergleichBremsspannungen-Temperaturen.png}
+    {Figures/Versuch401-Franck-Hertz-VergleichBremsspannungen-Temperaturen.png}
         \caption{Vergleich der Auswirkungen von unterschiedlichen
             Bremsspannungen und Temperaturen auf den Anodenspannung.}
         \label{fig:FHvergleich}
@@ -544,19 +720,19 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Bestimmung der Energiedifferenz}
         \label{chp:FH:sec:AuswertungEnergiedifferenz}
-        Zuerst wollen wir aus dem Anodenstromkurven $I_{A}$ die Energiedifferenz
-        $\Delta E$ zwischen dem $6S$- und dem $6P$-Niveau des Hg-Atoms bestimmen.
-        Dazu passen wir an die genommenen Messwerte eine Kombination diverser
-        Gauss Funktionen an und vermessen den Abstand zwischen den 
-        Peakschwerpunkten. In \cref{fig:FHB15V,fig:FHT140C} ist dies exemplarisch
-        einmal dargestellt. Um ein möglichst genaues Ergebnis zu erhalten,nehmen
-        wir nun den Mittelwert aller bestimmten Abstände der angepassten
-        Funktionen für alle Messungen und erhalten daraus direkt die
-        Energiedifferenz $\Delta E = (4.971\pm 0.070)\SI{}{\electronvolt}$.
+        Zuerst wollen wir aus dem Anodenstromkurven $I_{A}$ die
+        Energiedifferenz $\Delta E$ zwischen dem $6S$- und dem $6P$-Niveau des
+        Hg-Atoms bestimmen. Dazu passen wir an die genommenen Messwerte eine
+        Kombination diverser Gauss Funktionen an und vermessen den Abstand
+        zwischen den Peakschwerpunkten. In \cref{fig:FHB15V,fig:FHT140C} ist
+        dies exemplarisch einmal dargestellt. Um ein möglichst genaues Ergebnis
+        zu erhalten,nehmen wir nun den Mittelwert aller bestimmten Abstände der
+        angepassten Funktionen für alle Messungen und erhalten daraus direkt
+        die Energiedifferenz $\Delta E = (4.971\pm 0.070)\SI{}{\electronvolt}$.
         Für die Breite der Peaks ergibt sich ein Mittelwert von
-        $E_{Breite} = (1.157\pm 0.082)\SI{}{\electronvolt}$.
-        Die benutzten Messdaten sind in \cref{tab:AbstandBreite} aufgelistet und die
-        Graphen der anderen Messungen sind in \cref{Anhang:chp:FH} zusammen
+        $E_{Breite} = (1.157\pm 0.082)\SI{}{\electronvolt}$. Die benutzten
+        Messdaten sind in \cref{tab:AbstandBreite} aufgelistet und die Graphen
+        der anderen Messungen sind in \cref{Anhang:chp:FH} zusammen
         dargestellt. Der einzige Übergang im Hg-Atom,dem diese Energiedifferenz
         entsprechen kann, ist der Übergang $6^{1}S_{0} \rightarrow 6^{3}P_{1}$.
         \begin{table}[htbp]

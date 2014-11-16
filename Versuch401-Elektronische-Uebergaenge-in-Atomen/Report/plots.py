@@ -11,6 +11,7 @@ save a plot under given filename as .pdf as well as .png
 def write_file(filename):
     filename = filename.replace(" ", "")
     filename = filename.replace(":", "")
+    filename = filename.replace("'", "")
     filename = filename.replace(".", "_")
     filename = filename.replace("---", "-")
     print "Writing: ", filename
@@ -653,11 +654,16 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
            data[first:last, 5],data[first:last, 6],data[first:last, 7],
            data[first:last, 8],data[first:last, 9],data[first:last, 10],
            data[first:last, 11],data[first:last, 12]]
+    B = []
+    dEp = []
+    dEn = []
+    ddEp = []
+    ddEn = []
     
     def ZoomFit(x, y, title, xlabel, xunit, ylabel, yunit, plotcolor, p0):
         plt.figure()
         
-        #print p0
+        B.append((-0.37*Amps[i]**3+0.57*Amps[i]**2+93.51*Amps[i]-7.16)/1000)
         
         # gauss fit
         f, varianz = op.curve_fit(gauss_fkt_3, x, y, p0=p0, maxfev=1000000)
@@ -669,6 +675,26 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         yshift = f[3] + f[7] + f[11]
         dyshift = np.sqrt(df[3]**2 + df[7]**2 + df[11]**2)
         
+        dpixel = (np.sqrt((f[1] - f[5])**2) + np.sqrt((f[5] - f[9])**2))/2
+        ddpixel = np.sqrt((df[1]/2)**2 + (2*df[5]/2)**2 + (df[9]/2)**2)
+        
+        alphasp = np.arctan((1024-(f[5]+dpixel)*0.014)/flinse)
+        alphasn = np.arctan((1024-(f[5]-dpixel)*0.014)/flinse)
+        alphap = np.arctan((1024-(f[5])*0.014)/flinse)
+        
+        dlprolp = np.sqrt((n**2-np.sin(alphasp)**2)/(n**2-np.sin(alphap)**2))-1
+        dlproln = np.sqrt((n**2-np.sin(alphasn)**2)/(n**2-np.sin(alphap)**2))-1
+        
+        z = 0.1
+        ddlproln = dlproln*z
+        ddlprolp = dlprolp*z
+        
+        dEp.append(-h*c*dlprolp/l0*1000)
+        dEn.append(-h*c*dlproln/l0*1000)
+        ddEp.append(np.sqrt((h*c*ddlprolp/l0)**2)*1000)
+        ddEn.append(np.sqrt((h*c*ddlproln/l0)**2)*1000)
+        #print dEn
+        #print B
         # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
         # einer Linie verbunden.
         plt.plot(x, y, ".", label=ll, color=plotcolor)
@@ -680,8 +706,8 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
                  u"\nPeak 2: (%.2f±%.2f)" % (f[5], df[5]) +
                  u"\nFHMW 2: (%.2f±%.2f)" % (f[6], df[6]) +
                  u"\nPeak 3: (%.2f±%.2f)" % (f[9], df[9]) +
-                 u"\nFHMW 3: (%.2f±%.2f)" % (f[10], df[10]) +
-                 u"\n    y : (%.2f±%.2f)" % (yshift, dyshift))
+                 u"\nFHMW 3: (%.2f±%.2f)" % (f[10], df[10]))
+                 #u"\n    y : (%.2f±%.2f)" % (yshift, dyshift))
         
         # set axis labels
         plt.title(title)
@@ -745,41 +771,90 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
             ZoomFit(Pixel, Amp[i], title + str(Amps[i]) + "A Magnetstrom",
                     xlabel1, xunit1, ylabel, yunit, "red", CCD_p[i])
             i += 1
+        plt.figure()
+        
+        ab = 2
+        bis = 8
+        b = np.array(B[ab:bis])
+        en = np.array(dEn[ab:bis])
+        ep = np.array(dEp[ab:bis])
+        den = np.array(ddEn[ab:bis])
+        dep = np.array(ddEp[ab:bis])
+        p0 = [0.01, 0.01]
+        
+        # plot y against x 
+        plt.errorbar(b, en, den, fmt=".", label="sigma -", color="red")
+        f, varianz = op.curve_fit(gerade, b, en, p0=p0)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        fitted_x = np.linspace(np.min(b), np.max(b), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        plt.plot(fitted_x, fitted_y, color="red", label=u"Fit: " + 
+                 u"Steigung: (%.2e±%.1e)" % (f[0], df[0]))
+        
+        plt.errorbar(b, ep, dep, fmt=".", label="sigma +", color="green")
+        f, varianz = op.curve_fit(gerade, b, ep, p0=p0)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        fitted_x = np.linspace(np.min(b), np.max(b), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        plt.plot(fitted_x, fitted_y, color="green", label=u"Fit: " + 
+                 u"Steigung: (%.2e±%.1e)" % (f[0], df[0]))
+        
+        title = "Bohr'sches Magneton"
+        xlabel = "Magnetfeld"
+        xunit = "[T]"
+        ylabel = "dE"
+        yunit = "[10^(-3)eV]"
+        
+        # set axis labels
+        plt.title(title)
+        plt.xlabel(xlabel + " " + xunit)
+        plt.ylabel(ylabel + " " + yunit)
+        
+        # place a Legend in the plot
+        set_legend(5)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        filename = title + "_" + xlabel + "_" + ylabel
+        write_file(filename)
+        plt.close()
             
     if CCD_ZoomFit_Winkel_plotting == 1:
-        CCD_p0 = [40.0, -1.06, 1.0, 10.0,
-                  50.0, -1.04, 1.0, 10.0,
-                  40.0, -1.02, 1.0, 10.0]
-        CCD_p1 = [50.0, -1.08, 1.0, 15.0,
-                  60.0, -1.05, 1.0, 15.0,
-                  50.0, -1.03, 1.0, 15.0]
-        CCD_p2 = [50.0, -1.00, 1.0, 15.0,
-                  60.0, -1.00, 1.0, 15.0,
-                  40.0, -1.00, 1.0, 15.0]
-        CCD_p3 = [50.0, -1.00, 1.0, 15.0,
-                  70.0, -1.00, 1.0, 15.0,
-                  50.0, -1.00, 1.0, 15.0]
-        CCD_p4 = [50.0, -0.98, 0.1, 15.0,
-                  60.0, -1.04, 0.1, 15.0,
-                  40.0, -0.99, 0.1, 15.0]
-        CCD_p5 = [40.0, -1.00, 1.0, 30.0,
-                  60.0, -1.00, 1.0, 30.0,
-                  50.0, -1.00, 1.0, 30.0]
-        CCD_p6 = [40.0, -1.00, 1.0, 30.0,
-                  50.0, -1.00, 1.0, 30.0,
-                  50.0, -1.00, 1.0, 30.0]
-        CCD_p7 = [55.0, -1.00, 1.0, 30.0,
-                  60.0, -1.00, 1.0, 30.0,
-                  45.0, -1.00, 1.0, 30.0]
-        CCD_p8 = [50.0, -1.00, 1.0, 30.0,
-                  60.0, -1.00, 1.0, 30.0,
-                  50.0, -1.00, 1.0, 30.0]
-        CCD_p9 = [50.0, -1.00, 1.0, 30.0,
-                  60.0, -1.00, 1.0, 30.0,
-                  50.0, -1.00, 1.0, 30.0]
-        CCD_p10= [50.0, -1.05, 0.1, 30.0,
-                  75.0, -1.00, 0.1, 30.0,
-                  55.0, -1.10, 0.1, 30.0]
+        CCD_p0 = [40.0, 0.96, 1.0, 10.0,
+                  50.0, 0.96, 1.0, 10.0,
+                  40.0, 0.96, 1.0, 10.0]
+        CCD_p1 = [50.0, 0.97, 1.0, 10.0,
+                  60.0, 0.97, 1.0, 10.0,
+                  50.0, 0.97, 1.0, 10.0]
+        CCD_p2 = [50.0, 0.97, 1.0, 15.0,
+                  60.0, 0.97, 1.0, 15.0,
+                  50.0, 0.97, 1.0, 15.0]
+        CCD_p3 = [50.0, 1.00, 1.0, 15.0,
+                  70.0, 1.00, 1.0, 15.0,
+                  50.0, 1.00, 1.0, 15.0]
+        CCD_p4 = [50.0, 0.97, 1.0, 15.0,
+                  60.0, 0.97, 1.0, 15.0,
+                  50.0, 0.97, 1.0, 15.0]
+        CCD_p5 = [50.0, 0.86, 1.0, 30.0,
+                  60.0, 0.98, 1.0, 30.0,
+                  50.0, 1.05, 1.0, 30.0]
+        CCD_p6 = [40.0, 1.00, 1.0, 30.0,
+                  50.0, 1.00, 1.0, 30.0,
+                  50.0, 1.00, 1.0, 30.0]
+        CCD_p7 = [50.0, 1.00, 1.0, 30.0,
+                  60.0, 1.00, 1.0, 30.0,
+                  50.0, 1.00, 1.0, 30.0]
+        CCD_p8 = [50.0, 1.00, 1.0, 30.0,
+                  60.0, 1.00, 1.0, 30.0,
+                  50.0, 1.00, 1.0, 30.0]
+        CCD_p9 = [50.0, 1.00, 1.0, 30.0,
+                  60.0, 1.00, 1.0, 30.0,
+                  50.0, 1.00, 1.0, 30.0]
+        CCD_p10= [50.0, 1.05, 0.1, 30.0,
+                  75.0, 1.00, 0.1, 30.0,
+                  55.0, 1.10, 0.1, 30.0]
         CCD_p = [CCD_p0, CCD_p1, CCD_p2, CCD_p3, CCD_p4, CCD_p5, CCD_p6,
                  CCD_p7, CCD_p8, CCD_p9, CCD_p10]
         i = 0
@@ -1023,6 +1098,12 @@ def FH_Fit(bottom, top, title, xlabel, xunit, ylabel, yunit):
 MAIN --- running procedures
 ===============================================================================
 """
+h = 4.136e-15
+c = 3e8
+l0 = 643.8e-9
+n = 1.457
+flinse = 235
+
 # What to do?       0 = Do Not Do It        1 = Do It
 savefig_pdf = 0
 savefig_png = 1
@@ -1030,10 +1111,10 @@ savefig_png = 1
 # RAW DATA
 CCD_Pixel_plotting = 0
 CCD_Winkel_plotting = 0
-CCD_Pixel_combi_plotting = 1
-CCD_Winkel_combi_plotting = 1
+CCD_Pixel_combi_plotting = 0
+CCD_Winkel_combi_plotting = 0
 # FITTINGS
-CCD_ZoomFit_Pixel_plotting = 0
+CCD_ZoomFit_Pixel_plotting = 1
 CCD_ZoomFit_Winkel_plotting = 0
 
 # RAW DATA
@@ -1068,7 +1149,8 @@ def plot():
         CCD_Pixel_combi_plotting == 1 or CCD_Winkel_combi_plotting == 1):
         CCD_RAW("Versuch401 - Fabry-Perot-Etalon --- ", "Pixel", "[#]",
                 "Winkel", "[rad]", "Intensitaet", "[%]")
-
+#pixel 1175, 1255
+#winkel 803, 890
     if CCD_ZoomFit_Pixel_plotting == 1 or CCD_ZoomFit_Winkel_plotting == 1:
         CCD_ZoomFit(1175, 1255, 0, 80, "Versuch401 - FPE Ausschnitt --- ",
                     "Pixel", "[#]", "Winkel", "[rad]", "Intensitaet", "[%]",
