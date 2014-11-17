@@ -21,7 +21,6 @@
 \usepackage[scale=0.8, hmarginratio=4:2]{geometry}
   \geometry{textheight=1.05\textheight, textwidth=.95\textwidth,
             marginparwidth=25 pt}
-\renewcommand{\arraystretch}{1.1}
 
 
 
@@ -52,10 +51,9 @@
   
 %   \setcounter{page}{2}
   
-  \begin{chapter}*{Einleitung}
+  \begin{chapter}*{Abstract}
     Ziel des Versuchs ist es nachzuweisen, dass Atome Energieniveaus besitzen.
-    Hierfür nutzen wir die Beobachtung des Zeeman-Effektes mit einem 
-    Fabry-Perot-Etalon und den Franck-Hertz-Versuch.
+    Hierfür nutzen wir die Beobachtung des Zeeman-Effektes mit einem Fabry-Perot-Etalon und den Franck-Hertz-Versuch.
 
     
     \todo[inline]{TO-DO}
@@ -72,194 +70,131 @@
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
     
-    
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Zeeman-Effekt}
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Verhalten von Atomen in äußeren Feldern}
-        Atome haben auf grund ihres Aufbaus bestimmte Energieniveaus,
-        in denen sie bei Anregung Licht abstrahlenen. 
-        %   Da der Aufbau der atomaren Form von verschiedenen Elementen immer ein wenig anders ist, sind auch die Energieniveaus anders, (sodass man an den absorbierten beziehungsweise emmitierten Spektrallinien Elemete unterscheiden kann.)
-        % so kommt es beim Übegang zwischen den Energienivaus zu charaktristischen Spektrallinine.
-        Bei einem Externenmagentfeld werden die Energieniveaus aufgespalten. 
-        Je nach stärke des Magnetfeldes unterscheidet man zwischen dem
-        Zeeman-Effekt, für ein äußerdes Magnetfeld kleiner als das interne
-        Magnetfeld durch die Spin-Bahnkopplung und dem Paschen-Back-Effekt,
-        für ein größeres externes Feld. Diese Effekte unterscheiden sich da
-        drin, das bei dem Paschen-Back-Effekt die Spin-Bahn-Kopplung aufgehoben wird.
 
-        Den Zeeman-Effekt kann man wiederum aufteilen.
-        Es gibt den normalen Zeeman-Effekt, mit den der gesammt Spin $\vec S = 0$, was eigentlich der seltene Effekt ist, und den anormalen Zeeman-Effekt mit einem Spin der von 0 verschieden ist.
+        \begin{subsection}{Verhalten von Atomen in äußeren Feldern}
+            Atome haben auf grund ihres Aufbaus bestimmte Energieniveaus, in denen sie bei Anregung Licht abstrahlenen. 
+            %   Da der Aufbau der atomaren Form von verschiedenen Elementen immer ein wenig anders ist, sind auch die Energieniveaus anders, (sodass man an den absorbierten beziehungsweise emmitierten Spektrallinien Elemete unterscheiden kann.)
+            % so kommt es beim Übegang zwischen den Energienivaus zu charaktristischen Spektrallinine.
+            Bei einem Externenmagentfeld werden die Energieniveaus aufgespalten. 
+            Je nach stärke des Magnetfeldes unterscheidet man zwischen dem Zeeman-Effekt, 
+            für ein äußerdes Magnetfeld kleiner als das interne Magnetfeld durch die Spin-Bahnkopplung und dem Paschen-Back-Effekt, für ein größeres externes Feld.
+            Diese Effekte unterscheiden sich da drin, das bei dem Paschen-Back-Effekt die Spin-Bahn-Kopplung aufgehoben wird.
 
-        In diesen Versuch beschäfftigen wir uns mit dem normalen Zeeman-Effekt.
-        Insbesondere betrachten wir den den ${}^1P_1$ zu ${}^1D_2$ Übergang von Cadmium.
-        \todo{skizze}
-        In dieser Skizze ist die Aufspaltung der beiden zustände dargestellt.
-        Durch die Auswahlregeln, welche in diesen Fall $\Delta M_J = \pm$ für zirkular polarisiertes Licht und $\Delta M_J=0$ für linear polarisiertes Licht sind, erhält man die erlaubten Übergänge.
-        Da die Aufspaltung bei dem normalen Zeeman-Effekt äquidistant sind, erhält manletztendlich drei unterschiedliche Energiedifferenzen.
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Fabry-Pérot-Etalon}
-        Bei dem Fabry-Pérot-Etalon handelt es sich um Spektrometer aus Glas mit
-        einem brechungsindex $>1$ mit planparallelen Oberflächen, welche zum
-        Beispiel durch aufgedampftes Silber teilrefelktierend sind. Fällt Licht
-        in das Etalon ein, so wird ein Teil des Lichtes immer wieder
-        refelktiert, wodurch ein Gangunterschied entsteht, welche für
-        Interverenz sorgt. 
-        
-        \todo{skizz}
-        
-        Der Gangunterschied hat die Form:
-        \[
-          g = 2d\sqrt{n^2-\sin^2(\alpha)}
-        \]
-        Für konstruktive Interverenz muss die Bedinung $g = m\lambda$ gelten.
-        \[
-          \implies \lambda = \frac{2d\sqrt{n^2-\sin^2(\alpha)}}m
-        \]
-        Die Finesse ist das verhältnis zwischen dem Abstand zwischen zwei
-        Maxima $\Delta\lambda$ und er Halbwertsbreite $\delta\lambda$, welche
-        die Breite des Maximums bei halber Intensität angibt.
-        \[
-          \mathcal{F}=\frac{\Delta\lambda}{\delta\lambda} = \frac{\pi\sqrt r}{1-r}
-        \]
-        wobei $r$ die Reflektivität ist.
-        Hierraus lässt sich nun das Auflösungsvermögen $R$ bestimmen:
-        \[
-          R = \mathcal{F}\frac{2nd}{\lambda}
-        \]
-          
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Natürliche Linienbreite und Linienverbreiterung}
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{$\frac \lambda 4$ -Plättchen}
-        Hierbei handelt es sich um einen optisches Bauteil, mit dessen Hilfe
-        sich zikulär polarisiertes Licht linear polarisieren lässt. Dies
-        funktioniert auch in gegen Richtung. Dabei nutzt man einen doppelt
-        brechenden Kristall. Innerhalb des Kristalls wird die Welle in zwei
-        orthogonaleKomponenten aufgeteilt, welche Aufgrund der verschiedenen
-        Brechungsindizes unterschiedlich schnell durch den Kristall kommen.
-        Wenn man nun die die Brechungsindizies und die dicke des Plättchens
-        richtig wählt, so kann man eine Verzögerung von genau $\frac \lambda 4$
-        erreichen, was dann den gewünschten Effekt hat.
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Hall-Sonde}
-        Innerhalb einer Hall-Sonde befindeet sich ein Strom durchflossener
-        Leiter. Tritt diese nun in ein senkrecht zum Stomfluss stehdens
-        Magnetfeld ein, so entsteht auf grund der Lorentzkraft innerhalb des
-        Leiters eine verschiebung der Ladungen und damit eine Spannung, die
-        sogenannte Hall-Spannung. Die Hall-Sonde wird genutzt, da mit ihr auch
-        zeitlich konstante Magnetfelder gut gemessen werden können.
-        
-        \todo{formel}
+            Den Zeeman-Effekt kann man wiederum aufteilen.
+            Es gibt den normalen Zeeman-Effekt, mit den der gesammt Spin $\vec S = 0$, was eigentlich der seltene Effekt ist, und den anormalen Zeeman-Effekt mit einem Spin der von 0 verschieden ist.
 
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
+            In diesen Versuch beschäfftigen wir uns mit dem normalen Zeeman-Effekt.
+            Insbesondere betrachten wir den den ${}^1P_1$ zu ${}^1D_2$ Übergang von Cadmium.
+            \todo{skizze}
+            In dieser Skizze ist die Aufspaltung der beiden zustände dargestellt.
+            Durch die Auswahlregeln, welche in diesen Fall $\Delta M_J = \pm$ für zirkular polarisiertes Licht und $\Delta M_J=0$ für linear polarisiertes Licht sind, erhält man die erlaubten Übergänge.
+            Da die Aufspaltung bei dem normalen Zeeman-Effekt äquidistant sind, erhält manletztendlich drei unterschiedliche Energiedifferenzen.
+
+        \end{subsection}
+        \begin{subsection}{Fabry-Pérot-Etalon}
+            Bei dem Fabry-Pérot-Etalon handelt es sich um Spektrometer aus Glas mit einem brechungsindex $>1$ mit planparallelen Oberflächen, welche zum Beispiel durch aufgedampftes Silber teilrefelktierend sind.
+            Fällt Licht in das Etalon ein, so wird ein Teil des Lichtes immer wieder refelktiert, wodurch ein Gangunterschied entsteht, welche für Interverenz sorgt.
+            \todo{skizz}
+            Der Gangunterschied hat die Form:
+            \[
+                g = 2d\sqrt{n^2-\sin^2(\alpha)}
+            \]
+            Für konstruktive Interverenz muss die Bedinung $g = m\lambda$ gelten.
+            \[
+                \implies \lambda = \frac{2d\sqrt{n^2-\sin^2(\alpha)}}m
+            \]
+            Die Finesse ist das verhältnis zwischen dem Abstand zwischen zwei Maxima $\Delta\lambda$ und er Halbwertsbreite $\delta\lambda$, welche die Breite des Maximums bei halber Intensität angibt.
+            \[
+                \mathcal{F}=\frac{\Delta\lambda}{\delta\lambda} = \frac{\pi\sqrt r}{1-r}
+            \]
+            wobei $r$ die Reflektivität ist.
+            Hierraus lässt sich nun das Auflösungsvermögen $R$ bestimmen:
+            \[
+                R = \mathcal{F}\frac{2nd}{\lambda}
+            \]
+
+            
+        \end{subsection}
+        \begin{subsection}{Natürliche Linienbreite und Linienverbreiterung}
+            Durch die diskreten Energieniveaus könnte man annehmen, das die Emissionslinien unendlich scharf sind.
+            Dies ist nicht der Fall, so haben die Emissionslinien eine endliche Breite.
+            Es kommt es schon zu einer Linienbreite, da die Lebensdauer des angeregten Zustandes begrenzt ist.
+            \[
+                \Delta E\Delta t \geq \hbar \implies \Delta E \geq \frac \hbar\tau
+            \]
+
+            Zusätzlich kommt es zu Linienverbreiterung zum Beispiel durch die Dopplerverbreitrung oder durch die Druckverteilung.
+            Zu der Dopplerverbreiterung kommt es, weil sich die abstrahlenden Atome in alle Raumrichtiungen bewegen, wodurch die abgestrahlte Welle eine verschobene Wellenelänge hat. 
+            Durch die überlagerung der Bewegungen in die verschiedenen Richtungen kommt es dann zu einer Gaußförmigen verbreiterung.
+            Diese ist deutlich größer als die natürliche Lininebreite und berechnet sich mit:
+            \[
+                \Delta\lambda = \frac{2\lambda}{c}\sqrt{\frac{2\ln 2k_B T}{m}}
+            \]
+           
+            Bei der Druckverbreiterung handelt es sich um mehrere Effekte, welche durch Wechselwirkung mit anderen Teile zustande kommen.
+            So haben benachbarte Atome einfluss auf die Energieniveaus oder es kommt zu Stößen, welche die Lebensdauer eines angeregten Zustandes verkürzen. 
+
+        \end{subsection}
+        \begin{subsection}{$\frac \lambda 4$ -Plättchen}
+            Hierbei handelt es sich um einen optisches Bauteil, mit dessen Hilfe sich zikulär polarisiertes Licht linear polarisieren lässt. 
+            Dies funktioniert auch in gegen Richtung. Dabei nutzt man einen doppelt brechenden Kristall. 
+            Innerhalb des Kristalls wird die Welle in zwei orthogonaleKomponenten aufgeteilt, welche Aufgrund der verschiedenen Brechungsindizes unterschiedlich schnell durch den Kristall kommen.
+            Wenn man nun die die Brechungsindizies und die dicke des Plättchens richtig wählt, so kann man eine Verzögerung von genau $\frac \lambda 4$ erreichen, was dann den gewünschten Effekt hat.
+
+        \end{subsection}
+        \begin{subsection}{Hall-Sonde}
+            Innerhalb einer Hall-Sonde befindeet sich ein Strom durchflossener Leiter. 
+            Tritt diese nun in ein senkrecht zum Stomfluss stehdens Magnetfeld ein, so entsteht auf grund der Lorentzkraft innerhalb des Leiters eine verschiebung der Ladungen und damit eine Spannung, die sogenntante Hall-Spannung.
+            Die Hall-Sonde wird genutzt, da mit ihr auch zeitlich konstante Magnetfelder gut gemessen werden können.
+            \todo{formel}
+
+        \end{subsection}
     \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     \begin{section}{Frank-Hertz-Versuch}
-      \todo{skizze}
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Aufbau und Funktionsweise}
-        Wie in der Zeichung zu erkennen Besteht der Aufbau aus einem
-        evakuierten Glaskolbe, welchen mit dünnen Quecksilbergas gefüllt ist. 
-        An den entgegengesätzen Enden des Kolbens befinden sich ein
-        Glühkathode und am anderen eine Anode. Zwischen Kathode und Anode
-        befindet sich ein Gitter, welches wir so verschalten, dass zwischen
-        Kathode und Gitter ein beschleunigungs Spannung anliegt und zwischen
-        Gitter und Anode eine schwache Gegenspannung. Wenn die Glühkathode
-        betriebn wird bildet sich eine Elektronenwolke, aus der die Elektronen
-        durch die Beschleunigungsspannung abgesaugt werden. Während die
-        Elektronen durch den Glaskolben beschleunigt werden stoßen sie mit den
-        Quecksilber atomen. Sobald sie genug Energie haben, um ein
-        Quecksilberatom anzuregen geben sie bei nächsent Stoß genau die Energie
-        ab und werden danach erneut beschleunigt. Durch den Aufbau des Gittes
-        ist es den Meisten möglich ungehindert hindurch zu gelangen und bei
-        genügenthoher kinetischer Energie die Anode zu erreichen. Dort können
-        sie als Strom gemessen werden.
-      %   Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der gemessene Strom an, fällt dann aber stark ab.
-      %  Dies ist die Spannung, bei der die Elektronen genug Energie haben um bei einem inelastischen Stoß ihre Energie abzugeben.
-      %  Wird die Spannung immer weiter erhöht so stellt man fest, das in gleichbleibenden Abständen der Strom abfällt, bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
-          
+        \todo{skizze}
 
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Beobachtung und Interpretertion}
-        Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der
-        gemessene Strom an, fällt dann aber stark ab. Dies ist die Spannung,
-        bei der die Elektronen genug Energie haben um bei einem inelastischen
-        Stoß ihre Energie abzugeben. Wird die Spannung immer weiter erhöht so
-        stellt man fest, das in gleichbleibenden Abständen der Strom abfällt,
-        bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
+        \begin{subsection}{Aufbau und Funktionsweise}
+            Wie in der Zeichung zu erkennen Besteht der Aufbau aus einem evakuierten Glaskolbe, welchen mit dünnen Quecksilbergas gefüllt ist. 
+            An den entgegengesätzen Enden des Kolbens befinden sich ein Glühkathode und am anderen eine Anode. 
+            Zwischen Kathode und Anode befindet sich ein Gitter, welches wir so verschalten, dass zwischen Kathode und Gitter ein beschleunigungs Spannung anliegt und zwischen Gitter und Anode eine schwache Gegenspannung.
+            Wenn die Glühkathode betriebn wird bildet sich eine Elektronenwolke, aus der die Elektronen durch die Beschleunigungsspannung abgesaugt werden.
+            Während die Elektronen durch den Glaskolben beschleunigt werden stoßen sie mit den Quecksilber atomen.
+            Sobald sie genug Energie haben, um ein Quecksilberatom anzuregen geben sie bei nächsent Stoß genau die Energie ab und werden danach erneut beschleunigt.
+            Durch den Aufbau des Gittes ist es den Meisten möglich ungehindert hindurch zu gelangen und bei genügenthoher kinetischer Energie die Anode zu erreichen.
+            Dort können sie als Strom gemessen werden.
+         %   Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der gemessene Strom an, fällt dann aber stark ab.
+          %  Dies ist die Spannung, bei der die Elektronen genug Energie haben um bei einem inelastischen Stoß ihre Energie abzugeben.
+          %  Wird die Spannung immer weiter erhöht so stellt man fest, das in gleichbleibenden Abständen der Strom abfällt, bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
+            
 
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Quecksilberatom}
+        \end{subsection}
+        \begin{subsection}{Beobachtung und Interpretertion}
+            Erhöhen wir nun die Beschleuigungsspannung so steigt zunächst der gemessene Strom an, fällt dann aber stark ab.
+            Dies ist die Spannung, bei der die Elektronen genug Energie haben um bei einem inelastischen Stoß ihre Energie abzugeben.
+            Wird die Spannung immer weiter erhöht so stellt man fest, das in gleichbleibenden Abständen der Strom abfällt, bis die Röhre durchzündet, weil zuviele Elektronen ausgelöst werden. 
 
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \end{subsection}
+        \begin{subsection}{Quecksilberatom}
+            Um herraus zu finden, welche Übergänge zwischen atomren Zuständen erlaubt sind, benötigt man die Auswahlregeln.
+           % Bei Quecksilber handelt es sich um ein schweres Atom.
+            % Daraus folgt, dass die jj-Kopplung die Auswahlregeln definiert.
+            Man erhält als Auswahlregeln: $\Delta J = \pm 1,0$, wobei der Übergang von $J=0 \rightarrow J=0$ verboten ist.
+            Wir erhalten somit die Übergänge:
+            \begin{align*}
+                6^3P_1 &\rightarrow 6^1S_0 \\
+                6^3P_0 &\rightarrow 6^1S_0 \\
+                6^3P_2 &\rightarrow 6^1S_0 \\
+            \end{align*}
+
+            \todo{skizze}
+
+        \end{subsection}
+
     
 
     \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
@@ -270,369 +205,108 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Erster Versuchsteil - Zeeman-Effekt}
-    \label{chp:Zeeman}
-    
+    \label{chp:Photoeffekt}
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau und Justierung}
-      \label{chp:Zeeman:sec:AufbauJustierung}
-      
+    \begin{section}{Aufbau und Durchführung}
+      \label{chp:photoeffekt:sec:AufbauJustage}
+
+      \todo{skizze aufbau}
+
+      Wir schieben die Cadmuimlampe mittig zwischen Polschuhe und drehen diese so, dass die Maximale Intensität am Stahlengang ankommt (Abschmelzstelle und Zuleitunge weg drehen).
+      Die Magnetspulen werden in reihe geschaltet und angeschlosse.
+      Nun justieren wir die Apparatur, indem wir das Okular auf die Strichskala scharf stellen, die Abbildungslinse verschieben bis die Abbildung scharf ist, mit Hilfe der Kondensorlins das Bild so gleichmäßig wie möglich ausgeleuchten und das Fary-Pérot-Etalon mit den Stellschrauben kippen um die Mitte des Ringsystems auf die mitte der Skala zu legen.
+
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Durchführung}
-      \label{chp:Zeeman:sec:Durchfuehrung}
-      
-      
-      
-    \end{section}
+  
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Auswertung des ersten Versuchstages}
-      \label{chp:Zeeman:sec:Auswertung}
+      \label{chp:Photoeffekt:sec:Auswertung}
       
       
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Kalibrierung des Magnetfeldes}
-        \label{chp:Zeeman:sec:AuswertungMagnetfeld}
-        Für die Kalibrierung des Magnetfeldes vermessen wir die Abhängigkeit
-        des Magnetfeldes vom Spulenstrom mithilfe einer Hall-Sonde. Dazu fahren
-        wir den Spulenstrom von $\SI{0.0}{\ampere}$ bis $\SI{10.0}{\ampere}$
-        durch und messen die jeweilige Stärke des Magnetfeldes mit einem
-        \textit{CASSY}-Modul. An die so gewonnenen Messdaten passen wir jetzt
-        ein Polynom dritten Grades an und erhalten dafür die in
-        \cref{fig:MagnetfeldKalibrierung} angezeigten Parameter des Polynomes.
-        \begin{figure}[ht]
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/Versuch401-KalibrierungdesMagnetfeldes.png}
-          \caption{Messung zur Kalibrierung des Magnetfeldes.}
-          \label{fig:MagnetfeldKalibrierung}
-        \end{figure}
-        \newline
-        Da sich die Temperatur der Magnetspulen allerdings im Betrieb ändert,
-        könnte sich der gefundene Zusammenhang zwischen Magnetfeld und
-        Spulenstrom im eigentlichen Betrieb mit der Zeit ebenfalls ändern.
-        Um die zeitliche Konsistenz des Zusammenhanges also zu überprüfen,
-        führen wir diese Messung sowohl vor beginn des Versuches als auch nach
-        der Beendigung des letzten Versuchteiles durch. Damit ist
-        gewährleistet, dass wir die Abhängigkeit des Magnetfeldes vom 
-        Spulenstrom sowohl für kalte als auch für eine warmgelaufene
-        Magnetspulen protokollieren.
-        \newline
-        Für folgenden Berechnungen des Magnetfeldes benutzen wir ab hier das,
-        an den Mittelwert angepasste Polynom.
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Beobachtung des Zeeman-Effekts}
-        \label{chp:Zeeman:sec:AuswertungBeobachtung}
-        
-        \begin{figure}[ht]
-          \centering
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/previewOHNEinv.png}
-            \caption{Transversale Beobachtung der Interferenz ohne externes 
-                Magnetfeld. (Farben invertiert, d.h. Interferenzmaxima werden 
-                dadurch in schwarz dargestellt)}
-            \label{fig:previewOHNEinv}
-          \end{minipage}\quad
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/previewMITinv.png}
-            \caption{Transversale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld. (Farben invertiert, d.h. 
-                Interferenzmaxima werden dadurch in schwarz dargestellt)}
-            \label{fig:previewMITinv}
-          \end{minipage}
-        \end{figure}
-        
-        
-        
-        \begin{figure}[ht]
-          \centering
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/quer2inv.png}
-            \caption{Transversale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
-            \label{fig:quer2inv}
-          \end{minipage}\quad
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/quer3inv.png}
-            \caption{Transversale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
-            \label{fig:quer3inv}
-          \end{minipage}
-        \end{figure}
-        
-        
-        
-        \begin{figure}[ht]
-          \centering
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/parallel4inv.png}
-            \caption{Longitudinale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
-            \label{fig:para4inv}
-          \end{minipage}\quad
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/parallel1inv.png}
-            \caption{Longitudinale Beobachtung der Interferenz mit 
-                eingeschaltetem Magnetfeld und Polarisations Filter um ?? Grad
-                gedreht.}
-            \label{fig:para1inv}
-          \end{minipage}
-        \end{figure}
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Messung des Zeeman-Effekts}
-        \label{chp:Zeeman:sec:AuswertungMessung}
-        
-        \begin{figure}[ht]
-          \centering
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/Versuch401-Fabry-Perot-Etalon-KombinationZoom_Winkel_Intensitaet.png}
-            \caption{Entwicklung der Aufspaltung für verschiedene Stärken des
-                Magnetfeldes.}
-            \label{fig:FPEcombiZOOM}
-          \end{minipage}\quad
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/Versuch401-Fabry-Perot-Etalon-Kombination_Winkel_Intensitaet.png}
-            \caption{Vergrößerter Ausschnitt der Entwicklung.}
-            \label{fig:FPEcombi}
-          \end{minipage}
-        \end{figure}
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Weiterführende Überlegungen}
-        \label{chp:Zeeman:sec:AuswertungWeiteres}
-        
-        
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit - Zeeman-Effekt}
-      \label{chp:ZeemanEffekt:sec:Fazit}
+      \label{chp:Photoeffekt:sec:Fazit}
       
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+   
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
-  
-  
-  
+ 
+ 
+ 
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Zweiter Versuchsteil - Franck-Hertz-Versuch}
-    \label{chp:FH}
-    
-    
-    
+    \label{chp:Balmer}
+ 
+ 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau und Justierung}
-      \label{chp:FH:sec:AufbauJustierung}
+    \begin{section}{Aufbau}
+      \label{chp:Balmer:sec:Aufbau}
       
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Justierung und Durchführung}
-      \label{chp:FH:sec:JusitierungDurchfuehrung}
-      
-      
-      
+      \label{chp:Balmer:sec:JusitierungDurchfuehrung}
+     
+     
+    
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
     
-    
-    
+
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Auswertung}
-      \label{chp:FH:sec:Auswertung}
-      Die Messwerte unserer Messung haben wir für einen besseren Überblick in
-      \cref{fig:FHvergleich} getrennt dargestellt.
-      \begin{figure}[ht]
-        \centering
-        \includegraphics[width=\textwidth]
-            {Figures/Versuch401-Franck-Hertz-VergleichBremsspannungen-Temperaturen.png}
-        \caption{Vergleich der Auswirkungen von unterschiedlichen
-            Bremsspannungen und Temperaturen auf den Anodenspannung.}
-        \label{fig:FHvergleich}
-      \end{figure}
+      \label{chp:Balmer:sec:Auswertung}
       
       
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Bestimmung der Energiedifferenz}
-        \label{chp:FH:sec:AuswertungEnergiedifferenz}
-        Zuerst wollen wir aus dem Anodenstromkurven $I_{A}$ die Energiedifferenz
-        $\Delta E$ zwischen dem $6S$- und dem $6P$-Niveau des Hg-Atoms bestimmen.
-        Dazu passen wir an die genommenen Messwerte eine Kombination diverser
-        Gauss Funktionen an und vermessen den Abstand zwischen den 
-        Peakschwerpunkten. In \cref{fig:FHB15V,fig:FHT140C} ist dies exemplarisch
-        einmal dargestellt. Um ein möglichst genaues Ergebnis zu erhalten,nehmen
-        wir nun den Mittelwert aller bestimmten Abstände der angepassten
-        Funktionen für alle Messungen und erhalten daraus direkt die
-        Energiedifferenz $\Delta E = (4.971\pm 0.070)\SI{}{\electronvolt}$.
-        Für die Breite der Peaks ergibt sich ein Mittelwert von
-        $E_{Breite} = (1.157\pm 0.082)\SI{}{\electronvolt}$.
-        Die benutzten Messdaten sind in \cref{tab:AbstandBreite} aufgelistet und die
-        Graphen der anderen Messungen sind in \cref{Anhang:chp:FH} zusammen
-        dargestellt. Der einzige Übergang im Hg-Atom,dem diese Energiedifferenz
-        entsprechen kann, ist der Übergang $6^{1}S_{0} \rightarrow 6^{3}P_{1}$.
-        \begin{table}[htbp]
-          \centering
-          \footnotesize
-          \begin{tabular}{|c|c|c|c|}
-            \hline
-            $Temp.$ [\textdegree C] & $U_{Brems}$ [V] & $\Delta E$ [eV]
-            & $Breite$ [eV] \\ \hline
-            130 & 2.0 & $5.01\pm 0.21$ & $1.50\pm 0.22$ \\ \hline
-            140 & 2.0 & $4.98\pm 0.30$ & $1.18\pm 0.35$ \\ \hline
-            150 & 2.0 & $5.01\pm 0.14$ & $1.01\pm 0.16$ \\ \hline
-            165 & 2.0 & $4.96\pm 0.28$ & $0.99\pm 0.34$ \\ \hline
-            175 & 2.0 & $4.99\pm 0.22$ & $1.06\pm 0.24$ \\ \hline
-            165 & 1.5 & $4.96\pm 0.16$ & $1.21\pm 0.19$ \\ \hline
-            165 & 2.0 & $4.96\pm 0.25$ & $1.05\pm 0.31$ \\ \hline
-            165 & 2.5 & $4.96\pm 0.23$ & $1.14\pm 0.27$ \\ \hline
-            165 & 3.0 & $4.95\pm 0.20$ & $1.17\pm 0.23$ \\ \hline
-            165 & 3.5 & $4.93\pm 0.16$ & $1.26\pm 0.20$ \\ \hline
-          \end{tabular}
-          \caption{Ergebnisse der Funktionsanpassungen.}
-          \label{tab:AbstandBreite}
-        \end{table}
-        \newline
-        Der Literaturwert dieses Übergangs ist mit $\SI{4.89}{\electronvolt}$
-        angegeben und passt damit sogar beinahe in die von uns berechneten
-        Fehlergrenzen. Dieser Übergang besitzt außerdem bei etwa
-        $\SI{5}{\electronvolt}$ ein Maximum im totalen Wirkungsquerschnitt
-        wodurch wir davon ausgehen können das es in unserem Versuch
-        hauptsächlich zu dieser Art des Elektronenüberganges gekommen ist.
-        \begin{figure}[ht]
-          \centering
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/Versuch401-Franck-Hertz-1_5VBremsspannung_Beschl_Spannung_Anodenspannung.png}
-            \caption{Angepasste Gauss-Funktion für ein Beispiel einer
-                Bremsspannung.}
-            \label{fig:FHB15V}
-          \end{minipage}\quad
-          \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-                {Figures/Versuch401-Franck-Hertz-140CTemperatur_Beschl_Spannung_Anodenspannung.png}
-            \caption{Angepasste Gauss-Funktion für ein Beispiel einer
-                Temperatur.}
-            \label{fig:FHT140C}
-          \end{minipage}
-        \end{figure}
-        
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Abhängigkeiten des Anodenstromes}
-        \label{chp:FH:sec:AuswertungAnodenstrom}
-        Als nächstes ist die Abhängigkeit des Anodenstromes 
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
-      
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Temperaturinterval}
-        \label{chp:FH:sec:AuswertungTemperatur}
-        Als nächstes ist zu klären weshalb die praktische Durchführung des
-        Versuches auf ein relativ kleines Temperaturinterval beschränkt ist.
-      \end{subsection}
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      
+     
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
@@ -642,7 +316,7 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit}
-      \label{chp:FH:sec:Fazit}
+      \label{chp:Balmer:sec:Fazit}
       
       
       
@@ -667,7 +341,7 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    \bibitem{bla}bla
+    
    
   \end{thebibliography}
   %%%%%%%%%%%%%%%%%%%%
