@@ -689,10 +689,10 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         ddlproln = dlproln*z
         ddlprolp = dlprolp*z
         
-        dEp.append(-h*c*dlprolp/l0*1000)
-        dEn.append(-h*c*dlproln/l0*1000)
-        ddEp.append(np.sqrt((h*c*ddlprolp/l0)**2)*1000)
-        ddEn.append(np.sqrt((h*c*ddlproln/l0)**2)*1000)
+        dEp.append(-h*c*dlprolp/l0)
+        dEn.append(-h*c*dlproln/l0)
+        ddEp.append(np.sqrt((h*c*ddlprolp/l0)**2))
+        ddEn.append(np.sqrt((h*c*ddlproln/l0)**2))
         #print dEn
         #print B
         # Plotte die Originaldaten. Da es Messdaten sind, werden sie nicht mit
@@ -802,8 +802,8 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         title = "Bohr'sches Magneton"
         xlabel = "Magnetfeld"
         xunit = "[T]"
-        ylabel = "dE"
-        yunit = "[10^(-3)eV]"
+        ylabel = r"$\Delta$E"
+        yunit = "[eV]"
         
         # set axis labels
         plt.title(title)
@@ -813,11 +813,13 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         # place a Legend in the plot
         set_legend(5)
         
+        plt.gca().get_yaxis().get_major_formatter().set_powerlimits((0, 1))
+        
         # display grid
         plt.grid(True)
         
         # save the plot in file
-        filename = title + "_" + xlabel + "_" + ylabel
+        filename = title + "_" + xlabel + "_" + "dE"
         write_file(filename)
         plt.close()
             

@@ -294,6 +294,14 @@
         
         \todo[inline]{TODO!}
         
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]
+    {Figures/termschema2.png}
+        \caption{Termschema des Quecksilber Atomes mit eingezeichneten
+        Übergängen.}
+        \label{fig:termschema2}
+      \end{figure}
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -625,10 +633,26 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Weiterführende Überlegungen}
+      \begin{subsection}
+      {Weiterführende Überlegungen: Finesse und Auflösungsvermögen}
         \label{chp:Zeeman:sec:AuswertungWeiteres}
-        
-        \todo[inline]{Finesse und auflösung fehlen noch!!!}
+        Zur Berechnung der theoretischen Finesse $\mathcal{F}$ benötigt man
+        neben \cref{eq:Finesse} den Reflexionskoeffizienten des 
+        \textit{Fabry-Perot-Etalons} der für unseren Aufbau $R=0.85$ beträgt.
+        Daraus ergibt sich nun aus \cref{eq:Finesse} $\mathcal{F}=19.31$.
+        Aus der theoretischen Finesse, der Wellenlänge der beobachteten Linie
+        $\lambda=\SI{643.8}{\nano\meter}$, der Dicke des
+        \textit{Fabry-Perot-Etalons} $d=\SI{4}{\milli\meter}$ und des
+        Brechungsindex $n=1.457$ lässt sich die theoretische Auflösung $R$ aus
+        \cref{eq:Aufloesung} mit $R=\SI{3.50e5}{}$ bestimmen. \newline
+        Für die Bestimmung der realen Auflösung haben wir, unter Beobachtung
+        mit dem Okular, den minimalen Spulenstrom bestimmt ab dem eine Trennung
+        der Linien erkennbar ist. Bei der transversalen Ausrichtung haben wir
+        einen Wert von $I_T=\SI{2.5}{\ampere}$ gemessen. Mit der von uns
+        bestimmten Magnetfeldgleichung ergibt sich daraus eine Feldstärke von
+        $B_T=(224.40\pm 10.39)\SI{}{\milli\tesla}$. Bei der longitudinalen
+        Messung ergibt sich eine Feldstärke von 
+        $B_L=(105.23\pm 5.70)\SI{}{\milli\tesla}$. 
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -646,12 +670,10 @@
       Betrachtet man die Interferenzmuster einer Hg-Lampe durch ein
       \textit{Fabry-Perot-Etalon} kann man nicht nur das wunderschöne Muster
       optisch betrachten, setzt man die Lampe einem externen Magnetfeld aus,
-      so lässt sich außerdem auch die Spin-Entartung
-      \todo[inline]{Spin richtig?}
-      beobachten und das Bohrschen Magneton aus den aufspaltenden
-      Energiedifferenzen berechnen. Der von uns bestimmte Wert für das Bohrsche
-      Magneton passt außerdem auch noch erstaunlich gut mit seinen Fehlergrenzen
-      zum Literaturwert.
+      so lässt sich außerdem auch die Energie-Entartung beobachten und das
+      Bohrschen Magneton aus den aufspaltenden Energiedifferenzen berechnen.
+      Der von uns bestimmte Wert für das Bohrsche Magneton passt außerdem auch
+      noch erstaunlich gut mit seinen Fehlergrenzen zum Literaturwert.
       Alle Fehler wurden bei den benutzten Rechnungen mithilfe der
       Fehlerfortpflanzung bestimmt.
     \end{section}
@@ -677,7 +699,6 @@
       \label{chp:FH:sec:AufbauJustierung}
       
       
-      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -688,7 +709,6 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Justierung und Durchführung}
       \label{chp:FH:sec:JusitierungDurchfuehrung}
-      
       
       
     \end{section}
@@ -793,7 +813,33 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Abhängigkeiten des Anodenstromes}
         \label{chp:FH:sec:AuswertungAnodenstrom}
-        Als nächstes ist die Abhängigkeit des Anodenstromes 
+        Als nächstes sind die Abhängigkeiten des Anodenstromes zu klären. Dazu
+        könne wir wieder \cref{fig:FHvergleich} betrachten. Zunächst fällt auf,
+        dass es bei ganzen Vielfachen der Übergangsenergie keine scharfen
+        Einbrüche des Anodenstromes gibt. Dafür kann es verschieden Gründe
+        geben. \newline
+        zum einen haben angeregte Zustände eine endliche Lebensdauer in denen
+        sie kein zweites mal angeregt werden können und die Elektronen
+        unbeeinträchtigt weiter fliegen können. Außerdem ist das
+        Quecksilberatom relativ dünn, sodass die freie
+        Weglänge im Quecksilberatom $\SI{0.1}{\micro\meter}$ bis
+        $\SI{100}{\micro\meter}$ beträgt. Es kann also genauso gut sein, dass
+        ein Elektron keines der Quecksilberatome trifft und ebenfalls
+        unbeeinträchtigt weiter fliegt selbst wenn es die richtige Energie
+        haben sollte. Diese Möglichkeit stellt einen Zusammenhang zur
+        Abhängigkeit des Anodenstromes zur Bremsspannung dar. Je höher diese
+        ist, desto geringer ist die Zeit, die das Elektron benötigt um
+        ein Atom zu durchqueren und desto geringer ist die Wahrscheinlichkeit,
+        dass es eines anregen kann. Außerdem wird dadurch auch der Bereich, in
+        dem das Elektron genügend Energie besitzt weiter beschränkt. \newline
+        Bei dem Vergleich der Anodenströme bei unterschiedlichen Temperaturen
+        kann man sehr gut erkennen, dass es bei geringeren Temperaturen
+        deutlich schneller zu höheren Anodenströmen kommt als bei höheren
+        Temperaturen. Dies könnte daran liegen, dass der Dampfdruck bei
+        geringeren Temperaturen auch kleiner ist und die Elektronen seltener
+        mit den Quecksilberatomen stoßen. Daher sind auch die Maxima auch
+        deutlich höher als bei größeren Temperaturen.
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -802,10 +848,24 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Temperaturinterval}
+      \begin{subsection}{Temperaturintervall}
         \label{chp:FH:sec:AuswertungTemperatur}
-        Als nächstes ist zu klären weshalb die praktische Durchführung des
-        Versuches auf ein relativ kleines Temperaturinterval beschränkt ist.
+        Die praktische Durchführung des Versuches ist aufgrund des Dampfdruckes
+        auf ein relativ kleines Temperaturintervall beschränkt. Bei höheren
+        Temperaturen verdampfen mehr Quecksilberatome und die Teilchendichte
+        im Gas steigt, sodass weniger Elektronen die Anode erreichen und mehr
+        Atome Angeregt werden können. Bei einer zu kleinen Temperatur wiederum
+        ist die Teilchendichte zu gering und es kommt zu weniger Stößen
+        zwischen Elektronen und Atomen. Daher sollte darauf geachtet werden,
+        dass der sinnvolle Temperaturbereich nicht verlassen wird. Bei unseren
+        Messungen haben wir festgestellt, dass eine Temperatur von 
+        $\SI{160}{\celsius}$ nicht unterschritten werden sollte. Leider haben
+        wir als maximale Temperatur nur $\SI{175}{\celsius}$ vermessen. Bei
+        dieser Temperatur zeigt die Röhre noch in ein sehr gutes
+        Arbeitsverhalten. Um die obere Grenze des akzeptablen
+        Temperaturbereiches zu bestimmen, hätten wir weitere, höhere
+        Temperaturen vermessen müssen.
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -819,9 +879,20 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit}
       \label{chp:FH:sec:Fazit}
-      
-      
-      
+      Bei diesem Versuch konnten wir tatsächlich die Energie des
+      $6^{1}S_{0} \rightarrow 6^{3}P_{1}$ Übergangs im Quecksilberatom mit
+      hinreichender Genauigkeit bestimmen. Der von uns bestimmte Wert von
+      $\Delta E = (4.971\pm 0.070)\SI{}{\electronvolt}$ passt mit seinen
+      Fehlergrenzen sogar beinahe zum Literaturwert von 
+      $\SI{4.89}{\electronvolt}$. \newline
+      Außerdem konnten wir einen deutlichen Zusammenhang zwischen dem
+      Anodenstrom und der Temperatur sowie der angelegten Bremsspannung
+      erkennen. Dabei haben wir festgestellt, dass es bei der Durchführung des
+      Franck-Hertz Versuches sehr wichtig ist die Temperatur der Röhre in einem
+      beschränkten Temperaturintervall zu halten um ein sinnvolles Arbeiten
+      der Apparatur zu gewährleisten. \newline
+      Alle Fehler wurden bei den benutzten Rechnungen mithilfe der
+      Fehlerfortpflanzung bestimmt.
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
