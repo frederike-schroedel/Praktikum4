@@ -21,7 +21,6 @@
 \usepackage[scale=0.8, hmarginratio=4:2]{geometry}
   \geometry{textheight=1.05\textheight, textwidth=.95\textwidth,
             marginparwidth=25 pt}
-\renewcommand{\arraystretch}{1.1}
 
 
 
@@ -52,9 +51,9 @@
   
 %   \setcounter{page}{2}
   
-  \begin{chapter}*{Einleitung}
+  \begin{chapter}*{Abstract}
     Ziel des Versuchs ist es nachzuweisen, dass Atome Energieniveaus besitzen.
-    Hierfür nutzen wir die Beobachtung des Zeeman-Effektes mit einem 
+    Hierfür nutzen wir die Beobachtung des Zeeman-Effektes mit einem
     Fabry-Perot-Etalon und den Franck-Hertz-Versuch.
 
     
@@ -79,6 +78,8 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Zeeman-Effekt}
       
+      
+      
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,15 +97,15 @@
         wird. Den Zeeman-Effekt kann man wiederum aufteilen. Es gibt den
         normalen Zeeman-Effekt, mit den der gesamt Spin $\vec S = 0$, was
         eigentlich der seltene Effekt ist, und den anormalen Zeeman-Effekt mit
-        einem Spin der von 0 verschieden ist. In diesen Versuch beschäftigen
-        wir uns mit dem normalen Zeeman-Effekt. Insbesondere betrachten wir den
-        den ${}^1P_1$ zu ${}^1D_2$ Übergang von Cadmium.
-        In dieser Skizze ist die Aufspaltung der beiden Zustände dargestellt.
-        Durch die Auswahlregeln, welche in diesen Fall $\Delta M_J = \pm$ für
-        zirkular polarisiertes Licht und $\Delta M_J=0$ für linear polarisiertes
-        Licht sind, erhält man die erlaubten Übergänge. Da die Aufspaltung bei
-        dem normalen Zeeman-Effekt äquidistant sind, erhält man letztendlich
-        drei unterschiedliche Energiedifferenzen.
+        einem Spin der von 0 verschieden ist. \newline
+        In diesen Versuch beschäftigen wir uns mit dem normalen Zeeman-Effekt.
+        Insbesondere betrachten wir den den ${}^1P_1$ zu ${}^1D_2$ Übergang von
+        Cadmium. In dieser Skizze ist die Aufspaltung der beiden Zustände
+        dargestellt. Durch die Auswahlregeln, welche in diesen Fall
+        $\Delta M_J = \pm$ für zirkular polarisiertes Licht und $\Delta M_J=0$
+        für linear polarisiertes Licht sind, erhält man die erlaubten Übergänge.
+        Da die Aufspaltung bei dem normalen Zeeman-Effekt äquidistant sind,
+        erhält man letztendlich drei unterschiedliche Energiedifferenzen.
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,10 +173,31 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Natürliche Linienbreite und Linienverbreiterung}
+        Durch die diskreten Energieniveaus könnte man annehmen, das die
+        Emissionslinien unendlich scharf sind. Dies ist nicht der Fall, so haben
+        die Emissionslinien eine endliche Breite. Es kommt es schon zu einer
+        Linienbreite, da die Lebensdauer des angeregten Zustandes begrenzt ist.
+        \begin{equation}
+          \label{eq:Linienbreite1}
+          \Delta E\Delta t \geq \hbar \implies \Delta E \geq \frac \hbar\tau
+        \end{equation}
+        Zusätzlich kommt es zu Linienverbreiterung zum Beispiel durch die Dopplerverbreiterung oder durch die Druckverteilung.
+        Zu der Dopplerverbreiterung kommt es, weil sich die abstrahlenden Atome
+        in alle Raumrichtungen bewegen, wodurch die abgestrahlte Welle eine
+        verschobene Wellenlänge hat. Durch die Überlagerung der Bewegungen in
+        die verschiedenen Richtungen kommt es dann zu einer gaußförmigen
+        Verbreiterung. Diese ist deutlich größer als die natürliche Linienbreite
+        und berechnet sich mit:
+        \begin{equation}
+          \label{eq:Linienbreite2}
+          \Delta\lambda = \frac{2\lambda}{c}\sqrt{\frac{2\ln 2k_B T}{m}}
+        \end{equation}
+        Bei der Druckverbreiterung handelt es sich um mehrere Effekte, welche
+        durch Wechselwirkung mit anderen Teile zustande kommen. So haben
+        benachbarte Atome Einfluss auf die Energieniveaus oder es kommt zu
+        Stößen, welche die Lebensdauer eines angeregten Zustandes verkürzen.
         
-        \todo[inline]{TODO!}
-        
-      \end{subsection}
+        \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
       
@@ -266,6 +288,7 @@
             \label{fig:hallsensor}
           \end{minipage}
         \end{figure}
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -281,7 +304,7 @@
         Stoß ihre Energie abzugeben. Wird die Spannung immer weiter erhöht so
         stellt man fest, das in gleichbleibenden Abständen der Strom abfällt,
         bis die Röhre durchzündet, weil zu viele Elektronen ausgelöst werden. 
-
+        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -291,13 +314,22 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Quecksilberatom}
-        
-        \todo[inline]{TODO!}
+        Um herauszufinden, welche Übergänge zwischen atomaren Zuständen
+        erlaubt sind, benötigt man die Auswahlregeln.
+        % Bei Quecksilber handelt es sich um ein schweres Atom.
+        % Daraus folgt, dass die jj-Kopplung die Auswahlregeln definiert.
+        Man erhält als Auswahlregeln: $\Delta J = \pm 1,0$, wobei der Übergang
+        von $J=0 \rightarrow J=0$ verboten ist. Wir erhalten somit die
+        Übergänge:
+        \begin{align*}
+          6^3P_1 &\rightarrow 6^1S_0 \\
+          6^3P_0 &\rightarrow 6^1S_0 \\
+          6^3P_2 &\rightarrow 6^1S_0 \\
+        \end{align*}
         
         \begin{figure}[ht]
         \centering
-        \includegraphics[width=\textwidth]
-    {Figures/termschema2.png}
+        \includegraphics[width=\textwidth]{Figures/termschema2.png}
         \caption{Termschema des Quecksilber Atomes mit eingezeichneten
         Übergängen.}
         \label{fig:termschema2}
@@ -317,29 +349,59 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Erster Versuchsteil - Zeeman-Effekt}
-    \label{chp:Zeeman}
-    
+    \label{chp:Photoeffekt}
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau und Justierung}
-      \label{chp:Zeeman:sec:AufbauJustierung}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Durchführung}
-      \label{chp:Zeeman:sec:Durchfuehrung}
-      
-      
-      
+    \begin{section}{Aufbau und Durchführung}
+      \label{chp:photoeffekt:sec:AufbauJustage}
+      Wir schieben die Cadmiumlampe mittig zwischen Polschuhe und drehen diese
+      so, dass die Maximale Intensität am Strahlengang ankommt (Abschmelzstelle
+      und Zuleitungen weg drehen). Die Magnetspulen werden in reihe geschaltet
+      und angeschlossen. Nun justieren wir die Apparatur, indem wir das Okular
+      auf die Strichskala scharf stellen, die Abbildungslinse verschieben bis
+      die Abbildung scharf ist, mit Hilfe der Kondensorlinse das Bild so
+      gleichmäßig wie möglich ausgeleuchtet und das Fabry-Pérot-Etalon mit den
+      Stellschrauben kippen um die Mitte des Ringsystems auf die Mitte der Skala
+      zu legen.
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]
+            {Figures/ZeemanAufbau.PNG}
+        \caption{Schematischer Aufbau des Versuches.}
+        \label{fig:ZeemanAufbau}
+      \end{figure}
+      \newline
+      \begin{minipage}{0.4\textwidth}
+        \begin{description}
+          \item[a] Cadmiumlampe
+          \item[b] Klammern
+          \item[c] Polschuhe
+          \item[d] Sammellinse, $f=\SI{150}{\milli\meter}$
+          \item[f] Sammellinse, $f=\SI{150}{\milli\meter}$
+          \item[h] Okular
+        \end{description}
+      \end{minipage}\quad
+      \begin{minipage}{0.56\textwidth}
+        \begin{description}
+          \item[e] Fabry-Perot-Etalon: 
+              \begin{description}
+                \item[Dicke] $d=\SI{4}{\milli\meter}$
+                \item[Brechungsindex] $n=1.457$
+                \item[Reflexionskoeffizient] $r=0.85$
+              \end{description}
+          \item[g] Interferenzfilter:
+              \begin{description}
+                \item[Mittelwellenlänge] $\lambda=(643.8\pm2.0)
+                    \SI{}{\nano\meter}$
+                \item[Halbwertsbreite] $\SI{13}{\nano\meter}$
+              \end{description}
+        \end{description}
+      \end{minipage}
+
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -494,9 +556,6 @@
         Richtung beobachtet auch diese beiden Linien um $\SI{90}{\degree}$
         verschoben polarisiert sind. In den \cref{fig:para4inv,fig:para5inv}
         ist der Unterschied der Polarisation zu sehen.
-        
-        \todo[inline]{FERTIG?}
-        
         \begin{figure}[b!]
           \centering
           \begin{minipage}{0.48\textwidth}
@@ -653,15 +712,80 @@
         $B_T=(224.40\pm 10.39)\SI{}{\milli\tesla}$. Bei der longitudinalen
         Messung ergibt sich eine Feldstärke von 
         $B_L=(105.23\pm 5.70)\SI{}{\milli\tesla}$. 
+        \begin{equation}
+          \label{eq:AufloesungReal}
+          R=\frac{E}{\Delta E}=\frac{hc}{\lambda\Delta E} = 
+          \frac{hc}{\lambda\mu_{B}B}
+        \end{equation}
+        \begin{equation}
+          \label{eq:FinesseReal}
+          \mathcal{F}=R\frac{\lambda}{2nd}
+        \end{equation}
+        \newline
+        Für die reale Auflösung und die daraus resultierende Finesse ergeben
+        sich damit aus \cref{eq:AufloesungReal,eq:FinesseReal} für den
+        transversalen Aufbau Werte von $R_{T}=(1.50\pm0.09) \times 10^{5}$ und
+        $\mathcal{F}_{T}=(8.29\pm0.50)$ und für den longitudinalen Aufbau von
+        $R_{L}=(1.60\pm 0.11) \times 10^{5}$ und
+        $\mathcal{F}_{L}=(8.84\pm0.61)$. Bei der Berechnung der longitudinalen
+        Werte ist allerdings zu berücksichtigen, dass es sich hier um die beiden
+        $\sigma^{\pm}$ handelt und der Abstand der Energien daher doppelt so
+        groß ist. daher ändert sich \cref{eq:AufloesungReal} zu
+        \cref{eq:AufloesungReal2}.
+        \begin{equation}
+          \label{eq:AufloesungReal2}
+          R=\frac{E}{\Delta E}=\frac{hc}{\lambda\Delta E} = 
+          \frac{hc}{\lambda2\mu_{B}B}
+        \end{equation}
+        \newline
+        Die abgeschätzten Werte der Auflösung und der Finesse liegen hier
+        deutlich unter den theoretisch errechneten. Warum die Werte soweit von
+        einander entfernt sind können wir nur vermuten. Es liegt womöglich
+        an unserer Beobachtung mit dem Okular oder daran, dass wir bei der
+        Beobachtung fälschlich davon ausgegangen sind, dass wir die
+        unterschiedlichen Linien so gerade erkennen konnten es uns aber
+        tatsächlich irgendwie eingebildet haben müssen.
+        
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \begin{subsubsection}*{Dopplerverbreiterung}
+          Wenn wir davon ausgehen, dass die verwendete Lampe bei einer
+          Temperatur von $T=\SI{1000}{\kelvin}$ arbeitet, können wir mit
+          \cref{eq:Linienbreite2} die Dopplerverbreiterung der Linien berechnen.
+          Dabei nehmen wir eine Masse des Cadmium Atomes von
+          $m_{Cad}=\SI{112.41}{\atomicmassunit}$ bzw.
+          $m_{Cad}=\SI{186.66e-27}{\kilo\gram}$ und erhalten
+          $\delta\lambda_{D}=\SI{1.37e-3}{\nano\meter}$. \newline
+          Betrachtet man nun eine von uns an eine Linie angepasste
+          Gauß-Funktion, z.B. \cref{fig:FPEAusschnitt80}, und errechnet aus der
+          Halbwertsbreite des mittleren Peaks den Winkel, lässt sich mit
+          \cref{eq:deltalambda} die tatsächlich aufgenommene Linienbreite
+          berechnen.
+          \begin{equation}
+            \label{eq:deltalambda}
+            \delta\lambda = \lambda_{1}-\lambda_{2} = \lambda
+            \frac{\sqrt{n^{2}-sin^{2}(\alpha_{1})}-\sqrt{n^{2}-sin^{2}
+            (\alpha_{2})}}{\sqrt{n^{2}-sin^{2}(\alpha)}}
+          \end{equation}
+          \newline
+          Damit erhalten wir einen Wert von 
+          $\delta\lambda=\SI{6.29e-3}{\nano\meter}$. Dieser Wert weicht
+          allerdings stark vom theoretischen Wert der Dopplerverbreiterung ab
+          daher müssen wir davon ausgehen, dass noch weitere Phänomene die
+          Linienverbreiterung beeinflussen.
+          
+        \end{subsubsection}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -678,32 +802,31 @@
       Fehlerfortpflanzung bestimmt.
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+   
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
-  
-  
-  
+ 
+ 
+ 
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Zweiter Versuchsteil - Franck-Hertz-Versuch}
-    \label{chp:FH}
-    
-    
-    
+    \label{chp:Balmer}
+ 
+ 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau und Justierung}
-      \label{chp:FH:sec:AufbauJustierung}
+    \begin{section}{Aufbau}
+      \label{chp:Balmer:sec:Aufbau}
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
+   
+   
+   
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -914,7 +1037,7 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    \bibitem{bla}bla
+    \bibitem{bla}bla bla
    
   \end{thebibliography}
   %%%%%%%%%%%%%%%%%%%%
