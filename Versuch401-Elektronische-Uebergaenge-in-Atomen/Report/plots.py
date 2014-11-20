@@ -569,7 +569,7 @@ def Magnetfeld_Kalibrierung_RAW(title, xlabel, xunit, ylabel, yunit):
     
     # plot y against x 
     plt.plot(x, y, ".", label="Erste Messung zu" +
-             "\nbeginn des Versuches", color="green")
+             "\nBeginn des Versuches", color="green")
     plt.plot(fitted_x, fitted_y, label=u"Fit: y = a*x**3 + b*x**2 + c*x + d" +
              u"\na : (%.2f±%.2f)" % (f[0], df[0]) +
              u"  b : (%.2f±%.2f)" % (f[1], df[1]) +
@@ -623,7 +623,9 @@ def Magnetfeld_Kalibrierung_RAW(title, xlabel, xunit, ylabel, yunit):
     set_log_axis(False, False)
     
     # place a Legend in the plot
-    set_legend(4)
+    leg = plt.legend(prop={'size':11}, loc = 4, numpoints=1,
+                         fancybox=True)
+    leg.get_frame().set_alpha(0.5)
     
     # display grid
     plt.grid(True)
@@ -1117,7 +1119,7 @@ CCD_Winkel_plotting = 0
 CCD_Pixel_combi_plotting = 0
 CCD_Winkel_combi_plotting = 0
 # FITTINGS
-CCD_ZoomFit_Pixel_plotting = 1
+CCD_ZoomFit_Pixel_plotting = 0
 CCD_ZoomFit_Winkel_plotting = 0
 
 # RAW DATA
@@ -1128,7 +1130,7 @@ FH_B_Gauss_plotting = 0
 FH_T_Gauss_plotting = 0
 
 # RAW DATA
-MF_plotting = 0
+MF_plotting = 1
 
 # ALL OF THEM
 everything = 0
