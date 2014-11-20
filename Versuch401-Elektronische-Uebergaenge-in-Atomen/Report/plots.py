@@ -26,9 +26,9 @@ def write_file(filename):
         plt.savefig("Figures/" + filename + ".png")
 
 def set_legend(location):
-    leg = plt.legend(prop={'size':9}, loc = location, numpoints=1,
+    leg = plt.legend(prop={'size':15}, loc = location, numpoints=1,
                          fancybox=True)
-    leg.get_frame().set_alpha(0.7)
+    leg.get_frame().set_alpha(0.5)
 
 def set_log_axis(x, y):
     if x == True:
@@ -524,10 +524,10 @@ def FranckHertz_RAW(title, xlabel, xunit, ylabel, yunit):
         ax2.set_ylabel(ylabel + " " + yunit)
         
         # place a Legend in the plot
-        leg1 = ax1.legend(prop={'size':9}, loc = 2, numpoints=1,
+        leg1 = ax1.legend(prop={'size':12}, loc = 2, numpoints=1,
                          fancybox=True)
         leg1.get_frame().set_alpha(0.5)
-        leg2 = ax2.legend(prop={'size':9}, loc = 2, numpoints=1,
+        leg2 = ax2.legend(prop={'size':12}, loc = 2, numpoints=1,
                          fancybox=True)
         leg2.get_frame().set_alpha(0.5)
         
@@ -702,12 +702,13 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         # Plotte die Anpassungsfunktion. Diesmal ohne Punkte, aber mit einer Linie.
         plt.plot(fitted_x, fitted_y, label=u"Fit: " + 
                  u"\nPeak 1: (%.2f±%.2f)" % (f[1], df[1]) +
-                 u"\nFHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
+                 u"   FHMW 1: (%.2f±%.2f)" % (f[2], df[2]) +
                  u"\nPeak 2: (%.2f±%.2f)" % (f[5], df[5]) +
-                 u"\nFHMW 2: (%.2f±%.2f)" % (f[6], df[6]) +
+                 u"   FHMW 2: (%.2f±%.2f)" % (f[6], df[6]) +
                  u"\nPeak 3: (%.2f±%.2f)" % (f[9], df[9]) +
-                 u"\nFHMW 3: (%.2f±%.2f)" % (f[10], df[10]))
-                 #u"\n    y : (%.2f±%.2f)" % (yshift, dyshift))
+                 u"   FHMW 3: (%.2f±%.2f)\n" % (f[10], df[10]) +
+                 ur"$\Delta E_p$ : (%.2e±%.2e)" % (dEp[-1],ddEp[-1] ) + "\n" +
+                 ur"$\Delta E_n$ : (%.2e±%.2e)" % (dEn[i],ddEn[i] ))
         
         # set axis labels
         plt.title(title)
@@ -719,7 +720,7 @@ def CCD_ZoomFit(first, last, bottom, top, title, xlabel1, xunit1, xlabel2, xunit
         plt.ylim([bottom,top])
         
         # place a Legend in the plot
-        set_legend(1)
+        set_legend(4)
         
         # display grid
         plt.grid(True)

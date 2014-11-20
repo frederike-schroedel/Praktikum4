@@ -153,14 +153,16 @@
             \centering
             \includegraphics[width=\textwidth]
             {Figures/strahlengang_fabry-perot-etalon.png}
-            \caption{Strahlengang eines \textit{Fabry-Perot-Etalon}'s.}
+            \caption{Strahlengang eines \textit{Fabry-Perot-Etalon}'s.
+                \cite{bib:FPE}}
             \label{fig:FPEstrahlengang}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
                 {Figures/termschema.png}
-                \caption{Termschema des betrachteten Cadmium Übergangs.}
+                \caption{Termschema des betrachteten Cadmium Übergangs.
+                    \cite{bib:Anleitung}}
             \label{fig:termschema}
           \end{minipage}
         \end{figure}
@@ -277,14 +279,15 @@
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Figures/hertz.png}
-            \caption{Schematischer Aufbau des Franck-Hertz-Versuches.}
+            \caption{Schematischer Aufbau des Franck-Hertz-Versuches.
+                \cite{bib:FH}}
             \label{fig:FHaufbau}
           \end{minipage}\quad
           \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Figures/hall-sensor.png}
                 \caption{Schematischer Aufbau und Funktionsprinzip einer
-                    Hall-Sonde.}
+                    Hall-Sonde. \cite{bib:Hallsonde}}
             \label{fig:hallsensor}
           \end{minipage}
         \end{figure}
@@ -331,7 +334,7 @@
         \centering
         \includegraphics[width=\textwidth]{Figures/termschema2.png}
         \caption{Termschema des Quecksilber Atomes mit eingezeichneten
-        Übergängen.}
+        Übergängen.\cite{bib:Anleitung}}
         \label{fig:termschema2}
       \end{figure}
       \end{subsection}
@@ -371,7 +374,7 @@
         \centering
         \includegraphics[width=\textwidth]
             {Figures/ZeemanAufbau.PNG}
-        \caption{Schematischer Aufbau des Versuches.}
+        \caption{Schematischer Aufbau des Versuches.\cite{bib:Anleitung}}
         \label{fig:ZeemanAufbau}
       \end{figure}
       \newline
@@ -648,9 +651,14 @@
           \end{minipage}
         \end{figure}
         Zwei Beispiele dieser Anpassung sind in
-        \cref{fig:FPEAusschnitt44,fig:FPEAusschnitt80} gezeigt. Mit der daraus
-        gefundenen relativen Wellenlängenverschiebung und \cref{eq:dE} kann dann
-        die Energieverschiebung $\Delta E$ berechnet werden.
+        \cref{fig:FPEAusschnitt44,fig:FPEAusschnitt80} gezeigt. Und die Winkel
+        $\alpha$ wurden aus Pixeln mit \cref{eq:PixelWinkel} berechnet. Mit der
+        daraus gefundenen relativen Wellenlängenverschiebung und \cref{eq:dE}
+        kann dann die Energieverschiebung $\Delta E$ berechnet werden.
+        \begin{equation}
+          \label{eq:PixelWinkel}
+          \alpha=arctan\left(\frac{(1024-p)\SI{0.014}{\milli\meter}}{f}\right)
+        \end{equation}
         \begin{equation}
           \label{eq:dE}
           \Delta E = -\frac{hc}{\lambda_{\pi}^{0}}
@@ -674,7 +682,7 @@
         Beide Werte liegen damit mit ihren Fehlergrenzen gut am Literaturwert
         von $\mu_{B}^{Lit}=\SI{5.81e-5}{\electronvolt\per\tesla}$.
         Die von uns erhaltenen Werte und deren angepassten Geraden sind in
-        \cref{fig:BohrschesMagneton} aufgetragen.
+        \cref{fig:BohrschesMagneton} angezeigt.
         \begin{figure}[ht]
           \centering
           \includegraphics[width=\textwidth]
@@ -883,8 +891,8 @@
           \footnotesize
           \begin{tabular}{|c|c|c|c|}
             \hline
-            $Temp.$ [\textdegree C] & $U_{Brems}$ [V] & $\Delta E$ [eV]
-            & $Breite$ [eV] \\ \hline
+            Temp./\textdegree C & $U_{Brems}$/V & $\Delta E$/eV
+            & $Breite$/eV \\ \hline
             130 & 2.0 & $5.01\pm 0.21$ & $1.50\pm 0.22$ \\ \hline
             140 & 2.0 & $4.98\pm 0.30$ & $1.18\pm 0.35$ \\ \hline
             150 & 2.0 & $5.01\pm 0.14$ & $1.01\pm 0.16$ \\ \hline
@@ -1037,8 +1045,7 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    \bibitem{bla}bla bla
-   
+    \input{./Bibliography.tex}
   \end{thebibliography}
   %%%%%%%%%%%%%%%%%%%%
  
