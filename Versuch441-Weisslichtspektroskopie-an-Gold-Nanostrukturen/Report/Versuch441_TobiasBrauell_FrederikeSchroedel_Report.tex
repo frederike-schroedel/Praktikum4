@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%
 %%% Document
 %%%%%%%%%%%%%%%%%%%%
-\documentclass[pdftex, a4paper,11pt, twoside, ngerman]{report}
+\documentclass[pdftex, a4paper,11pt, twoside, UKenglish]{report}
 % \documentclass[11pt,xcolor=dvipsnames]{beamer}
 
 % für deutsche zeichen äüö ohne kile auto-ersetzen
@@ -10,8 +10,8 @@
 % kile auto-ersetzen: einstellungen->latex:general-> hacken bei special
 % characters
 % \usepackage[ansinew]{inputenc}
-% \usepackage[UKenglish]{babel}          %Englisch
-\usepackage[ngerman]{babel}          %Deutsch
+\usepackage[UKenglish]{babel}          %Englisch
+% \usepackage[ngerman]{babel}          %Deutsch
 
 
 %%%%%%%%%%
@@ -65,8 +65,8 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Theorie des Versuchs}
-    \label{chp:Theorie}
+  \begin{chapter}{Theory for the experiment}
+    \label{chp:Theory}
     
     
     
@@ -78,118 +78,298 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Erster Versuchsteil - Photoeffekt}
-    \label{chp:Photoeffekt}
-   
-   
-   
+  \begin{chapter}{Setting up the optics and taking measurements}
+    \label{chp:Setup}
+    Beginning this experiment, we have to build the structure of the optical
+    path we will be using. It will be build after the instructions given in
+    \cref{fig:Setup}. In the following segment, detailed informations regarding
+    each optical component will be given.
+    \begin{figure}[hb]
+      \centering
+      \includegraphics[width=\textwidth]{Figures/Setup.png}
+      \caption{Schematic set up of all optical components.\cite{bib:Anleitung}}
+      \label{fig:Setup}
+    \end{figure}
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau und Justage}
-      \label{chp:photoeffekt:sec:AufbauJustage}
-      
+    \begin{section}{Adjusting the optical path}
+      \label{chp:SetupOptics}
+      \todo[inline]{Describe the process of setting up our structure and give
+      detailed informations about each component. i.e. focal length, 3D tables,
+      heights, orientations, angles}
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Durchführung}
-      \label{chp:Aufbau:sec:ERSTERTEIL:subsec:UNTERTEIL}
-      
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Taking measurements}
+      \label{chp:SetupMeasuring}
+      \todo[inline]{Describe the pattern by which we processed all samples
+      in detail and provide samples of measurements.}
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Auswertung des ersten Versuchstages}
-      \label{chp:Photoeffekt:sec:Auswertung}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Fazit - Photoeffekt}
-      \label{chp:Photoeffekt:sec:Fazit}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
+    
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
- 
- 
- 
+  
+  
+  
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Zweiter Versuchsteil - Balmer-Serie}
-    \label{chp:Balmer}
+  \begin{chapter}{Analysis of the data}
+    \label{chp:Analysis}
  
  
+    \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau}
-      \label{chp:Balmer:sec:Aufbau}
+    \begin{section}{Row \textbf{A}}
+      \label{chp::DataA}
       
+      \todo[inline]{Written analysis here!}
       
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_APol0_1to4.png}
+          \caption{Data for sample-column \textbf{A} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_APol0_1t04}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_APol90_1to4.png}
+          \caption{Data for sample-column \textbf{A} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_APol90_1t04}
+        \end{minipage}
+      \end{figure}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Justierung und Durchführung}
-      \label{chp:Balmer:sec:JusitierungDurchfuehrung}
-     
-     
     
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
     
-
+    
+    \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Auswertung}
-      \label{chp:Balmer:sec:Auswertung}
+    \begin{section}{Row \textbf{B}}
+      \label{chp::DataB}
       
+      \todo[inline]{Written analysis here!}
       
-     
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_BPol0_1to5.png}
+          \caption{Data for sample-column \textbf{B} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_BPol0_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_BPol0_6to9.png}
+          \caption{Data for sample-column \textbf{B} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_BPol0_6to9}
+        \end{minipage}
+      \end{figure}
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_BPol90_1to5.png}
+          \caption{Data for sample-column \textbf{B} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_BPol90_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_BPol90_6to9.png}
+          \caption{Data for sample-column \textbf{B} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_BPol90_6to9}
+        \end{minipage}
+      \end{figure}
+      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
+    
+    
+    
+    \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Fazit}
-      \label{chp:Balmer:sec:Fazit}
+    \begin{section}{Row \textbf{C}}
+      \label{chp::DataC}
+      
+      \todo[inline]{Written analysis here!}
+      
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_CPol0_1to5.png}
+          \caption{Data for sample-column \textbf{C} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_CPol0_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_CPol0_6to9.png}
+          \caption{Data for sample-column \textbf{C} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_CPol0_6to9}
+        \end{minipage}
+      \end{figure}
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_CPol90_1to5.png}
+          \caption{Data for sample-column \textbf{C} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_CPol90_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_CPol90_6to9.png}
+          \caption{Data for sample-column \textbf{C} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_CPol90_6to9}
+        \end{minipage}
+      \end{figure}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    \newpage
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Row \textbf{D}}
+      \label{chp::DataD}
+      
+      \todo[inline]{Written analysis here!}
+      
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_DPol0_1to5.png}
+          \caption{Data for sample-column \textbf{D} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_DPol0_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_DPol90_1to5.png}
+          \caption{Data for sample-column \textbf{D} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_DPol90_1to5}
+        \end{minipage}
+      \end{figure}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    \newpage
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Row \textbf{E}}
+      \label{chp::DataE}
+      
+      \todo[inline]{Written analysis here!}
+      
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_EPol0_1to5.png}
+          \caption{Data for sample-column \textbf{E} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_EPol0_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_EPol0_6to8.png}
+          \caption{Data for sample-column \textbf{E} at $\SI{0}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_EPol0_6to8}
+        \end{minipage}
+      \end{figure}
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_EPol90_1to5.png}
+          \caption{Data for sample-column \textbf{E} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_EPol90_1to5}
+        \end{minipage}\\
+        \begin{minipage}{.95\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]
+              {Figures/TransspecFIT_EPol90_6to8.png}
+          \caption{Data for sample-column \textbf{E} at $\SI{90}{\degree}$
+              polarisation with fitted Gaussian function.}
+          \label{fig:TransspecFIT_EPol90_6to8}
+        \end{minipage}
+      \end{figure}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Summary}
+      \label{chp:AnalysisSummary}
       
       
       
@@ -214,8 +394,7 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{thebibliography}{99}
     \scriptsize
-    
-   
+    \input{./Bibliography.tex}
   \end{thebibliography}
   %%%%%%%%%%%%%%%%%%%%
  
