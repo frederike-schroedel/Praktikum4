@@ -26,7 +26,7 @@ def write_file(filename):
     if savefig_png == 1:
         plt.savefig("Figures/" + filename + ".png")
 
-def set_legend(fsize, msize, opac, location, ):
+def set_legend(fsize, msize, opac, location):
     leg = plt.legend(prop={'size':fsize}, loc = location, numpoints=1,
                      markerscale=msize, fancybox=True)
     leg.get_frame().set_alpha(opac)
@@ -113,6 +113,9 @@ def plot_nSpecs(n, lower, upper, x, y, title, xlabel, xunit, ylabel, yunit, llab
 def plot_nSpecsFIT(start, n, lower, upper, bottom, top, x, y, title, xlabel, xunit, ylabel, yunit, llab, p0, plotcolor, name, lsizef, lsizem, lop, lloc):
     plt.figure()
     
+    minima = []
+    dminima = []
+    
     # plot y against x 
     j = start
     while j < n:
@@ -132,9 +135,10 @@ def plot_nSpecsFIT(start, n, lower, upper, bottom, top, x, y, title, xlabel, xun
                  u"  FHMW: (%.1e±%.1e)" % (f[1], df[1]) +
                  u"  Ampl.: (%.1e±%.1e)" % (f[2], df[2]))
         
+        minima.append(f[0])
+        dminima.append(df[0])
+        
         j += 1
-        if j == 5:
-            break
     
     # set axis labels
     plt.title(title)
@@ -150,13 +154,10 @@ def plot_nSpecsFIT(start, n, lower, upper, bottom, top, x, y, title, xlabel, xun
     plt.grid(True)
     
     # save the plot in file
-    write_file(name + "_" + str(start+1) + "to" + str(j))
+    write_file(name)
     plt.close()
     
-    if j == 5 and n > 5:
-        plot_nSpecsFIT(j, n, lower, upper, bottom, top, x, y, title, xlabel,
-                       xunit, ylabel, yunit, llab, p0, plotcolor, name, lsizef,
-                       lsizem, lop, lloc)
+    return minima, dminima
 
 
 """============================================================================
@@ -400,132 +401,289 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
     lsizem = 10
     lop = 0.5
     lloc = 3
-    if P0 == 1:
+    
+    t = "Transmissionspectrums for "
+    if A_OnOff == 1:
+        c = "A"
+        lloc = 3
+        diameter = [140.0, 170.0, 200.0, 230.0]
+        
         p = 0
         polar = "null"
-        t = "Transmissionspectrums for "
-        if A_OnOff == 1:
-            c = "A"
-            first = 350
-            last = 550
-            p0 = [800.0, 80.0, 20.0]
-            Intens, ll = get_Trans_Ints(4, c, polar)
-            plot_nSpecsFIT(0, 4, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if B_OnOff == 1:
-            c = "B"
-            first = 450
-            last = 600
-            p0 = [900.0, 60.0, 40.0]
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                            "Magenta", "Brown", "Violet"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if C_OnOff == 1:
-            c = "C"
-            first = 400
-            last = 600
-            p0 = [800.0, 80.0, 20.0]
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                            "Magenta", "Brown", "Violet"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if D_OnOff == 1:
-            c = "D"
-            first = 300
-            last = 550
-            p0 = [800.0, 100.0, 20.0]
-            Intens, ll = get_Trans_Ints(5, c, polar)
-            plot_nSpecsFIT(0, 5, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if E_OnOff == 1:
-            c = "E"
-            first = 350
-            last = 650
-            p0 = [900.0, 100.0, 20.0]
-            Intens, ll = get_Trans_Ints(8, c, polar)
-            plot_nSpecsFIT(0, 8, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                            "Magenta", "Brown"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-    
-    if P90 == 1:
+        first = 350
+        last = 550
+        p0 = [800.0, 80.0, 20.0]
+        Intens, ll = get_Trans_Ints(4, c, polar)
+        mA0, dmA0 = plot_nSpecsFIT(0, 4, ybottom, ytop, first, last, Wavelen,
+                                   Intens,
+                                   t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                   xl, xu, yl, yu, ll, p0,
+                                   ["Red", "Green", "Blue", "Cyan"],
+                                   fn + c + "Pol" +str(p), lsizef, lsizem, lop,
+                                   lloc)
         p = 90
         polar = "90"
-        t = "Transmissionspectrums for "
-        if A_OnOff == 1:
-            c = "A"
-            first = 300
-            last = 650
-            p0 = [800.0, 1.0, 20.0]
-            Intens, ll = get_Trans_Ints(4, c, polar)
-            plot_nSpecsFIT(0, 4, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if B_OnOff == 1:
-            c = "B"
-            first = 380
-            last = 550
-            p0 = [900.0, 60.0, 40.0]
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                            "Magenta", "Brown", "Violet"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if C_OnOff == 1:
-            c = "C"
-            first = 400
-            last = 600
-            p0 = [800.0, 80.0, 20.0]
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                            "Magenta", "Brown", "Violet"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if D_OnOff == 1:
-            c = "D"
-            first = 300
-            last = 500
-            p0 = [800.0, 100.0, 20.0]
-            Intens, ll = get_Trans_Ints(5, c, polar)
-            plot_nSpecsFIT(0, 5, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if E_OnOff == 1:
-            c = "E"
-            first = 230
-            last = 400
-            p0 = [800.0, 80.0, 20.0]
-            Intens, ll = get_Trans_Ints(8, c, polar)
-            plot_nSpecsFIT(0, 8, ybottom, ytop, first, last, Wavelen, Intens,
-                           t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                           xl, xu, yl, yu, ll, p0,
-                           ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                            "Magenta", "Brown"],
-                           fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-
+        first = 300
+        last = 650
+        p0 = [800.0, 1.0, 20.0]
+        Intens, ll = get_Trans_Ints(4, c, polar)
+        mA90, dmA90 = plot_nSpecsFIT(0, 4, ybottom, ytop, first, last, Wavelen,
+                                     Intens,
+                                     t+c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                     xl, xu, yl, yu, ll, p0,
+                                     ["Red", "Green", "Blue", "Cyan"],
+                                     fn + c + "Pol" +str(p), lsizef, lsizem,
+                                     lop, lloc)
+        plt.figure()
+        
+        plt.errorbar(diameter, mA0, dmA0, fmt=".", color="red",
+                     label=r"Pol: $0^{\circ}$")
+        plt.errorbar(diameter, mA90, dmA90, fmt=".", color="green",
+                     label=r"Pol: $90^{\circ}$")
+        
+        # set axis labels
+        plt.title("Position of transmission minima for ROW: " + c)
+        plt.xlabel("Diameter /nm")
+        plt.ylabel("Wavelength /nm")
+        
+        #plt.ylim(400, 1200)
+        
+        # place a Legend in the plot
+        set_legend(lsizef, 3, lop, 4)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        write_file("MinimaPos" + c)
+        plt.close()
+        
+    if B_OnOff == 1:
+        c = "B"
+        lloc = 2
+        diameter = [250, 275, 300, 325, 350, 375, 400, 425, 450]
+        
+        p = 0
+        polar = "null"
+        first = 450
+        last = 600
+        p0 = [900.0, 60.0, 40.0]
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        mB0, dmB0 = plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen,
+                                   Intens,
+                                   t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                   xl, xu, yl, yu, ll, p0,
+                                   ["Red", "Green", "Blue", "Cyan", "Orange",
+                                    "Lime", "Magenta", "Brown", "Violet"],
+                                   fn + c + "Pol" +str(p), lsizef, lsizem, lop,
+                                   lloc)
+        p = 90
+        polar = "90"
+        first = 380
+        last = 550
+        p0 = [900.0, 60.0, 40.0]
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        mB90, dmB90 = plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen,
+                                     Intens,
+                                     t+c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                     xl, xu, yl, yu, ll, p0,
+                                     ["Red", "Green", "Blue", "Cyan", "Orange",
+                                      "Lime", "Magenta", "Brown", "Violet"],
+                                     fn + c + "Pol" +str(p), lsizef, lsizem,
+                                     lop, lloc)
+        plt.figure()
+        
+        plt.errorbar(diameter, mB0, dmB0, fmt=".", color="red",
+                     label=r"Pol: $0^{\circ}$")
+        plt.errorbar(diameter, mB90, dmB90, fmt=".", color="green",
+                     label=r"Pol: $90^{\circ}$")
+        
+        # set axis labels
+        plt.title("Position of transmission minima for ROW: " + c)
+        plt.xlabel("Diameter /nm")
+        plt.ylabel("Wavelength /nm")
+        
+        #plt.ylim(400, 1200)
+        
+        # place a Legend in the plot
+        set_legend(lsizef, 3, lop, 4)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        write_file("MinimaPos" + c)
+        plt.close()
+        
+    if C_OnOff == 1:
+        c = "C"
+        lloc = 3
+        diameter = [300, 325, 350, 375, 400, 425, 450, 475, 500]
+        
+        p = 0
+        polar = "null"
+        first = 400
+        last = 600
+        p0 = [800.0, 80.0, 20.0]
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        mC0, dmC0 = plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen,
+                                   Intens,
+                                   t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                   xl, xu, yl, yu, ll, p0,
+                                   ["Red", "Green", "Blue", "Cyan", "Orange",
+                                    "Lime", "Magenta", "Brown", "Violet"],
+                                   fn + c + "Pol" +str(p), lsizef, lsizem, lop,
+                                   lloc)
+        p = 90
+        polar = "90"
+        first = 400
+        last = 600
+        p0 = [800.0, 80.0, 20.0]
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        mC90, dmC90 = plot_nSpecsFIT(0, 9, ybottom, ytop, first, last, Wavelen,
+                                     Intens,
+                                     t+c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                     xl, xu, yl, yu, ll, p0,
+                                     ["Red", "Green", "Blue", "Cyan", "Orange",
+                                      "Lime", "Magenta", "Brown", "Violet"],
+                                     fn + c + "Pol" +str(p), lsizef, lsizem,
+                                     lop, lloc)
+        plt.figure()
+        
+        plt.errorbar(diameter, mC0, dmC0, fmt=".", color="red",
+                     label=r"Pol: $0^{\circ}$")
+        plt.errorbar(diameter, mC90, dmC90, fmt=".", color="green",
+                     label=r"Pol: $90^{\circ}$")
+        
+        # set axis labels
+        plt.title("Position of transmission minima for ROW: " + c)
+        plt.xlabel("Diameter /nm")
+        plt.ylabel("Wavelength /nm")
+        
+        #plt.ylim(400, 1200)
+        
+        # place a Legend in the plot
+        set_legend(lsizef, 3, lop, 4)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        write_file("MinimaPos" + c)
+        plt.close()
+        
+    if D_OnOff == 1:
+        c = "D"
+        lloc = 3
+        diameter = [150.0, 160.0, 170.0, 180.0, 190.0]
+        
+        p = 0
+        polar = "null"
+        first = 300
+        last = 550
+        p0 = [800.0, 100.0, 20.0]
+        Intens, ll = get_Trans_Ints(5, c, polar)
+        mD0, dmD0 = plot_nSpecsFIT(0, 5, ybottom, ytop, first, last, Wavelen,
+                                   Intens,
+                                   t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                   xl, xu, yl, yu, ll, p0,
+                                   ["Red", "Green", "Blue", "Cyan", "Orange"],
+                                   fn + c + "Pol" +str(p), lsizef, lsizem, lop,
+                                   lloc)
+        p = 90
+        polar = "90"
+        first = 300
+        last = 500
+        p0 = [800.0, 100.0, 20.0]
+        Intens, ll = get_Trans_Ints(5, c, polar)
+        mD90, dmD90 = plot_nSpecsFIT(0, 5, ybottom, ytop, first, last, Wavelen,
+                                     Intens, 
+                                     t+c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                     xl, xu, yl, yu, ll, p0,
+                                     ["Red", "Green", "Blue", "Cyan","Orange"],
+                                     fn + c + "Pol" +str(p), lsizef, lsizem,
+                                     lop, lloc)
+        plt.figure()
+        
+        plt.errorbar(diameter, mD0, dmD0, fmt=".", color="red",
+                     label=r"Pol: $0^{\circ}$")
+        plt.errorbar(diameter, mD90, dmD90, fmt=".", color="green",
+                     label=r"Pol: $90^{\circ}$")
+        
+        # set axis labels
+        plt.title("Position of transmission minima for ROW: " + c)
+        plt.xlabel("Diameter /nm")
+        plt.ylabel("Wavelength /nm")
+        
+        #plt.ylim(400, 1200)
+        
+        # place a Legend in the plot
+        set_legend(lsizef, 3, lop, 4)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        write_file("MinimaPos" + c)
+        plt.close()
+        
+    if E_OnOff == 1:
+        c = "E"
+        lloc = 3
+        diameter = [100.0, 120.0, 140.0, 160.0, 180, 200, 220, 240]
+        
+        p = 0
+        polar = "null"
+        first = 350
+        last = 650
+        p0 = [900.0, 100.0, 20.0]
+        Intens, ll = get_Trans_Ints(8, c, polar)
+        mE0, dmE0 = plot_nSpecsFIT(0, 8, ybottom, ytop, first, last, Wavelen,
+                                   Intens,
+                                   t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                   xl, xu, yl, yu, ll, p0,
+                                   ["Red", "Green", "Blue", "Cyan", "Orange",
+                                    "Lime", "Magenta", "Brown"],
+                                   fn + c + "Pol" +str(p), lsizef, lsizem, lop,
+                                   lloc)
+        p = 90
+        polar = "90"
+        first = 230
+        last = 400
+        p0 = [800.0, 80.0, 20.0]
+        Intens, ll = get_Trans_Ints(8, c, polar)
+        mE90, dmE90 = plot_nSpecsFIT(0, 8, ybottom, ytop, first, last, Wavelen,
+                                     Intens,
+                                     t+c + " - Pol: " + str(p) + r"$^{\circ}$",
+                                     xl, xu, yl, yu, ll, p0,
+                                     ["Red", "Green", "Blue", "Cyan", "Orange",
+                                      "Lime", "Magenta", "Brown"],
+                                     fn + c + "Pol" +str(p), lsizef, lsizem,
+                                     lop, lloc)
+        plt.figure()
+        
+        plt.errorbar(diameter, mE0, dmE0, fmt=".", color="red",
+                     label=r"Pol: $0^{\circ}$")
+        plt.errorbar(diameter, mE90, dmE90, fmt=".", color="green",
+                     label=r"Pol: $90^{\circ}$")
+        
+        # set axis labels
+        plt.title("Position of transmission minima for ROW: " + c)
+        plt.xlabel("Diameter /nm")
+        plt.ylabel("Wavelength /nm")
+        
+        plt.ylim(650, 1300)
+        
+        # place a Legend in the plot
+        set_legend(lsizef, 3, lop, 4)
+        
+        # display grid
+        plt.grid(True)
+        
+        # save the plot in file
+        write_file("MinimaPos" + c)
+        plt.close()
+        
 
 
 """============================================================================
@@ -537,8 +695,6 @@ savefig_pdf = 0
 savefig_png = 1
 msize = 2
 
-P0 = 1
-P90 = 1
 A_OnOff = 1
 B_OnOff = 1
 C_OnOff = 1
@@ -546,9 +702,9 @@ D_OnOff = 1
 E_OnOff = 1
 
 # RAW DATA
-Darkspectrum_OnOff = 1
-Referencespectrums_OnOff = 1
-TransmissionspectrumsRAW_OnOff = 1
+Darkspectrum_OnOff = 0
+Referencespectrums_OnOff = 0
+TransmissionspectrumsRAW_OnOff = 0
 
 # FITTINGS
 TransmissionspectrumsFIT_OnOff = 1

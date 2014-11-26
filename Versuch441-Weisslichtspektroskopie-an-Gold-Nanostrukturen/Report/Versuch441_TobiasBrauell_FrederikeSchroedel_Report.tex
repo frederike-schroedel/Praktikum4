@@ -114,6 +114,28 @@
       \todo[inline]{Describe the pattern by which we processed all samples
       in detail and provide samples of measurements.}
       
+      \begin{table}[htbp]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+          \hline
+          \multirow{2}{*}{Row} & \multicolumn{5}{|c|}{Sample columns} 
+          \\ \cline{2-6}
+          & $A /\SI{}{\nano\meter}$ & $B /\SI{}{\nano\meter}$ &
+          $C /\SI{}{\nano\meter}$ & $D /\SI{}{\nano\meter}$ &
+          $E /\SI{}{\nano\meter}$\\ \hline \hline 
+          1 & 140 & 250 & 300 & 150 & 100 \\ \hline 
+          2 & 170 & 275 & 325 & 160 & 120 \\ \hline 
+          3 & 200 & 300 & 350 & 170 & 140 \\ \hline 
+          4 & 230 & 325 & 375 & 180 & 160 \\ \hline 
+          5 &  & 350 & 400 & ? & 180 \\ \hline 
+          6 &  & 375 & 425 &  & 200 \\ \hline 
+          7 &  & 400 & 450 &  & 220 \\ \hline 
+          8 &  & 425 & 475 &  & 240 \\ \hline 
+          9 &  & 450 & 500 &  &  \\ \hline 
+        \end{tabular}
+        \caption{Pattern of samples on the glass plate.}
+        \label{tab:samplepattern}
+      \end{table}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,35 +150,64 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Analysis of the data}
     \label{chp:Analysis}
- 
- 
+    When analysing the spectra, we have to subtract the dark spectrum from
+    all reference spectra to correct for any background light in the
+    measurements.
+    To analyse any recorded transmission spectrum, we plot the transmission
+    spectra through a nano structure as percentage of the reference spectrum
+    through glass alone without any nano structure.
+    This is all done automatically by the software used in this experiment.
+    Since we will mostly look for an minimum of transmission in the spectra,
+    we show any plotted data series with a negative Gaussian function already
+    fitted. We use \cref{eq:TransspecFitting} as form of functions to be fitted
+    to our data. For this equation, \textit{a, m} and \textit{$\sigma$} will be
+    it's degrees of freedom.
+    \begin{equation}
+      \label{eq:TransspecFitting}
+      f(x)=100-a\cdot exp\left(-\left(\frac{x-m}{\sqrt{2}\sigma}
+      \right)^{2}\right)
+    \end{equation}
+    Additionally, it has to be said, that no data series has been changed by us
+    in the process of making this Report. The uncertainties for every fit
+    parameters are provided by the fitting software used.
+    In this case, we used \textit{PYTHON} and the \textit{curve\_fit} function
+    from \textit{scipy.optimize}.
+    \todo[inline]{maybe some more as introduction?}
+    
     \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Row \textbf{A}}
+    \begin{section}{Column \textbf{A}}
       \label{chp::DataA}
       
       \todo[inline]{Written analysis here!}
       
+      \begin{figure}[b!]
+        \centering
+        \includegraphics[width=\textwidth]{Figures/MinimaPosA.png}
+        \caption{Wavelength positions of the transmission minima for column
+            \textbf{A}.}
+        \label{fig:MinimaPosA}
+      \end{figure}
       \newpage
       \begin{figure}[ht!]
         \centering
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_APol0_1to4.png}
+              {Figures/TransspecFIT_APol0.png}
           \caption{Data for sample-column \textbf{A} at $\SI{0}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_APol0_1t04}
+          \label{fig:TransspecFIT_APol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_APol90_1to4.png}
+              {Figures/TransspecFIT_APol90.png}
           \caption{Data for sample-column \textbf{A} at $\SI{90}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_APol90_1t04}
+          \label{fig:TransspecFIT_APol90}
         \end{minipage}
       \end{figure}
       
@@ -169,30 +220,17 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Row \textbf{B}}
+    \begin{section}{Column \textbf{B}}
       \label{chp::DataB}
       
       \todo[inline]{Written analysis here!}
       
-      \newpage
-      \begin{figure}[ht!]
+      \begin{figure}[b!]
         \centering
-        \begin{minipage}{.95\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_BPol0_1to5.png}
-          \caption{Data for sample-column \textbf{B} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_BPol0_1to5}
-        \end{minipage}\\
-        \begin{minipage}{.95\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_BPol0_6to9.png}
-          \caption{Data for sample-column \textbf{B} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_BPol0_6to9}
-        \end{minipage}
+        \includegraphics[width=\textwidth]{Figures/MinimaPosB.png}
+        \caption{Wavelength positions of the transmission minima for column
+            \textbf{B}.}
+        \label{fig:MinimaPosB}
       \end{figure}
       \newpage
       \begin{figure}[ht!]
@@ -200,18 +238,18 @@
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_BPol90_1to5.png}
-          \caption{Data for sample-column \textbf{B} at $\SI{90}{\degree}$
+              {Figures/TransspecFIT_BPol0.png}
+          \caption{Data for sample-column \textbf{B} at $\SI{0}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_BPol90_1to5}
+          \label{fig:TransspecFIT_BPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_BPol90_6to9.png}
+              {Figures/TransspecFIT_BPol90.png}
           \caption{Data for sample-column \textbf{B} at $\SI{90}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_BPol90_6to9}
+          \label{fig:TransspecFIT_BPol90}
         \end{minipage}
       \end{figure}
       
@@ -224,30 +262,17 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Row \textbf{C}}
+    \begin{section}{Column \textbf{C}}
       \label{chp::DataC}
       
       \todo[inline]{Written analysis here!}
       
-      \newpage
-      \begin{figure}[ht!]
+      \begin{figure}[b!]
         \centering
-        \begin{minipage}{.95\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_CPol0_1to5.png}
-          \caption{Data for sample-column \textbf{C} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_CPol0_1to5}
-        \end{minipage}\\
-        \begin{minipage}{.95\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_CPol0_6to9.png}
-          \caption{Data for sample-column \textbf{C} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_CPol0_6to9}
-        \end{minipage}
+        \includegraphics[width=\textwidth]{Figures/MinimaPosC.png}
+        \caption{Wavelength positions of the transmission minima for column
+            \textbf{C}.}
+        \label{fig:MinimaPosC}
       \end{figure}
       \newpage
       \begin{figure}[ht!]
@@ -255,18 +280,18 @@
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_CPol90_1to5.png}
-          \caption{Data for sample-column \textbf{C} at $\SI{90}{\degree}$
+              {Figures/TransspecFIT_CPol0.png}
+          \caption{Data for sample-column \textbf{C} at $\SI{0}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_CPol90_1to5}
+          \label{fig:TransspecFIT_CPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_CPol90_6to9.png}
+              {Figures/TransspecFIT_CPol90.png}
           \caption{Data for sample-column \textbf{C} at $\SI{90}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_CPol90_6to9}
+          \label{fig:TransspecFIT_CPol90}
         \end{minipage}
       \end{figure}
       
@@ -279,29 +304,36 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Row \textbf{D}}
+    \begin{section}{Column \textbf{D}}
       \label{chp::DataD}
       
       \todo[inline]{Written analysis here!}
       
+      \begin{figure}[b!]
+        \centering
+        \includegraphics[width=\textwidth]{Figures/MinimaPosD.png}
+        \caption{Wavelength positions of the transmission minima for column
+            \textbf{D}.}
+        \label{fig:MinimaPosD}
+      \end{figure}
       \newpage
       \begin{figure}[ht!]
         \centering
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_DPol0_1to5.png}
+              {Figures/TransspecFIT_DPol0.png}
           \caption{Data for sample-column \textbf{D} at $\SI{0}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_DPol0_1to5}
+          \label{fig:TransspecFIT_DPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_DPol90_1to5.png}
+              {Figures/TransspecFIT_DPol90.png}
           \caption{Data for sample-column \textbf{D} at $\SI{90}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_DPol90_1to5}
+          \label{fig:TransspecFIT_DPol90}
         \end{minipage}
       \end{figure}
       
@@ -314,30 +346,17 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Row \textbf{E}}
+    \begin{section}{Column \textbf{E}}
       \label{chp::DataE}
       
       \todo[inline]{Written analysis here!}
       
-      \newpage
-      \begin{figure}[ht!]
+      \begin{figure}[b!]
         \centering
-        \begin{minipage}{.95\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_EPol0_1to5.png}
-          \caption{Data for sample-column \textbf{E} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_EPol0_1to5}
-        \end{minipage}\\
-        \begin{minipage}{.95\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_EPol0_6to8.png}
-          \caption{Data for sample-column \textbf{E} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_EPol0_6to8}
-        \end{minipage}
+        \includegraphics[width=\textwidth]{Figures/MinimaPosE.png}
+        \caption{Wavelength positions of the transmission minima for column
+            \textbf{E}.}
+        \label{fig:MinimaPosE}
       \end{figure}
       \newpage
       \begin{figure}[ht!]
@@ -345,18 +364,18 @@
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_EPol90_1to5.png}
-          \caption{Data for sample-column \textbf{E} at $\SI{90}{\degree}$
+              {Figures/TransspecFIT_EPol0.png}
+          \caption{Data for sample-column \textbf{E} at $\SI{0}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_EPol90_1to5}
+          \label{fig:TransspecFIT_EPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
           \centering
           \includegraphics[width=\textwidth]
-              {Figures/TransspecFIT_EPol90_6to8.png}
+              {Figures/TransspecFIT_EPol90.png}
           \caption{Data for sample-column \textbf{E} at $\SI{90}{\degree}$
               polarisation with fitted Gaussian function.}
-          \label{fig:TransspecFIT_EPol90_6to8}
+          \label{fig:TransspecFIT_EPol90}
         \end{minipage}
       \end{figure}
       
