@@ -65,6 +65,18 @@ def get_Trans_Ints(n, Char, pol):
 Useful functions for plotting and fitting
 ===============================================================================
 """
+def gerade(x, m, n):
+    f = m*x + n
+    return f
+
+def parabola(x, a, b, c):
+    f = a*x**2 + b*x + c
+    return f
+
+def oneoverrsq(x, a, b):
+    f = a/(x**2) + b
+    return f
+
 def gaussian_neg(x, *p0):
     m, sigmam, a = p0
     f = 100-a*np.exp(-0.5*((x-m)/sigmam)**2)
@@ -441,9 +453,33 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         plt.errorbar(diameter, mA90, dmA90, fmt=".", color="green",
                      label=r"Pol: $90^{\circ}$")
         
+        diameter = np.array(diameter)
+        mA0 = np.array(mA0)
+        mA90 = np.array(mA90)
+        f, varianz = op.curve_fit(gerade, diameter, mA0, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="red", label="y = m*x + n\n"+
+                 u"m: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   n: (%.2e±%.2e)" % (f[1], df[1]))
+        
+        f, varianz = op.curve_fit(gerade, diameter, mA90, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="green",
+                 label="y = m*x + n\n"+
+                 u"m: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   n: (%.2e±%.2e)" % (f[1], df[1]))
+        
         # set axis labels
-        plt.title("Position of transmission minima for ROW: " + c)
-        plt.xlabel("Diameter /nm")
+        plt.title("Position of transmission minima for COLOUM: " + c)
+        plt.xlabel("Disk Diameter /nm")
         plt.ylabel("Wavelength /nm")
         
         #plt.ylim(400, 1200)
@@ -461,7 +497,8 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
     if B_OnOff == 1:
         c = "B"
         lloc = 2
-        diameter = [250, 275, 300, 325, 350, 375, 400, 425, 450]
+        diameter = [250.0, 275.0, 300.0, 325.0, 350.0, 375.0, 400.0, 425.0,
+                    450.0]
         
         p = 0
         polar = "null"
@@ -498,9 +535,46 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         plt.errorbar(diameter, mB90, dmB90, fmt=".", color="green",
                      label=r"Pol: $90^{\circ}$")
         
+        diameter = np.array(diameter)
+        mB0 = np.array(mB0)
+        mB90 = np.array(mB90)
+        
+        f, varianz = op.curve_fit(oneoverrsq, diameter, mB0, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = oneoverrsq(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="red",
+                 label="y = a/x**2 + b\n"+
+                 u"a: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   b: (%.2e±%.2e)" % (f[1], df[1]))
+        
+        f, varianz = op.curve_fit(oneoverrsq, diameter[1:], mB0[1:],
+                                  maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = oneoverrsq(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "-.", color="red",
+                 label="y = a/x**2 + b  (without the first data point)\n"+
+                 u"a: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   b: (%.2e±%.2e)" % (f[1], df[1]))
+        
+        f, varianz = op.curve_fit(oneoverrsq, diameter, mB90, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = oneoverrsq(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, color="green", label="y = a/x**2 + b\n"+
+                 u"a: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   b: (%.2e±%.2e)" % (f[1], df[1]))
+        
         # set axis labels
-        plt.title("Position of transmission minima for ROW: " + c)
-        plt.xlabel("Diameter /nm")
+        plt.title("Position of transmission minima for COLOUM: " + c)
+        plt.xlabel("Mid-to-Mid Distance /nm")
         plt.ylabel("Wavelength /nm")
         
         #plt.ylim(400, 1200)
@@ -518,7 +592,8 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
     if C_OnOff == 1:
         c = "C"
         lloc = 3
-        diameter = [300, 325, 350, 375, 400, 425, 450, 475, 500]
+        diameter = [300.0, 325.0, 350.0, 375.0, 400.0, 425.0, 450.0, 475.0,
+                    500.0]
         
         p = 0
         polar = "null"
@@ -555,15 +630,43 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         plt.errorbar(diameter, mC90, dmC90, fmt=".", color="green",
                      label=r"Pol: $90^{\circ}$")
         
+        diameter = np.array(diameter)
+        mC0 = np.array(mC0)
+        mC90 = np.array(mC90)
+        
+        f, varianz = op.curve_fit(parabola, diameter, mC0, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = parabola(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="red",
+                 label="y = a*x**2 + b*x + c\n"+
+                 u"a: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   b: (%.2e±%.2e)" % (f[1], df[1]) +
+                 u"   c: (%.2e±%.2e)" % (f[2], df[2]))
+        
+        f, varianz = op.curve_fit(parabola, diameter, mC90, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = parabola(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="green",
+                 label="y = a*x**2 + b*x + c\n"+
+                 u"a: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   b: (%.2e±%.2e)" % (f[1], df[1]) +
+                 u"   c: (%.2e±%.2e)" % (f[2], df[2]))
+        
         # set axis labels
-        plt.title("Position of transmission minima for ROW: " + c)
-        plt.xlabel("Diameter /nm")
+        plt.title("Position of transmission minima for COLOUM: " + c)
+        plt.xlabel("Period /nm")
         plt.ylabel("Wavelength /nm")
         
         #plt.ylim(400, 1200)
         
         # place a Legend in the plot
-        set_legend(lsizef, 3, lop, 4)
+        set_legend(lsizef, 3, lop, 2)
         
         # display grid
         plt.grid(True)
@@ -610,9 +713,39 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         plt.errorbar(diameter, mD90, dmD90, fmt=".", color="green",
                      label=r"Pol: $90^{\circ}$")
         
+        mD90 = [mD90[0], mD90[1], mD90[3], mD90[4]]
+        
+        diameter = np.array(diameter)
+        mD0 = np.array(mD0)
+        mD90 = np.array(mD90)
+        
+        f, varianz = op.curve_fit(gerade, diameter[1:], mD0[1:], maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="red", label="y = m*x + n\n"+
+                 u"m: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   n: (%.2e±%.2e)" % (f[1], df[1]))
+        
+        diameter = [diameter[0], diameter[1], diameter[3], diameter[4]]
+        diameter = np.array(diameter)
+        
+        f, varianz = op.curve_fit(gerade, diameter, mD90, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="green",
+                 label="y = m*x + n\n"+
+                 u"m: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   n: (%.2e±%.2e)" % (f[1], df[1]))
+        
         # set axis labels
-        plt.title("Position of transmission minima for ROW: " + c)
-        plt.xlabel("Diameter /nm")
+        plt.title("Position of transmission minima for COLOUM: " + c)
+        plt.xlabel("Mid-Disk-to-Mid-Disk Distance /nm")
         plt.ylabel("Wavelength /nm")
         
         #plt.ylim(400, 1200)
@@ -630,7 +763,7 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
     if E_OnOff == 1:
         c = "E"
         lloc = 3
-        diameter = [100.0, 120.0, 140.0, 160.0, 180, 200, 220, 240]
+        diameter = [100.0, 120.0, 140.0, 160.0, 180.0, 200.0, 220.0, 240.0]
         
         p = 0
         polar = "null"
@@ -667,15 +800,42 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         plt.errorbar(diameter, mE90, dmE90, fmt=".", color="green",
                      label=r"Pol: $90^{\circ}$")
         
+        diameter = np.array(diameter)
+        mE0 = np.array(mE0)
+        mE90 = np.array(mE90)
+        
+        f, varianz = op.curve_fit(gerade, diameter[:-2], mE0[:-2],
+                                  maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="red",
+                 label="y = m*x + n\n"+
+                 u"m: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   n: (%.2e±%.2e)" % (f[1], df[1]))
+        
+        f, varianz = op.curve_fit(gerade, diameter, mE90, maxfev=100000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
+        fitted_y = gerade(fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color="green",
+                 label="y = m*x + n\n"+
+                 u"m: (%.2e±%.2e)" % (f[0], df[0]) +
+                 u"   n: (%.2e±%.2e)" % (f[1], df[1]))
+        
         # set axis labels
-        plt.title("Position of transmission minima for ROW: " + c)
-        plt.xlabel("Diameter /nm")
+        plt.title("Position of transmission minima for COLOUM: " + c)
+        plt.xlabel(r"$\delta_y$ Diameter /nm")
         plt.ylabel("Wavelength /nm")
         
         plt.ylim(650, 1300)
         
         # place a Legend in the plot
-        set_legend(lsizef, 3, lop, 4)
+        set_legend(lsizef, 3, lop, 2)
         
         # display grid
         plt.grid(True)
