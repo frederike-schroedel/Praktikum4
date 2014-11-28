@@ -568,7 +568,7 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
         fitted_y = oneoverrsq(fitted_x, *f)
         
-        plt.plot(fitted_x, fitted_y, color="green", label="y = a/x**2 + b\n"+
+        plt.plot(fitted_x, fitted_y, "--", color="green", label="y = a/x**2 + b\n"+
                  u"a: (%.2e±%.2e)" % (f[0], df[0]) +
                  u"   b: (%.2e±%.2e)" % (f[1], df[1]))
         
@@ -795,17 +795,24 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
                                      lop, lloc)
         plt.figure()
         
+        mE0 = [mE0[0], mE0[1], mE0[2], mE0[3], mE0[4], mE0[5], mE0[7]]
+        dmE0 = [dmE0[0], dmE0[1], dmE0[2], dmE0[3], dmE0[4], dmE0[5], dmE0[7]]
+        diameter = [diameter[0], diameter[1], diameter[2], diameter[3],
+                    diameter[4], diameter[5], diameter[7]]
+        
         plt.errorbar(diameter, mE0, dmE0, fmt=".", color="red",
                      label=r"Pol: $0^{\circ}$")
+        diameter = [100.0, 120.0, 140.0, 160.0, 180.0, 200.0, 220.0, 240.0]
         plt.errorbar(diameter, mE90, dmE90, fmt=".", color="green",
                      label=r"Pol: $90^{\circ}$")
         
+        diameter = [diameter[0], diameter[1], diameter[2], diameter[3],
+                    diameter[4],  diameter[5],  diameter[7]]
         diameter = np.array(diameter)
         mE0 = np.array(mE0)
         mE90 = np.array(mE90)
         
-        f, varianz = op.curve_fit(gerade, diameter[:-2], mE0[:-2],
-                                  maxfev=100000)
+        f, varianz = op.curve_fit(gerade, diameter, mE0, maxfev=100000)
         df = np.sqrt(np.sqrt(varianz.diagonal()**2))
         
         fitted_x = np.linspace(np.min(diameter), np.max(diameter), 1000)
@@ -816,6 +823,8 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
                  u"m: (%.2e±%.2e)" % (f[0], df[0]) +
                  u"   n: (%.2e±%.2e)" % (f[1], df[1]))
         
+        diameter = [100.0, 120.0, 140.0, 160.0, 180.0, 200.0, 220.0, 240.0]
+        diameter = np.array(diameter)
         f, varianz = op.curve_fit(gerade, diameter, mE90, maxfev=100000)
         df = np.sqrt(np.sqrt(varianz.diagonal()**2))
         
@@ -832,7 +841,7 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
         plt.xlabel(r"$\delta_y$ Diameter /nm")
         plt.ylabel("Wavelength /nm")
         
-        plt.ylim(650, 1300)
+        #plt.ylim(650, 1300)
         
         # place a Legend in the plot
         set_legend(lsizef, 3, lop, 2)
@@ -855,10 +864,10 @@ savefig_pdf = 0
 savefig_png = 1
 msize = 2
 
-A_OnOff = 1
-B_OnOff = 1
-C_OnOff = 1
-D_OnOff = 1
+A_OnOff = 0
+B_OnOff = 0
+C_OnOff = 0
+D_OnOff = 0
 E_OnOff = 1
 
 # RAW DATA

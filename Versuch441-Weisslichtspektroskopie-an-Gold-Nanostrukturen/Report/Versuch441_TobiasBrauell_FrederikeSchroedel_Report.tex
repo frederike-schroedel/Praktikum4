@@ -217,11 +217,14 @@
         \centering
         \begin{tabular}{|c|c|c|c|c|c|}
           \hline
-          \multirow{2}{*}{Row} & \multicolumn{5}{|c|}{Sample columns} 
+          \multirow{4}{*}{Row} & \multicolumn{5}{|c|}{Sample columns} 
           \\ \cline{2-6}
-          & $A /\SI{}{\nano\meter}$ & $B /\SI{}{\nano\meter}$ &
-          $C /\SI{}{\nano\meter}$ & $D /\SI{}{\nano\meter}$ &
-          $E /\SI{}{\nano\meter}$\\ \hline \hline 
+          & A & B & C & D & E \\
+          & Disk diameter & Dimers Mid-Mid & Period & Pentamers distance
+          & Ellipses  \\
+          & $d /\SI{}{\nano\meter}$ & $r /\SI{}{\nano\meter}$
+          & $p/\SI{}{\nano\meter}$ & $r /\SI{}{\nano\meter}$
+          & $\delta_{y} /\SI{}{\nano\meter}$\\ \hline \hline
           1 & 140 & 250 & 300 & 150 & 100 \\ \hline 
           2 & 170 & 275 & 325 & 160 & 120 \\ \hline 
           3 & 200 & 300 & 350 & 170 & 140 \\ \hline 
@@ -236,8 +239,7 @@
         \label{tab:samplepattern}
       \end{table}
       
-      \todo[inline]{hier noch mehr zu den samples schreiben. vielleich ein 
-      description ding machen.}
+      \todo[inline]{hier vielleicht noch mehr zu den samples schreiben.}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -571,9 +573,35 @@
       Column \textbf{E} contains eight structures of Ellipses with a constant
       lattice of $\SI{750}{\nano\meter}$ and disk diameter
       $\delta_{x} = \SI{140}{\nano\meter}$ but varying disk diameter
-      $\delta_{y}$.
+      $\delta_{y}$. \newline
+      By stretching the sample disk in one direction and forming it into an
+      elliptic shape the resulting resonant frequency changes, with polarisation
+      parallel to the stretched axis, almost like it would for a normal disk
+      in \cref{chp:DataA}. In this polarisation direction the changes appear
+      again to be related by a linear function. But since the disk is elongated
+      in only one direction, the other one stays of exactly the same length.
+      In symmetrically round disks one would expect the resonant frequency to
+      stay exactly the same in this polarisation, but for elliptical shapes it
+      shifts slowly towards smaller wavelengths. This is, of course due to the
+      elliptical shape in which the distribution of charges is not as even as it
+      would be in a perfectly round shaped disk. This allows the charges to
+      rearrange themselves faster and results in a higher resonating frequency
+      and therefore a smaller wavelength.\newline
+      Looking at \cref{fig:TransspecFIT_EPol0,fig:TransspecFIT_EPol90} it
+      becomes clear that the resonant wavelength in the $\SI{0}{\degree}$
+      polarisation case already leaves the accurate range of wavelengths and
+      even leave the measured range all together.
+      The data points in this region seem to be very distorted and unclear and
+      the fitting routine was not always able to get an accurate fix on the
+      minima locations as shown by the very large ranges of error. Because of
+      this, we ignored the second to last data point in the $\SI{0}{\degree}$
+      series, which would have been at a wavelength of around
+      $\SI{18000}{\nano\meter}$. Looking beyond this minor technical problem,
+      it is easy to see from the fitted function in \cref{fig:MinimaPosE},
+      that in reality the resonant frequency behaves just like the theory
+      suggested it would.
       
-      \todo[inline]{Written analysis here!}
+      \todo[inline]{Fertig???}
       
       \begin{figure}[b!]
         \centering
@@ -613,7 +641,13 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Summary}
       \label{chp:AnalysisSummary}
-      
+      During this experiment we were able to confirm that the resonant frequency
+      of a plasmon is block in the transmission spectrum. We could also see how
+      the resonant frequency changed in response to the changed dimensions of
+      the sample and that those changes were correctly predicted by the
+      semi-classical model. \newline
+      We encountered only one unresolved problem by finding an offset in the
+      fitted functions for the two different polarisations we observed.
       
       
     \end{section}
