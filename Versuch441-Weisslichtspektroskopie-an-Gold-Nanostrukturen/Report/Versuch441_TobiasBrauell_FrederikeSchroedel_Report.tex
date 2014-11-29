@@ -134,13 +134,13 @@
       of the beam by following it with a sharply pointed cone so that the middle
       of the beam is always the same height as the height-fixed cone.
       After the first lens is adjusted and fixed, we placed the second 
-      lens($\SI{+25.4}{\milli\meter}$) mounted on a 3D movable table in the beam
+      lens($+\SI{25.4}{\milli\meter}$) mounted on a 3D movable table in the beam
       and roughly adjust its height with the pre-fixed cone.
       Now, the beam has to be focused into a glass fibre, which we placed
-      directly behind the lens($\SI{+25.4}{\milli\meter}$) and adjust its height
+      directly behind the lens($+\SI{25.4}{\milli\meter}$) and adjust its height
       to be in the middle of the beam. Continuing the beam as shown in
       \cref{fig:Setup} we placed a lens($\SI{-40}{\milli\meter}$) behind the
-      other end of the glass fibre and another lens($\SI{+200}{\milli\meter}$)
+      other end of the glass fibre and another lens($+\SI{200}{\milli\meter}$)
       behind that. Their height is calibrated using the cone and their position
       is adjusted so that their focal point is as sharp as possible and on the
       correct height.
@@ -161,18 +161,18 @@
       After we finished this and reached this point again, we placed a glass
       plate in the beam behind the second objective(-) and angled it to
       reflect a part of the beam into a CCD camera. In the part of the beam
-      to the camera, we placed a lens($\SI{+50}{\milli\meter}$) to focus the
+      to the camera, we placed a lens($+\SI{50}{\milli\meter}$) to focus the
       beam onto the camera chip. After adjusting the heights this beam branch
       was fixed.\newline
       In the other branch that was transmitted through the glass plate, we
-      placed the last lens($\SI{+40}{\milli\meter}$) which was mounted on
+      placed the last lens($+\SI{40}{\milli\meter}$) which was mounted on
       another 3D table. After its height had been roughly adjusted we placed
       another glass fibre behind it and connected its other end to the
       spectrometer. \newline
       At this point the building of the optical path was completed
       and we started calibrating the beam. To do so, we optimized the intensity
       received by the spectrometer by adjusting the
-      lens($\SI{+25.4}{\milli\meter}$) and the lens($\SI{+40}{\milli\meter}$)
+      lens($+\SI{25.4}{\milli\meter}$) and the lens($+\SI{40}{\milli\meter}$)
       on their 3D tables to focus the light as good as possible into the glass
       fibres. After the intensity has been optimized, we adjusted both the
       double knife edge and the second objective(-) to project the knife edge
@@ -463,8 +463,21 @@
       pattern other than a change in transmitted intensity.
       Plotting positions of the transmission minima, it is much easier to
       observe some kind of relation between the changed parameters.\newline
-      Theory predicts 
-      \todo[inline]{What exactly???}
+      Theory predicts for this case the relation to be of a second degree 
+      polynomial function
+      \todo[inline]{But why exactly???}
+      Fitting a second degree polynomial function to our measured values, 
+      displays a reasonable good fit for the polarisation at $\SI{90}{\degree}$.
+      For the case of $\SI{0}{\degree}$ polarisation, this form of function
+      should also fit, but seems to be a rather vague assumption and does not
+      fit as well as for $\SI{90}{\degree}$ polarisation.
+      Additionally, both function should have their minimum at about the same
+      wavelength but are set off by more than $\SI{20}{\nano\meter}$.
+      Just as in \cref{chp:DataA}, this offset is not described by the theory
+      and we were not able to think of a reasonable explanation for why this
+      did occur in the measurements.
+      
+      \todo[inline]{Fertig???}
       
       \begin{figure}[b!]
         \centering
