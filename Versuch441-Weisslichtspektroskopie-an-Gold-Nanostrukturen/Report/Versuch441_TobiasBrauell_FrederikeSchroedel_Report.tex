@@ -70,6 +70,145 @@
     
     
     
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Damping mechanisms}
+      \label{chp:TheoryDamping}
+      Excited particle plasmons decay as a result of two difference inner
+      damping mechanisms. 
+      
+      \begin{subsection}*{Damping \textbf{with} emission of electro-magnetic
+        radiation}
+        By emitting electro-magnetic radiation, the particle plasmon loses
+        energy to its environment and decays.
+      \end{subsection}
+      
+      \begin{subsection}*{Damping \textbf{without} emission of electro-magnetic
+        radiation}
+        Oscillations inside the sample causes the energy of a particle plasmon
+        to be turned into heat. Therefore the plasmon loses energy again and
+        decays.
+      \end{subsection}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Lattice effects}
+      \label{chp:TheoryLatticeeffects}
+      Since we will be observing samples with periodic lattices of structures,
+      lattice effects such as deflection have to be considered. Electro-magnetic
+      radiation is not transmitted straight on after interacting with an
+      lattice.
+      The periodic parameter of the lattice determines the degree of deflection
+      the radiation encounters after being transmitted through that lattice.
+      In the reciprocal space, this is defined by \textit{Bragg's law}
+      (\cref{eq:Bragg}).
+      \begin{equation}
+        \label{eq:Bragg}
+        \vec{G}=\vec{k_{s}}-\vec{k_{0}}
+      \end{equation}
+      For this experiment we are mostly interested in the losses due to this
+      effect, since we will be looking at transmitted intensity.
+      With $|\vec{G}|=\frac{2\pi}{a}$ and
+      $|\vec{k_{i}}|=\frac{2\pi}{\lambda_{i}}$ we get:
+      \begin{equation}
+        \begin{pmatrix} \frac{2\pi}{a} \\ 0 \end{pmatrix} =
+        \begin{pmatrix} k_{s,x} \\ k_{s, y} \end{pmatrix} -
+        \begin{pmatrix} 0 \\ k_{0} \end{pmatrix}
+      \end{equation}
+      Relevant for us in this experiment is only the x-component:
+      \begin{equation}
+        \frac{2\pi}{a} = k_{s, x} = \frac{2\pi}{\lambda_{s, x}}
+      \end{equation}
+      \begin{equation}
+        \rightarrow a = \lambda_{s, x}
+      \end{equation}
+      With $\lambda_{s, x}$ being the wavelength of the deflected wave missing
+      in the transmission spectrum. By using a sample on a glass plate, we have
+      to include the refraction of the glass of $n=1.5$ and get therefore:
+      \begin{equation}
+        \lambda = 1.5 \cdot a
+      \end{equation}
+
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Oligomeric structures}
+      \label{chp:TheoryOligomerics}
+      Structures of multiple Gold disks are called oligomeric structures and can
+      get any kind of complex, which in turn results in equally complex coupling
+      effects. A rather simple example of such a complex structure would be a
+      so called pentameric structure. It is composed of five Gold disks arranged
+      rotationally symmetric in a cross-like formation (\cref{fig:Pentamers}).
+      \begin{figure}[hb!]
+        \centering
+        \includegraphics[width=.9\textwidth]{Figures/Pentamers.png}
+        \caption{Schematic form of pentameric structures. \\
+            Left side: Bright optical mode. Right side: Dark optical mode.}
+        \label{fig:Pentamers}
+      \end{figure}
+      
+      
+      
+      \begin{subsection}*{Fano-Resonance}
+        \begin{figure}[ht!]
+          \begin{minipage}[b]{.48\textwidth}
+            An asymmetrically formed spectrum is usually called a
+            \textit{Fano-Resonance} and is the result of resonance effects of
+            two very close resonant frequencies, with interfering Eigenstates.
+            If one observes a case of \textit{Fano-Resonance}, one can
+            ultimately proof the existence of a second mode (\cref{fig:Fano}).
+          \end{minipage}\quad
+          \begin{minipage}{.48\textwidth}
+            \includegraphics[width=\textwidth]{Figures/Fano.png}
+            \caption{Spectrum with \textit{Fano-Resonance}.}
+            \label{fig:Fano}
+          \end{minipage}
+        \end{figure}
+      \end{subsection}
+      
+      
+      
+      \begin{subsection}*{Modes}
+        Modes describe oscillating Eigenstates in systems capable of
+        oscillations. This is of special relevance for this experiment, since we
+        will be exciting plasmons, or static waves, inside the sample
+        structures. Those modes can be observed by monitoring resonant
+        frequencies in the visible electro-magnetic spectrum.
+        The pentameric structures in this experiment are going to be excited
+        into two modes. The bright optical mode, which will always be visible
+        to us, and the dark optical mode, which will never be visible.
+        By varying the distances between the disks inside a pentameric
+        structure it is possible to change the exact resonant frequency of both
+        of this modes.
+        A \textit{Fano-Resonance} can be observed, if the disks in the pentamers
+        are together close enough for the Eigenstates to degenerate and
+        interfere with each other. Parts will be interfering constructively
+        and others destructively to result in a spectrum with the a
+        \textit{Fano-Resonance}.
+        For the destructive interference, a part of the bright mode with a
+        phase shift of more than $\SI{90}{\degree}$ interferes with a part of
+        the dark mode with a phase shift of less than $\SI{90}{\degree}$.
+        The modes constructively than interfere once both phase shifts are
+        greater than $\SI{90}{\degree}$.
+        
+      \end{subsection}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
          
@@ -164,7 +303,7 @@
       to the camera, we placed a lens($+\SI{50}{\milli\meter}$) to focus the
       beam onto the camera chip. After adjusting the heights this beam branch
       was fixed.\newline
-      In the other branch that was transmitted through the glass plate, we
+      In the branch that was transmitted through the glass plate, we
       placed the last lens($+\SI{40}{\milli\meter}$) which was mounted on
       another 3D table. After its height had been roughly adjusted we placed
       another glass fibre behind it and connected its other end to the
