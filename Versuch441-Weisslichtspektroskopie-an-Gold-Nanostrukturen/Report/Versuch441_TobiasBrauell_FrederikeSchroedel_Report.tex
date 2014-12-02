@@ -65,11 +65,64 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Theorie des Versuchs}
+  \begin{chapter}{Theory}
     \label{chp:Theorie}
     
+    \begin{section}{Plasmon}
+        A Plasmon is a resonant oscillation of the free electrons in a metal.
+        In quantummechanics they are considered the quasi particles, because they are a quantum of plasma oscillation, like a photon is a quasi particle of a electromagentic wave.
+        There are two diffrent kinds of Plasmons, surface plasmons and localized surface plasmons.
+        You can observe surface plasmons in larger metal structures, but you need a smaller structur, maximum half the size of the plasmons wavelength, to observe localized surface plasmons.  
+        This experiment uses gold structures, for example peridically arranged discs with a size of a few nanometers.
+        We observe them by examining the white light transmission spectrum of these samples.
+
+    \end{section}
     
-    
+    \begin{section}{Material}
+        To put a set-up, that uses an external electro-magentic field to excite localized surface plasmons, into effect, you need to fullfill these conditions.
+
+        We have the discs pegged with a sphere in a vaccum, so the internal field is
+        \[
+            \vec{E}_\text{int} = \vec E_0\frac{3\epsilon_d}{\epsilon_m+2\epsilon_d}
+        \]
+        Obviously $\vec E_\text{int}$ depends on the dielectrical function of the material and therefore the resonance frequency also depends on it.
+        We get the reltion
+        \[
+            \epsilon'_m = -2\epsilon_d
+        \]
+        wich is fullfilled by silver and gold.
+        the experiment uses gold, because it does not interact with hydrogen sulfide in the air.
+
+    \end{section}
+
+    \begin{section}{Semi-classical model}
+        Without an external electro-magnetic field, the charge carriers in the gold sphere are homogeneous destributed.
+        By applying such a field the electrons will move inside the sample, as you can see in the picture. \todo{picture}
+        Due to this the distribution of the charge carrier has changed.
+        If the external field oscillates, the electrons are oscillating, which leads to emission of electro-magentic radiation.
+        Thus, we are getting a superposition of both fields.
+
+        By using an oscillation of the external field close to the resonance frequency, we are able to excite the plasmons.
+        For the resonat frequency the phase shifts by \SI{180}{\degree}.
+        Because of the destructiv interference, the transmitted intensity is reduced.
+        The resonant frecuency is mainly influenced by the back driving force and this in turn by the displacement of electrons, polarizability of the sample material and its surrounding medium.
+        The backdriving force and the displacement of electrons are related via a linare funktion.
+        The sample reaches resonanz, if the exciting radiation leads to standing waves inside. 
+        Consequently the rensonant wavelength changes equaly with the samples dimensons.  
+
+        We now observe ellipsoids, with its two diffrent effects.
+        If the stimulating radiation is polarized along the major axis, a longer axis will increase the wave length of transmission minimum.
+        By changing to a perpendicular polarization, the transmisson minimum shifts to a shorter wave length.
+        Its discribed by:
+        \[ 
+            \alpha_i = \frac{V\epsilon_0}{L_I}\frac{1-\epsilon_m}{(1/L_i-1)+\epsilon_m}
+        \]
+
+
+    \end{section}
+
+
+
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
          
@@ -135,76 +188,12 @@
    
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
- 
- 
- 
-  %%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Zweiter Versuchsteil - Balmer-Serie}
-    \label{chp:Balmer}
- 
- 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau}
-      \label{chp:Balmer:sec:Aufbau}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Justierung und Durchführung}
-      \label{chp:Balmer:sec:JusitierungDurchfuehrung}
-     
-     
-    
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-    
-
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Auswertung}
-      \label{chp:Balmer:sec:Auswertung}
-      
-      
-     
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Fazit}
-      \label{chp:Balmer:sec:Fazit}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-  \end{chapter}
-  %%%%%%%%%%%%%%%%%%%%
-  
-  
   
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \input{./Versuch401_TobiasBrauell_FrederikeSchroedel_Appendix.tex}
+  \input{./Versuch441_TobiasBrauell_FrederikeSchroedel_Appendix.tex}
   %%%%%%%%%%%%%%%%%%%%
   
   
