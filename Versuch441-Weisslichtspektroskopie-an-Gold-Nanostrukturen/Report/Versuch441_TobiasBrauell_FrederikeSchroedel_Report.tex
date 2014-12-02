@@ -73,6 +73,72 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Phase shift}
+      \label{chp:TheoryPhaseshift}
+      To illustrate the behaviour of phase of two oscillations, we use a model
+      of two excited harmonic oscillators. In this model, a spring is connected
+      to a motor on one side and a mass on the other. For exciting frequencies
+      well below the resonance, the mass moves in phase with to motor.
+      For increasing excitation frequencies the mass oscillates still with the
+      same frequency but is delayed. The phase is shifted exactly
+      $\SI{90}{\degree}$ at the resonant frequency. Increasing the excitation
+      frequency over resonance shifts the phase up to $\SI{180}{\degree}$.
+      
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.48\textwidth}
+          \centering
+          \includegraphics[width=.7\textwidth]{Figures/Phaseshift.png}
+          \caption{Phase shift around the resonant frequency.}
+          \label{fig:Phaseshift}
+        \end{minipage}\quad
+        \begin{minipage}{.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{Figures/Fano.png}
+          \caption{Spectrum with \textit{Fano-Resonance}.}
+          \label{fig:Fano}
+        \end{minipage}
+      \end{figure}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Coupling mechanisms}
+      \label{chp:TheoryCoupling}
+      Interactions between particle plasmons are called coupling.
+      To be able to couple, two or more structures have to be close enough for
+      their electric fields to interact with each other. 
+      Two disks couple to each other as schematically shown in
+      \cref{fig:Coupling}. This is just a graphical illustration, since
+      the forced between the charges are not linear as they would be in with a
+      spring but proportional to $\frac{1}{r^{2}}$. For polarisation along the
+      axis connecting both disks, the charges inside the disks interact with
+      each other in only one direction, resulting in a one dimensional net
+      force. But with perpendicular polarisation, the forces act in different
+      axes. The net forces change an result in an offset of the resonant
+      frequency. 
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Coupling.png}
+        \caption{Schematic illustration of coupling forces between Gold disks. 
+            Left: Polarisation in $\SI{0}{\degree}$. 
+            Right: Polarisation in $\SI{90}{\degree}$. }
+        \label{fig:Coupling}
+      \end{figure}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Damping mechanisms}
       \label{chp:TheoryDamping}
       Excited particle plasmons decay as a result of two difference inner
@@ -163,20 +229,12 @@
       
       
       \begin{subsection}*{Fano-Resonance}
-        \begin{figure}[ht!]
-          \begin{minipage}[b]{.48\textwidth}
-            An asymmetrically formed spectrum is usually called a
-            \textit{Fano-Resonance} and is the result of resonance effects of
-            two very close resonant frequencies, with interfering Eigenstates.
-            If one observes a case of \textit{Fano-Resonance}, one can
-            ultimately proof the existence of a second mode (\cref{fig:Fano}).
-          \end{minipage}\quad
-          \begin{minipage}{.48\textwidth}
-            \includegraphics[width=\textwidth]{Figures/Fano.png}
-            \caption{Spectrum with \textit{Fano-Resonance}.}
-            \label{fig:Fano}
-          \end{minipage}
-        \end{figure}
+        An asymmetrically formed spectrum is usually called a
+        \textit{Fano-Resonance} and is the result of resonance effects of
+        two very close resonant frequencies, with interfering Eigenstates.
+        If one observes a case of \textit{Fano-Resonance}, one can
+        ultimately proof the existence of a second mode (\cref{fig:Fano}).
+  
       \end{subsection}
       
       
@@ -487,9 +545,9 @@
       shape of the lattice they are arranged in differs in both directions.
       Or it could be due to some kind of refraction effect along the optical
       path, which could shift the wavelengths to higher or lower values.
-      \todo[inline]{letzten 2 sätze: richtig so?}
-      
-      \todo[inline]{Fertig???}
+      It could also be, that the dimensions of the lattice are not symmetrical
+      in both directions and therefore the net forces between the disks are
+      different for both polarisations.
       
       \begin{figure}[b!]
         \centering
@@ -554,8 +612,6 @@
       seems to be a little off. Fitting the function without this measurement,
       the curve describes the progression even better.
       
-      \todo[inline]{Fertig???}
-      
       \begin{figure}[b!]
         \centering
         \includegraphics[width=\textwidth]{Figures/MinimaPosB.png}
@@ -603,20 +659,18 @@
       Plotting positions of the transmission minima, it is much easier to
       observe some kind of relation between the changed parameters.\newline
       Theory predicts for this case the relation to be of a second degree 
-      polynomial function
+      polynomial function, due to the forces between the electric fields being
+      proportional to $\frac{1}{r^{2}}$
       \todo[inline]{But why exactly???}
       Fitting a second degree polynomial function to our measured values, 
       displays a reasonable good fit for the polarisation at $\SI{90}{\degree}$.
       For the case of $\SI{0}{\degree}$ polarisation, this form of function
       should also fit, but seems to be a rather vague assumption and does not
       fit as well as for $\SI{90}{\degree}$ polarisation.
-      Additionally, both function should have their minimum at about the same
-      wavelength but are set off by more than $\SI{20}{\nano\meter}$.
-      Just as in \cref{chp:DataA}, this offset is not described by the theory
-      and we were not able to think of a reasonable explanation for why this
-      did occur in the measurements.
-      
-      \todo[inline]{Fertig???}
+      Additionally, both function have their minimum set off by about
+      $\SI{20}{\nano\meter}$. This offset is the result of different net forces
+      between charges for both polarisations as described in
+      \cref{chp:TheoryCoupling}.
       
       \begin{figure}[b!]
         \centering
@@ -678,9 +732,9 @@
       they do match with both their ranges of error. But exactly like before in
       \cref{chp:DataA}, their appears to be some kind of effect which offsets
       both linear progressions only this time by about half the distance it
-      was set off in \cref{chp:DataA}.
-      
-      \todo[inline]{Fertig???}
+      was set off in \cref{chp:DataA}. Since the sample did not consist of
+      Dimers but instead of symmetrical Pentamers, this offset was not predicted
+      by the theory and must be the result of another effect.
       
       \begin{figure}[b!]
         \centering
@@ -752,8 +806,6 @@
       it is easy to see from the fitted function in \cref{fig:MinimaPosE},
       that in reality the resonant frequency behaves just like the theory
       suggested it would.
-      
-      \todo[inline]{Fertig???}
       
       \begin{figure}[b!]
         \centering
