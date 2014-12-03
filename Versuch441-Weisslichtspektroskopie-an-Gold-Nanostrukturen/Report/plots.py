@@ -192,8 +192,8 @@ def DarkSpec(xl, xu, yl, yu, fn):
     Intens.append(data)
     Intens = np.array(Intens)
     
-    ll = [r"Darkspectrum $0^\circ$", r"Darkspectrum $90^\circ$"]
-    plot_nSpecs(2, ybottom, ytop, Wavelen, Intens, r"Darkspectrum " +
+    ll = [r"Dark spectrum $0^\circ$", r"Dark spectrum $90^\circ$"]
+    plot_nSpecs(2, ybottom, ytop, Wavelen, Intens, r"Dark spectrum " +
                 "(before taking Meassurements)",
                 xl, xu, yl, yu, ll,
                 ["Red", "Green"], fn, lsizef, lsizem, lop, lloc)
@@ -206,95 +206,93 @@ def RefSpec(xl, xu, yl, yu, fn):
     lop = 0.5
     lloc = 1
     
-    if P0 == 1:
-        p = 0
-        polar = "null"
-        t = "Referencespectrums for "
-        if A_OnOff == 1:
-            c = "A"
-            Intens, ll = get_Ref_Ints(4, c, polar)
-            plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green"], fn + c + "Pol" +str(p),
-                        lsizef, lsizem, lop, lloc)
-        if B_OnOff == 1:
-            c = "B"
-            Intens, ll = get_Ref_Ints(8, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if C_OnOff == 1:
-            c = "C"
-            Intens, ll = get_Ref_Ints(8, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if D_OnOff == 1:
-            c = "D"
-            Intens, ll = get_Ref_Ints(4, c, polar)
-            plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green"], fn + c + "Pol" +str(p),
-                        lsizef, lsizem, lop, lloc)
-        if E_OnOff == 1:
-            c = "E"
-            Intens, ll = get_Ref_Ints(8, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    p = 0
+    polar = "null"
+    t = "Reference spectrums for "
+    if A_OnOff == 1:
+        c = "A"
+        Intens, ll = get_Ref_Ints(4, c, polar)
+        plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green"], fn + c + "Pol" +str(p),
+                    lsizef, lsizem, lop, lloc)
+    if B_OnOff == 1:
+        c = "B"
+        Intens, ll = get_Ref_Ints(8, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if C_OnOff == 1:
+        c = "C"
+        Intens, ll = get_Ref_Ints(8, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if D_OnOff == 1:
+        c = "D"
+        Intens, ll = get_Ref_Ints(4, c, polar)
+        plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green"], fn + c + "Pol" +str(p),
+                    lsizef, lsizem, lop, lloc)
+    if E_OnOff == 1:
+        c = "E"
+        Intens, ll = get_Ref_Ints(8, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
     
-    if P90 == 1:
-        p = 90
-        polar = "90"
-        t = "Referencespectrums for "
-        if A_OnOff == 1:
-            c = "A"
-            Intens, ll = get_Ref_Ints(4, c, polar)
-            plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green"], fn + c + "Pol" +str(p),
-                        lsizef, lsizem, lop, lloc)
-        if B_OnOff == 1:
-            c = "B"
-            Intens, ll = get_Ref_Ints(8, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if C_OnOff == 1:
-            c = "C"
-            Intens, ll = get_Ref_Ints(8, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if D_OnOff == 1:
-            c = "D"
-            Intens, ll = get_Ref_Ints(4, c, polar)
-            plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green"], fn + c + "Pol" +str(p),
-                        lsizef, lsizem, lop, lloc)
-        if E_OnOff == 1:
-            c = "E"
-            Intens, ll = get_Ref_Ints(8, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    p = 90
+    polar = "90"
+    t = "Reference spectrums for "
+    if A_OnOff == 1:
+        c = "A"
+        Intens, ll = get_Ref_Ints(4, c, polar)
+        plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green"], fn + c + "Pol" +str(p),
+                    lsizef, lsizem, lop, lloc)
+    if B_OnOff == 1:
+        c = "B"
+        Intens, ll = get_Ref_Ints(8, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if C_OnOff == 1:
+        c = "C"
+        Intens, ll = get_Ref_Ints(8, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if D_OnOff == 1:
+        c = "D"
+        Intens, ll = get_Ref_Ints(4, c, polar)
+        plot_nSpecs(2, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green"], fn + c + "Pol" +str(p),
+                    lsizef, lsizem, lop, lloc)
+    if E_OnOff == 1:
+        c = "E"
+        Intens, ll = get_Ref_Ints(8, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
 
 def TransSpecRAW(xl, xu, yl, yu, fn):
     ytop = 100
@@ -304,101 +302,99 @@ def TransSpecRAW(xl, xu, yl, yu, fn):
     lop = 0.5
     lloc = 3
     
-    if P0 == 1:
-        p = 0
-        polar = "null"
-        t = "Transmissionspectrums for "
-        if A_OnOff == 1:
-            c = "A"
-            Intens, ll = get_Trans_Ints(4, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if B_OnOff == 1:
-            c = "B"
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                         "Magenta", "Brown", "Violet"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if C_OnOff == 1:
-            c = "C"
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                         "Magenta", "Brown", "Violet"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if D_OnOff == 1:
-            c = "D"
-            Intens, ll = get_Trans_Ints(5, c, polar)
-            plot_nSpecs(5, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if E_OnOff == 1:
-            c = "E"
-            Intens, ll = get_Trans_Ints(8, c, polar)
-            plot_nSpecs(8, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                         "Magenta", "Brown"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-    
-    if P90 == 1:
-        p = 90
-        polar = "90"
-        t = "Transmissionspectrums for "
-        if A_OnOff == 1:
-            c = "A"
-            Intens, ll = get_Trans_Ints(4, c, polar)
-            plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if B_OnOff == 1:
-            c = "B"
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                         "Magenta", "Brown", "Violet"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if C_OnOff == 1:
-            c = "C"
-            Intens, ll = get_Trans_Ints(9, c, polar)
-            plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                         "Magenta", "Brown", "Violet"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if D_OnOff == 1:
-            c = "D"
-            Intens, ll = get_Trans_Ints(5, c, polar)
-            plot_nSpecs(5, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
-        if E_OnOff == 1:
-            c = "E"
-            Intens, ll = get_Trans_Ints(8, c, polar)
-            plot_nSpecs(8, ybottom, ytop, Wavelen, Intens,
-                        t + c + " - Pol: " + str(p) + r"$^{\circ}$",
-                        xl, xu, yl, yu, ll,
-                        ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
-                         "Magenta", "Brown"],
-                        fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    p = 0
+    polar = "null"
+    t = "Transmission spectrums for "
+    if A_OnOff == 1:
+        c = "A"
+        Intens, ll = get_Trans_Ints(4, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if B_OnOff == 1:
+        c = "B"
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
+                        "Magenta", "Brown", "Violet"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if C_OnOff == 1:
+        c = "C"
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
+                        "Magenta", "Brown", "Violet"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if D_OnOff == 1:
+        c = "D"
+        Intens, ll = get_Trans_Ints(5, c, polar)
+        plot_nSpecs(5, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if E_OnOff == 1:
+        c = "E"
+        Intens, ll = get_Trans_Ints(8, c, polar)
+        plot_nSpecs(8, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
+                        "Magenta", "Brown"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+
+    p = 90
+    polar = "90"
+    t = "Transmission spectrums for "
+    if A_OnOff == 1:
+        c = "A"
+        Intens, ll = get_Trans_Ints(4, c, polar)
+        plot_nSpecs(4, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if B_OnOff == 1:
+        c = "B"
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
+                        "Magenta", "Brown", "Violet"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if C_OnOff == 1:
+        c = "C"
+        Intens, ll = get_Trans_Ints(9, c, polar)
+        plot_nSpecs(9, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
+                        "Magenta", "Brown", "Violet"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if D_OnOff == 1:
+        c = "D"
+        Intens, ll = get_Trans_Ints(5, c, polar)
+        plot_nSpecs(5, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
+    if E_OnOff == 1:
+        c = "E"
+        Intens, ll = get_Trans_Ints(8, c, polar)
+        plot_nSpecs(8, ybottom, ytop, Wavelen, Intens,
+                    t + c + " - Pol: " + str(p) + r"$^{\circ}$",
+                    xl, xu, yl, yu, ll,
+                    ["Red", "Green", "Blue", "Cyan", "Orange", "Lime",
+                        "Magenta", "Brown"],
+                    fn + c + "Pol" +str(p), lsizef, lsizem, lop, lloc)
 
 
 
@@ -414,7 +410,7 @@ def TransSpecFIT(xl, xu, yl, yu, fn):
     lop = 0.5
     lloc = 3
     
-    t = "Transmissionspectrums for "
+    t = "Transmission spectrums for "
     if A_OnOff == 1:
         c = "A"
         lloc = 3
@@ -864,16 +860,16 @@ savefig_pdf = 0
 savefig_png = 1
 msize = 2
 
-A_OnOff = 0
-B_OnOff = 0
-C_OnOff = 0
-D_OnOff = 0
+A_OnOff = 1
+B_OnOff = 1
+C_OnOff = 1
+D_OnOff = 1
 E_OnOff = 1
 
 # RAW DATA
-Darkspectrum_OnOff = 0
-Referencespectrums_OnOff = 0
-TransmissionspectrumsRAW_OnOff = 0
+Darkspectrum_OnOff = 1
+Referencespectrums_OnOff = 1
+TransmissionspectrumsRAW_OnOff = 1
 
 # FITTINGS
 TransmissionspectrumsFIT_OnOff = 1

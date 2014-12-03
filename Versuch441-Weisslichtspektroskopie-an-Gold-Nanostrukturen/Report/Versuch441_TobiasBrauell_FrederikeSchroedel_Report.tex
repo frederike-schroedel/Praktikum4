@@ -21,7 +21,7 @@
 \usepackage[scale=0.8, hmarginratio=4:2]{geometry}
   \geometry{textheight=1.05\textheight, textwidth=.95\textwidth,
             marginparwidth=25 pt}
-
+  \parskip=7pt
 
 
 %%%%%%%%%%
@@ -62,121 +62,131 @@
   \begin{chapter}{Theory for the experiment}
     \label{chp:Theory}
     
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Plasmon}
-        A Plasmon is a resonant oscillation of the free electrons in a metal.
-        In quantummechanics they are considered the quasi particles, because
+        A plasmon is a resonant oscillation of the free electrons in a metal.
+        In quantum mechanics they are considered the quasi particles, because
         they are a quantum of plasma oscillation, like a photon is a quasi
-        particle of a electromagentic wave.
-        There are two diffrent kinds of Plasmons, surface plasmons and localized
-        surface plasmons.
+        particle of an electromagnetic wave.
+        There are two different kinds of plasmons, surface plasmons and
+        localized surface plasmons.
         You can observe surface plasmons in larger metal structures, but you
-        need a smaller structur, maximum half the size of the plasmons
+        need a smaller structure, at most half the size of the plasmon
         wavelength, to observe localized surface plasmons.  
-        This experiment uses gold structures, for example peridically arranged
+        This experiment uses gold structures, for example periodically arranged
         discs with a size of a few nanometers.
         We observe them by examining the white light transmission spectrum of
         these samples.
-
     \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Material}
-        To put a set-up, that uses an external electro-magentic field to excite
-        localized surface plasmons, into effect, you need to fullfill these
-        conditions.
+        To put a set-up, that uses an external electro-magnetic field to excite
+        localized surface plasmons, into effect, you need to fulfill the
+        following conditions.
 
-        We have the discs pegged with a sphere in a vaccum, so the internal
+        We identify the discs with spheres in a vacuum, so the internal
         field is
-        \[
-            \vec{E}_\text{int} = \vec E_0\frac{3\epsilon_d}
+        \begin{equation}
+          \vec{E}_\text{int} = \vec E_0\frac{3\epsilon_d}
             {\epsilon_m+2\epsilon_d}
-        \]
-        Obviously $\vec E_\text{int}$ depends on the dielectrical function of
+        \end{equation}
+        $\vec E_\text{int}$ depends on the dielectric function of
         the material and therefore the resonance frequency also depends on it.
-        We get the reltion
-        \[
+        We get the relation
+        \begin{equation}
             \epsilon'_m = -2\epsilon_d
-        \]
-        wich is fullfilled by silver and gold.
-        the experiment uses gold, because it does not interact with hydrogen
+        \end{equation}
+        which is fulfilled by silver and gold.
+        The experiment uses gold, because it does not interact with hydrogen
         sulfide in the air.
-
     \end{section}
-
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Semi-classical model}
-        Without an external electro-magnetic field, the charge carriers in the
-        gold sphere are homogeneous destributed.
+        Without an external electromagnetic field, the charge carriers in the
+        gold sphere are homogeneously distributed.
         By applying such a field the electrons will move inside the sample, as
-        you can see in the picture. 
+        you can see in \cref{fig:SemiClassical}. 
         \begin{figure}[htbp]
           \centering
-          \includegraphics[width=.6\textwidth]{Figures/SemiClassical.png}
-          \caption{Illustration of charge distribution inside a Gold disk.}
-          \label{fig:SemiClassical}
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Figures/SemiClassical.png}
+            \caption{Illustration of charge distribution inside a gold disk.}
+            \label{fig:SemiClassical}
+          \end{minipage}\quad
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \includegraphics[width=.6\textwidth]{Figures/Phaseshift.png}
+            \caption{Phase shift around the resonant frequency.}
+            \label{fig:Phaseshift}
+          \end{minipage}
         \end{figure}
-        Due to this the distribution of the charge carrier has changed.
+        Due to this the distribution of the charge carriers has changed.
         If the external field oscillates, the electrons are oscillating, which
-        leads to emission of electro-magentic radiation.
+        leads to emission of electromagnetic radiation.
         Thus, we are getting a superposition of both fields.
 
         By using an oscillation of the external field close to the resonance
         frequency, we are able to excite the plasmons.
-        For the resonat frequency the phase shifts by \SI{180}{\degree}.
-        Because of the destructiv interference, the transmitted intensity is
+        For the resonant frequency the phase shifts by \SI{180}{\degree}.
+        Because of the destructive interference, the transmitted intensity is
         reduced.
-        The resonant frecuency is mainly influenced by the back driving force
-        and this in turn by the displacement of electrons, polarizability of the
-        sample material and its surrounding medium.
-        The backdriving force and the displacement of electrons are related via
-        a linare funktion.
-        The sample reaches resonanz, if the exciting radiation leads to standing
+        The resonant frequency is mainly influenced by the restoring force
+        and this in turn is influenced by the displacement of electrons,
+        polarizability of the sample material and its surrounding medium.
+        The restoring force and the displacement of electrons are related via
+        a linear function.
+        The sample reaches resonance, if the exciting radiation leads to standing
         waves inside. 
-        Consequently the rensonant wavelength changes equaly with the samples
-        dimensons.  
+        Consequently the resonant wavelength changes equally with the samples
+        dimensions.  
 
-        We now observe ellipsoids, with its two diffrent effects.
+        We now observe ellipsoids, with their two different effects.
         If the stimulating radiation is polarized along the major axis, a longer
-        axis will increase the wave length of transmission minimum.
-        By changing to a perpendicular polarization, the transmisson minimum
-        shifts to a shorter wave length.
-        Its discribed by:
-        \[ 
+        axis will increase the wavelength of the transmission minimum.
+        By changing to a perpendicular polarization, the transmission minimum
+        shifts to a shorter wavelength.
+        It is described by:
+        \begin{equation}
             \alpha_i = \frac{V\epsilon_0}{L_I}\frac{1-\epsilon_m}
             {(1/L_i-1)+\epsilon_m}
-        \]
-
-
+        \end{equation}
     \end{section}
-
-
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Phase shift}
       \label{chp:TheoryPhaseshift}
-      To illustrate the behaviour of phase of two oscillations, we use a model
-      of two excited harmonic oscillators. In this model, a spring is connected
+      To illustrate the behavior of phase of two oscillations, we use a model
+      of two excited harmonic oscillators. 
+      In this model, a spring is connected
       to a motor on one side and a mass on the other. For exciting frequencies
-      well below the resonance, the mass moves in phase with to motor.
+      well below the resonance, the mass moves in phase with the motor.
       For increasing excitation frequencies the mass oscillates still with the
       same frequency but is delayed. The phase is shifted exactly
-      $\SI{90}{\degree}$ at the resonant frequency. Increasing the excitation
+      $\SI{90}{\degree}$ at the resonant frequency as illustrated in
+      \cref{fig:Phaseshift}. Increasing the excitation
       frequency over resonance shifts the phase up to $\SI{180}{\degree}$.
-      
-      \begin{figure}[ht!]
-        \centering
-        \begin{minipage}{.48\textwidth}
-          \centering
-          \includegraphics[width=.7\textwidth]{Figures/Phaseshift.png}
-          \caption{Phase shift around the resonant frequency.}
-          \label{fig:Phaseshift}
-        \end{minipage}\quad
-        \begin{minipage}{.48\textwidth}
-          \centering
-          \includegraphics[width=\textwidth]{Figures/Fano.png}
-          \caption{Spectrum with \textit{Fano-Resonance}.}
-          \label{fig:Fano}
-        \end{minipage}
-      \end{figure}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,19 +203,19 @@
       their electric fields to interact with each other. 
       Two disks couple to each other as schematically shown in
       \cref{fig:Coupling}. This is just a graphical illustration, since
-      the forced between the charges are not linear as they would be in with a
-      spring but proportional to $\frac{1}{r^{2}}$. For polarisation along the
+      the forces between the charges are not linear (as they would be with a
+      spring) but proportional to $\frac{1}{r^{2}}$. For polarization along the
       axis connecting both disks, the charges inside the disks interact with
       each other in only one direction, resulting in a one dimensional net
-      force. But with perpendicular polarisation, the forces act in different
-      axes. The net forces change an result in an offset of the resonant
+      force. But with perpendicular polarization, the forces act in different
+      axes. The net forces change and result in an offset of the resonant
       frequency. 
       \begin{figure}[htbp]
         \centering
         \includegraphics[width=\textwidth]{Figures/Coupling.png}
-        \caption{Schematic illustration of coupling forces between Gold disks. 
-            Left: Polarisation in $\SI{0}{\degree}$. 
-            Right: Polarisation in $\SI{90}{\degree}$. }
+        \caption{Schematic illustration of coupling forces between gold disks. 
+            Left: Polarization in $\SI{0}{\degree}$. 
+            Right: Polarization in $\SI{90}{\degree}$. }
         \label{fig:Coupling}
       \end{figure}
       
@@ -219,22 +229,21 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Damping mechanisms}
       \label{chp:TheoryDamping}
-      Excited particle plasmons decay as a result of two difference inner
+      Excited particle plasmons decay as a result of two different inner
       damping mechanisms. 
       
-      \begin{subsection}*{Damping \textbf{with} emission of electro-magnetic
+      \begin{subsection}*{Damping \textbf{with} emission of electromagnetic
         radiation}
-        By emitting electro-magnetic radiation, the particle plasmon loses
+        By emitting electromagnetic radiation, the particle plasmon loses
         energy to its environment and decays.
       \end{subsection}
       
-      \begin{subsection}*{Damping \textbf{without} emission of electro-magnetic
+      \begin{subsection}*{Damping \textbf{without} emission of electromagnetic
         radiation}
         Oscillations inside the sample causes the energy of a particle plasmon
         to be turned into heat. Therefore the plasmon loses energy again and
         decays.
       \end{subsection}
-      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -246,16 +255,15 @@
     \begin{section}{Lattice effects}
       \label{chp:TheoryLatticeeffects}
       Since we will be observing samples with periodic lattices of structures,
-      lattice effects such as deflection have to be considered. Electro-magnetic
-      radiation is not transmitted straight on after interacting with an
-      lattice.
+      lattice effects such as deflection have to be considered. Electromagnetic
+      radiation is not transmitted straight after interacting with a lattice.
       The periodic parameter of the lattice determines the degree of deflection
       the radiation encounters after being transmitted through that lattice.
       In the reciprocal space, this is defined by \textit{Bragg's law}
       (\cref{eq:Bragg}).
       \begin{equation}
         \label{eq:Bragg}
-        \vec{G}=\vec{k_{s}}-\vec{k_{0}}
+        \vec{G}=\vec{k_{s}}-\vec{k_{0}}.
       \end{equation}
       For this experiment we are mostly interested in the losses due to this
       effect, since we will be looking at transmitted intensity.
@@ -266,21 +274,19 @@
         \begin{pmatrix} k_{s,x} \\ k_{s, y} \end{pmatrix} -
         \begin{pmatrix} 0 \\ k_{0} \end{pmatrix}
       \end{equation}
-      Relevant for us in this experiment is only the x-component:
+      Relevant for us in this experiment is only the $x$-component:
       \begin{equation}
-        \frac{2\pi}{a} = k_{s, x} = \frac{2\pi}{\lambda_{s, x}}
+        \frac{2\pi}{a} = k_{s, x} = \frac{2\pi}{\lambda_{s, x}},
       \end{equation}
       \begin{equation}
-        \rightarrow a = \lambda_{s, x}
+        \rightarrow a = \lambda_{s, x}.
       \end{equation}
       With $\lambda_{s, x}$ being the wavelength of the deflected wave missing
       in the transmission spectrum. By using a sample on a glass plate, we have
-      to include the refraction of the glass of $n=1.5$ and get therefore:
+      to include the refraction of the glass of $n=1.5$ and therefore get:
       \begin{equation}
-        \lambda = 1.5 \cdot a
+        \lambda = 1.5 \cdot a.
       \end{equation}
-
-      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -291,15 +297,15 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Oligomeric structures}
       \label{chp:TheoryOligomerics}
-      Structures of multiple Gold disks are called oligomeric structures and can
-      get any kind of complex, which in turn results in equally complex coupling
+      Structures of multiple gold disks are called oligomeric structures and can
+      arbitrarily complex, which in turn results in equally complex coupling
       effects. A rather simple example of such a complex structure would be a
-      so called pentameric structure. It is composed of five Gold disks arranged
+      so called pentameric structure. It is composed of five gold disks arranged
       rotationally symmetric in a cross-like formation (\cref{fig:Pentamers}).
-      \begin{figure}[hb!]
+      \begin{figure}[ht]
         \centering
         \includegraphics[width=.9\textwidth]{Figures/Pentamers.png}
-        \caption{Schematic form of pentameric structures. \\
+        \caption{Schematic form of pentameric structures.
             Left side: Bright optical mode. Right side: Dark optical mode.}
         \label{fig:Pentamers}
       \end{figure}
@@ -309,37 +315,41 @@
       \begin{subsection}*{Fano-Resonance}
         An asymmetrically formed spectrum is usually called a
         \textit{Fano-Resonance} and is the result of resonance effects of
-        two very close resonant frequencies, with interfering Eigenstates.
+        two very close resonant frequencies, with interfering eigenstates.
         If one observes a case of \textit{Fano-Resonance}, one can
         ultimately proof the existence of a second mode (\cref{fig:Fano}).
-  
+        \begin{figure}[ht!]
+          \centering
+          \includegraphics[width=.55\textwidth]{Figures/Fano.png}
+          \caption{Spectrum with \textit{Fano-Resonance}.}
+          \label{fig:Fano}
+        \end{figure}
       \end{subsection}
       
       
       
       \begin{subsection}*{Modes}
-        Modes describe oscillating Eigenstates in systems capable of
+        Modes describe oscillating eigenstates in systems capable of
         oscillations. This is of special relevance for this experiment, since we
         will be exciting plasmons, or static waves, inside the sample
         structures. Those modes can be observed by monitoring resonant
-        frequencies in the visible electro-magnetic spectrum.
+        frequencies in the visible electromagnetic spectrum.
         The pentameric structures in this experiment are going to be excited
         into two modes. The bright optical mode, which will always be visible
         to us, and the dark optical mode, which will never be visible.
         By varying the distances between the disks inside a pentameric
         structure it is possible to change the exact resonant frequency of both
-        of this modes.
+        of these modes.
         A \textit{Fano-Resonance} can be observed, if the disks in the pentamers
-        are together close enough for the Eigenstates to degenerate and
+        are close enough together for the eigenstates to degenerate and
         interfere with each other. Parts will be interfering constructively
         and others destructively to result in a spectrum with the a
         \textit{Fano-Resonance}.
         For the destructive interference, a part of the bright mode with a
         phase shift of more than $\SI{90}{\degree}$ interferes with a part of
         the dark mode with a phase shift of less than $\SI{90}{\degree}$.
-        The modes constructively than interfere once both phase shifts are
+        The modes then interfere constructively once both phase shifts are
         greater than $\SI{90}{\degree}$.
-        
       \end{subsection}
       
     \end{section}
@@ -355,35 +365,35 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Setting up the optics and taking measurements}
     \label{chp:Setup}
-    Beginning this experiment, we have to build the structure of the optical
-    path we will be using. It will be build after the instructions given in
-    \cref{fig:Setup}. In the following segment, detailed informations regarding
-    each optical component will be given.
+    To begin this experiment, we have to build the structure of the optical
+    path which we will be using. It will be build according to the instructions
+    given in \cref{fig:Setup}. In the following segment, detailed information
+    regarding each optical component will be given.
     \begin{figure}[hb]
       \centering
       \includegraphics[width=\textwidth]{Figures/Setup.png}
-      \caption{Schematic set up of all optical components.\cite{bib:Anleitung}}
+      \caption{Schematic setup of all optical components.\cite{bib:Anleitung}}
       \label{fig:Setup}
     \end{figure}
-    \newline
+    
     \begin{minipage}{0.41\textwidth}
       \begin{description}
-        \item[L1:] Lens($\SI{-100}{\milli\meter}$)
-        \item[L2:] Lens($\SI{+25.4}{\milli\meter}$) on 3D table
-        \item[L3:] Lens($\SI{-40}{\milli\meter}$)
-        \item[L4:] Lens($\SI{+200}{\milli\meter}$)
-        \item[L5:] Lens($\SI{-50}{\milli\meter}$)
-        \item[L6:] Lens($\SI{+50}{\milli\meter}$)
-        \item[L7:] Lens($\SI{+40}{\milli\meter}$) on 3D table
+        \item[L1:] Lens ($\SI{-100}{\milli\meter}$)
+        \item[L2:] Lens ($\SI{+25.4}{\milli\meter}$) on 3D table
+        \item[L3:] Lens ($\SI{-40}{\milli\meter}$)
+        \item[L4:] Lens ($\SI{+200}{\milli\meter}$)
+        \item[L5:] Lens ($\SI{-50}{\milli\meter}$)
+        \item[L6:] Lens ($\SI{+50}{\milli\meter}$)
+        \item[L7:] Lens ($\SI{+40}{\milli\meter}$) on 3D table
       \end{description}
     \end{minipage}\quad
     \begin{minipage}{0.55\textwidth}
       \begin{description}
         \item[G:] Angled glass plate
-        \item[K:] Double-Knife-Edge
-        \item[O1:] First objective(+) static
-        \item[O2:] Second objective(-) on 3D table
-        \item[P:] Polarisation plate
+        \item[K:] Double knife edge
+        \item[O1:] First lens system $(+)$ static
+        \item[O2:] Second lens system $(-)$ on 3D table
+        \item[P:] Polarization plate
         \item[Probe:] Sheet of glass with samples on it on 3D table
       \end{description}
     \end{minipage}
@@ -397,71 +407,80 @@
       To set up this experiment we started by aligning the light source to be
       parallel to the edges of our work plate and fixed it at a moderate height.
       Directly behind the light source in the optical path, we placed a lens
-      with a focal length of $\SI{-100}{\milli\meter}$. \newline
+      with a focal length of $\SI{-100}{\milli\meter}$.
+      
       From here on we will describe a lens and its orientation in the form of
-      \textbf{lens($\pm \SI{100}{\milli\meter}$)} where the number
+      \textbf{lens ($\pm \SI{100}{\milli\meter}$)} where the number
       represents the focal length and the provided sign the orientation in
-      relation to the optical path. $-$ being the case, that the focal point is
+      relation to the optical path. "$-$" being the case that the focal point is
       in the optical path but \textbf{in front} of the lens pointing towards the
-      source of light. And $+$ being the opposite case of the focal point being
-      \textbf{behind} the lens i.e. further away from the light source. \newline
+      source of light. And "$+$" being the opposite case of the focal point 
+      being \textbf{behind} the lens i.e.\ further away from the light source.
+      
       With the first lens placed roughly inside the path, we adjust the height
-      of the beam by following it with a sharply pointed cone so that the middle
-      of the beam is always the same height as the height-fixed cone.
+      of the beam by following it with a sharply pointed cone such that the
+      middle of the beam is always the same height as the height-fixed cone.
       After the first lens is adjusted and fixed, we placed the second 
-      lens($+\SI{25.4}{\milli\meter}$) mounted on a 3D movable table in the beam
-      and roughly adjust its height with the pre-fixed cone.
-      Now, the beam has to be focused into a glass fibre, which we placed
-      directly behind the lens($+\SI{25.4}{\milli\meter}$) and adjust its height
-      to be in the middle of the beam. Continuing the beam as shown in
-      \cref{fig:Setup} we placed a lens($\SI{-40}{\milli\meter}$) behind the
-      other end of the glass fibre and another lens($+\SI{200}{\milli\meter}$)
+      lens ($+\SI{25.4}{\milli\meter}$) mounted on a 3D movable table in the
+      beam and roughly adjust its height with the pre-fixed cone.
+      Now, the beam has to be focused into a glass fiber, which we placed
+      directly behind the lens ($+\SI{25.4}{\milli\meter}$) and adjust its
+      height to be in the middle of the beam. Continuing the beam as shown in
+      \cref{fig:Setup} we placed a lens ($\SI{-40}{\milli\meter}$) behind the
+      other end of the glass fiber and another lens ($+\SI{200}{\milli\meter}$)
       behind that. Their height is calibrated using the cone and their position
-      is adjusted so that their focal point is as sharp as possible and on the
+      is adjusted such that their focal point is as sharp as possible and on the
       correct height.
-      A double knife edge is placed directly in this focal point.\newline
-      Following the knife edge we placed a lens($\SI{-50}{\milli\meter}$) to
-      collimate the beam into a polarisation plate we that we placed behind the
+      A double knife edge is placed directly in this focal point.
+      
+      Following the knife edge we placed a lens ($\SI{-50}{\milli\meter}$) to
+      collimate the beam into a polarization plate we that we placed behind the
       lens. Both their heights are adjusted with the cone yet again.
-      Now we placed the first objective(+) in the beam and fix it at the correct
-      height. After the first objective(+) we placed the sample and the second
-      objective(-), which were both mounted on 3D tables. At this point we
-      painfully noticed, that, because of the layout we chose, we did not have
-      enough space on the work plate to fix every component properly and also
-      that we chose a height at which we did not have enough travel distance
-      with the 3D tables to fully reach every part of the sample plate and
-      adjust the beam correctly. Because of this initial design flaw we had to
+      Now we placed the first lens system $(+)$ in the beam and fix it at the
+      correct height. 
+      Behind the first lens system $(+)$ we placed the sample and the second
+      lens system $(-)$, which were both mounted on 3D tables.
+      At this point we painfully noticed that, because of the layout we chose,
+      we did not have enough space on the work plate to fix every component
+      properly. And that we chose a height at which we did not have enough
+      travel distance with the 3D tables to fully reach every part of the sample
+      plate and adjust the beam correctly.
+      Because of this initial design flaw we had to
       start over adjusting everything again to accommodate the limited
-      travel distances of the 3D tables. \newline
+      travel distances of the 3D tables. 
+      
       After we finished this and reached this point again, we placed a glass
-      plate in the beam behind the second objective(-) and angled it to
-      reflect a part of the beam into a CCD camera. In the part of the beam
-      to the camera, we placed a lens($+\SI{50}{\milli\meter}$) to focus the
+      plate in the beam behind the second lens system $(-)$ and angled it to
+      reflect a part of the beam into a CCD camera. In the section of the beam
+      to the camera, we placed a lens ($+\SI{50}{\milli\meter}$) to focus the
       beam onto the camera chip. After adjusting the heights this beam branch
-      was fixed.\newline
+      was fixed.
+      
       In the branch that was transmitted through the glass plate, we
-      placed the last lens($+\SI{40}{\milli\meter}$) which was mounted on
+      placed the last lens ($+\SI{40}{\milli\meter}$) which was mounted on
       another 3D table. After its height had been roughly adjusted we placed
-      another glass fibre behind it and connected its other end to the
-      spectrometer. \newline
+      another glass fiber behind it and connected its other end to the
+      spectrometer.
+      
       At this point the building of the optical path was completed
       and we started calibrating the beam. To do so, we optimized the intensity
       received by the spectrometer by adjusting the
-      lens($+\SI{25.4}{\milli\meter}$) and the lens($+\SI{40}{\milli\meter}$)
+      lens ($+\SI{25.4}{\milli\meter}$) and the lens ($+\SI{40}{\milli\meter}$)
       on their 3D tables to focus the light as good as possible into the glass
-      fibres. After the intensity has been optimized, we adjusted both the
-      double knife edge and the second objective(-) to project the knife edge
+      fibers. After the intensity was optimized, we adjusted both the
+      double knife edge and the second lens system $(-)$ to project the knife edge
       as good as possible onto the CCD camera. To place the sample plate as good
       as possible in the focal points of the objectives, we moved the edge of
       glass in sight and adjusted this to be as sharp as possible on the CCD
-      camera. \newline
-      Now that the beam had been adjusted and optimized, we searched for the
-      samples by moving the sample plate and placed the knife edges, so that
-      only one sample was visible. \newline
+      camera. 
+      
+      Now that the beam has been adjusted and optimized, we searched for the
+      samples by moving the sample plate and placing the knife edges, such that
+      only one sample was visible.
       With everything configured correctly, we moved the sample plate a little
       around to learn how the samples were arranged and to get an idea of the
       layout and the position we were actually looking at.
-      \vfill
+      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -472,21 +491,23 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Taking measurements}
       \label{chp:SetupMeasuring}
-      To start the actually collection of measurements we confirmed our starting
+      To start the actual collection of measurements we confirmed our starting
       position and mapped out a pattern by which we would go through all
       samples. Throughout the entire measuring phase, we often confirmed our
       current whereabouts on the sample plate to not confuse the measurements.
       Having established a pattern by which we would proceed, we adjusted the
-      polarisation plate to be at an angle of $\SI{0}{\degree}$ and also
+      polarization plate to be at an angle of $\SI{0}{\degree}$ and also
       adjusted the intensity of the light source so that the spectrometer was
-      not reaching its saturation. \newline
+      not reaching its saturation.
+      
       With everything now set up correctly we blocked the beam to measure the
-      first \textit{Dark-Spectrum}. We proceeded with taking measurements and
-      taking \textit{Reference-Spectra} at the beginning and after every two
-      samples we measured. When taking the \textit{Reference-Spectra}, we also
-      checked if the sensor was reaching saturation. \newline
+      first \textit{dark spectrum}. We proceeded with taking measurements and
+      taking \textit{reference spectra} at the beginning and after every two
+      samples we measured. When taking the \textit{reference spectra}, we also
+      checked if the sensor was reaching saturation. 
+      
       We applied the same procedure to the measurements taken with the
-      polarisation plate set at $\SI{0}{\degree}$.
+      polarization plate set at $\SI{0}{\degree}$.
       
       \begin{table}[htbp]
         \centering
@@ -514,14 +535,11 @@
         \label{tab:samplepattern}
       \end{table}
       
-      \todo[inline]{hier vielleicht noch mehr zu den samples schreiben.}
-      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
-<<<<<<< HEAD
   
   
   
@@ -530,26 +548,26 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Analysis of the data}
     \label{chp:Analysis}
-    When analysing the spectra, we have to subtract the dark spectrum from
+    When analyzing the spectra, we have to subtract the dark spectrum from
     all reference spectra to correct for any background light in the
     measurements.
-    To analyse any recorded transmission spectrum, we plot the transmission
+    To analyze any recorded transmission spectrum, we plot the transmission
     spectra through a nano structure as percentage of the reference spectrum
     through glass alone without any nano structure.
-    This is all done automatically by the software used in this experiment.
+    All this is done automatically by the software used in this experiment.
     Since we will mostly look for an minimum of transmission in the spectra,
-    we show any plotted data series with a negative Gaussian function already
+    we show any plotted data series with a negative gaussian function already
     fitted. We use \cref{eq:TransspecFitting} as form of functions to be fitted
     to our data. For this equation, \textit{a, m} and \textit{$\sigma$} will be
-    it's degrees of freedom.
+    its degrees of freedom.
     \begin{equation}
       \label{eq:TransspecFitting}
-      f(x)=100-a\cdot exp\left(-\left(\frac{x-m}{\sqrt{2}\cdot\sigma}
+      f(x)=100-a\cdot \exp\left(-\left(\frac{x-m}{\sqrt{2}\cdot\sigma}
       \right)^{2}\right)
     \end{equation}
-    The distorted an noisy data points at the beginning and the end of the
-    will be ignored by us and are probably an effect of differing accuracy
-    of counts within the spectrum  of the devices used by us.
+    The distorted and noisy data points at the beginning and the end of the
+    spectra will be ignored by us and are probably an effect of differing
+    accuracy of counts within the spectrum  of the devices used by us.
     Perhaps the spectrometer is only most accurate in the range from
     $\SI{500}{\nano\meter}$ up to about $\SI{950}{\nano\meter}$ wavelengths.
     This hypothesis is backed up by the reference spectra we took 
@@ -557,22 +575,24 @@
     In those it is clear, that below a wavelength of $\SI{500}{\nano\meter}$
     and beyond one of $\SI{850}{\nano\meter}$, the number of counts through
     mere glass drops dramatically and well below of about $750$ counts per
-    integrated measurement. This small amount of events seems to not be enough
-    to provide a valid and accurate measure of transmission percentage.
-    Because of this,  we limit the range of values used to fit the negative
-    Gaussian function to a much smaller area to stabilize the fitting process.
-    The fitted function is therefore only shown inside the range of values
-    actually used to fit the function. \newline
+    integrated measurement. This small amount of events seems to not be
+    sufficient to provide a valid and accurate measure of the transmission
+    percentage.
+    We limit the range of values used to fit the negative
+    gaussian function to a much smaller area to stabilize the fitting process.
+    The fitted function therefore is only shown inside the range of values
+    actually used to fit the function. 
+
     Additionally, it has to be said, that no data series has been changed by us
-    in the process of making this Report. The uncertainties for every fit
+    in the process of making this report. The uncertainties for every fit
     parameters are provided by the fitting software used.
-    In this case, we used \textit{PYTHON} and the \textit{curve\_fit} function
-    from \textit{scipy.optimize}.
-    To make the development of each transmission minimum and it's location more
-    easy to follow, we plotted them with regard to the varying parameter for
+    In this case, we used \textit{Python} and the \texttt{curve\_fit} function
+    from \texttt{scipy.optimize}.
+    To make the development of each transmission minimum and its location
+    easier to follow, we plotted them with regard to the varying parameter for
     each sample column. And to further illustrate any potential relations, we
     then added a fitted curve to those minima positions.
-    For columns \textbf{A}, \textbf{D} and \textbf{E} it was obvious to use a
+    For columns \textbf{A}, \textbf{D} and \textbf{E} it was to use a
     straight line, so we used a function with \cref{eq:gerade} as general form.
     \begin{equation}
       \label{eq:gerade}
@@ -600,33 +620,33 @@
       \label{chp:DataA}
       Column \textbf{A} contains four structures of simple disks in a constant
       lattice of $\SI{400}{\nano\meter}$ but varying the diameter of the disks
-      in for each structure. The recorded transmission spectra can be found in
+      for each structure. The recorded transmission spectra can be found in
       \cref{fig:TransspecFIT_APol0,fig:TransspecFIT_APol90}.
       In those graphics, one can observe how the resonating frequency of the
       structures change through the positions of their transmission minima.
       For larger diameters of disks, the resonating frequency shifts towards
       higher wavelengths and the blockage percentage increases.
       This effect is observable in the measurements for $\SI{0}{\degree}$ as
-      well as for $\SI{90}{\degree}$ polarisation. The relation between the
+      well as for $\SI{90}{\degree}$ polarization. The relation between the
       changed parameter and the resulting change of resonant frequency seems to
-      be linear, so we fitted a linear function to the positions development.
+      be linear, so we fitted a linear function to the positions.
       This linear relation (\cref{fig:MinimaPosA}) is expected by the
       semi-classical model, since the symmetrically and linear growing disks
-      allow for a equally linear growing resonating wavelength. Since the
+      allow for an equally linear growing resonating wavelength. Since the
       disks are supposed to be round and symmetrical, we would also expect the
       two slopes to be equal, which we found not to be true with our
       measurements. But where a mutual slope is still within both ranges of
-      error, we would also expect not this kind of offset between the two
-      polarisations. In the semi-classical model we would expect both linear
-      developments to be about the same. We can therefore only suspect, that
+      error, we would also not expect this kind of offset between the two
+      polarizations. In the semi-classical model we would expect both linear
+      functions to be about the same. We can therefore only suspect that
       some other factor involved might have changed the outcome of our
       measurements. Maybe the disks might be of equal size and shape, but the
       shape of the lattice they are arranged in differs in both directions.
       Or it could be due to some kind of refraction effect along the optical
       path, which could shift the wavelengths to higher or lower values.
-      It could also be, that the dimensions of the lattice are not symmetrical
+      It could also be that the dimensions of the lattice are not symmetrical
       in both directions and therefore the net forces between the disks are
-      different for both polarisations.
+      different for both polarizations.
       
       \begin{figure}[b!]
         \centering
@@ -643,7 +663,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_APol0.png}
           \caption{Data for sample-column \textbf{A} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_APol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
@@ -651,7 +671,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_APol90.png}
           \caption{Data for sample-column \textbf{A} at $\SI{90}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_APol90}
         \end{minipage}
       \end{figure}
@@ -665,29 +685,30 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Column \textbf{B}: Dimers with variable Mid-to-Mid
+    \begin{section}{Column \textbf{B}: Dimers with variable mid-to-mid
         distances}
       \label{chp:DataB}
-      Column \textbf{B} contains nine structures of Dimers with constant
+      Column \textbf{B} contains nine structures of dimers with constant
       diameters of $\SI{200}{\nano\meter}$ and lattice of
-      $\SI{670}{\nano\meter}$ Mid-to-Mid but varying Mid-to-Mid positions. From
+      $\SI{670}{\nano\meter}$ mid-to-mid but varying mid-to-mid positions. From
       \cref{fig:TransspecFIT_BPol0,fig:TransspecFIT_BPol90}, it possible to see
       different responses of the resonant frequency for two different
-      polarisations. In the case of $\SI{0}{\degree}$ polarisation, the
+      polarizations. In the case of $\SI{0}{\degree}$ polarization, the
       resonating wavelengths are shifted to smaller values with a growing
-      Mid-to-Mid distance in the Dimers. Furthermore, the distance of each
-      shift decreases with every step of increased Mid-to-Mid distance.
-      For the $\SI{90}{\degree}$ polarisation the resonating frequency shifts
+      mid-to-mid distance in the dimers. Furthermore, the distance of each
+      shift decreases with every step of increased mid-to-mid distance.
+      For the $\SI{90}{\degree}$ polarization the resonating frequency shifts
       in the other direction, but it is still decreasing with every sample.
       There is however, a difference in blocked intensity for both
-      polarisations. Whereas all transmission values at $\SI{0}{\degree}$
-      polarisation are below $\SI{60}{\percent}$ the transmitted intensity
-      at $\SI{90}{\degree}$ polarisation is between $\SI{60}{\percent}$ and 
-      $\SI{70}{\percent}$.\newline
+      polarizations. Whereas all transmission values at $\SI{0}{\degree}$
+      polarization are below $\SI{60}{\percent}$ the transmitted intensity
+      at $\SI{90}{\degree}$ polarization is between $\SI{60}{\percent}$ and 
+      $\SI{70}{\percent}$.
+
       The semi-classical model predicts for this experiment a relation of the
       form of \cref{eq:oneoverrsq}. Fitting a curve of this form we notice,
-      that this kind of relation describes our data very good for both
-      polarisations. Only the first data point of $\SI{0}{\degree}$ polarisation
+      that this kind of relation describes our data very well for both
+      polarizations. Only the first data point of $\SI{0}{\degree}$ polarization
       seems to be a little off. Fitting the function without this measurement,
       the curve describes the progression even better.
       
@@ -706,7 +727,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_BPol0.png}
           \caption{Data for sample-column \textbf{B} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_BPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
@@ -714,7 +735,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_BPol90.png}
           \caption{Data for sample-column \textbf{B} at $\SI{90}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_BPol90}
         \end{minipage}
       \end{figure}
@@ -730,25 +751,25 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Column \textbf{C}: Disks with variable period}
       \label{chp:DataC}
-      Column \textbf{C} contains nine structures of Dimers with constant
+      Column \textbf{C} contains nine structures of dimers with constant
       diameters of $\SI{200}{\nano\meter}$ but this time varying period
-      Mid-to-Mid distances.
+      mid-to-mid distances.
       From looking at the plotted spectra, it is not very obvious to see any
       pattern other than a change in transmitted intensity.
       Plotting positions of the transmission minima, it is much easier to
-      observe some kind of relation between the changed parameters.\newline
+      observe some kind of relation between the changed parameters.
+
       Theory predicts for this case the relation to be of a second degree 
       polynomial function, due to the forces between the electric fields being
-      proportional to $\frac{1}{r^{2}}$
-      \todo[inline]{But why exactly???}
-      Fitting a second degree polynomial function to our measured values, 
-      displays a reasonable good fit for the polarisation at $\SI{90}{\degree}$.
-      For the case of $\SI{0}{\degree}$ polarisation, this form of function
+      proportional to $\frac{1}{r^{2}}$.
+      Fitting a second degree polynomial function to our measured values
+      displays a reasonable good fit for the polarization at $\SI{90}{\degree}$.
+      For the case of $\SI{0}{\degree}$ polarization, this form of function
       should also fit, but seems to be a rather vague assumption and does not
-      fit as well as for $\SI{90}{\degree}$ polarisation.
+      fit as well as for $\SI{90}{\degree}$ polarization.
       Additionally, both function have their minimum set off by about
       $\SI{20}{\nano\meter}$. This offset is the result of different net forces
-      between charges for both polarisations as described in
+      between charges for both polarizations as described in
       \cref{chp:TheoryCoupling}.
       
       \begin{figure}[b!]
@@ -766,7 +787,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_CPol0.png}
           \caption{Data for sample-column \textbf{C} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_CPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
@@ -774,7 +795,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_CPol90.png}
           \caption{Data for sample-column \textbf{C} at $\SI{90}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_CPol90}
         \end{minipage}
       \end{figure}
@@ -788,25 +809,27 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Column \textbf{D}: Pentamers with variable Mid-to-Mid
+    \begin{section}{Column \textbf{D}: Pentamers with variable mid-to-mid
         distances}
       \label{chp:DataD}
-      Column \textbf{D} contains five structures of Pentamers with a constant
+      Column \textbf{D} contains five structures of pentamers with a constant
       lattice of $\SI{900}{\nano\meter}$ and disk diameter of
-      $\SI{140}{\nano\meter}$ but varying Mid-Disk-to-Mid-Disk distances.
+      $\SI{140}{\nano\meter}$ but varying mid-disk-to-mid-disk distances.
       Again, only by looking at the measured spectra it is very difficult to
-      make out any kind of relation between the Mid-Disk-to-Mid-Disk distances
-      and the position of the transmission minima. Fitting the negative Gaussian
+      make out any kind of relation between the mid-disk-to-mid-disk distances
+      and the position of the transmission minima. Fitting the negative gaussian
       functions and plotting their dip positions however is far more revealing.
-      Except for the first data point in the $\SI{0}{\degree}$ polarisation
+      Except for the first data point in the $\SI{0}{\degree}$ polarization
       series and the third data point in the $\SI{90}{\degree}$ series, both
       sample columns follow a linear progression. This is exactly what the
-      theory predicts for this case. Due to the symmetry of the Pentamers and
+      theory predicts for this case. Due to the symmetry of the pentamers and
       the symmetrical changes applied to them, their resonant frequency
-      responses similar to the resonance of a single disk. \newline
+      responses similar to the resonance of a single disk. 
+
       The two points that do not follow this linear function are probably a
       result of some kind of instability during the fitting operation and not
-      of much relevance.\newline
+      of much relevance.
+
       Just like in \cref{chp:DataA} both slopes should be about the same and
       they do match with both their ranges of error. But exactly like before in
       \cref{chp:DataA}, their appears to be some kind of effect which offsets
@@ -830,7 +853,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_DPol0.png}
           \caption{Data for sample-column \textbf{D} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_DPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
@@ -838,7 +861,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_DPol90.png}
           \caption{Data for sample-column \textbf{D} at $\SI{90}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_DPol90}
         \end{minipage}
       \end{figure}
@@ -858,25 +881,27 @@
       Column \textbf{E} contains eight structures of Ellipses with a constant
       lattice of $\SI{750}{\nano\meter}$ and disk diameter
       $\delta_{x} = \SI{140}{\nano\meter}$ but varying disk diameter
-      $\delta_{y}$. \newline
+      $\delta_{y}$. 
+
       By stretching the sample disk in one direction and forming it into an
-      elliptic shape the resulting resonant frequency changes, with polarisation
+      elliptic shape the resulting resonant frequency changes, with polarization
       parallel to the stretched axis, almost like it would for a normal disk
-      in \cref{chp:DataA}. In this polarisation direction the changes appear
+      in \cref{chp:DataA}. In this polarization direction the changes appear
       again to be related by a linear function. But since the disk is elongated
       in only one direction, the other one stays of exactly the same length.
       In symmetrically round disks one would expect the resonant frequency to
-      stay exactly the same in this polarisation, but for elliptical shapes it
+      stay exactly the same in this polarization, but for elliptical shapes it
       shifts slowly towards smaller wavelengths. This is, of course due to the
       elliptical shape in which the distribution of charges is not as even as it
       would be in a perfectly round shaped disk. This allows the charges to
       rearrange themselves faster and results in a higher resonating frequency
-      and therefore a smaller wavelength.\newline
+      and therefore a smaller wavelength.
+
       Looking at \cref{fig:TransspecFIT_EPol0,fig:TransspecFIT_EPol90} it
       becomes clear that the resonant wavelength in the $\SI{0}{\degree}$
-      polarisation case already leaves the accurate range of wavelengths and
+      polarization case already leaves the accurate range of wavelengths and
       even leave the measured range all together.
-      The data points in this region seem to be very distorted and unclear and
+      The data points in this region seem to be very distorted, unclear and
       the fitting routine was not always able to get an accurate fix on the
       minima locations as shown by the very large ranges of error. Because of
       this, we ignored the second to last data point in the $\SI{0}{\degree}$
@@ -901,7 +926,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_EPol0.png}
           \caption{Data for sample-column \textbf{E} at $\SI{0}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_EPol0}
         \end{minipage}\\
         \begin{minipage}{.95\textwidth}
@@ -909,7 +934,7 @@
           \includegraphics[width=\textwidth]
               {Figures/TransspecFIT_EPol90.png}
           \caption{Data for sample-column \textbf{E} at $\SI{90}{\degree}$
-              polarisation with fitted Gaussian function.}
+              polarization with fitted gaussian function.}
           \label{fig:TransspecFIT_EPol90}
         \end{minipage}
       \end{figure}
@@ -925,13 +950,13 @@
     \begin{section}{Summary}
       \label{chp:AnalysisSummary}
       During this experiment we were able to confirm that the resonant frequency
-      of a plasmon is block in the transmission spectrum. We could also see how
-      the resonant frequency changed in response to the changed dimensions of
-      the sample and that those changes were correctly predicted by the
-      semi-classical model. \newline
+      of a plasmon is blocked in the transmission spectrum.
+      We could also see how the resonant frequency changed in response to the
+      changing dimensions of the sample and that those changes were correctly
+      predicted by the semi-classical model.
+
       We encountered only one unresolved problem by finding an offset in the
-      fitted functions for the two different polarisations we observed.
-      
+      fitted functions for the two different polarizations we observed.
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -940,9 +965,6 @@
   %%%%%%%%%%%%%%%%%%%%
   
   
-=======
-
->>>>>>> frederike/master
   
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
