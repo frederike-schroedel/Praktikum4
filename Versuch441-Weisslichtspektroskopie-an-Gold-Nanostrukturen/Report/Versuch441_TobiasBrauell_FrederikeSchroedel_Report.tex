@@ -127,13 +127,15 @@
           \begin{minipage}{.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Figures/SemiClassical.png}
-            \caption{Illustration of charge distribution inside a gold disk.}
+            \caption{Illustration of charge distribution inside a gold disk.
+            \cite{bib:Theorieteil}}
             \label{fig:SemiClassical}
           \end{minipage}\quad
           \begin{minipage}{.48\textwidth}
             \centering
             \includegraphics[width=.6\textwidth]{Figures/Phaseshift.png}
-            \caption{Phase shift around the resonant frequency.}
+            \caption{Phase shift around the resonant frequency.
+            \cite{bib:Theorieteil}}
             \label{fig:Phaseshift}
           \end{minipage}
         \end{figure}
@@ -207,7 +209,7 @@
       spring) but proportional to $\frac{1}{r^{2}}$. For polarization along the
       axis connecting both disks, the charges inside the disks interact with
       each other in only one direction, resulting in a one dimensional net
-      force. But with perpendicular polarization, the forces act in different
+      force. With perpendicular polarization, the forces act in different
       axes. The net forces change and result in an offset of the resonant
       frequency. 
       \begin{figure}[htbp]
@@ -215,7 +217,8 @@
         \includegraphics[width=\textwidth]{Figures/Coupling.png}
         \caption{Schematic illustration of coupling forces between gold disks. 
             Left: Polarization in $\SI{0}{\degree}$. 
-            Right: Polarization in $\SI{90}{\degree}$. }
+            Right: Polarization in $\SI{90}{\degree}$. 
+            \cite{bib:Theorieteil}}
         \label{fig:Coupling}
       \end{figure}
       
@@ -232,18 +235,16 @@
       Excited particle plasmons decay as a result of two different inner
       damping mechanisms. 
       
-      \begin{subsection}*{Damping \textbf{with} emission of electromagnetic
-        radiation}
-        By emitting electromagnetic radiation, the particle plasmon loses
-        energy to its environment and decays.
-      \end{subsection}
+      \begin{description}
+        \item[Damping \textit{with} emission of electromagnetic
+        radiation:] By emitting electromagnetic radiation, the particle plasmon
+        loses energy to its environment and decays.
+        \item[Damping \textit{without} emission of electromagnetic
+        radiation:] Oscillations inside the sample causes the energy of a
+        particle plasmon to be turned into heat. Therefore the plasmon loses
+        energy again and decays.
+      \end{description}
       
-      \begin{subsection}*{Damping \textbf{without} emission of electromagnetic
-        radiation}
-        Oscillations inside the sample causes the energy of a particle plasmon
-        to be turned into heat. Therefore the plasmon loses energy again and
-        decays.
-      \end{subsection}
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -306,7 +307,8 @@
         \centering
         \includegraphics[width=.9\textwidth]{Figures/Pentamers.png}
         \caption{Schematic form of pentameric structures.
-            Left side: Bright optical mode. Right side: Dark optical mode.}
+            Left side: Bright optical mode. Right side: Dark optical mode.
+            \cite{bib:Theorieteil}}
         \label{fig:Pentamers}
       \end{figure}
       
@@ -321,7 +323,8 @@
         \begin{figure}[ht!]
           \centering
           \includegraphics[width=.55\textwidth]{Figures/Fano.png}
-          \caption{Spectrum with \textit{Fano-Resonance}.}
+          \caption{Spectrum with \textit{Fano-Resonance}.
+          \cite{bib:Theorieteil}}
           \label{fig:Fano}
         \end{figure}
       \end{subsection}
@@ -395,6 +398,7 @@
         \item[O2:] Second lens system $(-)$ on 3D table
         \item[P:] Polarization plate
         \item[Probe:] Sheet of glass with samples on it on 3D table
+        \item
       \end{description}
     \end{minipage}
     
@@ -565,6 +569,7 @@
       f(x)=100-a\cdot \exp\left(-\left(\frac{x-m}{\sqrt{2}\cdot\sigma}
       \right)^{2}\right)
     \end{equation}
+    
     The distorted and noisy data points at the beginning and the end of the
     spectra will be ignored by us and are probably an effect of differing
     accuracy of counts within the spectrum  of the devices used by us.
@@ -582,7 +587,6 @@
     gaussian function to a much smaller area to stabilize the fitting process.
     The fitted function therefore is only shown inside the range of values
     actually used to fit the function. 
-
     Additionally, it has to be said, that no data series has been changed by us
     in the process of making this report. The uncertainties for every fit
     parameters are provided by the fitting software used.
@@ -594,18 +598,20 @@
     then added a fitted curve to those minima positions.
     For columns \textbf{A}, \textbf{D} and \textbf{E} it was to use a
     straight line, so we used a function with \cref{eq:gerade} as general form.
+    For column \textbf{B} we used a function with \cref{eq:oneoverrsq} as
+    general form.
+    And finally for column \textbf{C} we used a second degree polynomial
+    function with \cref{eq:parabola} as general form.
     \begin{equation}
       \label{eq:gerade}
       f(d) = m\cdot d + n
     \end{equation}
-    For column \textbf{B} we used a function with \cref{eq:oneoverrsq} as
-    general form.
+    
     \begin{equation}
       \label{eq:oneoverrsq}
       f(r) = \frac{a}{r^{2}}+b
     \end{equation}
-    And finally for column \textbf{C} we used a second degree polynomial
-    function with \cref{eq:parabola} as general form.
+    
     \begin{equation}
       \label{eq:parabola}
       f(x) = a\cdot x^{2} + b\cdot x + c
@@ -635,7 +641,7 @@
       allow for an equally linear growing resonating wavelength. Since the
       disks are supposed to be round and symmetrical, we would also expect the
       two slopes to be equal, which we found not to be true with our
-      measurements. But where a mutual slope is still within both ranges of
+      measurements. Where a mutual slope is still within both ranges of
       error, we would also not expect this kind of offset between the two
       polarizations. In the semi-classical model we would expect both linear
       functions to be about the same. We can therefore only suspect that
@@ -647,7 +653,6 @@
       It could also be that the dimensions of the lattice are not symmetrical
       in both directions and therefore the net forces between the disks are
       different for both polarizations.
-      
       \begin{figure}[b!]
         \centering
         \includegraphics[width=\textwidth]{Figures/MinimaPosA.png}
@@ -831,7 +836,7 @@
       of much relevance.
 
       Just like in \cref{chp:DataA} both slopes should be about the same and
-      they do match with both their ranges of error. But exactly like before in
+      they do match with both their ranges of error. Exactly like before in
       \cref{chp:DataA}, their appears to be some kind of effect which offsets
       both linear progressions only this time by about half the distance it
       was set off in \cref{chp:DataA}. Since the sample did not consist of
