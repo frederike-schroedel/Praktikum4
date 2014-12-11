@@ -23,6 +23,7 @@
 \usepackage{setspace}
   \setlength{\columnsep}{2 cm}
   \setlength{\parindent}{0 pt}
+\usepackage{parskip}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,7 +80,7 @@
 %%% Fonts/Colors
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{lmodern}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 % This replaces all fonts with Bitstream Charter, Bitstream Vera Sans and
 % Bitstream Vera Mono. Math will be rendered in Charter.
 % \usepackage[charter, greekuppercase=italicized]{mathdesign}
@@ -155,7 +156,15 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{dcolumn}
-\usepackage{siunitx}
+\usepackage[
+    separate-uncertainty  = true,
+    uncertainty-separator =  {\,}, 
+%   mode = text, 
+    output-decimal-marker ={,}, 
+    multi-part-units      = brackets, 
+    range-units           = brackets, 
+    range-phrase          = {\,--\,}
+  ]{siunitx}
 % \usepackage{feynmf}
 
 
@@ -164,6 +173,7 @@
 %%% Referenzen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
+  \hypersetup{colorlinks=true, linkcolor=black}
 \usepackage{url}
 % \usepackage{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
 \usepackage[ngerman]{cleveref}%\label{abc}--\cref{abc} \Cref{abc[,def]}-und \crefrange{abc}{def}-bis
@@ -174,13 +184,14 @@
 %%% Table's
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{rotating}
+% \usepackage{colortbl}
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{tabularx}
   \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
   \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
   \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
-
+\renewcommand{\arraystretch}{1.15}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -188,7 +199,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \usepackage{xkeyval}
 \usepackage{todonotes} %\todo{text} oder \todo[inline]{text}
-%   \presetkeys{todonotes}{inline}{}
+  \presetkeys{todonotes}{inline}{}
 %   \let\todox\todo
 %   \renewcommand\todo{1}{\todox[inline]{#1}}
 

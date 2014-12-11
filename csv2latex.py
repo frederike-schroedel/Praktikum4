@@ -20,12 +20,14 @@ def main():
     with open(options.input) as f:
         if options.split:
             for line in f:
+                line = line.replace("#", "%")
                 line = line.strip()
                 rows.append(line.split())
         else:
             reader = csv.reader(f)
             for row in reader:
                 rows.append(row)
+                
 
     for row in rows:
         output.append(options.linestart + ' & '.join(row) + r' \\' +

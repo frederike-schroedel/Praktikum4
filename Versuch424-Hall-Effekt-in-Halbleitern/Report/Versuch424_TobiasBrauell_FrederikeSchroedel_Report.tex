@@ -21,7 +21,7 @@
 \usepackage[scale=0.8, hmarginratio=4:2]{geometry}
   \geometry{textheight=1.05\textheight, textwidth=.95\textwidth,
             marginparwidth=25 pt}
-
+  \parskip=7pt
 
 
 %%%%%%%%%%
@@ -54,7 +54,7 @@
   \begin{chapter}*{Abstract}
     Ziel des Versuchs ist es...
     
-    \todo[inline]{TO-DO}
+    \todo{TO-DO}
     
   \end{chapter}
   
@@ -78,105 +78,237 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Erster Versuchsteil - Messung bei Raumtemperatur}
-    \label{chp:Raumtemperatur}
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau und Justierung}
-      \label{chp:RaumtemperaturAufbauJustierung}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Durchführung}
-      \label{chp:RaumtemperaturDurchfuehrung}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Auswertung der Messung bei Raumtemperatur}
-      \label{chp:RaumtemperaturAuswertung}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Fazit - Messung bei Raumtemperatur}
-      \label{chp:RaumtemperaturFazit}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
+  \begin{chapter}{Aufbau des Versuches}
+    \label{chp:Aufbau}
+    Der Aufbau dieses Versuches ist in \cref{fig:Aufbau} zu sehen.
+    Die Probe wird im Rezipienten montiert und angeschlossen.
+    An der Probe kann von außen ein Magnetfeld mittels eines permanent Magneten
+    angelegt werden. An der Stromquelle wird ein Strom nach den Vorgaben der
+    ausliegenden Anleitungen und der Art der Probe eingestellt.
+    Dieser Strom bleibt für alle Messungen dieser Probe unbedingt konstant.
+    An einem Voltmeter keine die anliegende Spannung gemessen werden.
+    Stromquelle und Voltmeter sind über einen Schaltkasten mit der Probe im
+    Rezipienten verbunden.
+    Über den Schaltkasten lässt sich die Beschaltung der Probe mit zwei
+    Drehreglern einstellen.
+    Welche Art der Beschaltung zur Verfügung stehen kann ebenfalls in den
+    ausliegenden Tabellen nachgeschlagen werden.
+    Am benutzte permanent Magnet wurden die Pole markiert und kann um die Probe
+    gedreht werden um die Ausrichtung des Magnetfeldes umzukehren.
+    
+    Weiter ist für den zweiten Teil dieses Versuches ein Helium Kühlaggregat am
+    Rezipienten und eine Heizung am Probenträger selbst angebracht.
+    Über das Kühlaggregat kann die Probe auf sehr niedrige Temperaturen
+    abgekühlt werden. Zum erwärmen, kann ein Strom von einer zweiten Stromquelle
+    durch den Heizdraht geschickt werden. Die Temperatur der Probe kann über
+    die Spannung an einem Temperatursensor und einer ausliegenden
+    Tabelle umgerechnet werden.
+    Für die Messung der Temperaturabhängigkeit wird der Rezipient auf einen
+    Druck von etwa \SI{1e-8}{\bar} evakuiert.
+    
+    
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
- 
- 
- 
+  
+  
+  
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \begin{chapter}{Zweiter Versuchsteil - Temperaturabhängige Messung}
-    \label{chp:Temperaturabh}
- 
- 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Aufbau}
-      \label{chp:TemperaturabhAufbau}
-      
-      
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
-   
-   
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Justierung und Durchführung}
-      \label{chp:TemperaturabhJusitierungDurchfuehrung}
-     
-     
+  \begin{chapter}{Durchführung der Messungen}
+    \label{chp:Durchführung}
     
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Messung des Widerstandes bei Raumtemperatur}
+      \label{chp:MessungWiderstandRaumtemperatur}
+      Die Messung des Widerstandes führen wir für die Proben
+      \textit{GaAs (alt)} bei \SI{100,000(5)}{\micro\ampere} und
+      \textit{InAs - HF-301-040} bei \SI{15,003(5)}{\milli\ampere} durch.
+      Die Raumtemperatur bei den Messungen betrug \SI{26}{\celsius} und die
+      stärke des permanent Magneten ist mit \SI{0,138(1)}{\tesla} angegeben.
+      
+      Für beide Proben messen wir die Spannungen aller acht Schaltungen zur
+      Bestimmung des Widerstandes. Um die Messwerte statistisch mitteln zu
+      können, nehmen wir für jede Schaltung fünf verschiedene Werte.
+      Die gewonnenen Messwerte können in
+      \cref{tab:WiderstandGaAs,tab:WiderstandInAs} eingesehen werden.
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+          \hline
+          Schaltung & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+          \input{Tables/GaAsWiderstand.tex}
+        \end{tabular}
+        \caption{Messdaten der Widerstands Messung für die \textit{GaAs (alt)}
+            Probe.}
+        \label{tab:WiderstandGaAs}
+      \end{table}
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+          \hline
+          Schaltung & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+          \input{Tables/InAsWiderstand.tex}
+        \end{tabular}
+        \caption{Messdaten der Widerstands Messung für die
+            \textit{InAs - HF-301-040} Probe.}
+        \label{tab:WiderstandInAs}
+      \end{table}
+      
+      
+      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
     
-
+    
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Auswertung}
-      \label{chp:TemperaturabhAuswertung}
+    \begin{section}{Messung der Hallkonstanten bei Raumtemperatur}
+      \label{chp:MessungHallkonstanteRaumtemperatur}
+      Bei der Messung der Hallkonstanten bei Raumtemperatur wird dem Aufbau der
+      permanent Magnet hinzugefügt und die Schaltungen zur Messung der
+      Hallkonstanten verwendet.
+      Auch hier nehmen wir wieder fünf Werte und
+      bilden den Mittelwert um statistisch aussagekräftige Messwerte und
+      statistische Fehler zu erhalten.
+      Die gewonnenen Messwerte können in
+      \cref{tab:HallGaAs,tab:HallInAs} eingesehen werden.
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+          \hline
+          Schaltung & Magn. & $U / mV$ & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+          \input{Tables/GaAsHall.tex}
+        \end{tabular}
+        \caption{Messdaten zur Bestimmung der Hallkonstanten für die
+            \textit{GaAs (alt)} Probe.}
+        \label{tab:HallGaAs}
+      \end{table}
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+          \hline
+          Schaltung & Magn. & $U / mV$ & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+          \input{Tables/InAsHall.tex}
+        \end{tabular}
+        \caption{Messdaten zur Bestimmung der Hallkonstanten für die
+            \textit{InAs - HF-301-040} Probe.}
+        \label{tab:HallInAs}
+      \end{table}
+      
+      Bei den Schaltungen $1-4$ wird das externe Magnetfeld in \textit{$B+$}
+      angelegt, d.h. der markierte Nordpol des permanent Magneten liegt auf
+      der Seite des Probenträger, auf dem die Probe montiert ist.
+      Schaltungen $5-8$ wird in \textit{$B-$} gemessen. Dabei wird der Magnet
+      kurzerhand um \SI{180}{\degree} gedreht, sodass nun der Südpol zur Probe
+      zeigt.
+      Die Schaltungen $9-10$ werden ohne den externen Magneten gemessen.
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Messungen bei unterschiedlichen Temperaturen}
+      \label{chp:MessungUnterschiedlicheTemperaturen}
+      Nachdem alle Messungen am ersten Tag abgeschlossen sind schalten wir die
+      Vakuum Turbopumpe und die Helium Kühlung des Rezipienten ein.
+      Dabei haben wir die Probe \textit{InAs - HF-301-040} für die kommenden
+      Messungen im Rezipienten.
+      An dem angeschlossenen Voltmeter lässt sich die Thermospannung ablesen
+      und mit der ausliegenden Tabelle in \SI{}{\celsius} umrechnen.
+      Über Nacht wurde die Probe auf etwa \SI{-205}{\kelvin} abgekühlt.
+      Nun messen wir die Temperaturabhängigkeiten des Widerstandes und der
+      Hallkonstante. Dazu messen wir alle $18$ Schaltungen bei einer Temperatur
+      jeweils einmal, sobald wir mithilfe der Heizung die Temperatur
+      stabilisiert haben.
+      
+      \todo{noch was zur Durchführung?}
+      
+      In \cref{tab:TemperaturInAs} sind alle Messwerte
+      festgehalten. Die Temperatur wurde während der Messung direkt von
+      uns gegen die Raumtemperatur korrigiert.
+      \begin{sidewaystable}[htbp]
+        \centering
+        \footnotesize
+        \rowcolors{3}{}{lightgray!40}
+        \begin{tabular}{c c c c c c c c c c c c c c c}
+          \input{Tables/InAsTemp.tex}
+        \end{tabular}
+        \caption{Messdaten zur Bestimmung des Widerstandes und der 
+            Hallkonstanten für \textit{InAs - HF-301-040} bei
+            unterschiedlichen Temperaturen.}
+        \label{tab:TemperaturInAs}
+      \end{sidewaystable}
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+    
+    
+  \end{chapter}
+  %%%%%%%%%%%%%%%%%%%%
+  
+  
+  
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  \begin{chapter}{Auswertung der Messdaten}
+    \label{chp:Auswertung}
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Spezifischer Widerstand bei Raumtemperatur}
+      \label{chp:AuswertungSpezifischerWiderstandRaumtemperatur}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+   
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Hallkonstante bei Raumtemperatur}
+      \label{chp:AuswertungHallkonstanteRaumtemperatur}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Beweglichkeit der Ladungen}
+      \label{chp:AuswertungBeweglichkeitLadungen}
       
       
      
@@ -185,17 +317,30 @@
    
    
    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Temperaturabhängigkeit}
+      \label{chp:AuswertungTemperaturen}
+      
+      
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit}
-      \label{chp:TemperaturabhFazit}
+      \label{chp:Fazit}
       
       
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   
+    
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
   
