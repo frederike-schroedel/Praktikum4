@@ -23,6 +23,7 @@
             marginparwidth=25 pt}
   \parskip=7pt
 
+\renewcommand{\arraystretch}{1.2}
 
 %%%%%%%%%%
 %%% Packages (aus header datei)
@@ -106,6 +107,7 @@
     Für die Messung der Temperaturabhängigkeit wird der Rezipient auf einen
     Druck von etwa \SI{1e-8}{\bar} evakuiert.
     
+    \todo{Graphischen Aufbau machen!}
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
@@ -130,39 +132,39 @@
       \textit{InAs - HF-301-040} bei \SI{15,003(5)}{\milli\ampere} durch.
       Die Raumtemperatur bei den Messungen betrug \SI{26}{\celsius} und die
       stärke des permanent Magneten ist mit \SI{0,138(1)}{\tesla} angegeben.
-      
-      Für beide Proben messen wir die Spannungen aller acht Schaltungen zur
-      Bestimmung des Widerstandes. Um die Messwerte statistisch mitteln zu
-      können, nehmen wir für jede Schaltung fünf verschiedene Werte.
-      Die gewonnenen Messwerte können in
-      \cref{tab:WiderstandGaAs,tab:WiderstandInAs} eingesehen werden.
-      \begin{table}[htbp]
+      \begin{table}[hb]
         \centering
         \footnotesize
-        \begin{tabular}{|c|c|c|c|c|c|c|c|}
-          \hline
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{cccccccc}
           Schaltung & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
-               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline \hline
           \input{Tables/GaAsWiderstand.tex}
         \end{tabular}
         \caption{Messdaten der Widerstands Messung für die \textit{GaAs (alt)}
             Probe.}
         \label{tab:WiderstandGaAs}
       \end{table}
-      \begin{table}[htbp]
+      \begin{table}[hb]
         \centering
         \footnotesize
-        \begin{tabular}{|c|c|c|c|c|c|c|c|}
-          \hline
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{cccccccc}
           Schaltung & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
-               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline \hline
           \input{Tables/InAsWiderstand.tex}
         \end{tabular}
         \caption{Messdaten der Widerstands Messung für die
             \textit{InAs - HF-301-040} Probe.}
         \label{tab:WiderstandInAs}
       \end{table}
-      
+      Für beide Proben messen wir die Spannungen aller acht Schaltungen zur
+      Bestimmung des Widerstandes. Um die Messwerte statistisch mitteln zu
+      können, nehmen wir für jede Schaltung fünf verschiedene Werte.
+      Hierbei ist $<U>$ der statistische Mittelwert und $\sigma(<U>)$ die
+      Standardabweichung des Mittelwertes.
+      Die gewonnenen Messwerte können in
+      \cref{tab:WiderstandGaAs,tab:WiderstandInAs} eingesehen werden.
       
       
     \end{section}
@@ -178,18 +180,19 @@
       Bei der Messung der Hallkonstanten bei Raumtemperatur wird dem Aufbau der
       permanent Magnet hinzugefügt und die Schaltungen zur Messung der
       Hallkonstanten verwendet.
-      Auch hier nehmen wir wieder fünf Werte und
-      bilden den Mittelwert um statistisch aussagekräftige Messwerte und
-      statistische Fehler zu erhalten.
+      Auch hier nehmen wir wieder fünf Werte und bilden den Mittelwert um
+      statistisch aussagekräftige Messwerte und statistische Fehler zu erhalten.
+      Hierbei ist $<U>$ wieder der statistische Mittelwert und $\sigma(<U>)$ die
+      Standardabweichung des Mittelwertes.
       Die gewonnenen Messwerte können in
       \cref{tab:HallGaAs,tab:HallInAs} eingesehen werden.
       \begin{table}[htbp]
         \centering
         \footnotesize
-        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-          \hline
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{ccccccccc}
           Schaltung & Magn. & $U / mV$ & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
-               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline \hline
           \input{Tables/GaAsHall.tex}
         \end{tabular}
         \caption{Messdaten zur Bestimmung der Hallkonstanten für die
@@ -199,10 +202,10 @@
       \begin{table}[htbp]
         \centering
         \footnotesize
-        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-          \hline
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{ccccccccc}
           Schaltung & Magn. & $U / mV$ & $U / mV$  & $U / mV$  & $U / mV$  & $U / mV$
-               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline
+               & $<U> / mV$  & $\sigma(<U>) / mV$ \\ \hline \hline
           \input{Tables/InAsHall.tex}
         \end{tabular}
         \caption{Messdaten zur Bestimmung der Hallkonstanten für die
@@ -275,16 +278,238 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Auswertung der Messdaten}
     \label{chp:Auswertung}
+    Aus den zuvor gewonnenen Messwerten sollen nun im laufe der Auswertung
+    dieses Experimentes sowohl der Widerstand als auch die Hallkonstanten der
+    Proben bestimmt werden.
     
+    Die mit der \textit{van-der-Pauw} Methode gemessenen Spannungen werden dazu
+    im folgenden für die Berechnungen des Widerstandes, des spezifischen
+    Widerstandes, der Hallkonstante, der Beweglichkeit und der
+    Ladungsträgerdichte.
     
+    In den folgenden Tabellen
+    (\cref{tab:SchalterstellungWiderstand,tab:SchalterstellungHall}) sind die
+    genauen Schaltungen verdeutlicht.
+    \begin{table}[htbp]
+      \centering
+      \footnotesize
+%       \rowcolors{3}{}{lightgray!40}
+      \begin{tabular}{c|c|c|c|c}
+        \multirow{2}{*}{Schaltung} & \multicolumn{2}{c|}{Kontaktbeschlatung}
+        & \multicolumn{2}{c}{Schalterstellung}\\
+        & Strom & Spannung & Strom & Spannung \\ \hline \hline
+        1 & 1-2 & U1: 3-4 & 1 & 1 \\
+        2 & 2-1 & U2: 3-4 & 2 & 1 \\
+        3 & 2-3 & U3: 4-1 & 3 & 2 \\
+        4 & 3-2 & U4: 4-1 & 4 & 2 \\
+        5 & 3-4 & U5: 1-2 & 5 & 3 \\
+        6 & 4-3 & U6: 1-2 & 6 & 3 \\
+        7 & 4-1 & U7: 2-3 & 7 & 4 \\
+        8 & 1-4 & U8: 2-3 & 8 & 4 \\
+      \end{tabular}
+      \caption{Schaltungen bei der Widerstandsmessung.}
+      \label{tab:SchalterstellungWiderstand}
+    \end{table}
+
+    \begin{table}[htbp]
+      \centering
+      \footnotesize
+%       \rowcolors{3}{}{lightgray!40}
+      \begin{tabular}{c|c|c|c|c|c}
+        \multirow{2}{*}{Schaltung} & \multirow{2}{*}{Magnetfeld} &
+        \multicolumn{2}{c|}{Kontaktbeschlatung} &
+        \multicolumn{2}{c}{Schalterstellung} \\
+        & & Strom & Spannung & Strom & Spannung \\ \hline \hline
+        1  & $B+$ & 2-4 & U1:  1-3 & 9  & 5 \\
+        2  & $B+$ & 4-2 & U2:  1-3 & 10 & 5 \\
+        3  & $B+$ & 1-3 & U3:  4-2 & 11 & 8 \\
+        4  & $B+$ & 3-1 & U4:  4-2 & 12 & 8 \\
+        5  & $B-$ & 2-4 & U5:  1-3 & 9  & 5 \\
+        6  & $B-$ & 4-2 & U6:  1-3 & 10 & 5 \\
+        7  & $B-$ & 1-3 & U7:  4-2 & 11 & 8 \\
+        8  & $B-$ & 3-1 & U8:  4-2 & 12 & 8 \\
+        9  & $0$  & 2-4 & U9:  1-3 & 9  & 5 \\
+        10 & $0$  & 4-2 & U10: 1-3 & 10 & 5 \\
+      \end{tabular}
+      \caption{Schaltungen bei der Messung der Hallkonstanten.}
+      \label{tab:SchalterstellungHall}
+    \end{table}
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Spezifischer Widerstand bei Raumtemperatur}
       \label{chp:AuswertungSpezifischerWiderstandRaumtemperatur}
+      Zunächst wollen wir die Spezifischen Widerstände der verwendeten Proben
+      bestimmen.
+      Dazu verwenden wir den ersten Satz von Schaltungen aus
+      \cref{tab:SchalterstellungWiderstand}.
       
+      Zur Berechnung des Widerstandes benutzen wir die Gleichung $4.1$ aus
+      der uns ausgehändigten Anleitung \cite{bib:Anleitung}.
+      In diesem Protokoll ist diese Gleichung in \cref{eq:Widerstand} zu finden.
+      \begin{equation}
+        \label{eq:Widerstand}
+        R_{AB,CD}=\frac{|V_{CD}|}{I_{AB}} \Longrightarrow R_{ij,kl}=
+        \frac{|U_{k}-U_{l}|}{2I_{ij}} = \frac{|U_{k}-U_{l}|}{2I}.
+      \end{equation}
       
+      Wobei der Strom für alle Messungen konstant gehalten wurde und somit
+      $I=I_{ij}$ gilt.
+      Die Spannungen der einzelnen Schaltungen werden hierzu von $1-8$
+      nummeriert, wobei die Spannungen in den verschiedenen Schaltungen jeweils
+      doppelt aber mit umgekehrten Vorzeichen vorkommen.
+      So wird beispielsweise in den Schaltungen $1+2$ die gemessene Spannung an
+      den selben Punkten abgenommen allerdings mit umgekehrten Strömen.
+      Daher sind die Vorzeichen in den Tabellen der Messdaten
+      (\crefrange{tab:WiderstandGaAs}{tab:HallInAs}) jede Zeile umgekehrt.
+      In \cref{eq:Widerstand} wird daher über die Spannungen $V_{k}$ und $V_{l}$
+      der Mittelwert gebildet.
+      Zwei Beispiele zur Verdeutlichung:
+      \begin{align}
+        R_{12,34} &= \frac{|V_{34}|}{2I_{12}} = \frac{|U1-U2|}{2I} \\
+        R_{23,41} &= \frac{|V_{41}|}{2I_{23}} = \frac{|U3-U4|}{2I}.
+      \end{align}
+
+      Hierbei ist $V_{34}$ die Spannung zwischen den Punkten $3$ und $4$.
+      Diese wird gemittelt über die beiden Spannungen $U1$ und $U2$.
+      In dieser Notation entspricht $U1$ hier der im Experiment gemessenen
+      Spannung bei Schaltung $1$.
+      
+      \cref{tab:WiderstandGaAsWiderstaende,tab:WiderstandInAsWiderstaende}
+      zeigt unsere berechneten Widerstände und die Verhältnisse zwischen den
+      Widerständen $R_{12,34}/R_{23,41}$ und $R_{34,12}/R_{41,23}$, welche für
+      die Berechnung des spezifischen Widerstandes später noch benötigt wird.
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{ccc|ccc}
+          $R_{12,34} /\Omega$ & $R_{23,41} /\Omega$ &
+          $R_{12,34} / R_{23,41}$ &
+          $R_{34,12} /\Omega$ & $R_{41,23} /\Omega$ &
+          $R_{34,12} / R_{41,23}$ \\ \hline \hline
+          \input{Tables/WiderstandGaAsWiderstaende.tex}
+        \end{tabular}
+        \caption{Berechnete Widerstandswerte für die \textit{GaAs (alt)} Probe.}
+        \label{tab:WiderstandGaAsWiderstaende}
+      \end{table}
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{ccc|ccc}
+          $R_{12,34} /\Omega$ & $R_{23,41} /\Omega$ &
+          $R_{12,34} / R_{23,41}$ &
+          $R_{34,12} /\Omega$ & $R_{41,23} /\Omega$ &
+          $R_{34,12} / R_{41,23}$ \\ \hline \hline
+          \input{Tables/WiderstandInAsWiderstaende.tex}
+        \end{tabular}
+        \caption{Berechnete Widerstandswerte für die 
+            \textit{InAs - HF-301-040} Probe.}
+        \label{tab:WiderstandInAsWiderstaende}
+      \end{table}
+      
+      Für die Berechnung des spezifischen Widerstandes benutzen wir die
+      Gleichungen 4.9 bzw. 4.10 aus der Anleitung.
+      Diese sind hier in
+      \cref{eq:SpezifischerWiderstand1,eq:SpezifischerWiderstand2} dargestellt.
+      \begin{equation}
+        \label{eq:SpezifischerWiderstand1}
+        \frac{\rho_{1}}{d} = \frac{\pi}{ln(2)}\cdot
+        \frac{R_{12,34}+R_{23,41}}{2}
+        \cdot f\left(\frac{R_{12,34}}{R_{23,41}} \right)
+      \end{equation}
+      
+      \begin{equation}
+        \label{eq:SpezifischerWiderstand2}
+        \frac{\rho_{2}}{d} = \frac{\pi}{ln(2)}\cdot
+        \frac{R_{34,12}+R_{41,23}}{2}
+        \cdot f\left(\frac{R_{34,12}}{R_{41,23}} \right).
+      \end{equation}
+      
+      Mit $d$ der Dicke der Probe und $f$ dem Korrekturfaktor für die Geometrie
+      der Probe.
+      Wir geben den spezifische Widerstand hier als $\rho/d$ an, da die Dicke
+      der Probe uns zu diesem Zeitpunkt nicht bekannt ist.
+      Wir gehen aber in unseren Berechnungen dennoch von einer homogenen Dicke
+      der Probe aus.
+      
+      Der Korrekturfaktor $f$ wird für
+      \cref{eq:SpezifischerWiderstand1,eq:SpezifischerWiderstand2} nach
+      \cref{fig:Korrekturfaktor} bestimmt.
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Korrekturfaktor.png}
+        \caption{Grafik zur Bestimmung des Korrekturfaktors für die
+            \textit{van-der-Pauw} Methode.\cite{bib:Anleitung}}
+        \label{fig:Korrekturfaktor}
+      \end{figure}
+      
+      Da unsere berechneten Verhältnisse von $R_{12,34}/R_{23,41}$ und
+      $R_{34,12}/R_{41,23}$ sehr nahe $1$ sind, nähern wir hier den
+      Korrekturfaktor mit $f=1$ an.
+      Diese Näherung ist physikalisch erlaubt, da unsere Proben eine ideale,
+      symmetrische Geometrie besitzen.
+      
+      In \cref{tab:SpezifischerWiderstandGaAs,tab:SpezifischerWiderstandInAs}
+      sind unsere berechneten Werte für alle fünf Messungen dargestellt.
+      \begin{table}[htbp]
+        \begin{minipage}{.48\textwidth}
+          \centering
+          \footnotesize
+          \rowcolors{2}{}{lightgray!40}
+          \begin{tabular}{ccc}
+            $\rho_{1,s}/\Omega$ & $\rho_{2,s}/\Omega$ & $<\rho_{s}>/\Omega$
+            \\ \hline \hline
+            \input{Tables/SpezifischerWiderstandGaAs.tex}
+            \cline{3-3} \cline{3-3}
+            & & $0000$ \\
+          \end{tabular}
+          \caption{Spezifische Widerstandswerte für die \textit{GaAs (alt)}
+              Probe.}
+          \label{tab:SpezifischerWiderstandGaAs}
+        \end{minipage}\quad
+        \begin{minipage}{.48\textwidth}
+          \centering
+          \footnotesize
+          \rowcolors{2}{}{lightgray!40}
+          \begin{tabular}{ccc}
+            $\rho_{1,s}/\Omega$ & $\rho_{2,s}/\Omega$ & $<\rho_{s}>/\Omega$
+            \\ \hline \hline
+            \input{Tables/SpezifischerWiderstandInAs.tex}
+            \cline{3-3} \cline{3-3}
+            & & $0000$ \\
+          \end{tabular}
+          \caption{Spezifische Widerstandswerte für die
+              \textit{InAs - HF-301-040} Probe.}
+          \label{tab:SpezifischerWiderstandInAs}
+        \end{minipage}
+      \end{table}
+      
+      Für die tatsächlichen Resultate unserer Messungen bilden wir nun den
+      Mittelwert über alle fünf Messungen einer Probe und erhalten damit
+      den eigentlichen Wert des spezifischen Widerstandes dieser Probe.
+      Die Fehler auf den berechneten Wert gewinnen wir aus der
+      Standardabweichung unserer fünf Messungen.
+      
+      \todo{START: WERTE}
+      
+      Für die Probe \textit{GaAs (alt)} erhalten wir somit einen Wert von
+      $\rho_{s} = ????? \pm ?????$ für den spezifischen Widerstand.
+      Da allerdings nach der elektrischen Leitfähigkeit gefragt ist, erhalten
+      wir mit \cref{eq:Leitfähigkeit} die elektrische Leitfähigkeit
+      $\sigma_{s} = ????? \pm ?????$.
+      \begin{equation}
+        \label{eq:Leitfähigkeit}
+        \sigma_{s} = \frac{1}{\rho_{s}}
+      \end{equation}
+      
+      Für die Probe \textit{InAs HF-301-040} erhalten wir
+      $\rho_{s} = ????? \pm ?????$ für den spezifischen Widerstand und
+      $\sigma_{s} = ????? \pm ?????$ für die elektrische Leitfähigkeit.
+      
+      \todo{ENDE: WERTE}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -296,6 +521,131 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Hallkonstante bei Raumtemperatur}
       \label{chp:AuswertungHallkonstanteRaumtemperatur}
+      Als nächstes können wir aus dem zweiten Satz von Schaltungen
+      (\cref{tab:SchalterstellungHall}) die Hallkonstanten beider Proben
+      bestimmen.
+      
+      Bei der Bestimmung der Hallkonstanten gibt es zwei leicht verschiedene
+      Möglichkeiten.
+      Die Hallkonstante einer Probe kann sowohl aus einer Messung \textbf{mit}
+      einer Nullfeldmessung also auch \textbf{ohne} dieses Nullfeld Berechnet
+      werden.
+      In diesem Experiment führen wir beide Methoden aus um zu überprüfen, ob
+      eine Nullfeldmessung tatsächlich notwendig ist.
+      
+      \begin{subsection}{\textit{Mit} Nullfeldmessung}
+        \label{chp:AuswertungHallkonstanteRaumtemperaturMit}
+        
+        
+        \begin{table}[htbp]
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \footnotesize
+            \rowcolors{2}{}{lightgray!40}
+            \begin{tabular}{cccc}
+              $V_{A}$ & $V_{B}$ & $V_{C}$ & $V_{D}$ \\ \hline \hline
+              \input{Tables/HallKontaktspannungGaAs.tex}
+            \end{tabular}
+            \caption{Umgerechnete Kontaktspannungen für die
+                \textit{GaAs (alt)} Probe.}
+            \label{tab:HallKontaktspannungGaAs}
+          \end{minipage}\quad
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \footnotesize
+            \rowcolors{2}{}{lightgray!40}
+            \begin{tabular}{cccc}
+              $V_{A}$ & $V_{B}$ & $V_{C}$ & $V_{D}$ \\ \hline \hline
+              \input{Tables/HallKontaktspannungInAs.tex}
+            \end{tabular}
+            \caption{Umgerechnete Kontaktspannungen für die 
+                \textit{InAs - HF-301-040} Probe.}
+            \label{tab:HallKontaktspannungInAs}
+          \end{minipage}
+        \end{table}
+        
+        
+        
+        \begin{table}[htbp]
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \footnotesize
+            \rowcolors{2}{}{lightgray!40}
+            \begin{tabular}{cccc}
+              $V_{H+}$ & $V_{H-}$ & $R_{H+}$ & $R_{H-}$ \\ \hline \hline
+              \input{Tables/HallSpannungGaAs.tex}
+              \hiderowcolors
+              \cline{3-4} \cline{3-4}
+              & \multicolumn{3}{c}{$<R_{H}>=00000 \pm 00000$} \\
+            \end{tabular}
+            \caption{Hallspannungen und Hallkonstanten für die
+                \textit{GaAs (alt)} Probe.}
+            \label{tab:HallSpannungGaAs}
+          \end{minipage}\quad
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \footnotesize
+            \rowcolors{2}{}{lightgray!40}
+            \begin{tabular}{cccc}
+              $V_{H+}$ & $V_{H-}$ & $R_{H+}$ & $R_{H-}$ \\ \hline \hline
+              \input{Tables/HallSpannungInAs.tex}
+              \hiderowcolors
+              \cline{3-4} \cline{3-4}
+              & \multicolumn{3}{c}{$<R_{H}>=00000 \pm 00000$} \\
+            \end{tabular}
+            \caption{Hallspannungen und Hallkonstanten für die 
+                \textit{InAs - HF-301-040} Probe.}
+            \label{tab:HallSpannungInAs}
+          \end{minipage}
+        \end{table}
+        
+        
+      \end{subsection}
+      
+      
+      
+      \begin{subsection}{\textit{Ohne} Nullfeldmessung}
+        \label{chp:AuswertungHallkonstanteRaumtemperaturOhne}
+        
+        
+        \begin{table}[htbp]
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \footnotesize
+            \rowcolors{2}{}{lightgray!40}
+            \begin{tabular}{ccc}
+              $R_{H+}$ & $R_{H-}$ & $R_{H}$ \\ \hline \hline
+              \input{Tables/HallKonstanteGaAsmit.tex}
+              \hiderowcolors
+              \cline{3-3}
+              & & $00000 \pm 00000$ \\
+            \end{tabular}
+            \caption{Hallspannungen und Hallkonstanten für die
+                \textit{GaAs (alt)} Probe.}
+            \label{tab:HallKonstanteGaAsmit}
+          \end{minipage}\quad
+          \begin{minipage}{.48\textwidth}
+            \centering
+            \footnotesize
+            \rowcolors{2}{}{lightgray!40}
+            \begin{tabular}{ccc}
+              $R_{H+}$ & $R_{H-}$ & $R_{H}$ \\ \hline \hline
+              \input{Tables/HallKonstanteInAsmit.tex}
+              \hiderowcolors
+              \cline{3-3}
+              & & $00000 \pm 00000$ \\
+            \end{tabular}
+            \caption{Hallspannungen und Hallkonstanten für die 
+                \textit{InAs - HF-301-040} Probe.}
+            \label{tab:HallKonstanteInAsmit}
+          \end{minipage}
+        \end{table}
+        
+        
+        
+      \end{subsection}
+      
+      
       
       
       
