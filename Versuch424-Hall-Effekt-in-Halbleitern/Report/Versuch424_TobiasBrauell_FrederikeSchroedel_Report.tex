@@ -348,6 +348,7 @@
       Zur Berechnung des Widerstandes benutzen wir die Gleichung $4.1$ aus
       der uns ausgehändigten Anleitung \cite{bib:Anleitung}.
       In diesem Protokoll ist diese Gleichung in \cref{eq:Widerstand} zu finden.
+      
       \begin{equation}
         \label{eq:Widerstand}
         R_{AB,CD}=\frac{|V_{CD}|}{I_{AB}} \Longrightarrow R_{ij,kl}=
@@ -366,11 +367,10 @@
       In \cref{eq:Widerstand} wird daher über die Spannungen $V_{k}$ und $V_{l}$
       der Mittelwert gebildet.
       Zwei Beispiele zur Verdeutlichung:
-      \begin{align}
-        R_{12,34} &= \frac{|V_{34}|}{2I_{12}} = \frac{|U1-U2|}{2I} \\
-        R_{23,41} &= \frac{|V_{41}|}{2I_{23}} = \frac{|U3-U4|}{2I}.
-      \end{align}
-
+      
+      \twoeqn{R_{12,34} &= \frac{|V_{34}|}{2I_{12}} = \frac{|U1-U2|}{2I}}
+             {R_{23,41} &= \frac{|V_{41}|}{2I_{23}} = \frac{|U3-U4|}{2I}.}
+             
       Hierbei ist $V_{34}$ die Spannung zwischen den Punkten $3$ und $4$.
       Diese wird gemittelt über die beiden Spannungen $U1$ und $U2$.
       In dieser Notation entspricht $U1$ hier der im Experiment gemessenen
@@ -414,6 +414,7 @@
       Gleichungen 4.9 bzw. 4.10 aus der Anleitung.
       Diese sind hier in
       \cref{eq:SpezifischerWiderstand1,eq:SpezifischerWiderstand2} dargestellt.
+      
       \begin{equation}
         \label{eq:SpezifischerWiderstand1}
         \frac{\rho_{1}}{d} = \frac{\pi}{ln(2)}\cdot
@@ -464,7 +465,7 @@
             \\ \hline \hline
             \input{Tables/SpezifischerWiderstandGaAs.tex}
             \cline{3-3} \cline{3-3}
-            & & $0000$ \\
+            & & \SI{9,834(7)}{} \\
           \end{tabular}
           \caption{Spezifische Widerstandswerte für die \textit{GaAs (alt)}
               Probe.}
@@ -479,7 +480,7 @@
             \\ \hline \hline
             \input{Tables/SpezifischerWiderstandInAs.tex}
             \cline{3-3} \cline{3-3}
-            & & $0000$ \\
+            & & \SI{27,098(2)}{} \\
           \end{tabular}
           \caption{Spezifische Widerstandswerte für die
               \textit{InAs - HF-301-040} Probe.}
@@ -493,23 +494,20 @@
       Die Fehler auf den berechneten Wert gewinnen wir aus der
       Standardabweichung unserer fünf Messungen.
       
-      \todo{START: WERTE}
-      
       Für die Probe \textit{GaAs (alt)} erhalten wir somit einen Wert von
-      $\rho_{s} = ????? \pm ?????$ für den spezifischen Widerstand.
+      $\rho_{s} = \SI{9,834(7)}{\ohm}$ für den spezifischen Widerstand.
       Da allerdings nach der elektrischen Leitfähigkeit gefragt ist, erhalten
       wir mit \cref{eq:Leitfähigkeit} die elektrische Leitfähigkeit
-      $\sigma_{s} = ????? \pm ?????$.
+      $\sigma_{s} = \SI{1,0169(7)e-1}{\per\ohm}$.
+      
       \begin{equation}
         \label{eq:Leitfähigkeit}
         \sigma_{s} = \frac{1}{\rho_{s}}
       \end{equation}
       
       Für die Probe \textit{InAs HF-301-040} erhalten wir
-      $\rho_{s} = ????? \pm ?????$ für den spezifischen Widerstand und
-      $\sigma_{s} = ????? \pm ?????$ für die elektrische Leitfähigkeit.
-      
-      \todo{ENDE: WERTE}
+      $\rho_{s} = \SI{27,098(2)}{\ohm}$ für den spezifischen Widerstand und
+      $\sigma_{s} = \SI{3,6903(2)e-2}{\per\ohm}$ für die elektrische Leitfähigkeit.
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -535,15 +533,30 @@
       
       \begin{subsection}{\textit{Mit} Nullfeldmessung}
         \label{chp:AuswertungHallkonstanteRaumtemperaturMit}
+        Zunächst wollen wir die Hallkonstante der beiden Proben mit einer
+        Nullfeldmessung berechnen.
+        Dazu korrigieren wir die diagonal an der Probe anliegende Spannung mit
+        der gemessenen Spannung aus der Nullfeldmessung.
         
+        \foureqn{V_{A} = U1-U9  \label{eq:KontaktspannungVA}}
+                {V_{B} = U2-U10 \label{eq:KontaktspannungVB}}
+                {V_{C} = U5-U9  \label{eq:KontaktspannungVC}}
+                {V_{D} = U6-U10 \label{eq:KontaktspannungVD}}
         
+        Hierbei ist es nicht notwendig die Spannung über zwei unterschiedlichen
+        diagonalen zu messen.
+        Wir verwenden daher hier nur die Hallspannungen der Schaltungen
+        1, 2, 5 und 6, sowie die Nullfeldschaltungen 9 und 10.
+        Die korrigierten Spannungen haben wir in
+        \cref{tab:HallKontaktspannungGaAs,tab:HallKontaktspannungInAs} berechnet
+        und in \SI{}{\milli\volt} angegeben.
         \begin{table}[htbp]
           \begin{minipage}{.48\textwidth}
             \centering
             \footnotesize
             \rowcolors{2}{}{lightgray!40}
             \begin{tabular}{cccc}
-              $V_{A}$ & $V_{B}$ & $V_{C}$ & $V_{D}$ \\ \hline \hline
+              $V_{A}/mV$ & $V_{B}/mV$ & $V_{C}/mV$ & $V_{D}/mV$ \\ \hline \hline
               \input{Tables/HallKontaktspannungGaAs.tex}
             \end{tabular}
             \caption{Umgerechnete Kontaktspannungen für die
@@ -555,7 +568,7 @@
             \footnotesize
             \rowcolors{2}{}{lightgray!40}
             \begin{tabular}{cccc}
-              $V_{A}$ & $V_{B}$ & $V_{C}$ & $V_{D}$ \\ \hline \hline
+              $V_{A}/mV$ & $V_{B}/mV$ & $V_{C}/mV$ & $V_{D}/mV$ \\ \hline \hline
               \input{Tables/HallKontaktspannungInAs.tex}
             \end{tabular}
             \caption{Umgerechnete Kontaktspannungen für die 
@@ -564,41 +577,69 @@
           \end{minipage}
         \end{table}
         
+        Aus den korrigierten Kontaktspannungen kann nun die Hallspannung
+        berechnet werden.
+        Dazu bilden wir den Mittelwert, z.B. der beiden Kontaktspannungen
+        $V_{A}$ und $V_{B}$ die Spannung an den selben Punkten abgreift, der
+        Strom aber in entgegengesetzte Richtung fließt.
+        Um die Hallspannungen zu berechnen benutzen wir daher
+        \cref{eq:HallspannungPos,eq:HallspannungNeg}
         
+        \twoeqn{V_{H+} = \frac{V_{A}-V_{B}}{2} \label{eq:HallspannungPos}}
+               {V_{H-} = -\frac{V_{C}-V_{D}}{2}. \label{eq:HallspannungNeg}}
+        
+        Aus den damit bestimmten Hallspannungen für beide Proben, lassen sich
+        nun ihre die Hallkonstanten errechnen.
+        Dazu verwenden wir die
+        \cref{eq:HallKonstantemitPos,eq:HallKonstantemitNeg}
+        
+        \twoeqn{R_{H+} = \frac{V_{H+}}{IB_{+}} \label{eq:HallKonstantemitPos}}
+               {R_{H-} = \frac{V_{H-}}{IB_{-}}.\label{eq:HallKonstantemitNeg}}
+        
+        Dargestellt sind die Werte nun in den
+        \cref{tab:HallKonstanteGaAsmit,tab:HallKonstanteInAsmit}.
         
         \begin{table}[htbp]
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \footnotesize
-            \rowcolors{2}{}{lightgray!40}
-            \begin{tabular}{cccc}
-              $V_{H+}$ & $V_{H-}$ & $R_{H+}$ & $R_{H-}$ \\ \hline \hline
-              \input{Tables/HallSpannungGaAs.tex}
-              \hiderowcolors
-              \cline{3-4} \cline{3-4}
-              & \multicolumn{3}{c}{$<R_{H}>=00000 \pm 00000$} \\
-            \end{tabular}
-            \caption{Hallspannungen und Hallkonstanten für die
-                \textit{GaAs (alt)} Probe.}
-            \label{tab:HallSpannungGaAs}
-          \end{minipage}\quad
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \footnotesize
-            \rowcolors{2}{}{lightgray!40}
-            \begin{tabular}{cccc}
-              $V_{H+}$ & $V_{H-}$ & $R_{H+}$ & $R_{H-}$ \\ \hline \hline
-              \input{Tables/HallSpannungInAs.tex}
-              \hiderowcolors
-              \cline{3-4} \cline{3-4}
-              & \multicolumn{3}{c}{$<R_{H}>=00000 \pm 00000$} \\
-            \end{tabular}
-            \caption{Hallspannungen und Hallkonstanten für die 
-                \textit{InAs - HF-301-040} Probe.}
-            \label{tab:HallSpannungInAs}
-          \end{minipage}
+          \centering
+          \footnotesize
+          \rowcolors{2}{}{lightgray!40}
+          \begin{tabular}{cccc}
+            $V_{H+}/mV$ & $V_{H-}/mV$ & $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$
+            & $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
+            \input{Tables/HallSpannungGaAs.tex}
+            \hiderowcolors
+            \cline{3-4} \cline{3-4}
+            & & \multicolumn{2}{c}{\SI{3,225(23)}{}} \\
+          \end{tabular}
+          \caption{Hallspannungen und Hallkonstanten für die
+              \textit{GaAs (alt)} Probe.}
+          \label{tab:HallKonstanteGaAsmit}
         \end{table}
         
+        \begin{table}[htbp]
+          \centering
+          \footnotesize
+          \rowcolors{2}{}{lightgray!40}
+          \begin{tabular}{cccc}
+            $V_{H+}/mV$ & $V_{H-}/mV$ & $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$
+            & $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
+            \input{Tables/HallSpannungInAs.tex}
+            \hiderowcolors
+            \cline{3-4} \cline{3-4}
+            & & \multicolumn{2}{c}{\SI{12,9697(37)}{}} \\
+          \end{tabular}
+          \caption{Hallspannungen und Hallkonstanten für die 
+              \textit{InAs - HF-301-040} Probe.}
+          \label{tab:HallKonstanteInAsmit}
+        \end{table}
+        
+        Für die Messung der Hallkonstanten mithilfe der Nullfeldmessung ergibt
+        sich also für die \textit{GaAs (alt)} Probe ein Mittelwert von
+        $R_{H} = \SI{3,225(23)}{\meter^{2}\per\coulomb}$.
+        Für die \textit{InAs-HF-301-040} ergibt sich eine mittlere Hallkonstante
+        von $R_{H} = \SI{12,9697(37)}{\meter^{2}\per\coulomb}$.
+        Die Fehler ergeben sich hierbei aus den Standardabweichungen der fünf
+        Messungen.
         
       \end{subsection}
       
@@ -606,7 +647,37 @@
       
       \begin{subsection}{\textit{Ohne} Nullfeldmessung}
         \label{chp:AuswertungHallkonstanteRaumtemperaturOhne}
+        Die Hallkonstante einer Probe lässt sich aber auch ohne eine
+        Nullfeldmessung bestimmen.
+        Anders als bei der Nullfeldmessung werden die Kontaktspannungen hier
+        nicht gegen ein Nullfeld korrigiert sondern direkt in die Gleichung
+        der Hallkonstanten eingebracht.
+        Zunächst wird der Mittelwert der Kontaktspannungen gleicher Anschlüsse
+        bestimmt
+        (\crefrange{eq:KontaktspannungVAohne}{eq:KontaktspannungVDohne}).
         
+        \foureqn{V_{A} = \frac{U1-U2}{2} \label{eq:KontaktspannungVAohne}}
+                {V_{B} = \frac{U3-U4}{2} \label{eq:KontaktspannungVBohne}}
+                {V_{C} = \frac{U5-U6}{2} \label{eq:KontaktspannungVCohne}}
+                {V_{D} = \frac{U7-U8}{2} \label{eq:KontaktspannungVDohne}}
+        
+        Anschließend bilden wir den Mittelwert über die Spannungen beider
+        magnetischen Polarisationen
+        (\cref{eq:Hallspannung1,eq:Hallspannung2}).
+        
+        \twoeqn{V_{H1,S} = \frac{V_{A}-V_{C}}{2} \label{eq:Hallspannung1}}
+               {V_{H2,S} = \frac{V_{B}-V_{D}}{2} \label{eq:Hallspannung2}}
+        
+        Ab hier berechnet sich die Hallkonstante ähnlich der
+        \textbf{mit Nullfeld} Methode.
+        Die über \cref{eq:Hallkonstanteohne1,eq:Hallkonstanteohne2} berechneten
+        Hallkonstanten 
+        
+        \twoeqn{R_{H1,S} = \frac{V_{H1,S}}{IB_{+}} \label{eq:Hallkonstanteohne1}}
+               {R_{H2,S} = \frac{V_{H2,S}}{IB_{-}} \label{eq:Hallkonstanteohne2}}
+        
+        sind in \cref{tab:HallKonstanteGaAsohne,tab:HallKonstanteInAsohne}
+        dargestellt.
         
         \begin{table}[htbp]
           \begin{minipage}{.48\textwidth}
@@ -614,40 +685,54 @@
             \footnotesize
             \rowcolors{2}{}{lightgray!40}
             \begin{tabular}{ccc}
-              $R_{H+}$ & $R_{H-}$ & $R_{H}$ \\ \hline \hline
+              $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$ &
+              $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ &
+              $R_{H}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
               \input{Tables/HallKonstanteGaAsmit.tex}
               \hiderowcolors
               \cline{3-3}
-              & & $00000 \pm 00000$ \\
+              & & \SI{3,222(12)}{} \\
             \end{tabular}
-            \caption{Hallspannungen und Hallkonstanten für die
-                \textit{GaAs (alt)} Probe.}
-            \label{tab:HallKonstanteGaAsmit}
+            \caption{Hallkonstanten für die \textit{GaAs (alt)} Probe.}
+            \label{tab:HallKonstanteGaAsohne}
           \end{minipage}\quad
           \begin{minipage}{.48\textwidth}
             \centering
             \footnotesize
             \rowcolors{2}{}{lightgray!40}
             \begin{tabular}{ccc}
-              $R_{H+}$ & $R_{H-}$ & $R_{H}$ \\ \hline \hline
+              $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$ &
+              $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ &
+              $R_{H}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
               \input{Tables/HallKonstanteInAsmit.tex}
               \hiderowcolors
               \cline{3-3}
-              & & $00000 \pm 00000$ \\
+              & & \SI{12,9666(34)}{} \\
             \end{tabular}
-            \caption{Hallspannungen und Hallkonstanten für die 
-                \textit{InAs - HF-301-040} Probe.}
-            \label{tab:HallKonstanteInAsmit}
+            \caption{Hallkonstanten für die \textit{InAs - HF-301-040} Probe.}
+            \label{tab:HallKonstanteInAsohne}
           \end{minipage}
         \end{table}
         
-        
+        Für die Messung der Hallkonstanten ohne die Nullfeldmessung ergibt
+        sich also für die \textit{GaAs (alt)} Probe ein Mittelwert von
+        $R_{H} = \SI{3,222(12)}{\meter\squared\per\coulomb}$.
+        Für die \textit{InAs-HF-301-040} ergibt sich eine mittlere Hallkonstante
+        von $R_{H} = \SI{12,9666(34)}{\meter\squared\per\coulomb}$.
+        Die Fehler ergeben sich hierbei aus den Standardabweichungen der fünf
+        Messungen.
         
       \end{subsection}
       
-      
-      
-      
+      Aus den Resultaten der beiden Methoden ist mit
+      $R_{H} = \SI{3,225(23)}{\meter\squared\per\coulomb}$ und
+      $R_{H} = \SI{3,222(12)}{\meter\squared\per\coulomb}$ für die
+      \textit{GaAs (alt)} Probe, sowie
+      $R_{H} = \SI{12,9697(37)}{\meter\squared\per\coulomb}$ und
+      $R_{H} = \SI{12,9666(34)}{\meter\squared\per\coulomb}$ für die
+      \textit{InAs-HF-301-040} Probe schnell ersichtlich, dass beide Methoden
+      im selben Fehlerbereich liegen und es somit keine Auswirkungen hat welche
+      der Methoden tatsächlich verwendet wird.
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -659,9 +744,34 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Beweglichkeit der Ladungen}
       \label{chp:AuswertungBeweglichkeitLadungen}
+      Nachdem nun alle Grundlegenden Größen der Proben bestimmt wurden, sollen
+      nun auch noch die Beweglichkeit $\mu_{S}$ und die Ladungsträgerdichte der
+      Majoritätsladungen $p_{S}$ bestimmt werden.
       
+      Dazu verwenden wir die \cref{eq:Beweglichkeit,eq:Ladungstraegerdichte}
       
-     
+      \twoeqn{\mu_{S} = \left| \frac{R_{H,S}}{\rho_{S}} \right|
+                \label{eq:Beweglichkeit}}
+             {p_{S} = \frac{1}{e\cdot R_{H,S}}. \label{eq:Ladungstraegerdichte}}
+      
+      Die resultierenden Werte sind in
+      \cref{tab:BeweglichkeitLadungstraegerdichte} notiert.
+      
+      \begin{table}[htbp]
+        \centering
+        \begin{tabular}{c|c|c}
+          Probe & $\mu_{H,S}/()$ & $p_{H,S}/()$ \\ \hline
+          \textit{GaAs (alt)} & \SI{3,276(10)e-1}{} & \SI{1,937(6)e+18}{} \\
+%           \hline
+          \textit{InAs-HF-301-040} & \SI{4,785(1)e-1}{} & \SI{4,814(1)e+17}{} \\
+        \end{tabular}
+        \caption{Berechnete Werte der Beweglichkeit und Ladungsträgerdichte
+            der Majoritätsladungen.}
+        \label{tab:BeweglichkeitLadungstraegerdichte}
+      \end{table}
+      
+      \todo{Fertig? oder kann man noch mehr sagen?}
+      
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
@@ -672,7 +782,60 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Temperaturabhängigkeit}
       \label{chp:AuswertungTemperaturen}
+      Der zweite Teil dieses Experimentes besteht darin, dass wir die zuvor
+      bei Raumtemperatur bestimmten physikalischen Größen nun bei einer Probe
+      auf eine Temperaturabhängigkeit untersuchen wollen.
+      Wir haben dazu die \textit{InAs-HF-301-040} Probe ausgewählt.
+      Anders als im ersten Versuchsteil nehmen wir nun allerdings nicht mehr
+      fünf Messwerte für jede Messung, sondern beschränken uns hier auf einzelne
+      Messwerte.
       
+      Alle zuvor beschriebenen Berechnungen werden nun auf die Messwerte aus
+      \cref{tab:TemperaturInAs} angewandt.
+      Die damit bestimmten Werte werden hier in
+      \cref{tab:TemperaturInAsResultate} dargestellt.
+      
+      \begin{table}[htbp]
+        \centering
+        \footnotesize
+        \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{c|c|c|c|c|c}
+          T/\SI{}{\celsius} & T/\SI{}{\per\kelvin} &
+          $\sigma_{S}/\SI{}{\per\ohm}$ &
+          $R_{H,S}/(\SI{}{\meter\squared\per\coulomb})$ &
+          $p_{H,S}/()$ & $\mu_{H,S}/()$ \\ \hline
+          \input{Tables/TemperaturInAsResultate.tex}
+        \end{tabular}
+        \caption{Berechnete physikalische Messgrößen für verschiedene
+            Temperaturen.}
+        \label{tab:TemperaturInAsResultate}
+      \end{table}
+      
+      \todo{Richtige Bilder machen und einbauen!}
+      
+      \begin{figure}[b!]
+        \centering
+        \includegraphics[width=.92\textwidth]{Figures/Korrekturfaktor.png}
+        \caption{bla bla.}
+        \label{fig:Temp1}
+      \end{figure}
+      
+      \newpage
+      \begin{figure}[ht!]
+        \centering
+        \begin{minipage}{.92\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{Figures/Korrekturfaktor.png}
+          \caption{bla bla.}
+          \label{fig:Temp2}
+        \end{minipage}\\
+        \begin{minipage}{.92\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{Figures/Korrekturfaktor.png}
+          \caption{bla bla.}
+          \label{fig:Temp3}
+        \end{minipage}
+      \end{figure}
       
       
     \end{section}
@@ -680,6 +843,7 @@
     
     
     
+    \newpage
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -153,6 +153,58 @@
 %%% Math
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
+  \newcounter{mySubCounter2}
+  \newcommand{\twoeqn}[2]{%
+    \setcounter{mySubCounter2}{0}
+    \let\OldTheEquation\theequation%
+    \renewcommand{\theequation}{\OldTheEquation\alph{mySubCounter2}}%
+    \noindent%
+    \addtocounter{mySubCounter2}{1}%
+    \begin{minipage}{.48\textwidth}
+    \begin{align}
+    #1
+    \end{align}
+    \end{minipage}%
+    \addtocounter{equation}{-1}%
+    \addtocounter{mySubCounter2}{1}%
+    \begin{minipage}{.48\textwidth}
+    \begin{align}
+    #2
+    \end{align}
+    \end{minipage}\par\medskip%
+    \let\theequation\OldTheEquation
+    }
+  
+  \newcounter{mySubCounter4}
+  \newcommand{\foureqn}[4]{%
+    \setcounter{mySubCounter4}{0}
+    \let\OldTheEquation\theequation%
+    \renewcommand{\theequation}{\OldTheEquation\alph{mySubCounter4}}%
+    \noindent%
+    \refstepcounter{mySubCounter4}
+    \begin{minipage}{.48\textwidth}
+    \begin{align}
+    #1 \\
+    \addtocounter{equation}{-1}
+    \addtocounter{mySubCounter4}{2}
+    #3
+    \end{align}
+    \end{minipage}%
+    \addtocounter{equation}{-1}%
+    \addtocounter{mySubCounter4}{-1}%
+    \begin{minipage}{.48\textwidth}
+    \begin{align}
+    #2 \\
+    \addtocounter{equation}{-1} 
+    \addtocounter{mySubCounter4}{2}
+    #4
+    \end{align}
+    \end{minipage}\par\medskip%
+    \let\theequation\OldTheEquation
+    }
+  
+  
+  
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{dcolumn}
@@ -187,6 +239,7 @@
 % \usepackage{colortbl}
 \usepackage{longtable}
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage{tabularx}
   \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
   \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
