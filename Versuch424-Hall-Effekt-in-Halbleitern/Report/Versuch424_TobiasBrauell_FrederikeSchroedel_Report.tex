@@ -417,14 +417,14 @@
       
       \begin{equation}
         \label{eq:SpezifischerWiderstand1}
-        \frac{\rho_{1}}{d} = \frac{\pi}{ln(2)}\cdot
+        \rho_{1} = \frac{\pi d}{ln(2)}\cdot
         \frac{R_{12,34}+R_{23,41}}{2}
         \cdot f\left(\frac{R_{12,34}}{R_{23,41}} \right)
       \end{equation}
       
       \begin{equation}
         \label{eq:SpezifischerWiderstand2}
-        \frac{\rho_{2}}{d} = \frac{\pi}{ln(2)}\cdot
+        \rho_{2} = \frac{\pi d}{ln(2)}\cdot
         \frac{R_{34,12}+R_{41,23}}{2}
         \cdot f\left(\frac{R_{34,12}}{R_{41,23}} \right).
       \end{equation}
@@ -461,7 +461,9 @@
           \footnotesize
           \rowcolors{2}{}{lightgray!40}
           \begin{tabular}{ccc}
-            $\rho_{1,s}/\Omega$ & $\rho_{2,s}/\Omega$ & $<\rho_{s}>/\Omega$
+            $\rho_{1,s}/\SI{}{\ohm\per\meter}$ &
+            $\rho_{2,s}/\SI{}{\ohm\per\meter}$ &
+            $<\rho_{s}>/\SI{}{\ohm\per\meter}$
             \\ \hline \hline
             \input{Tables/SpezifischerWiderstandGaAs.tex}
             \cline{3-3} \cline{3-3}
@@ -476,7 +478,9 @@
           \footnotesize
           \rowcolors{2}{}{lightgray!40}
           \begin{tabular}{ccc}
-            $\rho_{1,s}/\Omega$ & $\rho_{2,s}/\Omega$ & $<\rho_{s}>/\Omega$
+            $\rho_{1,s}/\SI{}{\ohm\per\meter}$ &
+            $\rho_{2,s}/\SI{}{\ohm\per\meter}$ &
+            $<\rho_{s}>/\SI{}{\ohm\per\meter}$
             \\ \hline \hline
             \input{Tables/SpezifischerWiderstandInAs.tex}
             \cline{3-3} \cline{3-3}
@@ -495,10 +499,10 @@
       Standardabweichung unserer fünf Messungen.
       
       Für die Probe \textit{GaAs (alt)} erhalten wir somit einen Wert von
-      $\rho_{s} = \SI{9,834(7)}{\ohm}$ für den spezifischen Widerstand.
+      $\rho_{s} = \SI{9,834(7)}{\ohm\per\meter}$ für den spezifischen Widerstand.
       Da allerdings nach der elektrischen Leitfähigkeit gefragt ist, erhalten
       wir mit \cref{eq:Leitfähigkeit} die elektrische Leitfähigkeit
-      $\sigma_{s} = \SI{1,0169(7)e-1}{\per\ohm}$.
+      $\sigma_{s} = \SI{1,0169(7)e-1}{\meter\per\ohm}$.
       
       \begin{equation}
         \label{eq:Leitfähigkeit}
@@ -506,8 +510,10 @@
       \end{equation}
       
       Für die Probe \textit{InAs HF-301-040} erhalten wir
-      $\rho_{s} = \SI{27,098(2)}{\ohm}$ für den spezifischen Widerstand und
-      $\sigma_{s} = \SI{3,6903(2)e-2}{\per\ohm}$ für die elektrische Leitfähigkeit.
+      $\rho_{s} = \SI{27,098(2)}{\ohm\per\meter}$ für den spezifischen
+      Widerstand und
+      $\sigma_{s} = \SI{3,6903(2)e-2}{\meter\per\ohm}$ für die elektrische
+      Leitfähigkeit.
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -604,8 +610,9 @@
           \footnotesize
           \rowcolors{2}{}{lightgray!40}
           \begin{tabular}{cccc}
-            $V_{H+}/mV$ & $V_{H-}/mV$ & $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$
-            & $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
+            $V_{H+}/mV$ & $V_{H-}/mV$ &
+            $R_{H+}/\SI{}{\meter\squared\per\coulomb}$ &
+            $R_{H-}/\SI{}{\meter\squared\per\coulomb}$ \\ \hline \hline
             \input{Tables/HallSpannungGaAs.tex}
             \hiderowcolors
             \cline{3-4} \cline{3-4}
@@ -621,8 +628,9 @@
           \footnotesize
           \rowcolors{2}{}{lightgray!40}
           \begin{tabular}{cccc}
-            $V_{H+}/mV$ & $V_{H-}/mV$ & $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$
-            & $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
+            $V_{H+}/mV$ & $V_{H-}/mV$ &
+            $R_{H+}/\SI{}{\meter\squared\per\coulomb}$ &
+            $R_{H-}/\SI{}{\meter\squared\per\coulomb}$ \\ \hline \hline
             \input{Tables/HallSpannungInAs.tex}
             \hiderowcolors
             \cline{3-4} \cline{3-4}
@@ -635,9 +643,9 @@
         
         Für die Messung der Hallkonstanten mithilfe der Nullfeldmessung ergibt
         sich also für die \textit{GaAs (alt)} Probe ein Mittelwert von
-        $R_{H} = \SI{3,225(23)}{\meter^{2}\per\coulomb}$.
+        $R_{H} = \SI{3,225(23)}{\meter\squared\per\coulomb}$.
         Für die \textit{InAs-HF-301-040} ergibt sich eine mittlere Hallkonstante
-        von $R_{H} = \SI{12,9697(37)}{\meter^{2}\per\coulomb}$.
+        von $R_{H} = \SI{12,9697(37)}{\meter\squared\per\coulomb}$.
         Die Fehler ergeben sich hierbei aus den Standardabweichungen der fünf
         Messungen.
         
@@ -685,9 +693,9 @@
             \footnotesize
             \rowcolors{2}{}{lightgray!40}
             \begin{tabular}{ccc}
-              $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$ &
-              $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ &
-              $R_{H}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
+              $R_{H+}/\SI{}{\meter\squared\per\coulomb}$ &
+              $R_{H-}/\SI{}{\meter\squared\per\coulomb}$ &
+              $R_{H}/\SI{}{\meter\squared\per\coulomb}$ \\ \hline \hline
               \input{Tables/HallKonstanteGaAsmit.tex}
               \hiderowcolors
               \cline{3-3}
@@ -701,9 +709,9 @@
             \footnotesize
             \rowcolors{2}{}{lightgray!40}
             \begin{tabular}{ccc}
-              $R_{H+}/(\SI{}{\meter^{2}\per\coulomb})$ &
-              $R_{H-}/(\SI{}{\meter^{2}\per\coulomb})$ &
-              $R_{H}/(\SI{}{\meter^{2}\per\coulomb})$ \\ \hline \hline
+              $R_{H+}/\SI{}{\meter\squared\per\coulomb}$ &
+              $R_{H-}/\SI{}{\meter\squared\per\coulomb}$ &
+              $R_{H}/\SI{}{\meter\squared\per\coulomb}$ \\ \hline \hline
               \input{Tables/HallKonstanteInAsmit.tex}
               \hiderowcolors
               \cline{3-3}
@@ -760,7 +768,8 @@
       \begin{table}[htbp]
         \centering
         \begin{tabular}{c|c|c}
-          Probe & $\mu_{H,S}/()$ & $p_{H,S}/()$ \\ \hline
+          Probe & $\mu_{H,S}/\SI{}{\meter\squared\per\volt\per\second}$ &
+          $p_{H,S}/\SI{}{\meter\squared}$ \\ \hline
           \textit{GaAs (alt)} & \SI{3,276(10)e-1}{} & \SI{1,937(6)e+18}{} \\
 %           \hline
           \textit{InAs-HF-301-040} & \SI{4,785(1)e-1}{} & \SI{4,814(1)e+17}{} \\
@@ -800,10 +809,11 @@
         \footnotesize
         \rowcolors{2}{}{lightgray!40}
         \begin{tabular}{c|c|c|c|c|c}
-          T/\SI{}{\celsius} & T/\SI{}{\per\kelvin} &
-          $\sigma_{S}/\SI{}{\per\ohm}$ &
-          $R_{H,S}/(\SI{}{\meter\squared\per\coulomb})$ &
-          $p_{H,S}/()$ & $\mu_{H,S}/()$ \\ \hline
+          T/\SI{}{\celsius} & $T_{inv}/\SI{}{\per\kelvin}$ &
+          $\sigma_{S}/\SI{}{\meter\per\ohm}$ &
+          $R_{H,S}/\SI{}{\meter\squared\per\coulomb}$ &
+          $p_{H,S}/\SI{}{\meter\squared}$ &
+          $\mu_{H,S}/\SI{}{\meter\squared\per\volt\per\second}$ \\ \hline
           \input{Tables/TemperaturInAsResultate.tex}
         \end{tabular}
         \caption{Berechnete physikalische Messgrößen für verschiedene
@@ -811,13 +821,25 @@
         \label{tab:TemperaturInAsResultate}
       \end{table}
       
-      \todo{Richtige Bilder machen und einbauen!}
+      In den \crefrange{fig:TempLeifaehigkeit}{fig:TempLadungsdichte} haben
+      wir die bestimmten Größen gegen die inverse Temperatur aufgetragen.
       
-      \begin{figure}[b!]
+      \begin{figure}[ht!]
         \centering
-        \includegraphics[width=.92\textwidth]{Figures/Korrekturfaktor.png}
-        \caption{bla bla.}
-        \label{fig:Temp1}
+        \begin{minipage}{.92\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{Figures/Temp_Leitfaehigkeit.png}
+          \caption{Leitfähigkeit gegen invertierte Temperatur
+              \SI{}{\per\kelvin}.}
+          \label{fig:TempLeifaehigkeit}
+        \end{minipage}\\
+        \begin{minipage}{.92\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{Figures/Temp_Beweglichkeit.png}
+          \caption{Beweglichkeit gegen invertierte Temperatur
+              \SI{}{\per\kelvin}.}
+          \label{fig:TempBeweglichkeit}
+        \end{minipage}
       \end{figure}
       
       \newpage
@@ -825,15 +847,17 @@
         \centering
         \begin{minipage}{.92\textwidth}
           \centering
-          \includegraphics[width=\textwidth]{Figures/Korrekturfaktor.png}
-          \caption{bla bla.}
-          \label{fig:Temp2}
+          \includegraphics[width=\textwidth]{Figures/Temp_Hallkonstante.png}
+          \caption{Hallkonstante gegen invertierte Temperatur
+              \SI{}{\per\kelvin}.}
+          \label{fig:TempHallkonstante}
         \end{minipage}\\
         \begin{minipage}{.92\textwidth}
           \centering
-          \includegraphics[width=\textwidth]{Figures/Korrekturfaktor.png}
-          \caption{bla bla.}
-          \label{fig:Temp3}
+          \includegraphics[width=\textwidth]{Figures/Temp_Ladungsdichte.png}
+          \caption{Ladungsträgerdichte der Majoritätsladungen gegen invertierte
+              Temperatur \SI{}{\per\kelvin}.}
+          \label{fig:TempLadungsdichte}
         \end{minipage}
       \end{figure}
       
