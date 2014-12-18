@@ -84,7 +84,7 @@
         \begin{subsection}{Leiter, Halbleiter, Isolatoren}
             Ausgehend von Bändermodell kann man Leiter, Halbleiter und Isolatoren durch die Lage der Bänder zu einander bestimmen.
             Liegt nur ein teilbestetztes Leitungsband oder eine Überlappung von Valenzband und Leitungsband vor, so Erhält man einen Leiter.
-            Dies ist in Alkaliemetall beziehungsweise Metall der Fall.
+            Dies ist in Alkalimetall beziehungsweise Metall der Fall.
             Halbleitern und Isolatoren haben zwischen Valenzband und Leitungsband eine Bandlücke. 
             Bei Halbleitern ist diese nur wenige Elektronenvolt groß, sodass die Elektronen schon durch thermische Anregung genug Energie haben um in Leitungsband zu gelangen, werden sie bei Isolatoren so groß ist, das dies nicht leitend werden können.
 
@@ -153,13 +153,16 @@
             Diese Methode ermöglicht es einem ein beliebig geformte Probe zu untersuchen, solange diese eine flache Scheibe ohne Löcher ist, welche homogen dotiert ist und gleichmäßig dick ist.
             Hierzu benötigt die Probe vier Anschlüsse, welche möglichst klein sind. 
             Zwischen zwei dieser Anschlüsse fließt ein Strom, über die anderen beiden wird eine Spannung abgegriffen.
+            
             \todo{skizzen}
 
             Die Skizzen zeigen die Schaltung für eine Widerstands- beziehungsweise Hall-Effekt-Messung.
             Der Widerstand $R_\text{AB,CD}$ lässt sich mit 
+            
             \[
                 R_\text{AB,CD} = \frac{\abs{V_\text{CD}}}{I_\text{AB}}
             \]
+            
             wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt. 
 
         \end{subsection}
@@ -950,6 +953,21 @@
       In den \crefrange{fig:TempLeifaehigkeit}{fig:TempLadungsdichte} haben
       wir die bestimmten Größen gegen die inverse Temperatur aufgetragen.
       
+      In \cref{fig:TempLeifaehigkeit,fig:TempBeweglichkeit} ist gut zu sehen,
+      dass sowohl die Leitfähigkeit als auch die Beweglichkeit der Probe mit
+      fallender Temperatur zunimmt.
+      Leider hat die Kühlung es nur geschafft die Probe auf etwa 
+      \SI{-206}{\celsius} abzukühlen.
+      Daher sehen wir leider kein Maximum der Leitfähigkeit und Beweglichkeit.
+      Wir können an dieser stelle nur vermuten, dass es bei tieferen
+      Temperaturen zu einem solchen Maximum kommt.
+      
+      In \cref{fig:TempHallkonstante,fig:TempLadungsdichte} kann man jedoch gut
+      erkennen, dass es im Temperaturverlauf zu einem deutlichen Extrempunkt
+      kommt.
+      Die Hallkonstante und die Ladungsträgerdichte nehmen ihre Extremwerte etwa
+      etwa bei \SI{-180}{\celsius} an.
+      
       \begin{figure}[ht!]
         \centering
         \begin{minipage}{.92\textwidth}
@@ -999,8 +1017,34 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Fazit}
       \label{chp:Fazit}
+      Im laufe dieses Versuches konnten wir die Leitfähigkeit der zwei
+      verwendeten Proben sowie deren Hallkonstanten bei Raumtemperatur
+      bestimmen.
+      Für die Hallkonsante haben wir sowohl die Methode der Berechnung
+      \textbf{mit} als auch \textbf{ohne} Nullfeldmessung durchgeführt.
+      Dabei konnten wir feststellen, dass es rechnerisch zu keinen
+      nennenswerten Differenzen zwischen den beiden unterschiedlichen Methoden
+      kommt.
+      In \cref{tab:Zusammenfassung1} haben wir diese berechneten Werte noch
+      einmal zusammengefasst.
       
+      \todo{Tabelle mit den fertigen daten vom ersten tag}
       
+      Aus diesen Größen konnten wir dann die Beweglichkeit und die
+      Ladungsträgerdichte der Majoritätsladungen (\cref{tab:Zusammenfassung2})
+      für beide Proben bestimmen.
+      
+      \todo{Tabelle mit den anderen werten vom ersten tag}
+      
+      Am zweiten Versuchsstag haben wir den Temperaturverlauf der bisher bei
+      Raumtemperatur berechneten Größen bestimmen.
+      Dabei haben wir leider festgestellt, dass die Kühlung nur eine Temperatur
+      von etwa \SI{-206}{\celsius} erreichen konnte und diese Temperatur noch
+      zu hoch war um das Maximum der Leitfähigkeit und der Beweglichkeit
+      zu erreichen.
+      Für die Hallkonsante und die Ladungsträgerdichte konnten wir einen
+      Extrempunkt bei einer Temperatur von etwa \SI{-180}{\celsius}
+      erkennen.
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1013,7 +1057,7 @@
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
-  \input{./Versuch424_TobiasBrauell_FrederikeSchroedel_Appendix.tex}
+%   \input{./Versuch424_TobiasBrauell_FrederikeSchroedel_Appendix.tex}
   %%%%%%%%%%%%%%%%%%%%
   
   
