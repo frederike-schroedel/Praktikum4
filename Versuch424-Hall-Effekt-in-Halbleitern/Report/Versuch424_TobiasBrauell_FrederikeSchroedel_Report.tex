@@ -63,6 +63,8 @@
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
    
+   \todo{sections kontrollieren!}
+   
     \begin{section}{Leitung in Halbleitern}
         \begin{subsection}{Bändermodell}
             Das Bändermodell ist ein anschauliches Modell, dass Leitungseigenschaften beschreiben soll. 
@@ -73,8 +75,6 @@
             Zu diesen Bänder kommt es, weil in einem Kristall die Potentiale der einzelnen Atome so überlagern, dass aus den diskreten Energieniveaus breitere Bänder werden.
             Diese werden von den Elektronen von unten nach oben hin aufgefüllte, wobei das letzte befüllte Band das Valenzband und das da drüber liegen das Leitungsband ist.
             
-            \todo{Bild?}
-
         \end{subsection}
 
         \begin{subsection}{Leiter, Halbleiter, Isolatoren}
@@ -83,6 +83,22 @@
             Dies ist in Alkalimetall beziehungsweise Metall der Fall.
             Halbleitern und Isolatoren haben zwischen Valenzband und Leitungsband eine Bandlücke. 
             Bei Halbleitern ist diese nur wenige Elektronenvolt groß, sodass die Elektronen schon durch thermische Anregung genug Energie haben um in Leitungsband zu gelangen, werden sie bei Isolatoren so groß ist, das dies nicht leitend werden können.
+            
+            \begin{figure}[ht!]
+              \centering
+              \begin{minipage}{.49\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/Baendermodell.png}
+                \caption{Illustration der Energieniveaus im Bändermodell.}
+                \label{fig:Baendermodell}
+              \end{minipage}
+              \begin{minipage}{.49\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/Fermi.png}
+                \caption{Fermi-Verteilung bei verschiedenen Temperaturen.}
+                \label{fig:FermiTemp}
+              \end{minipage}
+            \end{figure}
 
         \end{subsection}
 
@@ -90,10 +106,11 @@
             Wenn keine thermische Anregung und kein äußeres Potential besteht, so sind auch die Elektronen nicht angeregt.
             In diesen Fall sind die Zustände nur bis zur Fermi-Energie besetzt.
             Sobald es eine thermische Anregung gibt, werden auch Elektronen angeregt. Die Wahrscheinlichkeit hierfür ist:
-            \[
+            
+            \begin{equation}
                 W(E) = \frac{1}{\exp({\frac{e-E_\text{F}}{k_\text{B}T}})+1}
-            \]
-
+            \end{equation}
+            
         \end{subsection}
 
         \begin{subsection}{Ladungsträger und Dotierung}
@@ -101,7 +118,26 @@
             Wenn man nun eine elektrisches Feld kann es sich quasi frei bewegen.
             Dadurch, dass ein Elektron das Valenzband verlassen hat, entsteht dort eine Lochladung, welche anscheinend positiv ist. 
             Die umliegende Elektronen können in diese Loch springen, so dass es wandern kann und auch hier eine bewegte Ladung entsteht, die sich allerdings weniger beweglich sind als die Elektronen.
-
+            
+            \begin{figure}[b!]
+              \centering
+              \begin{minipage}{.54\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/hubbel.png}
+                \caption{Anteile der an der Beweglichkeit in Abhängigkeit der
+                    Temperatur. \cite{bib:Hubbel}}
+                \label{fig:Hubbel}
+              \end{minipage}
+              \begin{minipage}{.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]
+                    {Figures/Temperaturverlauf2.png}
+                \caption{Temperaturverlauf der Ladungsträgerdichte.
+                    \cite{bib:Temperaturverlauf2}}
+                \label{fig:TemperaturverlaufLeifaehigkeit}
+              \end{minipage}
+            \end{figure}
+            
             Man verkleinert die Bandlücke von Halbleitern, damit sie auch bei niedrigeren Temperaturen gut nutzbar sind.
             Dies kann man zum Beispiel erreichen, indem man den Halbleiter dotiert.
             Man nutzt zwei verschiedene Dotierungen. 
@@ -115,25 +151,6 @@
             Bei einem dotierten Halbleiter lässt sich die Leitfähigkeit in drei Temperaturbereiche einteilen.
             Für einen n-dotierten Halbleiter ist das Verhalten wie im Folgenden beschrieben.
             
-            \begin{figure}[ht!]
-              \centering
-              \begin{minipage}{.48\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{Figures/hubbel.png}
-                \caption{Anteile der an der Beweglichkeit in Abhängigkeit der
-                    Temperatur. \cite{bib:Hubbel}}
-                \label{fig:Hubbel}
-              \end{minipage}\quad
-              \begin{minipage}{.48\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]
-                    {Figures/Temperaturverlauf2.png}
-                \caption{Temperaturverlauf der Ladungsträgerdichte.
-                    \cite{bib:Temperaturverlauf2}}
-                \label{fig:TempLeifaehigkeit}
-              \end{minipage}
-            \end{figure}
-
             Für sehr kleine Temperaturen befindet man sich im Störstellen oder auch Reservebereich. In diesen Fall sind selbst im Donatorband kaum Elektronen angeregt, sodass die Leitfähigkeit sehr gering ist.
             Bei einer höhere thermische Anregung gelangt man in den Sättigungsbereich, wo alle Elektronen aus dem Donatorband ins Leitungsband angeregt wurden.
             Dadurch ist die Leitungsfähigkeit deutlich gesteigert.
@@ -143,27 +160,33 @@
         \end{subsection}
 
         \begin{subsection}{Driftbeweglichkeit und spezifischer Widerstand}
+        
             \todo{Streuung von Ladungsträgern}
 
             Der spezifische Widerstand $\rho$ ist das inverse von der Leitfähigkeit $\sigma = \frac 1\rho$.
             Mit Hilfe dieser Größe lässt sich der Zusammenhang zwischen der Driftgeschwindigkeit $v$ der Ladungsträger der Feldstärke $E$ eines entsprechend kleinem elektrischen Feldes bestimmen.
             Dieser Zusammenhang ist gegeben durch einen Proportionalitätsfaktor $\mu$ welcher gegeben ist durch:
-            \[
+            
+            \begin{equation}
                 \mu = \frac j{epE} = \frac \sigma{ep} = \frac{R_\text{H} \sigma}r
-            \]
+            \end{equation}
+            
             Damit erhalten wir folgenden Zusammenhang.
-            \[
+            
+            \begin{equation}
                 v = \mu E
-            \]
+            \end{equation}
+            
             Um nun eine Aussage über die Hall-Beweglichkeit machen zu können, brauchen wir noch einen Korrekturfaktor $r$, über den diese mit der Driftgeschwindigkeit zusammen hängt.
-            \[
+            
+            \begin{equation}
                 \mu_\text H =r\mu
-            \]
-
+            \end{equation}
+            
         \end{subsection}
 
         \begin{subsection}{Van-der-Pauw-Messmethode}
-            Wir nutzen die Van-der-Pauw-Methode um den spezifischen Widerstand so wie die Hall-Konstante einer Probe zu bestimmen.
+            Wir nutzen die Van-der-Pauw Methode um den spezifischen Widerstand so wie die Hallkonstante einer Probe zu bestimmen.
             Diese Methode ermöglicht es einem ein beliebig geformte Probe zu untersuchen, solange diese eine flache Scheibe ohne Löcher ist, welche homogen dotiert ist und gleichmäßig dick ist.
             Hierzu benötigt die Probe vier Anschlüsse, welche möglichst klein sind. 
             Zwischen zwei dieser Anschlüsse fließt ein Strom, über die anderen beiden wird eine Spannung abgegriffen.
@@ -191,9 +214,9 @@
             Die Skizzen zeigen die Schaltung für eine Widerstands- beziehungsweise Hall-Effekt-Messung.
             Der Widerstand $R_\text{AB,CD}$ lässt sich mit 
             
-            \[
+            \begin{equation}
                 R_\text{AB,CD} = \frac{\abs{V_\text{CD}}}{I_\text{AB}}
-            \]
+            \end{equation}
             
             wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt. 
 
@@ -258,6 +281,13 @@
     Am benutzte permanent Magnet wurden die Pole markiert und kann um die Probe
     gedreht werden um die Ausrichtung des Magnetfeldes umzukehren.
     
+    \begin{figure}[ht!]
+      \centering
+      \includegraphics[width=\textwidth]{Figures/Aufbau.png}
+      \caption{Schematischer Aufbau des Versuches.}
+      \label{fig:Aufbau}
+    \end{figure}
+    
     Weiter ist für den zweiten Teil dieses Versuches ein Helium Kühlaggregat am
     Rezipienten und eine Heizung am Probenträger selbst angebracht.
     Über das Kühlaggregat kann die Probe auf sehr niedrige Temperaturen
@@ -268,7 +298,7 @@
     Für die Messung der Temperaturabhängigkeit wird der Rezipient auf einen
     Druck von etwa \SI{1e-8}{\bar} evakuiert.
     
-    \todo{Graphischen Aufbau machen!}
+    \todo{mehr?}
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
@@ -326,7 +356,6 @@
       Standardabweichung des Mittelwertes.
       Die gewonnenen Messwerte können in
       \cref{tab:WiderstandGaAs,tab:WiderstandInAs} eingesehen werden.
-      
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -894,11 +923,11 @@
       \end{subsection}
       
       Aus den Resultaten der beiden Methoden ist mit
-      $R_{H} = \SI{3,225(23)}{\meter\squared\per\coulomb}$ und
-      $R_{H} = \SI{3,222(12)}{\meter\squared\per\coulomb}$ für die
+      $R^{mit}_{H} = \SI{3,225(23)}{\meter\squared\per\coulomb}$ und
+      $R^{ohne}_{H} = \SI{3,222(12)}{\meter\squared\per\coulomb}$ für die
       \textit{GaAs (alt)} Probe, sowie
-      $R_{H} = \SI{12,9697(37)}{\meter\squared\per\coulomb}$ und
-      $R_{H} = \SI{12,9666(34)}{\meter\squared\per\coulomb}$ für die
+      $R^{mit}_{H} = \SI{12,9697(37)}{\meter\squared\per\coulomb}$ und
+      $R^{ohne}_{H} = \SI{12,9666(34)}{\meter\squared\per\coulomb}$ für die
       \textit{InAs-HF-301-040} Probe schnell ersichtlich, dass beide Methoden
       im selben Fehlerbereich liegen und es somit keine Auswirkungen hat welche
       der Methoden tatsächlich verwendet wird.
@@ -998,7 +1027,7 @@
       Die Hallkonstante und die Ladungsträgerdichte nehmen ihre Extremwerte etwa
       etwa bei \SI{-180}{\celsius} an.
       
-      \begin{figure}[ht!]
+      \begin{figure}[p]
         \centering
         \begin{minipage}{.92\textwidth}
           \centering
@@ -1016,8 +1045,7 @@
         \end{minipage}
       \end{figure}
       
-      \newpage
-      \begin{figure}[ht!]
+      \begin{figure}[p]
         \centering
         \begin{minipage}{.92\textwidth}
           \centering
@@ -1050,7 +1078,7 @@
       Im laufe dieses Versuches konnten wir die Leitfähigkeit der zwei
       verwendeten Proben sowie deren Hallkonstanten bei Raumtemperatur
       bestimmen.
-      Für die Hallkonsante haben wir sowohl die Methode der Berechnung
+      Für die Hallkonstante haben wir sowohl die Methode der Berechnung
       \textbf{mit} als auch \textbf{ohne} Nullfeldmessung durchgeführt.
       Dabei konnten wir feststellen, dass es rechnerisch zu keinen
       nennenswerten Differenzen zwischen den beiden unterschiedlichen Methoden
@@ -1058,13 +1086,42 @@
       In \cref{tab:Zusammenfassung1} haben wir diese berechneten Werte noch
       einmal zusammengefasst.
       
-      \todo{Tabelle mit den fertigen daten vom ersten tag}
+      \begin{table}[htbp]
+        \centering
+%         \footnotesize
+%         \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{c|c|c|c}
+          Probe &
+          $\sigma_{s}$/$\SI{}{\meter\per\ohm}$ &
+          $R^{mit}_{H}$/$\SI{}{\meter\squared\per\coulomb}$ &
+          $R^{ohne}_{H}$/$\SI{}{\meter\squared\per\coulomb}$\\ \hline
+          \textit{GaAs (alt)} & $\SI{1,0169(7)e-1}{}$ & $\SI{3,225(23)}{}$ &
+          $\SI{3,222(12)}{}$\\
+          \textit{InAs-HF-301-040} & $\SI{3,6903(2)e-2}{}$ &
+          $\SI{12,9697(37)}{}$ & $\SI{12,9666(33)}{}$\\
+        \end{tabular}
+        \caption{.}
+        \label{tab:Zusammenfassung1}
+      \end{table}
       
       Aus diesen Größen konnten wir dann die Beweglichkeit und die
       Ladungsträgerdichte der Majoritätsladungen (\cref{tab:Zusammenfassung2})
       für beide Proben bestimmen.
       
-      \todo{Tabelle mit den anderen werten vom ersten tag}
+      \begin{table}[htbp]
+        \centering
+%         \footnotesize
+%         \rowcolors{2}{}{lightgray!40}
+        \begin{tabular}{c|c|c}
+          Probe &
+          $\mu_{H,S}/\SI{}{\meter\squared\per\volt\per\second}$ &
+          $p_{H,S}/\SI{}{\meter\squared}$ \\ \hline
+          \textit{GaAs (alt)} & \SI{3,276(10)e-1}{} & \SI{1,937(6)e+18}{} \\
+          \textit{InAs-HF-301-040} & \SI{4,785(1)e-1}{} & \SI{4,814(1)e+17}{} \\
+        \end{tabular}
+        \caption{.}
+        \label{tab:Zusammenfassung2}
+      \end{table}
       
       Am zweiten Versuchsstag haben wir den Temperaturverlauf der bisher bei
       Raumtemperatur berechneten Größen bestimmen.
@@ -1072,7 +1129,7 @@
       von etwa \SI{-206}{\celsius} erreichen konnte und diese Temperatur noch
       zu hoch war um das Maximum der Leitfähigkeit und der Beweglichkeit
       zu erreichen.
-      Für die Hallkonsante und die Ladungsträgerdichte konnten wir einen
+      Für die Hallkonstante und die Ladungsträgerdichte konnten wir einen
       Extrempunkt bei einer Temperatur von etwa \SI{-180}{\celsius}
       erkennen.
       
