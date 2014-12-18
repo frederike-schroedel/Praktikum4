@@ -52,12 +52,6 @@
   
 %   \setcounter{page}{2}
   
-  \begin{chapter}*{Abstract}
-    Ziel des Versuchs ist es...
-    
-    \todo{TO-DO}
-    
-  \end{chapter}
   
   \tableofcontents
   
@@ -78,6 +72,8 @@
 
             Zu diesen Bänder kommt es, weil in einem Kristall die Potentiale der einzelnen Atome so überlagern, dass aus den diskreten Energieniveaus breitere Bänder werden.
             Diese werden von den Elektronen von unten nach oben hin aufgefüllte, wobei das letzte befüllte Band das Valenzband und das da drüber liegen das Leitungsband ist.
+            
+            \todo{Bild?}
 
         \end{subsection}
 
@@ -118,7 +114,25 @@
         \begin{subsection}{Thermisches verhalten von Halbleitern}
             Bei einem dotierten Halbleiter lässt sich die Leitfähigkeit in drei Temperaturbereiche einteilen.
             Für einen n-dotierten Halbleiter ist das Verhalten wie im Folgenden beschrieben.
-  \todo{bild?}
+            
+            \begin{figure}[ht!]
+              \centering
+              \begin{minipage}{.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/hubbel.png}
+                \caption{Anteile der an der Beweglichkeit in Abhängigkeit der
+                    Temperatur. \cite{bib:Hubbel}}
+                \label{fig:Hubbel}
+              \end{minipage}\quad
+              \begin{minipage}{.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]
+                    {Figures/Temperaturverlauf2.png}
+                \caption{Temperaturverlauf der Ladungsträgerdichte.
+                    \cite{bib:Temperaturverlauf2}}
+                \label{fig:TempLeifaehigkeit}
+              \end{minipage}
+            \end{figure}
 
             Für sehr kleine Temperaturen befindet man sich im Störstellen oder auch Reservebereich. In diesen Fall sind selbst im Donatorband kaum Elektronen angeregt, sodass die Leitfähigkeit sehr gering ist.
             Bei einer höhere thermische Anregung gelangt man in den Sättigungsbereich, wo alle Elektronen aus dem Donatorband ins Leitungsband angeregt wurden.
@@ -154,8 +168,26 @@
             Hierzu benötigt die Probe vier Anschlüsse, welche möglichst klein sind. 
             Zwischen zwei dieser Anschlüsse fließt ein Strom, über die anderen beiden wird eine Spannung abgegriffen.
             
-            \todo{skizzen}
-
+            \begin{figure}[ht!]
+              \centering
+              \begin{minipage}{.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]
+                    {Figures/SchaltungPauwWiderstand.png}
+                \caption{Schaltung zur Messung des Widerstandes einer Probe
+                    mit der \textit{van-der-Pauw} Methode.}
+                \label{fig:SchaltungPauwWiderstand}
+              \end{minipage}\quad
+              \begin{minipage}{.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]
+                    {Figures/SchaltungPauwHall.png}
+                \caption{Schaltung zur Messung der Hallkonstanten einer Probe
+                    mit der \textit{van-der-Pauw} Methode.}
+                \label{fig:SchaltungPauwHall}
+              \end{minipage}
+            \end{figure}
+            
             Die Skizzen zeigen die Schaltung für eine Widerstands- beziehungsweise Hall-Effekt-Messung.
             Der Widerstand $R_\text{AB,CD}$ lässt sich mit 
             
@@ -907,8 +939,6 @@
             der Majoritätsladungen.}
         \label{tab:BeweglichkeitLadungstraegerdichte}
       \end{table}
-      
-      \todo{Fertig? oder kann man noch mehr sagen?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
