@@ -114,7 +114,7 @@
 
         \end{subsection}
 
-        \begin{subsection}{Thermisches verhalten von Halbleitern}
+        \begin{subsection}{Thermisches Verhalten der Ladungsträgerdichte}
             Bei einem dotierten Halbleiter lässt sich die Leitfähigkeit in drei Temperaturbereiche eiteilen.
             Für einen n-dotierten Halbleiter ist das Verhalten wie im Folgenden beschrieben.
   \todo{bild?}
@@ -126,6 +126,7 @@
             Hier spricht man vom intrinsischen Bereich.
 
         \end{subsection}
+
 
         \begin{subsection}{Driftbewglichkeit und spezifischer Widerstand}
             \todo{Streuung von Ladungsträgern}
@@ -147,6 +148,23 @@
 
         \end{subsection}
 
+         \begin{subsection}{Streumechanismen und Leitfähigkeit}
+             Bei diesen $r$ handelt es sich um den um den Hall-Streufaktor.
+             Dieser setzt sich aus der Störstellenstreuung und der thermischen Gitterstreuung zusammen.
+             
+             Die Streuung an Störstellen kommt durch die Dotierung, also Streuung an ionisierten Fremdatomen, aber auch durch andere inhomogenitäten im Gitter.
+
+             Die thermische Gitterschwingung beschreibt den Zusammenhang der Temperatur und den Schwingungen der Gitteratome. 
+             Bei steigender Temperatur wird diese stärker, wodurch die Stoßwahrscheilichkeit zwischen Elektronen und Phononen steigt.
+             Beschreiben lässt sich dies mittlere Zeit die vergeht, bis ein Teilche nach einem Stoß erneut gestreut wird, die sogenannte Relaxationszeit $\tau$.
+
+             Welcher der Streumechanismen dominiert hängt von der Temperatur ab.
+             So ist bei kleinen Temperaturen die Störstellenstreuung mit einer Beweglichkeit von $\mu_\text{st} \proptu T^{3/2}$ überwiegend, während dies bei höheren Temperaturen die Streuung an Phonoen bei einer Beweglichkeit von $\mu_\text{ph} \proptu T^{-3/2}$ ist.
+
+             \todo{skizze?}
+
+         \end{subsection}
+
         \begin{subsection}{Van-der-Pauw-Messmethode}
             Wir nutzen die Van-der-Pauw-Methode um den spezifischen Widerstand so wie die Hall-Konstante einer Probe zu bestimmen.
             Diese Methode ermöglicht es einem ein beliebig geformte Probe zu untersuchen, solange diese eine flache Scheibe ohne Löcher ist, welche homogen dotiert ist und gleichmäßig dick ist.
@@ -159,7 +177,16 @@
             \[
                 R_\text{AB,CD} = \frac{\abs{V_\text{CD}}}{I_\text{AB}}
             \]
-            wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt. 
+            wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt.
+
+          %  Um den spezifischen Widerstand zu bestimmen, kann man aus dem eingestellten Strom nutzen und Spannungen messen um darüber mit 
+        %    \[
+          %      R_\text{ij,kl} =\frac{V_\text i -V_\text j}{2I}
+         %   \]
+         %   den Widerstand bestimmen.
+        %    Hierbei ist $I$ der Strom der zwischen den Punkten k und l fließt.
+            %Dieser war in unseren Fall auf    eingestellt.
+
 
         \end{subsection}
 
