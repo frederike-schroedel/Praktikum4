@@ -32,7 +32,7 @@
     \input{header_TobiasBrauell-DOCUMENT.tex}}{
     \input{../../header_TobiasBrauell-DOCUMENT.tex}}
 
-
+    \newcommand\abs[1]{\left| #1 \right|}
 
 %%%%%%%%%%
 %%%%%%%%%%
@@ -68,7 +68,133 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
-    
+   
+    \begin{section}{Leitung in Halbleitern}
+        \begin{subsection}{Bändermodell}
+            Das Bändermodell ist ein anschauliches Model, dass Leitungseigenschaften beschreiben soll. 
+            Es besteht aus einem Valenzband, in welches mit Ladungsträgern voll besetzt ist, einem Leitungsband, in dem sich freie Ladungsträger bewegen können und im Fall von Isolatoren und Halbleitern einer Bandlücke.
+            Diese Bandlücke ist bei Halbleiter und Isolatoren unterschiedlich groß.
+            % Bei Halbleitern ist sie nur wenige Elektronenvolt groß, sodass die Elektronen schon durch termische Anregung genug Energie haben um in Leitungsband zu gelangen, währden sie bei Isolatoren so groß ist, das dies nicht leitend werden können.
+
+            Zu diesen Bänder kommt es, weil in einem Kristal die Potentiale der einzelnen Atome so überlagern, dass aus den diskreten Energiniveaus breitere Bänder werden.
+            Diese werden von den Elektronen von unten nach obenhin aufgefüllte, wobei das letzte befüllte Band das Valenzband und das da drüber liegen das Leitungsband ist.
+
+        \end{subsection}
+
+        \begin{subsection}{Leiter, Halbleiter, Isolatoren}
+            Ausgehend von Bändermodell kann man Leiter, Halbleiter und Isolatoren durch die Lage der Bänder zu einander bestimmen.
+            Liegt nur ein teilbestetztes Leitungsband oder eine Überlappung von Valenzband und Leitungsband vor, so Erhält man einen Leiter.
+            Dies ist in Alkalimetall beziehungsweise Metall der Fall.
+            Halbleitern und Isolatoren haben zwischen Valenzband und Leitungsband eine Bandlücke. 
+            Bei Halbleitern ist diese nur wenige Elektronenvolt groß, sodass die Elektronen schon durch termische Anregung genug Energie haben um in Leitungsband zu gelangen, währden sie bei Isolatoren so groß ist, das dies nicht leitend werden können.
+
+        \end{subsection}
+
+        \begin{subsection}{Fermi-Statistik}
+            Wenn keine thermische Anregung und kein äußeres Potential besteht, so sind auch die Elektronen nich angeregt.
+            In diesen Fall sind die Zustände nur bis zur Fermie-Energie besetzt.
+            Sobald es eine thermische Anregung gibt, weren auch Elektronen angeregt. Die Wahrscheinlichkeit hierfür ist:
+            \[
+                W(E) = \frac{1}{\exp({\frac{e-E_\text{F}}{k_\text{B}T}})+1}
+            \]
+
+        \end{subsection}
+
+        \begin{subsection}{Ladungsträger und Dotierung}
+            Wenn ein Elektron aus dem Valenzband herraus in das Leitungsband angeregt wird.
+            Wenn man nun eine elektrisches Feld kann es sich quasi frei bewegen.
+            Dadurch, dass ein Elektron das Valenzband verlassen hat, entsteht dort eine Lochladung, welche anscheinend positiv ist. 
+            Die umliegende Elektronen können in diese Loch springen, so dass es wandern kann und auch hier eine bewegte Ladung entseht, die sich allerdings weniger beweglich sind als die Elektronen.
+
+            Man verkleinert die Bandlücke von Halbleitern, damit sie auch bei niedrigeren Temperaturen gut nutzbar sind.
+            Dies kann man zum Beispiel erreichen, indem man den Halbleiter dotiert.
+            Man nutzt zwei verschiedene Dotierungen. 
+            Bei n-dotierten Halbleitern werden an manche Gitterplätze Atome mit mehr Valenzelektronen eingefügt.
+            Diese zusätzlichen Elektronen lassen sich einfacher auslösen, wodurch ein zusätzliches Band knapp unter den Leitungsband entsteht.
+            In p-dotierte Halbleiter werden einige Atome mit weniger Elektronen eingefügt, wodurch wiederum ein zusätzliches Band, dieses mal leicht über dem Valenzband entsteht.
+
+        \end{subsection}
+
+        \begin{subsection}{Thermisches verhalten von Halbleitern}
+            Bei einem dotierten Halbleiter lässt sich die Leitfähigkeit in drei Temperaturbereiche eiteilen.
+            Für einen n-dotierten Halbleiter ist das Verhalten wie im Folgenden beschrieben.
+  \todo{bild?}
+
+            Für sehr kleine Temperaturen befindet man sich im Störstellen oder auch Reservebereich. In diesen Fall sind selbst im Donator ban kaum Elektronen angeregt, sodass die Leitfähigkeit sehr gering ist.
+            Bei einer höhere termische Anregung gelangt man in den Sättigungsbereich, wo alle Elektronen aus dem Donatorband ins Leitungsband angeregt wurden.
+            Dadurch ist die Leitungsdähigkeit deutlich gesteigert.
+            Bei sehr hohen Temperaturen unterscheidet sich das Verhalten von einem dotierent und undotierten Halbleiter nicht mehr, da auch aus den Valenzband Elektronen angeregt werden können.
+            Hier spricht man vom intrinsischen Bereich.
+
+        \end{subsection}
+
+        \begin{subsection}{Driftbewglichkeit und spezifischer Widerstand}
+            \todo{Streuung von Ladungsträgern}
+
+            Der spezifische Wiederstand $\rho$ ist das inverse von der Leitfähigkeit $\sigma = \frac 1\rho$.
+            Mit Hilfe dieser Größe lässt sich der Zusammenhang zwischen der Driftgeschwindigkeit $v$ der Ladungsträger der Feldstärke $E$ eines entsprechend kleinem elektrischen Feldes bestimmen.
+            Dieser Zusammenhang ist gegeben durch einen Proportionalietätsfaktor $\mu$ welcher gegeben ist durch:
+            \[
+                \mu = \frac j{epE} = \frac \sigma{ep} = \frac{R_\text{H} \sigma}r
+            \]
+            Damit erhalten wir folgenden Zusammenhang.
+            \[
+                v = \mu E
+            \]
+            Um nun eine Aussage über die Hall-Beweglichkeit machen zu können, brauchen wir noch einen Korrekturfaktor $r$, über den diese mit der Driftgeschwindigkeit zusammen hängt.
+            \[
+                \mu_\text H =r\mu
+            \]
+
+        \end{subsection}
+
+        \begin{subsection}{Van-der-Pauw-Messmethode}
+            Wir nutzen die Van-der-Pauw-Methode um den spezifischen Widerstand so wie die Hall-Konstante einer Probe zu bestimmen.
+            Diese Methode ermöglicht es einem ein beliebig geformte Probe zu untersuchen, solange diese eine flache Scheibe ohne Löcher ist, welche homogen dotiert ist und gleichmäßig dick ist.
+            Hierzu benötigt die Probe vier Anschlüsse, welche möglichst klein sind. 
+            Zwischen zwei dieser Anschlüsse fließt ein Strom, über die anderen beiden wird eine Spannung abgegriffen.
+            \todo{skizzen}
+
+            Die Skizzen zeigen die Schaltung für eine Widerstands- beziehungsweise Hall-Effekt-Messung.
+            Der Widerstand $R_\text{AB,CD}$ lässt sich mit 
+            \[
+                R_\text{AB,CD} = \frac{\abs{V_\text{CD}}}{I_\text{AB}}
+            \]
+            wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt. 
+
+        \end{subsection}
+
+        \begin{subsection}{Magnetische Thermospannungen}
+
+           % \begin{subsubsection}{Seebeck- und Peltier-Effekt}
+                Der Seebeck-Effekt beschreibt das Verhalten von Elektronen die einem Temperaturgradienten unterliegen. 
+                Er kommt zu Stande, da die Verteilung der angeregten Elektronen nicht homogen ist, sodass es zu einem inneren Strom kommt.
+                
+                Dieser Strom wiederum führt erneut zu einer Häufung von den Angeregten Elektronen.
+                Diese Umkehrung des Seebeck-Effektes nennt man Peltier-Effekt.
+
+           % \end{subsubsection}
+
+           % \begin{subsubsection}{Ettinghausen- und Nerst-Effekt}
+                Der Ettinghausen-Effekt tritt im direkten zusammenhang mit dem Hall-Effekt auf.
+                Werden beim Hall-Effekt Elektronen zu einer Stelle hin abgelenkt, so kommt es dort vermehrt zu Stößen und dadurch zu einer Erwärmung.
+                
+                Beim Nernst-Effekt steht ein Temperaturgedient senkrecht auf einem äußeren Magnetfeld.
+                Auf Grund des Seebeck-Effektes kommte zu einem Stromfluss, welcher durch den Hall-Effekt abglenkt werden.
+                Das so entstehende elektrische Feld.
+
+            %\end{subsubsection}
+
+           % \begin{subsubsection}{Righi-Leduc-Effekt}
+                Der Righi-Leduc-Effekt beschreibt die Entstehung eines Temperaturgradienten auf Grund eines senkrechten Magnetfeldes auf einem Wärme Strom.
+
+          %  \end{subsubsection}
+                Abgesehen vom Ettinghausen-Effekt haben sich all diese Effekte gegenseitig auf.
+                % Dieser ist allerdings so klein im vergleich zum Hall-Effekt, das er vernachlässigbar ist.
+
+        \end{subsection}
+
+    \end{section}
     
     
   \end{chapter}
