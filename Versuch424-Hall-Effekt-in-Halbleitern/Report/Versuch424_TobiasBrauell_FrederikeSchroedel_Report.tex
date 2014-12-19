@@ -63,10 +63,8 @@
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
    
-   \todo{sections kontrollieren!}
    
-    \begin{section}{Leitung in Halbleitern}
-        \begin{subsection}{Bändermodell}
+        \begin{section}{Bändermodell}
             Das Bändermodell ist ein anschauliches Modell, dass Leitungseigenschaften beschreiben soll. 
             Es besteht aus einem Valenzband, in welches mit Ladungsträgern voll besetzt ist, einem Leitungsband, in dem sich freie Ladungsträger bewegen können und im Fall von Isolatoren und Halbleitern einer Bandlücke.
             Diese Bandlücke ist bei Halbleiter und Isolatoren unterschiedlich groß.
@@ -75,16 +73,16 @@
             Zu diesen Bänder kommt es, weil in einem Kristall die Potentiale der einzelnen Atome so überlagern, dass aus den diskreten Energieniveaus breitere Bänder werden.
             Diese werden von den Elektronen von unten nach oben hin aufgefüllte, wobei das letzte befüllte Band das Valenzband und das da drüber liegen das Leitungsband ist.
             
-        \end{subsection}
+        \end{section}
 
-        \begin{subsection}{Leiter, Halbleiter, Isolatoren}
+        \begin{section}{Leiter, Halbleiter, Isolatoren}
             Ausgehend von Bändermodell kann man Leiter, Halbleiter und Isolatoren durch die Lage der Bänder zu einander bestimmen.
             Liegt nur ein teilbestetztes Leitungsband oder eine Überlappung von Valenzband und Leitungsband vor, so Erhält man einen Leiter.
             Dies ist in Alkalimetall beziehungsweise Metall der Fall.
             Halbleitern und Isolatoren haben zwischen Valenzband und Leitungsband eine Bandlücke. 
             Bei Halbleitern ist diese nur wenige Elektronenvolt groß, sodass die Elektronen schon durch thermische Anregung genug Energie haben um in Leitungsband zu gelangen, werden sie bei Isolatoren so groß ist, das dies nicht leitend werden können.
             
-            \begin{figure}[ht!]
+            \begin{figure}[t]
               \centering
               \begin{minipage}{.49\textwidth}
                 \centering
@@ -100,9 +98,9 @@
               \end{minipage}
             \end{figure}
 
-        \end{subsection}
+        \end{section}
 
-        \begin{subsection}{Fermi-Statistik}
+        \begin{section}{Fermi-Statistik}
             Wenn keine thermische Anregung und kein äußeres Potential besteht, so sind auch die Elektronen nicht angeregt.
             In diesen Fall sind die Zustände nur bis zur Fermi-Energie besetzt.
             Sobald es eine thermische Anregung gibt, werden auch Elektronen angeregt. Die Wahrscheinlichkeit hierfür ist:
@@ -111,9 +109,9 @@
                 W(E) = \frac{1}{\exp({\frac{e-E_\text{F}}{k_\text{B}T}})+1}
             \end{equation}
             
-        \end{subsection}
+        \end{section}
 
-        \begin{subsection}{Ladungsträger und Dotierung}
+        \begin{section}{Ladungsträger und Dotierung}
             Wenn ein Elektron aus dem Valenzband heraus in das Leitungsband angeregt wird.
             Wenn man nun eine elektrisches Feld kann es sich quasi frei bewegen.
             Dadurch, dass ein Elektron das Valenzband verlassen hat, entsteht dort eine Lochladung, welche anscheinend positiv ist. 
@@ -145,9 +143,9 @@
             Diese zusätzlichen Elektronen lassen sich einfacher auslösen, wodurch ein zusätzliches Band knapp unter den Leitungsband entsteht.
             In p-dotierte Halbleiter werden einige Atome mit weniger Elektronen eingefügt, wodurch wiederum ein zusätzliches Band, dieses mal leicht über dem Valenzband entsteht.
 
-        \end{subsection}
+        \end{section}
 
-        \begin{subsection}{Thermisches verhalten von Halbleitern}
+        \begin{section}{Thermisches Verhalten der Ladungsträgerdichte}
             Bei einem dotierten Halbleiter lässt sich die Leitfähigkeit in drei Temperaturbereiche einteilen.
             Für einen n-dotierten Halbleiter ist das Verhalten wie im Folgenden beschrieben.
             
@@ -157,11 +155,9 @@
             Bei sehr hohen Temperaturen unterscheidet sich das Verhalten von einem dotierend und undotierten Halbleiter nicht mehr, da auch aus den Valenzband Elektronen angeregt werden können.
             Hier spricht man vom intrinsischen Bereich.
 
-        \end{subsection}
+        \end{section}
 
-        \begin{subsection}{Driftbeweglichkeit und spezifischer Widerstand}
-        
-            \todo{Streuung von Ladungsträgern}
+        \begin{section}{Driftbeweglichkeit und spezifischer Widerstand}
 
             Der spezifische Widerstand $\rho$ ist das inverse von der Leitfähigkeit $\sigma = \frac 1\rho$.
             Mit Hilfe dieser Größe lässt sich der Zusammenhang zwischen der Driftgeschwindigkeit $v$ der Ladungsträger der Feldstärke $E$ eines entsprechend kleinem elektrischen Feldes bestimmen.
@@ -183,9 +179,23 @@
                 \mu_\text H =r\mu
             \end{equation}
             
-        \end{subsection}
+        \end{section}
 
-        \begin{subsection}{Van-der-Pauw-Messmethode}
+        \begin{section}{Streumechanismen und Leitfähigkeit}
+             Bei diesen $r$ handelt es sich um den um den Hall-Streufaktor.
+             Dieser setzt sich aus der Störstellenstreuung und der thermischen Gitterstreuung zusammen.
+             
+             Die Streuung an Störstellen kommt durch die Dotierung, also Streuung an ionisierten Fremdatomen, aber auch durch andere Inhomogenitäten im Gitter.
+             Die thermische Gitterschwingung beschreibt den Zusammenhang der Temperatur und den Schwingungen der Gitteratome. 
+             Bei steigender Temperatur wird diese stärker, wodurch die Stoßwahrscheilichkeit zwischen Elektronen und Phononen steigt.
+             Beschreiben lässt sich dies mittlere Zeit die vergeht, bis ein Teilchen nach einem Stoß erneut gestreut wird, die sogenannte Relaxationszeit $\tau$.
+
+             Welcher der Streumechanismen dominiert hängt von der Temperatur ab.
+             So ist bei kleinen Temperaturen die Störstellenstreuung mit einer Beweglichkeit von $\mu_{\text{st}} \propto T^{3/2}$ überwiegend, während dies bei höheren Temperaturen die Streuung an Phononen bei einer Beweglichkeit von $\mu_{\text{ph}} \propto T^{-3/2}$ ist.
+
+         \end{section}
+
+        \begin{section}{Van-der-Pauw-Messmethode}
             Wir nutzen die Van-der-Pauw Methode um den spezifischen Widerstand so wie die Hallkonstante einer Probe zu bestimmen.
             Diese Methode ermöglicht es einem ein beliebig geformte Probe zu untersuchen, solange diese eine flache Scheibe ohne Löcher ist, welche homogen dotiert ist und gleichmäßig dick ist.
             Hierzu benötigt die Probe vier Anschlüsse, welche möglichst klein sind. 
@@ -217,23 +227,32 @@
             \begin{equation}
                 R_\text{AB,CD} = \frac{\abs{V_\text{CD}}}{I_\text{AB}}
             \end{equation}
-            
-            wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt. 
 
-        \end{subsection}
+            wobei das erst Indexpaar die Stromrichtung und das zweite die Spannung beschreibt.
 
-        \begin{subsection}{Magnetische Thermospannungen}
+          %  Um den spezifischen Widerstand zu bestimmen, kann man aus dem eingestellten Strom nutzen und Spannungen messen um darüber mit 
+        %    \[
+          %      R_\text{ij,kl} =\frac{V_\text i -V_\text j}{2I}
+         %   \]
+         %   den Widerstand bestimmen.
+        %    Hierbei ist $I$ der Strom der zwischen den Punkten k und l fließt.
+            %Dieser war in unseren Fall auf    eingestellt.
 
-           % \begin{subsubsection}{Seebeck- und Peltier-Effekt}
+
+        \end{section}
+
+        \begin{section}{Magnetische Thermospannungen}
+
+           % \begin{subsection}{Seebeck- und Peltier-Effekt}
                 Der Seebeck-Effekt beschreibt das Verhalten von Elektronen die einem Temperaturgradienten unterliegen. 
                 Er kommt zu Stande, da die Verteilung der angeregten Elektronen nicht homogen ist, sodass es zu einem inneren Strom kommt.
                 
                 Dieser Strom wiederum führt erneut zu einer Häufung von den Angeregten Elektronen.
                 Diese Umkehrung des Seebeck-Effektes nennt man Peltier-Effekt.
 
-           % \end{subsubsection}
+           % \end{subsection}
 
-           % \begin{subsubsection}{Ettinghausen- und Nerst-Effekt}
+           % \begin{subsection}{Ettinghausen- und Nerst-Effekt}
                 Der Ettinghausen-Effekt tritt im direkten Zusammenhang mit dem Hall-Effekt auf.
                 Werden beim Hall-Effekt Elektronen zu einer Stelle hin abgelenkt, so kommt es dort vermehrt zu Stößen und dadurch zu einer Erwärmung.
                 
@@ -241,18 +260,16 @@
                 Auf Grund des Seebeck-Effektes kommt es zu einem Stromfluss, welcher durch den Hall-Effekt abgelenkt werden.
                 Das so entstehende elektrische Feld.
 
-            %\end{subsubsection}
+            %\end{subsection}
 
-           % \begin{subsubsection}{Righi-Leduc-Effekt}
+           % \begin{subsection}{Righi-Leduc-Effekt}
                 Der Righi-Leduc-Effekt beschreibt die Entstehung eines Temperaturgradienten auf Grund eines senkrechten Magnetfeldes auf einem Wärme Strom.
 
-          %  \end{subsubsection}
+          %  \end{subsection}
                 Abgesehen vom Ettinghausen-Effekt haben sich all diese Effekte gegenseitig auf.
                 % Dieser ist allerdings so klein im vergleich zum Hall-Effekt, das er vernachlässigbar ist.
 
-        \end{subsection}
-
-    \end{section}
+        \end{section}
     
     
   \end{chapter}
@@ -298,7 +315,13 @@
     Für die Messung der Temperaturabhängigkeit wird der Rezipient auf einen
     Druck von etwa \SI{1e-8}{\bar} evakuiert.
     
-    \todo{mehr?}
+    \begin{figure}[b]
+      \centering
+      \includegraphics[width=\textwidth]{Figures/Aufbau2.png}
+      \caption{Fotografische Aufnahme eines früheren Aufbaus.
+          \cite{bib:AndereAnleitung}}
+      \label{fig:Aufbau2}
+    \end{figure}
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
@@ -433,8 +456,6 @@
       Hallkonstante. Dazu messen wir alle $18$ Schaltungen bei einer Temperatur
       jeweils einmal, sobald wir mithilfe der Heizung die Temperatur
       stabilisiert haben.
-      
-      \todo{noch was zur Durchführung?}
       
       In \cref{tab:TemperaturInAs} sind alle Messwerte
       festgehalten. Die Temperatur wurde während der Messung direkt von
@@ -1100,7 +1121,8 @@
           \textit{InAs-HF-301-040} & $\SI{3,6903(2)e-2}{}$ &
           $\SI{12,9697(37)}{}$ & $\SI{12,9666(33)}{}$\\
         \end{tabular}
-        \caption{.}
+        \caption{Zusammenfassung der bestimmten Größen aus dem ersten
+            Versuchsteil.}
         \label{tab:Zusammenfassung1}
       \end{table}
       
@@ -1119,7 +1141,8 @@
           \textit{GaAs (alt)} & \SI{3,276(10)e-1}{} & \SI{1,937(6)e+18}{} \\
           \textit{InAs-HF-301-040} & \SI{4,785(1)e-1}{} & \SI{4,814(1)e+17}{} \\
         \end{tabular}
-        \caption{.}
+        \caption{Zusammenfassung der berechneten Werte des zweiten
+            Versuchsteil.}
         \label{tab:Zusammenfassung2}
       \end{table}
       
