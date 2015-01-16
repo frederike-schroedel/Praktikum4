@@ -155,7 +155,15 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{dcolumn}
-\usepackage{siunitx}
+\usepackage[
+    separate-uncertainty  = true,
+    uncertainty-separator =  {\,}, 
+%   mode = text, 
+    output-decimal-marker ={,}, 
+    multi-part-units      = brackets, 
+    range-units           = brackets, 
+    range-phrase          = {\,--\,}
+  ]{siunitx}
 % \usepackage{feynmf}
 
 
