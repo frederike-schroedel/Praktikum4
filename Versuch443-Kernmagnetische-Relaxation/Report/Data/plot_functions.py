@@ -99,12 +99,16 @@ def f_mg(x, M0, T2):
     return f
 
 def f_rabi_a(x, a, b, c, d):
-    f = a*np.sin(b*x+c)+d
-    return f
+    if a < 4.0 and b > 0.4 and c < 2.0 and d < 2.5:
+        return (a*np.sin(b*(x+c)))+d
+    else:
+        return 1e5
 
 def f_rabi_b(x, a, b, c, d):
-    if d < 2.0:
-        return  a*np.sqrt(np.sin(b*x+c)**2)+d
+    if a < 10.0 and b > 0.4 and c < 2.0 and d < 2.5:
+        return  np.sqrt((a*np.sin(b*(x+c)))**2)+d
+    else:
+        return 1e5
 
 def peak_management(x, y):
     w = np.arange(1,10)
@@ -516,14 +520,15 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
 def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, title, style, fsize, msize, opac, location, xlog, ylog):
     plt.figure()
     
-    if fn[-1] == "a":
-        func = f_rabi_a
-        func_form = r"$f(x)=a \sin{\left(b x+c\right)}+d$"
-    if fn[-1] == "b":
-        func = f_rabi_b
-        func_form = r"$f(x)=a |\sin{\left(b x+c\right)}|+d$"
-    
     colors = ["red", "green", "blue", "orange"]
+    func = [f_rabi_b, f_rabi_b, f_rabi_b, f_rabi_b]
+    func_form = [r"$f(x)=a |\sin{\left(b x+c\right)}|+d$",
+                 r"$f(x)=a \sin{\left(b x+c\right)}+d$",
+                 r"$f(x)=a |\sin{\left(b x+c\right)}|+d$",
+                 r"$f(x)=a \sin{\left(b x+c\right)}+d$"]
+    p0 = [[8.0, 0.5, 0, 0], [1.0, 0.5, 1.0, 2.0],
+          [8.0, 0.5, 0, 0], [1.0, 0.5, 1.0, 2.0]]
+    
     
     i = 0
     while i < len(xlist):
@@ -531,24 +536,30 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
                      markersize=msize, label=labels[i], color=colors[i])
         
         # Fit functions
-        f, varianz = op.curve_fit(func, xlist[i], ylist[i], maxfev=1000000)
+        f, varianz = op.curve_fit(func[i], xlist[i], ylist[i],
+                                p0=p0[i], maxfev=1000000)
         df = np.sqrt(np.sqrt(varianz.diagonal()**2))
         
-        fitted_x = np.linspace(np.min(xlist[i]), np.max(xlist[i]), 1000)
-        fitted_y = func(fitted_x, *f)
-        plt.plot(fitted_x, fitted_y, "--", color=colors[i],
-                label="Angepasste Funktion: \n" + func_form +
-                "\n" + r"$a=\SI{%s(%s)}{}$" % (str(round(f[0],3)),
-                                              str(round(df[0],4))[-2:]) +
-                "\ \ \ \ " + r"$b=\SI{%s(%s)}{}$" % (str(round(f[1],3)),
-                                                     str(round(df[1],4))[-2:])+
-                "\n" + r"$c=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
-                                              str(round(df[2],4))[-2:]) +
-                "\ \ \ \ " + r"$d=\SI{%s(%s)}{}$" % (str(round(f[3],3)),
-                                                     str(round(df[3],4))[-2:]))
+        #print(f)
         
+        fitted_x = np.linspace(0, 12, 1000)
+        fitted_y = func[i](fitted_x, *f)
+        
+        plt.plot(fitted_x, fitted_y, "--", color=colors[i],
+                 label="Angepasste Funktion: \n" + func_form[i] +
+                 "\n" +
+                 r"$a=\SI{%s(%s)}{}$" % (str(round(f[0],3)),
+                                         str(round(df[0],4))[-2:]) +
+                 "\ \ \ \ " +
+                 r"$b=\SI{%s(%s)}{}$" % (str(round(f[1],3)),
+                                         str(round(df[1],4))[-2:])+
+                 "\n" +
+                 r"$c=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
+                                         str(round(df[2],4))[-2:]) +
+                 "\ \ \ \ " +
+                 r"$d=\SI{%s(%s)}{}$" % (str(round(f[3],3)),
+                                         str(round(df[3],4))[-2:]))
         i += 1
-    
     
     # set axis labels
     plt.title(title)

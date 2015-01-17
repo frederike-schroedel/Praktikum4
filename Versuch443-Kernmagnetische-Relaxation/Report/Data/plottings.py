@@ -71,15 +71,24 @@ opac = 0.5
 location = 5
 
 
-FIDONOFF = 0    # Vielleicht eine Funktion fitten
-RabiONOFF = 1    # Sinus - Cosinus fitten
+FIDONOFF = 1    # Vielleicht eine Funktion fitten
+RabiONOFF = 1    # ========== FERTIG ==========
 OffsetONOFF = 0    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
-SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
+SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
 PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
+ALLES = 1
 
+if ALLES == 1:
+    FIDONOFF = 1
+    RabiONOFF = 1
+    OffsetONOFF = 1
+    Roh_PulsONOFF = 1
+    SaettigungONOFF = 1
+    PolarisationONOFF = 1
+    HomoTransRelaxONOFF = 1
 
 
 
@@ -138,17 +147,7 @@ if RabiONOFF == 1:
     style = "."
     Rabi_freq1, Rabi_freq2 = Rabi
     
-    plt.plot_xy_errorlist("Rabi_freq1_a",
-                          [Rabi_freq1[0], Rabi_freq1[0]],
-                          r"$A_{len} / \SI{}{\micro\second}$",
-                          [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0]],
-                          r"Spannung $/\SI{}{\volt}$",
-                          [Rabi_freq1[2], Rabi_freq1[4]],
-                          ["Envelope", "I"],
-                          r"Rabi-Oszillation -- Frequenz: " +
-                          r"$\SI{21.16158}{\mega\hertz}$",
-                          style, fsize, msize, opac, location, False, False)
-    plt.plot_xy_errorlist("Rabi_freq1_b",
+    plt.plot_xy_errorlist("Rabi_freq1",
                           [Rabi_freq1[0], Rabi_freq1[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0]],
@@ -159,17 +158,7 @@ if RabiONOFF == 1:
                           r"$\SI{21.16158}{\mega\hertz}$",
                           style, fsize, msize, opac, location, False, False)
     
-    plt.plot_xy_errorlist("Rabi_freq2_a",
-                          [Rabi_freq2[0], Rabi_freq2[0]],
-                          r"$A_{len} / \SI{}{\micro\second}$",
-                          [Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
-                          r"Spannung $/\SI{}{\volt}$",
-                          [Rabi_freq2[2], Rabi_freq2[4]],
-                          ["Envelope", "I"],
-                          r"Rabi-Oszillation -- Frequenz: " +
-                          r"$\SI{21.15158}{\mega\hertz}$",
-                          style, fsize, msize, opac, location, False, False)
-    plt.plot_xy_errorlist("Rabi_freq2_b",
+    plt.plot_xy_errorlist("Rabi_freq2",
                           [Rabi_freq2[0], Rabi_freq2[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
@@ -180,24 +169,7 @@ if RabiONOFF == 1:
                           r"$\SI{21.15158}{\mega\hertz}$",
                           style, fsize, msize, opac, location, False, False)
     
-    plt.plot_xy_errorlist("Rabi_freq12_a",
-                          [Rabi_freq1[0], Rabi_freq1[0],
-                          Rabi_freq2[0], Rabi_freq2[0]],
-                          r"$A_{len} / \SI{}{\micro\second}$",
-                          [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0],
-                           Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
-                          r"Spannung $/\SI{}{\volt}$",
-                          [Rabi_freq1[2], Rabi_freq1[4],
-                           Rabi_freq2[2], Rabi_freq2[4]],
-                          [r"Envelope $f=\SI{21.16158}{\mega\hertz}$",
-                           r"I $f=\SI{21.16158}{\mega\hertz}$",
-                           r"Envelope $f=\SI{21.15158}{\mega\hertz}$",
-                           r"I $f=\SI{21.15158}{\mega\hertz}$"],
-                          r"Rabi-Oszillation -- Frequenzen: " +
-                          r"$\SI{21.16158}{\mega\hertz}$ und " +
-                          r"$\SI{21.15158}{\mega\hertz}$",
-                          style, fsize, msize, opac, location, False, False)
-    plt.plot_xy_errorlist("Rabi_freq12_b",
+    plt.plot_xy_errorlist("Rabi_freq12",
                           [Rabi_freq1[0], Rabi_freq1[0],
                           Rabi_freq2[0], Rabi_freq2[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
