@@ -3,6 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.optimize as op
+import scipy.signal as sig
 import data_handling as dh
 import calculations as calc
 
@@ -71,27 +72,159 @@ Fitting functions
 ===============================================================================
 """
 
-def f_saet(x):
+M0 = 0
+
+
+def f_saet(x, M0, T1):
+    f = M0*(1-np.exp(-x/T1))
     return f
 
-def f_pol(x):
+def f_pol(x, M0, T1):
+    f = M0*(1-2*np.exp(-x/T1))
     return f
 
-def f_eff(x):
+def f_hahn(x, M0, T2):
+    f = M0*np.exp(-x/T2)
     return f
 
 def f_fid(x):
     return f
 
-def f_hahn(x):
+def f_carr(x, M0, T2):
+    f = M0*np.exp(-x/T2)
     return f
 
-def f_carr(x):
+def f_mg(x, M0, T2):
+    f = M0*np.exp(-x/T2)
     return f
 
-def f_mg(x):
+def f_rabi_a(x, a, b, c, d):
+    f = a*np.sin(b*x+c)+d
     return f
 
+def f_rabi_b(x, a, b, c, d):
+    if d < 2.0:
+        return  a*np.sqrt(np.sin(b*x+c)**2)+d
+
+def peak_management(x, y):
+    w = np.arange(1,10)
+    
+    peaks = sig.find_peaks_cwt(y, w,
+                               max_distances=w/4,
+                               noise_perc=25,
+                               min_snr=1,
+                               gap_thresh=2)
+    
+    peaksx = []
+    peaksy = []
+    
+    for i in peaks:
+        peaksx.append(x[i])
+        peaksy.append(y[i])
+    
+    #plt.plot(peaksx, peaksy, ".", markersize=2*msize, label="Maxima1",
+             #color="black")
+    
+    peaksx = []
+    peaksy = []
+    newpeaks = []
+    
+    i = 0
+    while i < len(peaks)-1:
+        if (len(peaksx) == 0 and y[peaks[i]] > 1):
+            peaksx.append(x[peaks[i]])
+            peaksy.append(y[peaks[i]])
+            newpeaks.append(peaks[i])
+        else:
+            if len(peaksx) != 0 and y[peaks[i]] > y[peaks[i+1]] and y[peaks[i]] > 0.25:
+                peaksx.append(x[peaks[i]])
+                peaksy.append(y[peaks[i]])
+                newpeaks.append(peaks[i])
+        i += 1
+    
+    #plt.plot(peaksx, peaksy, ".", markersize=2*msize, label="Maxima1",
+             #color="blue")
+    
+    peaksx = []
+    peaksy = []
+    
+    peaks = newpeaks
+    newpeaks = []
+    
+    i = 0
+    while i < len(peaks):
+        if i == 1000:
+            print ("Emergency stop!!!!")
+            break
+        if i == len(peaks)-1:
+            peaksx.append(x[peaks[i]])
+            peaksy.append(y[peaks[i]])
+            newpeaks.append(peaks[i])
+        else:
+            if y[peaks[i]] > y[peaks[i+1]]:
+                peaksx.append(x[peaks[i]])
+                peaksy.append(y[peaks[i]])
+                newpeaks.append(peaks[i])
+        i += 1
+    
+    #plt.plot(peaksx, peaksy, ".", markersize=2*msize, label="Maxima",
+             #color="green")
+    
+    peaks = newpeaks
+    dist = []
+    
+    i = 0
+    while i < len(peaksx)-1:
+        if i == 1000:
+            print ("Emergency stop!!!!")
+            break
+        dist.append(x[peaks[i+1]]-x[peaks[i]])
+        i += 1
+    
+    Averagex = np.mean(dist)
+    
+    #print(Averagex)
+    
+    peaksx = []
+    peaksy = []
+    
+    i = 0
+    while i < len(peaks):
+        if i == 1000:
+            print ("Emergency stop!!!!")
+            break
+        if i == 0:
+            peaksx.append(x[peaks[i]])
+            peaksy.append(y[peaks[i]])
+        else:
+            if x[peaks[i]]-x[peaks[i-1]] < Averagex*1.4:
+                peaksx.append(x[peaks[i]])
+                peaksy.append(y[peaks[i]])
+        i += 1
+    
+    #plt.plot(peaksx, peaksy, ".", markersize=2*msize, label="Maxima",
+             #color="orange")
+    
+    #print(Averagex)
+    
+    peaksx = []
+    peaksy = []
+    
+    i = 0
+    while i < len(peaks):
+        if i == 1000:
+            print ("Emergency stop!!!!")
+            break
+        if i == 0:
+            peaksx.append(x[peaks[i]])
+            peaksy.append(y[peaks[i]])
+        else:
+            if x[peaks[i]]-x[peaks[i-1]] > Averagex*0.8:
+                peaksx.append(x[peaks[i]])
+                peaksy.append(y[peaks[i]])
+        i += 1
+    
+    return peaksx, peaksy
 
 """============================================================================
 create a plot of a single graph 
@@ -102,6 +235,60 @@ def plot_xy(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, opac, l
     
     # plot y against x
     plt.plot(x, y, style, markersize=msize, label=ylabel)
+    
+    # set axis labels
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(label)
+    
+    # place a Legend in the plot
+    leg = set_legend(fsize, msize, opac, location)
+    
+    # display grid
+    plt.grid(True)
+    
+    set_log_axis(xlog, ylog)
+    
+    # save the plot in file
+    write_file(fn)
+    plt.close()
+
+def plot_xy_maxfit(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, opac, location, xlog, ylog):
+    plt.figure()
+    
+    # plot y against x
+    plt.plot(x, y, style, markersize=msize, label=ylabel)
+    
+    peaksx, peaksy = peak_management(x, y)
+    plt.plot(peaksx, peaksy, ".", markersize=2*msize, label="Maxima",
+             color="red")
+    
+    peaksx = np.array(peaksx[1:])
+    peaksy = np.array(peaksy[1:])
+    
+    if fn[-5:-1] == "Carr":
+        func = f_carr
+    if fn[-7:-1] == "MG_env":
+        func = f_mg
+        #if fn[-1] == "1" or fn[-1] == "3":
+            #ende = 15
+            #peaksx = np.array(peaksx[:ende])
+            #peaksy = np.array(peaksy[:ende])
+    
+    func_form = r"$M(\tau)=M_0\exp{\left(-\frac{\tau}{T_2}\right)}$"
+    
+    # Fit functions
+    f, varianz = op.curve_fit(func, peaksx, peaksy, maxfev=1000000)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+    
+    fitted_x = np.linspace(0, 90, 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="red",
+             label="Angepasste Funktion: \n" + func_form +
+             "\n" + r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
+                                              str(round(df[0],4))[-2:]) +
+             "\ \ \ \ " + r"$T_2=\SI{%s(%s)}{\micro\second}$" %
+             (str(round(f[1],3)), str(round(df[1],4))[-2:]))
     
     # set axis labels
     plt.title(title)
@@ -277,6 +464,38 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     
     plt.errorbar(x, y, yerr=yerror, fmt=style, markersize=msize, label=label)
     
+    #global M0
+    
+    if fn[0:3] == "Sae":
+        T = 1
+        func = f_saet
+        func_form = r"$M(\tau)=M_0\left(1-\exp{\left(-\frac{\tau}{T_1}\right)}\right)$"
+    
+    if fn[0:3] == "Pol":
+        T = 1
+        func = f_pol
+        x = x[1:]
+        y = y[1:]
+        func_form = r"$M(\tau)=M_0\left(1-2\exp{\left(-\frac{\tau}{T_1}\right)}\right)$"
+    
+    if fn[0:3] == "Hom":
+        T = 2
+        func = f_hahn
+        func_form = r"$M(\tau)=M_0\exp{\left(-\frac{\tau}{T_2}\right)}$"
+    
+    # Fit functions
+    f, varianz = op.curve_fit(func, x, y, maxfev=1000000)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+    
+    fitted_x = np.linspace(np.min(x), np.max(x), 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="green",
+             label="Angepasste Funktion: \n" + func_form +
+             "\n" + r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
+                                              str(round(df[0],4))[-2:]) +
+             "\ \ \ \ " + r"$T_%s=\SI{%s(%s)}{\micro\second}$" %
+             (str(T), str(round(f[1],3)), str(round(df[1],4))[-2:]))
+    
     # set axis labels
     plt.title(title)
     plt.xlabel(xlabel)
@@ -297,10 +516,37 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
 def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, title, style, fsize, msize, opac, location, xlog, ylog):
     plt.figure()
     
+    if fn[-1] == "a":
+        func = f_rabi_a
+        func_form = r"$f(x)=a \sin{\left(b x+c\right)}+d$"
+    if fn[-1] == "b":
+        func = f_rabi_b
+        func_form = r"$f(x)=a |\sin{\left(b x+c\right)}|+d$"
+    
+    colors = ["red", "green", "blue", "orange"]
+    
     i = 0
     while i < len(xlist):
         plt.errorbar(xlist[i], ylist[i], yerr=yerrorlist[i], fmt=style,
-                     markersize=msize, label=labels[i])
+                     markersize=msize, label=labels[i], color=colors[i])
+        
+        # Fit functions
+        f, varianz = op.curve_fit(func, xlist[i], ylist[i], maxfev=1000000)
+        df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+        
+        fitted_x = np.linspace(np.min(xlist[i]), np.max(xlist[i]), 1000)
+        fitted_y = func(fitted_x, *f)
+        plt.plot(fitted_x, fitted_y, "--", color=colors[i],
+                label="Angepasste Funktion: \n" + func_form +
+                "\n" + r"$a=\SI{%s(%s)}{}$" % (str(round(f[0],3)),
+                                              str(round(df[0],4))[-2:]) +
+                "\ \ \ \ " + r"$b=\SI{%s(%s)}{}$" % (str(round(f[1],3)),
+                                                     str(round(df[1],4))[-2:])+
+                "\n" + r"$c=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
+                                              str(round(df[2],4))[-2:]) +
+                "\ \ \ \ " + r"$d=\SI{%s(%s)}{}$" % (str(round(f[3],3)),
+                                                     str(round(df[3],4))[-2:]))
+        
         i += 1
     
     

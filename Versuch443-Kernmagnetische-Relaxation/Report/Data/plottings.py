@@ -37,7 +37,7 @@ def ImportData():
              "Rabi/print_025", "Rabi/print_026", "Rabi/print_027",
              "Rabi/Rabi_freq1", "Rabi/Rabi_freq2",
              "Roh_Puls/print_000", "Roh_Puls/print_001",
-             "Effektive_Translations_Relaxation/Effektive_Translation",
+             "Homogene_Translations_Relaxation/HomoTransRelaxHahn",
              "Polarisations_Zurueckgewinnung/Polarisation",
              "Saettigungs_Zurueckgewinnung/Saettigung"]
     
@@ -46,7 +46,7 @@ def ImportData():
      p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27,
      Rabi_freq1, Rabi_freq2,
      p00, p01,
-     Eff_Trans_Relax, Polarisation, Saettigung) = dh.load_nArrays(files)
+     HomoTransRelaxHahn, Polarisation, Saettigung) = dh.load_nArrays(files)
     
     Bilder = [p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12,
               p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25,
@@ -56,7 +56,7 @@ def ImportData():
     
     print ("    ======== Done ========\n")
     
-    return Bilder, Rabi, Eff_Trans_Relax, Polarisation, Saettigung
+    return Bilder, Rabi, HomoTransRelaxHahn, Polarisation, Saettigung
 
 
 
@@ -71,21 +71,20 @@ opac = 0.5
 location = 5
 
 
-FIDONOFF = 1    # Vielleicht eine Funktion fitten
+FIDONOFF = 0    # Vielleicht eine Funktion fitten
 RabiONOFF = 1    # Sinus - Cosinus fitten
-OffsetONOFF = 1    # ========== FERTIG ==========
-Roh_PulsONOFF = 1    # ========== FERTIG ==========
-SaettigungONOFF = 1    # Funktion fitten
-PolarisationONOFF = 1    # Funktion fitten
-EffTransRelaxONOFF = 1    # Funktion fitten
-HomoTransRelaxONOFF = 1    # Funktion an die Maxima fitten
+OffsetONOFF = 0    # ========== FERTIG ==========
+Roh_PulsONOFF = 0    # ========== FERTIG ==========
+SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
+PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
+HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
 
 
 
 
 # Import Data
-Bild, Rabi, Eff_Trans_Relax, Polarisation, Saettigung = ImportData()
+Bild, Rabi, HomoTransRelaxHahn, Polarisation, Saettigung = ImportData()
 
 # Calculate Offset
 aveEnv = [np.mean(Bild[3][1]), np.sqrt(np.var(Bild[3][1])/len(Bild[3][1]))]
@@ -139,7 +138,17 @@ if RabiONOFF == 1:
     style = "."
     Rabi_freq1, Rabi_freq2 = Rabi
     
-    plt.plot_xy_errorlist("Rabi_freq1",
+    plt.plot_xy_errorlist("Rabi_freq1_a",
+                          [Rabi_freq1[0], Rabi_freq1[0]],
+                          r"$A_{len} / \SI{}{\micro\second}$",
+                          [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0]],
+                          r"Spannung $/\SI{}{\volt}$",
+                          [Rabi_freq1[2], Rabi_freq1[4]],
+                          ["Envelope", "I"],
+                          r"Rabi-Oszillation -- Frequenz: " +
+                          r"$\SI{21.16158}{\mega\hertz}$",
+                          style, fsize, msize, opac, location, False, False)
+    plt.plot_xy_errorlist("Rabi_freq1_b",
                           [Rabi_freq1[0], Rabi_freq1[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0]],
@@ -150,7 +159,17 @@ if RabiONOFF == 1:
                           r"$\SI{21.16158}{\mega\hertz}$",
                           style, fsize, msize, opac, location, False, False)
     
-    plt.plot_xy_errorlist("Rabi_freq2",
+    plt.plot_xy_errorlist("Rabi_freq2_a",
+                          [Rabi_freq2[0], Rabi_freq2[0]],
+                          r"$A_{len} / \SI{}{\micro\second}$",
+                          [Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
+                          r"Spannung $/\SI{}{\volt}$",
+                          [Rabi_freq2[2], Rabi_freq2[4]],
+                          ["Envelope", "I"],
+                          r"Rabi-Oszillation -- Frequenz: " +
+                          r"$\SI{21.15158}{\mega\hertz}$",
+                          style, fsize, msize, opac, location, False, False)
+    plt.plot_xy_errorlist("Rabi_freq2_b",
                           [Rabi_freq2[0], Rabi_freq2[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
@@ -161,7 +180,24 @@ if RabiONOFF == 1:
                           r"$\SI{21.15158}{\mega\hertz}$",
                           style, fsize, msize, opac, location, False, False)
     
-    plt.plot_xy_errorlist("Rabi_freq12",
+    plt.plot_xy_errorlist("Rabi_freq12_a",
+                          [Rabi_freq1[0], Rabi_freq1[0],
+                          Rabi_freq2[0], Rabi_freq2[0]],
+                          r"$A_{len} / \SI{}{\micro\second}$",
+                          [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0],
+                           Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
+                          r"Spannung $/\SI{}{\volt}$",
+                          [Rabi_freq1[2], Rabi_freq1[4],
+                           Rabi_freq2[2], Rabi_freq2[4]],
+                          [r"Envelope $f=\SI{21.16158}{\mega\hertz}$",
+                           r"I $f=\SI{21.16158}{\mega\hertz}$",
+                           r"Envelope $f=\SI{21.15158}{\mega\hertz}$",
+                           r"I $f=\SI{21.15158}{\mega\hertz}$"],
+                          r"Rabi-Oszillation -- Frequenzen: " +
+                          r"$\SI{21.16158}{\mega\hertz}$ und " +
+                          r"$\SI{21.15158}{\mega\hertz}$",
+                          style, fsize, msize, opac, location, False, False)
+    plt.plot_xy_errorlist("Rabi_freq12_b",
                           [Rabi_freq1[0], Rabi_freq1[0],
                           Rabi_freq2[0], Rabi_freq2[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
@@ -186,7 +222,7 @@ if SaettigungONOFF == 1:
     print ("Sättigungs-Zurückgewinnung...")
     
     style = "."
-    location = 1
+    location = 5
     
     plt.plot_xy_error("SaettigungsZurueckgewinnung",
                       Saettigung[0],
@@ -204,7 +240,7 @@ if PolarisationONOFF == 1:
     print ("Polarisations-Zurückgewinnung...")
     
     style = "."
-    location = 1
+    location = 5
     
     plt.plot_xy_error("PolarisationsZurueckgewinnung",
                       Polarisation[0],
@@ -217,30 +253,35 @@ if PolarisationONOFF == 1:
     
     print ("    ======== Done ========\n")
 
-# Effektive Translations Relaxationszeit
-if EffTransRelaxONOFF == 1:
-    print ("Effektive Translations Relaxationszeit...")
-    
-    style = "."
-    location = 1
-    
-    plt.plot_xy_error("EffTransRelax",
-                      Eff_Trans_Relax[0],
-                      r"Verzögerungszeit $/\SI{}{\micro\second}$",
-                      Eff_Trans_Relax[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
-                      Eff_Trans_Relax[2], "Envelope",
-                      r"Effektive Translations Relaxationszeit $T^*_2$: " +
-                      r"$f=\SI{21.16133}{\mega\hertz}$",
-                      style, fsize, msize, opac, location, False, False)
-    
-    print ("    ======== Done ========\n")
-
 # Homogene Transversale Relaxationszeit
 if HomoTransRelaxONOFF == 1:
     print ("Homogene Transversale Relaxationszeit...")
     
     style = "-"
     location = 1
+    
+    plt.plot_xy_error("HomoTransRelax_Hahn",
+                      HomoTransRelaxHahn[0],
+                      r"Verzögerungszeit $/\SI{}{\micro\second}$",
+                      HomoTransRelaxHahn[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
+                      HomoTransRelaxHahn[2], "Envelope",
+                      "Homogene Transversale Relaxationszeit $T_2$: " +
+                      r"$f=\SI{21.16133}{\mega\hertz}$" +
+                      "\nHahn-Spinecho-Sequenz",
+                      ".", fsize, msize, opac, location, False, False)
+    HomoTransRelaxHahn_bsp= [Bild[30], Bild[31]]
+    i = 0
+    while i < len(HomoTransRelaxHahn_bsp):
+        plt.plot_xy("HomoTransRelax_Hahn_beispiel" + str(i),
+                     HomoTransRelaxHahn_bsp[i][0]*1e3,
+                     r"Zeit $/\SI{}{\milli\second}$",
+                     HomoTransRelaxHahn_bsp[i][1]-aveEnv[0], "Envelope",
+                     r"Spannung $/\SI{}{\volt}$",
+                     "Homogene Transversale Relaxationszeit $T_2$: " +
+                     r"$f=\SI{21.16133}{\mega\hertz}$" +
+                     "\nHahn-Spinecho-Sequenz: Beispiel %g" % (i+1),
+                     style, fsize, msize, opac, location, False, False)
+        i += 1
     
     HomoTransRelaxCarr= [Bild[32], Bild[33], Bild[34], Bild[35], Bild[36]]
     tau = [r"$\tau=\SI{1.7}{\micro\second}$",
@@ -254,7 +295,7 @@ if HomoTransRelaxONOFF == 1:
                   r"X-Gradient invertiert; Verzögerungszeit: "]
     i = 0
     while i < len(HomoTransRelaxCarr):
-        plt.plot_xy("HomoTransRelax_Carr" + str(i),
+        plt.plot_xy_maxfit("HomoTransRelax_Carr" + str(i),
                      HomoTransRelaxCarr[i][0]*1e3,
                      r"Zeit $/\SI{}{\milli\second}$",
                      HomoTransRelaxCarr[i][1]-aveEnv[0], "Envelope",
@@ -262,20 +303,6 @@ if HomoTransRelaxONOFF == 1:
                      "Homogene Transversale Relaxationszeit $T_2$: " +
                      r"$f=\SI{21.16133}{\mega\hertz}$" +
                      "\nCarr-Purcell-Sequenz: " + zusatzinfo[i] + tau[i],
-                     style, fsize, msize, opac, location, False, False)
-        i += 1
-    
-    HomoTransRelaxHahn= [Bild[30], Bild[31]]
-    i = 0
-    while i < len(HomoTransRelaxHahn):
-        plt.plot_xy("HomoTransRelax_Hahn" + str(i),
-                     HomoTransRelaxHahn[i][0]*1e3,
-                     r"Zeit $/\SI{}{\milli\second}$",
-                     HomoTransRelaxHahn[i][1]-aveEnv[0], "Envelope",
-                     r"Spannung $/\SI{}{\volt}$",
-                     "Homogene Transversale Relaxationszeit $T_2$: " +
-                     r"$f=\SI{21.16133}{\mega\hertz}$" +
-                     "\nHahn-Spinecho-Sequenz: " + zusatzinfo[i] + tau[i],
                      style, fsize, msize, opac, location, False, False)
         i += 1
     
@@ -290,7 +317,7 @@ if HomoTransRelaxONOFF == 1:
                   r"Mit MG-Sequenz; ; Verzögerungszeit: "]
     i = 0
     while i < len(HomoTransRelaxMG):
-        plt.plot_xy("HomoTransRelax_MG_env" + str(i),
+        plt.plot_xy_maxfit("HomoTransRelax_MG_env" + str(i),
                      HomoTransRelaxMG[i][0]*1e3,
                      r"Zeit $/\SI{}{\milli\second}$",
                      HomoTransRelaxMG[i][1]-aveEnv[0], "Envelope",
