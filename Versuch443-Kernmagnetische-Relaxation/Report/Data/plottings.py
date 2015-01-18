@@ -67,12 +67,12 @@ plt.savefig_png = 1
 
 fsize = 11.0
 msize = 5.0
-opac = 0.5
+opac = 0.8
 location = 5
 
 
-FIDONOFF = 1    # Vielleicht eine Funktion fitten
-RabiONOFF = 1    # ========== FERTIG ==========
+FIDONOFF = 0    # ========== FERTIG ==========
+RabiONOFF = 0    # ========== FERTIG ==========
 OffsetONOFF = 0    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
 SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
@@ -97,8 +97,8 @@ Bild, Rabi, HomoTransRelaxHahn, Polarisation, Saettigung = ImportData()
 
 # Calculate Offset
 aveEnv = [np.mean(Bild[3][1]), np.sqrt(np.var(Bild[3][1])/len(Bild[3][1]))]
-aveQ = [np.mean(Bild[3][2]), np.sqrt(np.var(Bild[3][2])/len(Bild[3][2]))]
-aveI = [np.mean(Bild[3][3]), np.sqrt(np.var(Bild[3][3])/len(Bild[3][3]))]
+aveQ   = [np.mean(Bild[3][2]), np.sqrt(np.var(Bild[3][2])/len(Bild[3][2]))]
+aveI   = [np.mean(Bild[3][3]), np.sqrt(np.var(Bild[3][3])/len(Bild[3][3]))]
 
 
 # Offset (ohne pulse)
@@ -145,6 +145,7 @@ if Roh_PulsONOFF == 1:
 if RabiONOFF == 1:
     print ("Rabi-Oszillation...")
     style = "."
+    location = 5
     Rabi_freq1, Rabi_freq2 = Rabi
     
     plt.plot_xy_errorlist("Rabi_freq1",
@@ -323,8 +324,8 @@ if FIDONOFF == 1:
     FID = [Bild[2], Bild[28], Bild[29]]
     i = 0
     plt.plot_x3y("FID_env_Q_I" + str(i),
-                 FID[i][0]*1e6,
-                 r"Zeit $/\SI{}{\micro\second}$",
+                 FID[i][0]*1e3,
+                 r"Zeit $/\SI{}{\milli\second}$",
                  FID[i][1]-aveEnv[0], "Envelope",
                  FID[i][2]-aveQ[0], "Q",
                  FID[i][3]-aveI[0], "I",
@@ -335,14 +336,14 @@ if FIDONOFF == 1:
     
     i = 1
     while i < len(FID):
-        plt.plot_xy("FID_env" + str(i),
-                     FID[i][0]*1e6,
-                     r"Zeit $/\SI{}{\micro\second}$",
-                     FID[i][1]-aveEnv[0], "Envelope",
-                     r"Spannung $/\SI{}{\volt}$",
-                     "Free Induction Decay: " +
-                     r"$f=\SI{21.16133}{\mega\hertz}$",
-                     style, fsize, msize, opac, location, False, False)
+        plt.plot_xy_decay("FID_env" + str(i),
+                          FID[i][0]*1e3,
+                          r"Zeit $/\SI{}{\milli\second}$",
+                          FID[i][1]-aveEnv[0], "Envelope",
+                          r"Spannung $/\SI{}{\volt}$",
+                          "Free Induction Decay: " +
+                          r"$f=\SI{21.16133}{\mega\hertz}$",
+                          "-", fsize, 2, opac, location, False, False)
         i += 1
     
     print ("    ======== Done ========\n")

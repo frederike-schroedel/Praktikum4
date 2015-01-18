@@ -47,6 +47,8 @@ def set_legend(fsize, msize, opac, location):
     leg = plt.legend(prop={'size':fsize}, loc=location, numpoints=1,
                      markerscale=msize_leg, fancybox=True)
     leg.get_frame().set_alpha(opac)
+    for legobj in leg.legendHandles:
+        legobj.set_linewidth(3.0)
     return leg
 
 def set_log_axis(x, y):
@@ -76,8 +78,10 @@ M0 = 0
 
 
 def f_saet(x, M0, T1):
-    f = M0*(1-np.exp(-x/T1))
-    return f
+    if T1 > 0:
+        return M0*(1-np.exp(-x/T1))
+    else:
+        return 1e5
 
 def f_pol(x, M0, T1):
     f = M0*(1-2*np.exp(-x/T1))
@@ -87,8 +91,11 @@ def f_hahn(x, M0, T2):
     f = M0*np.exp(-x/T2)
     return f
 
-def f_fid(x):
-    return f
+def f_fid(x, a, b, c, d):
+    if (b > 0):
+        return (a*np.exp(-(x/b)+c))+d
+    else:
+        return 1e5
 
 def f_carr(x, M0, T2):
     f = M0*np.exp(-x/T2)
@@ -98,15 +105,15 @@ def f_mg(x, M0, T2):
     f = M0*np.exp(-x/T2)
     return f
 
-def f_rabi_a(x, a, b, c, d):
-    if a < 4.0 and b > 0.4 and c < 2.0 and d < 2.5:
-        return (a*np.sin(b*(x+c)))+d
+def f_rabi_a(x, a, b, d):
+    if a < 4.0 and b > 0.4 and d < 2.5:
+        return (a*np.sin(b*x))+d
     else:
         return 1e5
 
-def f_rabi_b(x, a, b, c, d):
-    if a < 10.0 and b > 0.4 and c < 2.0 and d < 2.5:
-        return  np.sqrt((a*np.sin(b*(x+c)))**2)+d
+def f_rabi_b(x, a, b, d):
+    if a < 10.0 and b > 0.4 and d < 2.5:
+        return  np.sqrt((a*np.sin(b*x))**2)+d
     else:
         return 1e5
 
@@ -248,6 +255,86 @@ def plot_xy(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, opac, l
     # place a Legend in the plot
     leg = set_legend(fsize, msize, opac, location)
     
+    # display grid
+    plt.grid(True)
+    
+    set_log_axis(xlog, ylog)
+    
+    # save the plot in file
+    write_file(fn)
+    plt.close()
+
+def plot_xy_decay(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, opac, location, xlog, ylog):
+    plt.figure()
+    
+    # plot y against x
+    plt.plot(x, y, style, markersize=msize, label=ylabel)
+    
+    func = f_fid
+    func_form = r"$M(\tau)=M_0\exp{\left(-\frac{\tau}{T_2}+c\right)}+M_{Offset}$"
+    
+    xfit = []
+    yfit = []
+    
+    xmin = 1.5
+    xmax = 5
+    
+    i = 0
+    while i < len(x):
+        if i == 1000:
+            print ("Emergency Stop!!!!")
+            break
+        if x[i] > xmin and x[i] < xmax:
+            xfit.append(x[i])
+            yfit.append(y[i])
+        i += 1
+    
+    xfit = np.array(xfit)
+    yfit = np.array(yfit)
+    
+    #print (xfit.shape)
+    #print (yfit.shape)
+    
+    # Fit functions
+    f, varianz = op.curve_fit(func, xfit, yfit, maxfev=1000000)
+    df = np.sqrt(np.sqrt(varianz.diagonal()**2))
+    
+    fitted_x = np.linspace(0, xmin, 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="green")
+    
+    fitted_x = np.linspace(xmax, 9, 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="green")
+    
+    fitted_x = np.linspace(xmin, xmax, 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="red",
+             label="Angepasste Funktion: \n" + func_form +
+             "\n" +
+             r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
+                                            str(round(df[0],4))[-2:]) +
+             "\ \ \ \ " +
+             r"$T_2=\SI{%s(%s)}{\milli\second}$" % (str(round(f[1],3)),
+                                                    str(round(df[1],4))[-2:]) +
+             "\n" +
+             r"$c=\SI{%s(%s)}{\volt}$" % (str(round(f[2],3)),
+                                            str(round(df[2],4))[-2:]) +
+             "\ \ \ \ " +
+             r"$M_{Offset}=\SI{%s(%s)}{\milli\second}$" % (str(round(f[3],3)),
+                                                    str(round(df[3],4))[-2:]))
+    
+    # set axis labels
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(label)
+    
+    plt.xlim(-1,10)
+    
+    # place a Legend in the plot
+    leg = set_legend(fsize, msize, opac, location)
+    
+        
     # display grid
     plt.grid(True)
     
@@ -522,12 +609,12 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
     
     colors = ["red", "green", "blue", "orange"]
     func = [f_rabi_b, f_rabi_b, f_rabi_b, f_rabi_b]
-    func_form = [r"$f(x)=a |\sin{\left(b x+c\right)}|+d$",
-                 r"$f(x)=a \sin{\left(b x+c\right)}+d$",
-                 r"$f(x)=a |\sin{\left(b x+c\right)}|+d$",
-                 r"$f(x)=a \sin{\left(b x+c\right)}+d$"]
-    p0 = [[8.0, 0.5, 0, 0], [1.0, 0.5, 1.0, 2.0],
-          [8.0, 0.5, 0, 0], [1.0, 0.5, 1.0, 2.0]]
+    func_form = [r"$f(x)=a |\sin{\left(b x\right)}|+d$",
+                 r"$f(x)=a \sin{\left(b x\right)}+d$",
+                 r"$f(x)=a |\sin{\left(b x\right)}|+d$",
+                 r"$f(x)=a \sin{\left(b x\right)}+d$"]
+    p0 = [[8.0, 0.5, 0], [1.0, 0.5, 0.2],
+          [8.0, 0.5, 0], [1.0, 0.5, 0.2]]
     
     
     i = 0
@@ -545,7 +632,7 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
         fitted_x = np.linspace(0, 12, 1000)
         fitted_y = func[i](fitted_x, *f)
         
-        plt.plot(fitted_x, fitted_y, "--", color=colors[i],
+        plt.plot(fitted_x, fitted_y, ":", color=colors[i],
                  label="Angepasste Funktion: \n" + func_form[i] +
                  "\n" +
                  r"$a=\SI{%s(%s)}{}$" % (str(round(f[0],3)),
@@ -554,11 +641,8 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
                  r"$b=\SI{%s(%s)}{}$" % (str(round(f[1],3)),
                                          str(round(df[1],4))[-2:])+
                  "\n" +
-                 r"$c=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
-                                         str(round(df[2],4))[-2:]) +
-                 "\ \ \ \ " +
-                 r"$d=\SI{%s(%s)}{}$" % (str(round(f[3],3)),
-                                         str(round(df[3],4))[-2:]))
+                 r"$d=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
+                                         str(round(df[2],4))[-2:]))
         i += 1
     
     # set axis labels
