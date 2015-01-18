@@ -88,7 +88,7 @@ def f_pol(x, M0, T1):
     return f
 
 def f_hahn(x, M0, T2):
-    f = M0*np.exp(-x/T2)
+    f = M0*np.exp(-(x)/T2)
     return f
 
 def f_fid(x, a, b, c, d):
@@ -98,11 +98,11 @@ def f_fid(x, a, b, c, d):
         return 1e5
 
 def f_carr(x, M0, T2):
-    f = M0*np.exp(-x/T2)
+    f = M0*np.exp(-(x)/T2)
     return f
 
 def f_mg(x, M0, T2):
-    f = M0*np.exp(-x/T2)
+    f = M0*np.exp(-(x)/T2)
     return f
 
 def f_rabi_a(x, a, b, d):
@@ -368,11 +368,38 @@ def plot_xy_maxfit(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, 
     
     func_form = r"$M(\tau)=M_0\exp{\left(-\frac{\tau}{T_2}\right)}$"
     
+    xfit = []
+    yfit = []
+    
+    xmin = 2
+    xmax = 50
+    
+    i = 0
+    while i < len(peaksx):
+        if i == 1000:
+            print ("Emergency Stop!!!!")
+            break
+        if peaksx[i] > xmin and peaksx[i] < xmax:
+            xfit.append(peaksx[i])
+            yfit.append(peaksy[i])
+        i += 1
+    
+    xfit = np.array(xfit)
+    yfit = np.array(yfit)
+    
     # Fit functions
-    f, varianz = op.curve_fit(func, peaksx, peaksy, maxfev=1000000)
+    f, varianz = op.curve_fit(func, xfit, yfit, maxfev=1000000)
     df = np.sqrt(np.sqrt(varianz.diagonal()**2))
     
-    fitted_x = np.linspace(0, 90, 1000)
+    fitted_x = np.linspace(0, xmin, 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="green")
+    
+    fitted_x = np.linspace(xmax, 100, 1000)
+    fitted_y = func(fitted_x, *f)
+    plt.plot(fitted_x, fitted_y, "--", color="green")
+    
+    fitted_x = np.linspace(xmin, xmax, 1000)
     fitted_y = func(fitted_x, *f)
     plt.plot(fitted_x, fitted_y, "--", color="red",
              label="Angepasste Funktion: \n" + func_form +
@@ -885,7 +912,7 @@ def plot_x3y_averages(fn, x, xlabel, y1 , y1label, y2 , y2label, y3 , y3label, y
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     
-    plt.ylim([-0.05,0.45])
+    plt.ylim([-0.05,0.55])
     
     # place a Legend in the plot
     leg = set_legend(fsize, msize, opac, location)
