@@ -16,6 +16,9 @@ screenlogging = True
 # figure settings
 dpi = 200
 msize_leg = 2
+leg_linewidth = 3.0
+leg_anchor_x = 0
+leg_anchor_y = -0.45
 
 """============================================================================
 save a plot under given filename as .pdf as well as .png
@@ -42,14 +45,41 @@ def write_file(filename):
     if screenlogging == True:
         print (" DONE!")
     
+def write_file_leg(filename, leg):
+    filename = filename.replace(" ", "")
+    filename = filename.replace(":", "")
+    filename = filename.replace(".", "_")
+    filename = filename.replace("---", "-")
+    
+    # show small side margins
+    plt.margins(0.05, 0.05)
+    
+    if screenlogging == True:
+        print ("        Writing: ../Figures/" + filename)
+    if savefig_pdf == 1:
+        plt.savefig("../Figures/" + filename + ".pdf", dpi=dpi,
+                    bbox_extra_artists=(leg,), bbox_inches="tight")
+    
+    if savefig_png == 1:
+        plt.savefig("../Figures/" + filename + ".png", dpi=dpi,
+                    bbox_extra_artists=(leg,), bbox_inches="tight")
 
-def set_legend(fsize, msize, opac, location):
-    leg = plt.legend(prop={'size':fsize}, loc=location, numpoints=1,
-                     markerscale=msize_leg, fancybox=True)
-    leg.get_frame().set_alpha(opac)
-    for legobj in leg.legendHandles:
-        legobj.set_linewidth(3.0)
-    return leg
+def set_legend(fsize, msize, opac, location, outside):
+    if outside == False:
+        leg = plt.legend(prop={'size':fsize}, loc=location, numpoints=1,
+                        markerscale=msize_leg, fancybox=True)
+        leg.get_frame().set_alpha(opac)
+        for legobj in leg.legendHandles:
+            legobj.set_linewidth(leg_linewidth)
+        return leg
+    else:
+        leg = plt.legend(prop={'size':fsize}, loc=location, numpoints=1,
+                        markerscale=msize_leg, fancybox=True,
+                        bbox_to_anchor=(leg_anchor_x,leg_anchor_y))
+        leg.get_frame().set_alpha(opac)
+        for legobj in leg.legendHandles:
+            legobj.set_linewidth(leg_linewidth)
+        return leg
 
 def set_log_axis(x, y):
     if x == True:
@@ -91,9 +121,9 @@ def f_hahn(x, M0, T2):
     f = M0*np.exp(-(x)/T2)
     return f
 
-def f_fid(x, a, b, c, d):
-    if (b > 0):
-        return (a*np.exp(-(x/b)+c))+d
+def f_fid(x, a, b, c):
+    if 1:#(b > 0):
+        return (a*np.exp(-(x/b)+c))
     else:
         return 1e5
 
@@ -253,7 +283,7 @@ def plot_xy(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, opac, l
     plt.ylabel(label)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     plt.grid(True)
@@ -271,13 +301,13 @@ def plot_xy_decay(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, o
     plt.plot(x, y, style, markersize=msize, label=ylabel)
     
     func = f_fid
-    func_form = r"$M(\tau)=M_0\exp{\left(-\frac{\tau}{T_2}+c\right)}+M_{Offset}$"
+    func_form = r"$M(\tau)=M_0\exp{\left(-\frac{\tau}{T_{2}^{*}}+c\right)}$"
     
     xfit = []
     yfit = []
     
     xmin = 1.5
-    xmax = 5
+    xmax = 4.5
     
     i = 0
     while i < len(x):
@@ -315,14 +345,11 @@ def plot_xy_decay(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, o
              r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
                                             str(round(df[0],4))[-2:]) +
              "\ \ \ \ " +
-             r"$T_2=\SI{%s(%s)}{\milli\second}$" % (str(round(f[1],3)),
+             r"$T_2^*=\SI{%s(%s)}{\milli\second}$" % (str(round(f[1],3)),
                                                     str(round(df[1],4))[-2:]) +
-             "\n" +
-             r"$c=\SI{%s(%s)}{\volt}$" % (str(round(f[2],3)),
-                                            str(round(df[2],4))[-2:]) +
              "\ \ \ \ " +
-             r"$M_{Offset}=\SI{%s(%s)}{\milli\second}$" % (str(round(f[3],3)),
-                                                    str(round(df[3],4))[-2:]))
+             r"$c=\SI{%s(%s)}{\volt}$" % (str(round(f[2],3)),
+                                            str(round(df[2],4))[-2:]))
     
     # set axis labels
     plt.title(title)
@@ -332,7 +359,7 @@ def plot_xy_decay(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, o
     plt.xlim(-1,10)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
     
         
     # display grid
@@ -414,7 +441,7 @@ def plot_xy_maxfit(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, 
     plt.ylabel(label)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     plt.grid(True)
@@ -459,10 +486,7 @@ def plot_xy_vlines(fn, x, xlabel, y , ylabel, title, PulseNr, HeFlash, PulseStar
     plt.ylabel(ylabel)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
-    
-    for legobj in leg.legendHandles:
-        legobj.set_linewidth(3.0)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     plt.grid(True)
@@ -531,7 +555,7 @@ def plot_xy_fit(fn, f, df, a, b, x, xlabel, y, ylabel, title, fsize, msize, opac
     set_log_axis(xlog, ylog)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     plt.grid(True)
@@ -567,7 +591,7 @@ def plot_xy_list(*parameters):
     plt.xlim([xlow, xhigh])
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
 
     
     # display grid
@@ -620,7 +644,7 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     plt.ylabel(ylabel)
     
     # place a Legend in the plot
-    set_legend(fsize, msize, opac, location)
+    set_legend(fsize, msize, opac, location, False)
     
     # display grid
     plt.grid(True)
@@ -667,7 +691,6 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
                  "\ \ \ \ " +
                  r"$b=\SI{%s(%s)}{}$" % (str(round(f[1],3)),
                                          str(round(df[1],4))[-2:])+
-                 "\n" +
                  r"$d=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
                                          str(round(df[2],4))[-2:]))
         i += 1
@@ -678,7 +701,7 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
     plt.ylabel(ylabel)
     
     # place a Legend in the plot
-    set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, True)
     
     # display grid
     plt.grid(True)
@@ -686,7 +709,7 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
     set_log_axis(xlog, ylog)
     
     # save the plot in file
-    write_file(fn)
+    write_file_leg(fn, leg)
     plt.close()
 
 
@@ -709,7 +732,7 @@ def plot_x2y(fn, x, xlabel, y1 , y1label, y2 , y2label, ylabel, title, style, fs
     plt.ylabel(ylabel)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     plt.grid(True)
@@ -862,7 +885,7 @@ def plot_x3y(fn, x, xlabel, y1 , y1label, y2 , y2label, y3 , y3label, ylabel, ti
     plt.ylabel(ylabel)
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     #plt.minorticks_on
@@ -915,9 +938,7 @@ def plot_x3y_averages(fn, x, xlabel, y1 , y1label, y2 , y2label, y3 , y3label, y
     plt.ylim([-0.05,0.55])
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location)
-    for legobj in leg.legendHandles:
-        legobj.set_linewidth(3.0)
+    leg = set_legend(fsize, msize, opac, location, False)
     
     # display grid
     #plt.minorticks_on

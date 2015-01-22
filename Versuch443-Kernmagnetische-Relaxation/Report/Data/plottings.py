@@ -71,7 +71,7 @@ opac = 0.8
 location = 5
 
 
-FIDONOFF = 0    # ========== FERTIG ==========
+FIDONOFF = 1    # ========== FERTIG ==========
 RabiONOFF = 0    # ========== FERTIG ==========
 OffsetONOFF = 0    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
@@ -79,7 +79,7 @@ SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus un
 PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
-ALLES = 1
+ALLES = 0
 
 if ALLES == 1:
     FIDONOFF = 1
@@ -145,7 +145,7 @@ if Roh_PulsONOFF == 1:
 if RabiONOFF == 1:
     print ("Rabi-Oszillation...")
     style = "."
-    location = 5
+    location = 3
     Rabi_freq1, Rabi_freq2 = Rabi
     
     plt.plot_xy_errorlist("Rabi_freq1",
@@ -170,6 +170,8 @@ if RabiONOFF == 1:
                           r"$\SI{21.15158}{\mega\hertz}$",
                           style, fsize, msize, opac, location, False, False)
     
+    plt.leg_anchor_x = 0
+    plt.leg_anchor_y = -0.8
     plt.plot_xy_errorlist("Rabi_freq12",
                           [Rabi_freq1[0], Rabi_freq1[0],
                           Rabi_freq2[0], Rabi_freq2[0]],

@@ -113,7 +113,9 @@
   \begin{chapter}{Durchführung und Auswertung der Messdaten}
     \label{chp:Auswertung}
     
-    
+    Nachdem nun alles nach Anleitung aufgebaut und verkabelt ist und das Signal
+    optimiert wurde, beginnen wir nun mit den eigentlichen Messungen dieses
+    Versuches.
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,21 +123,31 @@
     \begin{section}{Offset der Spannungen}
       \label{chpOffset}
       
-      \todo{Bild wirklich hier rein oder lieber im anhang?}
-      
-      \begin{figure}[htb]
+      Zunächst führen wir eine Messung ohne jegliches Signal durch um einen
+      möglichen \textit{Offset} zu bestimmen.
+      Dazu schalten wir die Messspannungen für \textit{Envelope}, \textit{Q} und
+      \textit{I} am Oszilloskop ein, lassen aber das Signal am Synthesizer
+      ausgeschaltet.
+      \begin{figure}[hb]
         \centering
         \includegraphics[width=\textwidth]{Figures/Offset.png}
-        \caption{Messdaten \textbf{ohne} eingeschalteten Puls.}
+        \caption{Messdaten \textbf{ohne} eingeschalteten Puls zur
+          \textit{Offset}--Messung.}
         \label{figOffset}
       \end{figure}
       
+      Die von uns damit gemessenen Spannungen sind in \cref{figOffset} zusammen
+      mit den berechneten Mittelwerten dargestellt.
+      Alle hiernach genommenen Messwerte haben wir mit den gefundenen
+      Offsets korrigiert.
+      
+      \todo{Bild wirklich hier rein oder lieber im anhang?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-    \newpage
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,75 +155,142 @@
         \underline{F}ree \underline{I}nduction \underline{D}ecay}
       \label{chpFID}
       
-      \todo{Ist das hier tatsächlich richtig?}
+      Als nächstes optimieren wir das FID--Signal indem wir die Gradienten
+      des Magnetfeldes so verstellen, dass das Profil möglichst einem
+      exponentiellem Abfall entspricht.
+      Da wir das Profil über das Oszilloskop nur nach Augenmaß einstellen
+      konnten, entspricht das Profil leider nicht perfekt dem angestrebten
+      exponentiellen Verlauf.
+      Im Zeitraum von etwa $\SI{1.5}{\milli\second}$ bis
+      $\SI{4.5}{\milli\second}$ konnten wir dennoch ein ausreichend
+      gutes exponentielles Profil erreichen.
+      An diesen zeitlichen Bereich passen wir \cref{eqFID}
+      \begin{equation}
+        \label{eqFID}
+        M(\tau)=M_{0}\exp{\left(-\frac{\tau}{T_{2}^{*}}+c\right)},
+      \end{equation}
+      mit einer Versatzvariablen $c$ um den leicht verschobenen exponentiellen
+      Abfall zu kompensieren, an.
+      \Cref{figFIDenv} stellt das FID--Signal und die daran angepasste Kurve
+      graphisch mit dem sowohl wir als auch unser Tutor einigermaßen zufrieden
+      waren dar.
+      
+      Zu beginn des Versuches haben wir eine Resonanz der Lamorfrequenz von
+      $\SI{21.16158}{\mega\hertz}$ gefunden.
+      Da sich im laufe des Versuches etwas am FID--Profil verändert hat
+      mussten wir nach einiger Zeit die Frequenz verändern um weiterhin die
+      Resonanzfrequenz zu treffen.
+      Daher haben wir dazu eine Frequenz von $\SI{21.16133}{\mega\hertz}$
+      eingestellt.
+      Bei welcher Frequenz eine Messung aufgenommen wurde ist jeweils im Titel
+      der Graphiken festgehalten.
       
       \begin{figure}[htb]
         \centering
         \includegraphics[width=\textwidth]{Figures/FID_env2.png}
-        \caption{\textit{Free Induction Decay} Signal gemessen an der Probe.}
+        \caption{\textit{Free Induction Decay} Antwort--Signal und angepasste
+          Zerfalls--Funktion.}
         \label{figFIDenv}
       \end{figure}
       
-      \begin{figure}[htb]
-        \centering
-        \includegraphics[width=\textwidth]{Figures/FID_env_Q_I0.png}
-        \caption{\textit{Free Induction Decay} Signal gemessen an der Probe.
-          Zusammen mit \textit{Q}-- und \textit{I}--Signal.}
-        \label{figFIDenvQI}
-      \end{figure}
+      \todo{fehlt noch was zu T2*. und ist das HIER tatsächlich richtig
+        oder besser nachher wenn T2* tatsächlich gebraucht wird?}
+      
+%       \begin{figure}[htb]
+%         \centering
+%         \includegraphics[width=\textwidth]{Figures/FID_env_Q_I0.png}
+%         \caption{\textit{Free Induction Decay} Signal gemessen an der Probe.
+%           Zusammen mit \textit{Q}-- und \textit{I}--Signal.}
+%         \label{figFIDenvQI}
+%       \end{figure}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-    \newpage
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Justierung der Pulszeiten}
       \label{chpPulszeiten}
       
+      Um heraus zu finden welche Pulslängen einem $\pi$--, bzw.\
+      $\frac{\pi}{2}$--Puls entsprechen, messen wir Amplitude des
+      Antwort--Signales während wir die Pulslänge variieren.
+      Zunächst bestimmen wir den $\pi$--Puls, indem wir eine Pulsdauer suchen,
+      bei der das Antwort--Signal eine minimale Amplitude besitzt.
+      Bei dieser Pulslänge löschen sich Puls und Antwort--Signal komplett aus.
+      \todo{Warum?}
+      Für unseren Aufbau haben wir hierbei eine Länge des $\pi$--Pulses von
+      $A_{len}=\SI{5.44}{\micro\second}$ gefunden.
+      Für den $\frac{\pi}{2}$--Puls gilt, dass dieser genau der halben Länge
+      des $\pi$--Pulses, also $A_{len}=\SI{2.72}{\micro\second}$, entspricht.
+      
+      \todo{Fertig?}
       \todo{oder ist das schon im aufbau gemacht worden?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-    \newpage
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Rabi--Oszillation}
       \label{chpRabi}
       
-      \todo{Alle Bilder wirklich hier rein oder lieber im anhang?}
+      Um die Rabi--Oszillation zu messen, benutzen wir einen Puls und variieren
+      dessen Länge.
+      Dabei messen wir die maximale Amplitude des Antwort--Signales und des
+      In--Phase Signales der Probe für jede eingestellte Pulslänge.
+      Diese Messung wiederholen wir für eine leicht andere Frequenz.
+      \todo{warum?}
+      Um den Verlauf der Oszillation besser zu erkennen haben wir eine
+      Betragsfunktion des Sinus angepasst und zusammen mit den Messdaten in
+      \cref{figRabifreq12} abgebildet.
+      
+      Wie wir auch schon in der Theorie erwartet haben steigt die Amplitude
+      des Antwort--Signales mit an sobald sich die Pulslänge dem
+      $\frac{\pi}{2}$--Puls nähert und dort ein Maximum annimmt.
+      Für eine Pulslänge um die des $\pi$--Pulses nimmt die Amplitude wieder
+      ab um dann bei der Länge entsprechend eines $\frac{3\pi}{4}$--Pulses
+      wieder ein Maximum erreicht.
+      Das In--Phase Signal...
+      \todo{haben wir bei den unteren Oszillationen ein vorzeichen übersehen
+        oder soll das auch ein sinus betrag sein? Martin hat da eine normale
+        sinus schwingung!}
+      
+      
+%       \begin{figure}[htb]
+%         \centering
+%         \includegraphics[width=\textwidth]{Figures/Rabi_freq1.png}
+%         \caption{bla bla.}
+%         \label{figRabifreq1}
+%       \end{figure}
+%       
+%       \begin{figure}[htb]
+%         \centering
+%         \includegraphics[width=\textwidth]{Figures/Rabi_freq2.png}
+%         \caption{bla bla.}
+%         \label{figRabifreq2}
+%       \end{figure}
       
       \begin{figure}[htb]
         \centering
-        \includegraphics[width=\textwidth]{Figures/Rabi_freq1.png}
-        \caption{bla bla.}
-        \label{figRabifreq1}
-      \end{figure}
-      
-      \begin{figure}[htb]
-        \centering
-        \includegraphics[width=\textwidth]{Figures/Rabi_freq2.png}
-        \caption{bla bla.}
-        \label{figRabifreq2}
-      \end{figure}
-      
-      \begin{figure}[htb]
-        \centering
-        \includegraphics[width=\textwidth]{Figures/Rabi_freq12.png}
+        \includegraphics[width=.9\textwidth]{Figures/Rabi_freq12.png}
         \caption{bla bla.}
         \label{figRabifreq12}
       \end{figure}
+      
+      \todo{Alle Bilder wirklich hier rein oder lieber im anhang?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-    \newpage
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
