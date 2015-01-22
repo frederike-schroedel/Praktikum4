@@ -52,7 +52,8 @@
 %   \setcounter{page}{2}
   
   \begin{chapter}*{Abstract}
-    Ziel des Versuchs ist es...
+    Ziel des Versuchs ist es kernmagnetische Resonanzen zu untersuchen und dabei wichtige Kenngrößen wie die Gitter- und Spin-Spin Relaxationszeiten zu bestimmen.
+    Hierzu werden Protonen, in Form von Wasserstoff in leichtem Mineralöl, in einem magnetischen Wechselfeld angeregt und die daraus resultierende Magnetisierung beobachtet.
     
     \todo[inline]{TO-DO}
     
@@ -68,7 +69,94 @@
   \begin{chapter}{Theorie des Versuchs}
     \label{chp:Theorie}
     
+    \begin{section}{Protonen im homogene Magnetfeld}
+        In diesen Versuch experementieren wir mit Probe, welche Protonen bereitstellt.
+        Protonen haben einen Spin $ s = \frac 12$ mit einer z-Komponente $m_s = -\frac 12 , \frac 12$.
+        Aufgrund des Spins besitzen Protonen ein magnetisches Moment $\mu$, welches parallel zum Spin steht.
+        \[
+            \mu = \gamma\hbar s
+        \]
+        Wobei $\gamma$ das gyromagnetische Verhältnis ist und von der Art des Teilchens abhängig ist.
+        Das magnetisch Moment bewirkt im externen Magnetfeld $\vec B$ ein Drehmoment $\vec M$ auf das Proton:
+        \[
+            \vec M = \vec \mu \times \vec B
+        \]
+        Darauf hin kommt es zu einer Präzession des mangetischen Moments, in unseren Fall um die z-Achse, wobei die Frequenz gegeben ist durch die sogenannte Lamorfrequenz 
+        \[
+            \omega_L = \gamma B_z
+        \]
+
+        Das Drehmoment führt außerdem zu einer Einestellenergie:
+        \[
+            E = -\langle \mu ,B_z\rangle
+        \]
+        Man erhält zwei Zustände \todo{spin up down}, da $m_s$ nur zwei Werte annehmen kann.
+        So kommt es durch die Einstellenergie zu zwei unterschiedlichen Energieniveaus, welche ohne externes Feld entartet wären.
+        \todo{bild}
+
+    \end{section}
     
+    \begin{section}{Thermisches Gleichgewicht}
+
+        In dem Fall, dass das externe Magnetfeld abgestellt ist, befinden sich die Spins in einem beliebigen Zustand.
+        Somit liegt keine Magnetisierung vor.
+
+        Besteht allerdings ein Magnetfeld, so bildet sich ein anderes thermisches Gleichgewicht aus, wobei $N_+>N_-$, da sich mehr Protonen im unteren Energiniveau befinden.
+        Der Besatzungszahlunterschied ist zwar recht gering, (\todo{begrúndung}), erzeugt dennoch eine makroskopische Magnetisierung entlang der z-Achse.
+        Um diesen Besetzungszahlunterschied zu erreichen muss das System, für das im unmagnetisierten Zustand $N_+=N_-$ gilt, die Energie die bei der Erniedrigung der Spins frei wird an die Umgebung, das sogenannte Gitter, abgeben.
+        Die Boltzmanverteilung gibt das Verhältnis zwischen $N_-$ und $N_+$ an:
+        \[
+            \frac{N_-}{N_+} = \mathrm e^{\frac{\Delta U}{k_\text BT}}
+        \]
+        Die Magnetisierung in Z-Richtung ergibt sich aus:
+        \[
+            M_Z = (N_+-N_-)\mu
+        \]
+        und für die Magnetisierung im thermischen Gleichgewicht erhält man
+        \[
+            M_0 \approx N\frac{\mu^2B}{k_\text BT}
+        \]
+        mit $N=N_-+N_+$.
+
+    \end{section}
+
+    \begin{section}{Longitudinale Relaxation}
+
+        Um die Magnetisierung zu beschreiben, kann man die Differentialgleichung \todo
+       % \[
+        %    \dod{M_Z(t)}{t} = \frac{M_0-M_Z}{T_1}
+        %\]
+        mit der Randbedingung $M_{Z(0)} =0$ lösen und erhält die Zeitentwicklung:
+        \[
+            M(t) = M_0\big (1-\mathrm e^{-\frac tT_1}\big)
+        \]
+        Hierbei ist $T_1$ die Spin-Gitter-Relaxationszeit, welche beschreibt, wie lange der Prozess der Magnetisierung, beziehungsweise das zurück drehen der Spins in die Ausgangslage nach abschalten des externen Magnetfeldes dauert.
+
+    \end{section}
+
+    \begin{section}{Bei zusätzlichen Gepulst Feld}
+        Zusätzlich zu dem homogenen Feld in Z-Richtung nutzen wir im Verlauf des Versuches noch ein gepulstet Magnetfeld, welches sich in der X-Y-Ebene befindet.
+
+        \begin{subsection}{Blochkugel}
+            Um sich das Zwei-Niveau-System der Spins im externen Magnetfeld vor zu stellen, bietet sich die Darstellung als Blochkugel an.
+            Die Spins stellen hierbei die Vektoren dar, die auf eine Einheitskugel zeigen.
+            Dabei wird der Spin up durch den Vektor (0,0,1) und Spin down durch (0,0,-1) Dargestellt.
+            Es gibt allerdings auch Superpositions, welche durch die Formel 
+            \[
+                |\theta,\phi\rangle = \cos\big (\frac \theta 2 \big ) |\uparrow\rangle + \mathrm e^{\mathrm i\phi}\sin\big (\frac \theta 2\big )|\downarrow\rangle
+            \]
+            wobei die Mischzustände durch die Winkel $\theta$ und $\phi$ bestimmt wetrden.
+            Diese Superpositionen ermöglich es auch Spins die nich Parallel zum Magnetfeld stehen zu beschreiben, auch wenn diese energetisch günstiger sind.
+
+        \end{subsection}
+
+        \begin{subsection}{Das rotierende Bezugssystem und das gepulst Magnetfeld}
+            Im weiteren Verlauf nutzen wir statt des ruhenden Laborsystem ein rotierendes Inertialsystem, welches wie das magnetische Moment mit der Lamorfrequenz um die Z-Achse präzessiert.
+
+        \end{subsection}
+    \end{section}
+
+
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
