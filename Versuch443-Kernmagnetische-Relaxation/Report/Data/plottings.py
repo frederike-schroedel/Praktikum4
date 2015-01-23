@@ -201,7 +201,7 @@ if SaettigungONOFF == 1:
     
     plt.plot_xy_error("SaettigungsZurueckgewinnung",
                       Saettigung[0],
-                      r"Verzögerungszeit $/\SI{}{\micro\second}$",
+                      r"Verzögerungszeit $/\SI{}{\milli\second}$",
                       Saettigung[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
                       Saettigung[2], "Envelope",
                       r"Sättigungs -- Zurückgewinnung: " +

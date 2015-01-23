@@ -635,7 +635,7 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
              label="Angepasste Funktion: \n" + func_form +
              "\n" + r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
                                               str(round(df[0],4))[-2:]) +
-             "\ \ \ \ " + r"$T_%s=\SI{%s(%s)}{\micro\second}$" %
+             "\ \ \ \ " + r"$T_%s=\SI{%s(%s)}{\milli\second}$" %
              (str(T), str(round(f[1],3)), str(round(df[1],4))[-2:]))
     
     # set axis labels

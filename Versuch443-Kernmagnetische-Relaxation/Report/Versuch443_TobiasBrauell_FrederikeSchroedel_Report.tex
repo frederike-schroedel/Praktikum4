@@ -19,8 +19,15 @@
 %%%%%%%%%%
 % \usepackage{showframe}
 \usepackage[scale=0.8, hmarginratio=4:2]{geometry}
-  \geometry{textheight=1.05\textheight, textwidth=.95\textwidth,
-            marginparwidth=25 pt}
+\geometry{%
+  textheight     = 1.05\textheight,
+  textwidth      = 0.95\textwidth,
+  headheight     = 15 pt,
+  %       footheight     = 15 pt,
+  marginparwidth = 82 pt}
+\parskip=7pt
+\renewcommand{\arraystretch}{1.2}
+% \pagestyle{fancy}
 
 
 
@@ -74,7 +81,7 @@
   %%%%%%%%%%%%%%%%%%%%
   
   
-  \newpage
+  
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
@@ -106,7 +113,7 @@
   %%%%%%%%%%%%%%%%%%%%
   
   
-  \newpage
+  
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%
@@ -130,7 +137,7 @@
       ausgeschaltet.
       \begin{figure}[hb]
         \centering
-        \includegraphics[width=\textwidth]{Figures/Offset.png}
+        \includegraphics[width=.9\textwidth]{Figures/Offset.png}
         \caption{Messdaten \textbf{ohne} eingeschalteten Puls zur
           \textit{Offset}--Messung.}
         \label{figOffset}
@@ -187,7 +194,7 @@
       
       \begin{figure}[htb]
         \centering
-        \includegraphics[width=\textwidth]{Figures/FID_env2.png}
+        \includegraphics[width=.9\textwidth]{Figures/FID_env2.png}
         \caption{\textit{Free Induction Decay} Antwort--Signal und angepasste
           Zerfalls--Funktion.}
         \label{figFIDenv}
@@ -241,6 +248,13 @@
     \begin{section}{Rabi--Oszillation}
       \label{chpRabi}
       
+      \begin{figure}[b!]
+        \centering
+        \includegraphics[width=.7\textwidth]{Figures/Rabi_freq12.png}
+        \caption{bla bla.}
+        \label{figRabifreq12}
+      \end{figure}
+      
       Um die Rabi--Oszillation zu messen, benutzen wir einen Puls und variieren
       dessen Länge.
       Dabei messen wir die maximale Amplitude des Antwort--Signales und des
@@ -277,12 +291,7 @@
 %         \label{figRabifreq2}
 %       \end{figure}
       
-      \begin{figure}[htb]
-        \centering
-        \includegraphics[width=.9\textwidth]{Figures/Rabi_freq12.png}
-        \caption{bla bla.}
-        \label{figRabifreq12}
-      \end{figure}
+      
       
       \todo{Alle Bilder wirklich hier rein oder lieber im anhang?}
       
@@ -298,55 +307,134 @@
         Longitudinale Relaxationszeit $T_{1}$}
       \label{chpLongRelax}
       
+      In diesem Versuchsteil wollen wir die longitudinale Relaxationszeit
+      $T_{1}$ messen.
+      Dazu stehen uns stehen uns in diesem Versuch zwei verschiedene Methoden
+      zur Verfügung die wir hier beiden durchführen und anschließend
+      vergleichen wollen.
+      Die Relaxationszeit $T_{1}$ kann hierbei sowohl mit der
+      Sättigungs--Zurückgewinnungs-- als auch mit der Polarisations--
+      Zurückgewinnungs--Methode über die Höhe des FID--Signales bestimmt werden.
+      
+      
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Sättigungs--Zurückgewinnung}
+      \begin{subsection}*{Sättigungs--Zurückgewinnung}
         \label{chpLongRelaxSaettigung}
         
-        
-        
-        
-        \begin{figure}[htb]
+        \begin{figure}[b!]
           \centering
-          \includegraphics[width=\textwidth]
+          \includegraphics[width=.9\textwidth]
           {Figures/SaettigungsZurueckgewinnung.png}
           \caption{bla bla.}
           \label{figSaettigung}
         \end{figure}
         
+        Bei der Sättigungs--Zurückgewinnungs--Methode wird zunächst mit einem
+        $\frac{\pi}{2}$--Puls...
+        \todo{was genau passiert hier? Erklärungen!}
+        
+        
+        Die für diese Methode benutzte Sequenz ist in \cref{eqSaettigungSequenz}
+        noch einmal notiert.
+        \begin{equation}
+          \label{eqSaettigungSequenz}
+          \frac{\pi}{2} \rightarrow \mathtt{FID} \rightarrow
+          \tau \frac{\pi}{2} \rightarrow \mathtt{FID}
+        \end{equation}
+        
+        Wir variieren für diese Messung die Verzögerungszeit $\tau$ in einem
+        Bereich von $\SI{10}{\milli\second}$ bis $\SI{750}{\milli\second}$
+        und messen jeweils die maximale Amplitude des Antwort--Signales nach
+        den zweiten Puls.
+        Die aufgenommenen Messwerte der maximalen Spannung sind in
+        \cref{figSaettigung} gegen die variierte Verzögerungszeit $\tau$
+        aufgetragen.
+        
+        Um nun die longitudinale Relaxationszeit $T_{1}$ zu bestimmen,
+        passen wir eine Funktion der Form von \cref{eqSaettigung} an die
+        genommenen Messwerte an.
+        \begin{equation}
+          \label{eqSaettigung}
+          M(\tau)=M_{0}\left(1-\exp\left(-\frac{\tau}{T_{1}}\right)\right)
+        \end{equation}
+        
+        \todo{Woher kommt diese Form?}
+        Die angepasste Funktion ist in \cref{figSaettigung} zusammen mit den
+        Daten abgebildet.
+        Aus den Parametern dieser Anpassung erhalten wir nun die zu bestimmende
+        longitudinale Relaxationszeit $T_{1}=\SI{32.096(54)}{\milli\second}$
+        und eine maximale Spannung $M_{0}=\SI{10.338(39)}{\volt}$.
+        Es ist aber deutlich zu erkennen, dass eine Funktion der Form von
+        \cref{eqSaettigung} den Verlauf nicht optimal approximiert, da die
+        Funktion bereits nach einigen Messpunkten nicht mehr dem tatsächlichen
+        Verlauf der Daten entspricht.
+        \todo{Ideen warum oder wie es besser wäre?}
+        
+        
+        
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
       
-      \newpage
+      
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Polarisations--Zurückgewinnung}
+      \begin{subsection}*{Polarisations--Zurückgewinnung}
         \label{chpLongRelaxPolarisation}
         
-        
-        
-        
-        \begin{figure}[htb]
+        \begin{figure}[b!]
           \centering
-          \includegraphics[width=\textwidth]
+          \includegraphics[width=.9\textwidth]
           {Figures/PolarisationsZurueckgewinnung.png}
           \caption{bla bla.}
           \label{figPolarisation}
         \end{figure}
         
+        \todo{Erklärungen!}
+        Die Messungen bei dieser Methode ähneln denen der Sättigungs--
+        Zurückgewinnungs--Methode bis auf die verwendete Sequenz und die an die
+        Messwerte angepasste Funktion.
+        Für die Polarisations--Zurückgewinnung--Methode verwenden wir
+        \cref{eqPolarisationSequenz} als Sequenz von Pulsen, bei der wieder die
+        Verzögerungszeit $\tau$ im gleichen Bereich variiert wird.
+        \begin{equation}
+          \label{eqPolarisationSequenz}
+          \pi \rightarrow \tau \frac{\pi}{2} \rightarrow \mathtt{FID}
+        \end{equation}
+        
+        \todo{Warum? woher?}
+        An die gemessenen Spannungen passen wir bei der Polarisations--
+        Zurückgewinnungs--Methode eine Funktion von der Form der
+        \cref{eqPolarisation} an.
+        \begin{equation}
+          \label{eqPolarisation}
+          M(\tau)=M_{0}\left(1-2\cdot\exp\left(-\frac{\tau}{T_{1}}\right)\right)
+        \end{equation}
+        \todo{Warum? woher?}
+        Sowohl die Messwerte als auch die angepasste Funktion sind, wie zuvor,
+        in \cref{figPolarisation} dargestellt und gegen die variierte
+        Verzögerungszeit $\tau$ aufgetragen.
+        
+        Aus den Parametern der Anpassung von \cref{eqPolarisation} erhalten
+        wir nun die longitudinale Relaxationszeit
+        $T_{1}=\SI{34,474(27)}{\milli\second}$ und $M_{0}=\SI{9,885(3)}{\volt}$.
+        \todo{und? gefällt uns die Funktion?}
+        
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      
+      \todo[inline]{Vergleiche beide Methoden}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-    \newpage
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -360,7 +448,7 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-    \newpage
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
