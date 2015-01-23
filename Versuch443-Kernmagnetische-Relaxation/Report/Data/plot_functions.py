@@ -432,7 +432,7 @@ def plot_xy_maxfit(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, 
              label="Angepasste Funktion: \n" + func_form +
              "\n" + r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
                                               str(round(df[0],4))[-2:]) +
-             "\ \ \ \ " + r"$T_2=\SI{%s(%s)}{\micro\second}$" %
+             "\ \ \ \ " + r"$T_2=\SI{%s(%s)}{\milli\second}$" %
              (str(round(f[1],3)), str(round(df[1],4))[-2:]))
     
     # set axis labels

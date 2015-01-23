@@ -105,6 +105,7 @@
         \label{figRohPuls}
       \end{figure}
 
+
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,7 +120,6 @@
   %%%%%%%%%%%%%%%%%%%%
   \begin{chapter}{Durchführung und Auswertung der Messdaten}
     \label{chp:Auswertung}
-    
     Nachdem nun alles nach Anleitung aufgebaut und verkabelt ist und das Signal
     optimiert wurde, beginnen wir nun mit den eigentlichen Messungen dieses
     Versuches.
@@ -129,7 +129,6 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Offset der Spannungen}
       \label{chpOffset}
-      
       Zunächst führen wir eine Messung ohne jegliches Signal durch um einen
       möglichen \textit{Offset} zu bestimmen.
       Dazu schalten wir die Messspannungen für \textit{Envelope}, \textit{Q} und
@@ -142,7 +141,7 @@
           \textit{Offset}--Messung.}
         \label{figOffset}
       \end{figure}
-      
+
       Die von uns damit gemessenen Spannungen sind in \cref{figOffset} zusammen
       mit den berechneten Mittelwerten dargestellt.
       Alle hiernach genommenen Messwerte haben wir mit den gefundenen
@@ -158,10 +157,34 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{section}{Justierung der Pulszeiten}
+      \label{chpPulszeiten}
+      Um heraus zu finden welche Pulslängen einem $\pi$--, bzw.\
+      $\frac{\pi}{2}$--Puls entsprechen, messen wir Amplitude des
+      Antwort--Signales während wir die Pulslänge variieren.
+      Zunächst bestimmen wir den $\pi$--Puls, indem wir eine Pulsdauer suchen,
+      bei der das Antwort--Signal eine minimale Amplitude besitzt.
+      Bei dieser Pulslänge löschen sich Puls und Antwort--Signal komplett aus.
+      \todo{Warum?}
+      Für unseren Aufbau haben wir hierbei eine Länge des $\pi$--Pulses von
+      $A_{len}=\SI{5.44}{\micro\second}$ gefunden.
+      Für den $\frac{\pi}{2}$--Puls gilt, dass dieser genau der halben Länge
+      des $\pi$--Pulses, also $A_{len}=\SI{2.72}{\micro\second}$, entspricht.
+      
+      \todo{Fertig?}
+      \todo{oder ist das schon im aufbau gemacht worden?}
+      
+    \end{section}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}[Free Induction Decay]{
         \underline{F}ree \underline{I}nduction \underline{D}ecay}
       \label{chpFID}
-      
       Als nächstes optimieren wir das FID--Signal indem wir die Gradienten
       des Magnetfeldes so verstellen, dass das Profil möglichst einem
       exponentiellem Abfall entspricht.
@@ -191,7 +214,6 @@
       eingestellt.
       Bei welcher Frequenz eine Messung aufgenommen wurde ist jeweils im Titel
       der Graphiken festgehalten.
-      
       \begin{figure}[htb]
         \centering
         \includegraphics[width=.9\textwidth]{Figures/FID_env2.png}
@@ -199,7 +221,8 @@
           Zerfalls--Funktion.}
         \label{figFIDenv}
       \end{figure}
-      
+
+      \todo{ist die Funktion okay oder soll ich das c wieder raus nehmen?}
       \todo{fehlt noch was zu T2*. und ist das HIER tatsächlich richtig
         oder besser nachher wenn T2* tatsächlich gebraucht wird?}
       
@@ -210,32 +233,39 @@
 %           Zusammen mit \textit{Q}-- und \textit{I}--Signal.}
 %         \label{figFIDenvQI}
 %       \end{figure}
+
       
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Justierung der Pulszeiten}
-      \label{chpPulszeiten}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}*{Effektive Transversale Relaxationszeit $T_{2}^{*}$}
+        \label{chpEffTransRelax}
+        Die effektive transversale Relaxationszeit $T_{2}^{*}$ setzt sich
+        aus der inhomogenen transversalen Relaxationszeit
+        $T_{2,\mathtt{inhom}}$ und der homogenen transversalen Relaxationszeit
+        $T_{2}$ über \cref{eqEffektiveTransversaleRelaxationszeit} zusammen.
+        \begin{equation}
+          \label{eqEffektiveTransversaleRelaxationszeit}
+          \frac{1}{T_{2}^{*}}=\frac{1}{T_{2,\mathtt{inhom}}}+\frac{1}{T_{2}}
+        \end{equation}
+        Aus dem FID--Signal lässt sich an dieser Stelle die effektive
+        transversale Relaxationszeit $T_{2}^{*}$ direkt bestimmen.
+        Dazu haben wir zuvor eine Funktion der Form von \cref{eqFID} an das
+        Signal angepasst.
+        Aus den somit gewonnenen Parametern der Anpassung erhalten wir nun
+        die effektive transversale Relaxationszeit
+        $T_{2}^{*}=\SI{1.89(73)}{\milli\second}$.
+        
+        In diesem Versuch wollen wir außerdem die inhomogene transversale
+        Relaxationszeit $T_{2,\mathtt{inhom}}$ bestimmen indem wir zusätzlich
+        zu der effektiven transversalen Relaxationszeit die homogene
+        transversale Relaxationszeit $T_{2}$ über verschiedene
+        Spinecho - Sequenzen bestimmen.
+        Dazu aber später in \cref{chpHomoTransRelax} mehr.
+        
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
-      Um heraus zu finden welche Pulslängen einem $\pi$--, bzw.\
-      $\frac{\pi}{2}$--Puls entsprechen, messen wir Amplitude des
-      Antwort--Signales während wir die Pulslänge variieren.
-      Zunächst bestimmen wir den $\pi$--Puls, indem wir eine Pulsdauer suchen,
-      bei der das Antwort--Signal eine minimale Amplitude besitzt.
-      Bei dieser Pulslänge löschen sich Puls und Antwort--Signal komplett aus.
-      \todo{Warum?}
-      Für unseren Aufbau haben wir hierbei eine Länge des $\pi$--Pulses von
-      $A_{len}=\SI{5.44}{\micro\second}$ gefunden.
-      Für den $\frac{\pi}{2}$--Puls gilt, dass dieser genau der halben Länge
-      des $\pi$--Pulses, also $A_{len}=\SI{2.72}{\micro\second}$, entspricht.
-      
-      \todo{Fertig?}
-      \todo{oder ist das schon im aufbau gemacht worden?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,14 +277,13 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}{Rabi--Oszillation}
       \label{chpRabi}
-      
-      \begin{figure}[b!]
+      \begin{figure}[htbp]
         \centering
-        \includegraphics[width=.7\textwidth]{Figures/Rabi_freq12.png}
+        \includegraphics[width=\textwidth]{Figures/Rabi_freq12.png}
         \caption{bla bla.}
         \label{figRabifreq12}
       \end{figure}
-      
+
       Um die Rabi--Oszillation zu messen, benutzen wir einen Puls und variieren
       dessen Länge.
       Dabei messen wir die maximale Amplitude des Antwort--Signales und des
@@ -283,6 +312,7 @@
 %         \caption{bla bla.}
 %         \label{figRabifreq1}
 %       \end{figure}
+
 %       
 %       \begin{figure}[htb]
 %         \centering
@@ -290,6 +320,7 @@
 %         \caption{bla bla.}
 %         \label{figRabifreq2}
 %       \end{figure}
+
       
       
       
@@ -306,7 +337,6 @@
     \begin{section}[Longitudinale Relaxationszeit]{
         Longitudinale Relaxationszeit $T_{1}$}
       \label{chpLongRelax}
-      
       In diesem Versuchsteil wollen wir die longitudinale Relaxationszeit
       $T_{1}$ messen.
       Dazu stehen uns stehen uns in diesem Versuch zwei verschiedene Methoden
@@ -322,20 +352,17 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}*{Sättigungs--Zurückgewinnung}
         \label{chpLongRelaxSaettigung}
-        
         \begin{figure}[b!]
           \centering
-          \includegraphics[width=.9\textwidth]
+          \includegraphics[width=\textwidth]
           {Figures/SaettigungsZurueckgewinnung.png}
           \caption{bla bla.}
           \label{figSaettigung}
         \end{figure}
-        
+
         Bei der Sättigungs--Zurückgewinnungs--Methode wird zunächst mit einem
         $\frac{\pi}{2}$--Puls...
         \todo{was genau passiert hier? Erklärungen!}
-        
-        
         Die für diese Methode benutzte Sequenz ist in \cref{eqSaettigungSequenz}
         noch einmal notiert.
         \begin{equation}
@@ -343,7 +370,6 @@
           \frac{\pi}{2} \rightarrow \mathtt{FID} \rightarrow
           \tau \frac{\pi}{2} \rightarrow \mathtt{FID}
         \end{equation}
-        
         Wir variieren für diese Messung die Verzögerungszeit $\tau$ in einem
         Bereich von $\SI{10}{\milli\second}$ bis $\SI{750}{\milli\second}$
         und messen jeweils die maximale Amplitude des Antwort--Signales nach
@@ -359,7 +385,6 @@
           \label{eqSaettigung}
           M(\tau)=M_{0}\left(1-\exp\left(-\frac{\tau}{T_{1}}\right)\right)
         \end{equation}
-        
         \todo{Woher kommt diese Form?}
         Die angepasste Funktion ist in \cref{figSaettigung} zusammen mit den
         Daten abgebildet.
@@ -372,9 +397,6 @@
         Verlauf der Daten entspricht.
         \todo{Ideen warum oder wie es besser wäre?}
         
-        
-        
-        
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
@@ -385,19 +407,11 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}*{Polarisations--Zurückgewinnung}
         \label{chpLongRelaxPolarisation}
-        
-        \begin{figure}[b!]
-          \centering
-          \includegraphics[width=.9\textwidth]
-          {Figures/PolarisationsZurueckgewinnung.png}
-          \caption{bla bla.}
-          \label{figPolarisation}
-        \end{figure}
-        
         \todo{Erklärungen!}
         Die Messungen bei dieser Methode ähneln denen der Sättigungs--
         Zurückgewinnungs--Methode bis auf die verwendete Sequenz und die an die
         Messwerte angepasste Funktion.
+        
         Für die Polarisations--Zurückgewinnung--Methode verwenden wir
         \cref{eqPolarisationSequenz} als Sequenz von Pulsen, bei der wieder die
         Verzögerungszeit $\tau$ im gleichen Bereich variiert wird.
@@ -405,7 +419,6 @@
           \label{eqPolarisationSequenz}
           \pi \rightarrow \tau \frac{\pi}{2} \rightarrow \mathtt{FID}
         \end{equation}
-        
         \todo{Warum? woher?}
         An die gemessenen Spannungen passen wir bei der Polarisations--
         Zurückgewinnungs--Methode eine Funktion von der Form der
@@ -415,6 +428,14 @@
           M(\tau)=M_{0}\left(1-2\cdot\exp\left(-\frac{\tau}{T_{1}}\right)\right)
         \end{equation}
         \todo{Warum? woher?}
+        \begin{figure}[htb]
+          \centering
+          \includegraphics[width=\textwidth]
+          {Figures/PolarisationsZurueckgewinnung.png}
+          \caption{bla bla.}
+          \label{figPolarisation}
+        \end{figure}
+
         Sowohl die Messwerte als auch die angepasste Funktion sind, wie zuvor,
         in \cref{figPolarisation} dargestellt und gegen die variierte
         Verzögerungszeit $\tau$ aufgetragen.
@@ -423,7 +444,6 @@
         wir nun die longitudinale Relaxationszeit
         $T_{1}=\SI{34,474(27)}{\milli\second}$ und $M_{0}=\SI{9,885(3)}{\volt}$.
         \todo{und? gefällt uns die Funktion?}
-        
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -438,35 +458,34 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}[Effektive Transversale Relaxationszeit]{
-        Effektive Transversale Relaxationszeit $T_{2}^{*}$}
-      \label{chpEffTransRelax}
-      
-      \todo{muss hier das FID zeug rein?}
-      
-    \end{section}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{section}[Homogene Transversale Relaxationszeit]{
         Homogene Transversale Relaxationszeit $T_{2}$}
       \label{chpHomoTransRelax}
+      Wie zuvor in \cref{chpFID} erwähnt, möchten wir in diesem Versuch neben
+      der dort bestimmten effektiven transversalen Relaxationszeit $T_{2}^{*}$
+      auch die homogene transversale Relaxationszeit $T_{2}$ bestimmen.
       
-      \todo{Alle Bilder wirklich hier rein oder lieber im anhang?}
+      Dazu benutzen wir sog.\ \textit{Spinecho} - Sequenzen.
+      Für diesen Versuch stehen uns dabei drei verschiedene Spinecho - Sequenzen
+      zur Verfügung die im folgenden durchgeführt werden.
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Hahn-Spinecho-Sequenz}
+      \begin{subsection}*{Hahn--Spinecho - Sequenz}
         \label{chpHomoTransRelaxHahn}
+        Zunächst befassen wir uns mit der \textit{Hahn--Spinecho} - Sequenz
+        (\cref{eqHahnSequenz}).
+        \begin{equation}
+          \label{eqHahnSequenz}
+          \frac{\pi}{2} \rightarrow \tau \pi
+        \end{equation}
+        Hierbei senden wir erst einen $\frac{\pi}{2}$--Puls und nach einer
+        Verzögerungszeit $\tau$ einen $\pi$--Puls.
         
-        
-        
-        
+        \Cref{figHahnBsp1,figHahnBsp2} zeigen für zwei unterschiedliche
+        Verzögerungszeiten beispielhaft wie das Antwort--Signal dieser
+        Spinecho - Sequenz auf dem Oszilloskop aussieht.
         \begin{figure}[htb]
           \centering
           \begin{minipage}{.48\textwidth}
@@ -484,8 +503,21 @@
             \label{figHahnBsp2}
           \end{minipage}
         \end{figure}
-        
-        
+
+        Um die homogene transversale Relaxationszeit $T_{2}$ nun zu bestimmen
+        messen wir die maximale Amplitude des Echo--Signales bei verschiedenen
+        Verzögerungszeiten $\tau$.
+        An die damit erhaltenen Messwerte passen wir nun eine exponentielle
+        Zerfalls--Funktion der Form von \cref{eqHomo} an.
+        \begin{equation}
+          \label{eqHomo}
+          M(\tau)=M_{0}\exp\left(-\frac{\tau}{T_{2}}\right)
+        \end{equation}
+        Aus den Parametern dieser Anpassung erhalten wir somit die homogene
+        transversale Relaxationszeit $T_{2}=\SI{9.833(65)}{\milli\second}$.
+        Messdaten und angepasste Funktion zusammen mit den gefundenen
+        Parametern sind in \cref{figHahn} gegen die variierte Verzögerungszeit
+        $\tau$ aufgetragen.
         \begin{figure}[htb]
           \centering
           \includegraphics[width=\textwidth]
@@ -493,7 +525,7 @@
           \caption{bla bla.}
           \label{figHahn}
         \end{figure}
-        
+
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -503,50 +535,120 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Carr-Purcell-Spinecho-Sequenz}
+      \begin{subsection}*{Carr--Purcell--Spinecho - Sequenz}
         \label{chpHomoTransRelaxCarr}
+        Bei der Messung der homogenen transversalen Relaxationszeit mithilfe der
+        \textit{Carr--Purcell} - Sequenz benutzen wir eine Sequenz von
+        Pulsen mit einem immer wiederkehrenden Muster.
+        Die Carr--Purcell - Sequenz ist in \cref{eqCarrSequenz} anschaulich
+        dargestellt.
+        \begin{equation}
+          \label{eqCarrSequenz}
+          \frac{\pi}{2} \rightarrow \tau\pi \rightarrow 2\tau\pi \rightarrow
+          2\tau\pi \rightarrow 2\tau\pi \rightarrow \ldots
+        \end{equation}
+        Das Antwort--Signal sieht, auf dem Oszilloskop betrachtet, wie in
+        \cref{figCarrBsp} dargestellt aus.
         
+        Um nun mit dieser Sequenz die homogene transversale Relaxationszeit
+        zu bestimmen müssen wir zunächst einmal die lokalen Maxima der Messung
+        bestimmen.
+        Dazu verwenden wir \texttt{Python}, genauer gesagt die
+        \texttt{signal.find\_peaks\_cwt} Funktion des \texttt{Python.scipy}
+        Modules.
+        An dieser Stelle sollten wir erwähnen, dass, auch nach einigem
+        Feintuning der \texttt{signal.find\_peaks\_cwt} Funktion, es uns leider
+        nicht bei allen lokalen Maxima perfekt gelungen ist ihre Position zu
+        finden.
+        Dennoch sollte das erreichte Ergebnis ausreichen um die notwendigen
+        Rechnungen durchzuführen.
         
-        
-        
+        Die homogene transversale Relaxationszeit $T_{2}$ kann nun bestimmt
+        werden, indem eine exponentielle Zerfalls--Funktion der Form
+        von \cref{eqHomo} an die lokalen Maxima angepasst wird.
+        Das erste Maximum wird für alle Messungen nicht bei der Anpassung der
+        Funktion beachtet, da es sich bei diesem Extrempunkt nicht um ein
+        Echo sondern um das Signal der eigentlichen Anregung handelt.
+        Aus den Parametern der angepassten Funktion erhalten wir
+        $T_{2}=\SI{13.986(4)}{\milli\second}$.
         \begin{figure}[htb]
           \centering
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_Carr0.png}
-            \caption{bla bla.}
-            \label{figCarr0}
-          \end{minipage}\\
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_Carr1.png}
-            \caption{bla bla.}
-            \label{figCarr1}
-          \end{minipage}\quad
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_Carr2.png}
-            \caption{bla bla.}
-            \label{figCarr2}
-          \end{minipage}\\
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_Carr3.png}
-            \caption{bla bla.}
-            \label{figCarr3}
-          \end{minipage}\quad
-          \begin{minipage}{.48\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_Carr4.png}
-            \caption{bla bla.}
-            \label{figCarr4}
-          \end{minipage}
+          \includegraphics[width=\textwidth]
+          {Figures/HomoTransRelax_Carr0.png}
+          \caption{bla bla.}
+          \label{figCarrBsp}
         \end{figure}
+        
+        Zusätzlich haben wir in bei diesem Versuchsteil das Antwort--Signal
+        dieser Sequenz bei verschiedenen Verzögerungszeiten $\tau$ und
+        einem veränderten Magnetfeld--Gradienten beobachtet.
+        Beim variieren der Verzögerungszeit konnten wir feststellen, dass sich
+        $T_{2}$ ebenfalls entsprechend ändert.
+        Auch beim ändern des Magnetfeld--Gradienten hat sich $T_{2}$
+        verändert.
+        Allerdings waren die Änderungen hier deutlich schwächer als bei
+        unterschiedlichen Verzögerungszeiten.
+        Die kleinste Änderung von $T_{2}$ haben wir bei den beiden Messungen mit
+        unterschiedlichen Magnetfeld--Gradienten gefunden.
+        Wie sich $T_{2}$ mit der Verzögerungszeit und dem
+        Magnetfeld--Gradienten ändert ist in \cref{tabCarr} notiert.
+        \todo[inline]{Erklärungen???}
+        \begin{table}[htb]
+          \centering
+          \rowcolors{2}{}{lightgray!30}
+          \begin{tabular}{c|c|c}
+            Magnetfeld--Gradient & $\tau$ & $T_{2}$ \\ \hline
+            Normal & \SI{1.7}{\micro\second} & \SI{13.986(4)}{\milli\second} \\
+            Normal & \SI{2.0}{\micro\second} & \SI{15.206(36)}{\milli\second} \\
+            Normal & \SI{2.6}{\micro\second} & \SI{17.172(19)}{\milli\second} \\
+            $Z^{-1}$ & \SI{2.6}{\micro\second} & \SI{18.567(48)}{\milli\second} \\
+            $X^{-1}$ & \SI{2.6}{\micro\second} & \SI{18.326(53)}{\milli\second} \\
+          \end{tabular}
+          \caption{Verhalten von $T_{2}$ bei verschiedenen Verzögerungszeiten
+            $\tau$ und umgepoltem Z--bzw.\ X--Gradient des Magnetfeldes
+            ($Z^{-1}$ und $X^{-1}$).}
+          \label{tabCarr}
+        \end{table}
+        
+%         \begin{figure}[htb]
+%           \centering
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_Carr0.png}
+%             \caption{bla bla.}
+%             \label{figCarr0}
+%           \end{minipage}\\
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_Carr1.png}
+%             \caption{bla bla.}
+%             \label{figCarr1}
+%           \end{minipage}\quad
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_Carr2.png}
+%             \caption{bla bla.}
+%             \label{figCarr2}
+%           \end{minipage}\\
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_Carr3.png}
+%             \caption{bla bla.}
+%             \label{figCarr3}
+%           \end{minipage}\quad
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_Carr4.png}
+%             \caption{bla bla.}
+%             \label{figCarr4}
+%           \end{minipage}
+%         \end{figure}
+
         
         
       \end{subsection}
@@ -557,12 +659,22 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}{Meiboom-Gill-Spinecho-Sequenz}
+      \begin{subsection}*{Meiboom--Gill--Spinecho - Sequenz}
         \label{chpHomoTransRelaxMG}
-        
-        
-        
-        
+        Die dritte und letzte Sequenz, mit der die homogene transversale
+        Relaxationszeit $T_{2}$ in diesem Versuch gemessen werden soll, ist die
+        \textit{Meiboom--Gill} - Sequenz (\cref{eqMGSequenz}).
+        \begin{equation}
+          \label{eqMGSequenz}
+          \frac{\pi}{2} \rightarrow \tau \pi_{+} \rightarrow 2\tau \pi_{-}
+          \rightarrow 2\tau \pi_{+} \rightarrow 2\tau \pi_{-} \rightarrow
+          2\tau \pi_{+} \rightarrow \ldots
+        \end{equation}
+        Mit dieser Sequenz ist schnell zu erkennen, dass sich die Echos deutlich
+        länger halten.
+        Einen Vergleich der Echo--Signale der Carr--Purcell - und der
+        Meiboom--Gill - Sequenz haben wir in den \cref{figMG_env0,figMG_env1}
+        grafisch dargestellt.
         \begin{figure}[htb]
           \centering
           \begin{minipage}{.48\textwidth}
@@ -578,22 +690,86 @@
             {Figures/HomoTransRelax_MG_env1.png}
             \caption{bla bla.}
             \label{figMG_env1}
-          \end{minipage}\\
+          \end{minipage}
+        \end{figure}
+        
+        Genau wie bei der Carr--Purcell - und der Hahn--Spinecho - Sequenz
+        passen wir auch hier wieder eine Funktion der Form von \cref{eqHomo}
+        an die lokalen Maxima an.
+        Allerdings können wir, ähnlich wie bei der Justierung des
+        FID--Signales in \cref{chpFID}, auch hier erkennen, dass der Verlauf der
+        Maxima nicht optimal einem exponentiellen Zerfall folgt.
+        Die mit den Parametern erhaltenen homogenen transversalen
+        Relaxationszeiten für verschiedene Verzögerungszeiten $\tau$ haben wir
+        in \cref{tabMG} notiert.
+        \begin{table}[htb]
+          \centering
+          \rowcolors{2}{}{lightgray!30}
+          \begin{tabular}{c|c|c}
+            $\tau$ & $T_{2}$ (Meiboom--Gill) & $T_{2}$ (Carr--Purcell) \\ \hline
+            \SI{1.6}{\micro\second} &
+            \SI{25.159(84)}{\milli\second} & \SI{13.587(5)}{\milli\second} \\
+            \SI{3.0}{\micro\second} &
+            \SI{28.423(73)}{\milli\second} & \SI{18.767(62)}{\milli\second} \\
+          \end{tabular}
+          \caption{Verhalten von $T_{2}$ bei verschiedenen Verzögerungszeiten
+            $\tau$ für die Meiboom--Gill - und Carr--Purcell - Sequenz.}
+          \label{tabMG}
+        \end{table}
+        
+        \todo[inline]{Beobachtung der folgenden Bilder noch erklären.}
+        
+        \begin{figure}[htb]
+          \centering
           \begin{minipage}{.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_MG_env2.png}
+            {Figures/HomoTransRelax_MG_env_Q_I0.png}
             \caption{bla bla.}
-            \label{figMG_env2}
+            \label{figMG_envQI0}
           \end{minipage}\quad
           \begin{minipage}{.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]
-            {Figures/HomoTransRelax_MG_env3.png}
+            {Figures/HomoTransRelax_MG_env_Q_I1.png}
             \caption{bla bla.}
-            \label{figMG_env3}
+            \label{figMG_envQI1}
           \end{minipage}
         \end{figure}
+        
+%         \begin{figure}[htb]
+%           \centering
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_MG_env0.png}
+%             \caption{bla bla.}
+%             \label{figMG_env0}
+%           \end{minipage}\quad
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_MG_env1.png}
+%             \caption{bla bla.}
+%             \label{figMG_env1}
+%           \end{minipage}\\
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_MG_env2.png}
+%             \caption{bla bla.}
+%             \label{figMG_env2}
+%           \end{minipage}\quad
+%           \begin{minipage}{.48\textwidth}
+%             \centering
+%             \includegraphics[width=\textwidth]
+%             {Figures/HomoTransRelax_MG_env3.png}
+%             \caption{bla bla.}
+%             \label{figMG_env3}
+%           \end{minipage}
+%         \end{figure}
+
+        
         
         
       \end{subsection}

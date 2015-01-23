@@ -71,7 +71,7 @@ opac = 0.8
 location = 5
 
 
-FIDONOFF = 1    # ========== FERTIG ==========
+FIDONOFF = 0    # ========== FERTIG ==========
 RabiONOFF = 0    # ========== FERTIG ==========
 OffsetONOFF = 0    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
@@ -79,7 +79,7 @@ SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus un
 PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
-ALLES = 0
+ALLES = 1
 
 if ALLES == 1:
     FIDONOFF = 1
@@ -237,7 +237,7 @@ if HomoTransRelaxONOFF == 1:
     
     plt.plot_xy_error("HomoTransRelax_Hahn",
                       HomoTransRelaxHahn[0],
-                      r"Verzögerungszeit $/\SI{}{\micro\second}$",
+                      r"Verzögerungszeit $/\SI{}{\milli\second}$",
                       HomoTransRelaxHahn[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
                       HomoTransRelaxHahn[2], "Envelope",
                       "Homogene Transversale Relaxationszeit $T_2$: " +
