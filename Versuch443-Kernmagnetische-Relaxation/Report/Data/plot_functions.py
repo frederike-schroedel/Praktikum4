@@ -17,8 +17,8 @@ screenlogging = True
 dpi = 200
 msize_leg = 2
 leg_linewidth = 3.0
-leg_anchor_x = 0
-leg_anchor_y = -0.45
+leg_anchor_x = 1
+leg_anchor_y = 0.5
 
 """============================================================================
 save a plot under given filename as .pdf as well as .png
@@ -73,7 +73,7 @@ def set_legend(fsize, msize, opac, location, outside):
             legobj.set_linewidth(leg_linewidth)
         return leg
     else:
-        leg = plt.legend(prop={'size':fsize}, loc=location, numpoints=1,
+        leg = plt.legend(prop={'size':fsize}, loc="center left", numpoints=1,
                         markerscale=msize_leg, fancybox=True,
                         bbox_to_anchor=(leg_anchor_x,leg_anchor_y))
         leg.get_frame().set_alpha(opac)
@@ -347,7 +347,7 @@ def plot_xy_decay(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, o
              "\ \ \ \ " +
              r"$T_2^*=\SI{%s(%s)}{\milli\second}$" % (str(round(f[1],3)),
                                                     str(round(df[1],4))[-2:]) +
-             "\ \ \ \ " +
+             "\n" +
              r"$c=\SI{%s(%s)}{\volt}$" % (str(round(f[2],3)),
                                             str(round(df[2],4))[-2:]))
     
@@ -439,6 +439,8 @@ def plot_xy_maxfit(fn, x, xlabel, y, ylabel, label, title, style, fsize, msize, 
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(label)
+    
+    plt.xlim(-5,100)
     
     # place a Legend in the plot
     leg = set_legend(fsize, msize, opac, location, False)
@@ -635,7 +637,7 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
              label="Angepasste Funktion: \n" + func_form +
              "\n" + r"$M_0=\SI{%s(%s)}{\volt}$" % (str(round(f[0],3)),
                                               str(round(df[0],4))[-2:]) +
-             "\ \ \ \ " + r"$T_%s=\SI{%s(%s)}{\milli\second}$" %
+             "\n" + r"$T_%s=\SI{%s(%s)}{\milli\second}$" %
              (str(T), str(round(f[1],3)), str(round(df[1],4))[-2:]))
     
     # set axis labels
@@ -644,7 +646,7 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     plt.ylabel(ylabel)
     
     # place a Legend in the plot
-    set_legend(fsize, msize, opac, location, False)
+    leg = set_legend(fsize, msize, opac, location, True)
     
     # display grid
     plt.grid(True)
@@ -652,7 +654,7 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     set_log_axis(xlog, ylog)
     
     # save the plot in file
-    write_file(fn)
+    write_file_leg(fn, leg)
     plt.close()
 
 def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, title, style, fsize, msize, opac, location, xlog, ylog):
@@ -684,13 +686,14 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
         fitted_y = func[i](fitted_x, *f)
         
         plt.plot(fitted_x, fitted_y, ":", color=colors[i],
-                 label="Angepasste Funktion: \n" + func_form[i] +
+                 label=func_form[i] +
                  "\n" +
                  r"$a=\SI{%s(%s)}{}$" % (str(round(f[0],3)),
                                          str(round(df[0],4))[-2:]) +
-                 "\ \ \ \ " +
+                 "\n" +
                  r"$b=\SI{%s(%s)}{}$" % (str(round(f[1],3)),
                                          str(round(df[1],4))[-2:])+
+                 "\n" +
                  r"$d=\SI{%s(%s)}{}$" % (str(round(f[2],3)),
                                          str(round(df[2],4))[-2:]))
         i += 1
@@ -914,19 +917,19 @@ def plot_x3y_averages(fn, x, xlabel, y1 , y1label, y2 , y2label, y3 , y3label, y
     plt.axhline(y=ave3[0], ls="--", lw=1.5, color="red")
     
     plt.plot(x, y1, style, linewidth=l,
-             label=y1label + r": Offset: $U^{env}_0 = " +
+             label=y1label + " -- Offset:\n" + r"$U^{env}_0 = " +
              r"\SI{%s(%s)}{\volt}$" % (str(round(ave1[0],3)),
                                        str(round(ave1[1],4))[-2:]))
     
     # plot y2 against x
     plt.plot(x, y2, style, linewidth=l,
-             label=y2label + r": Offset: $U^{env}_0 = " +
+             label=y2label + " -- Offset:\n" + r"$U^{env}_0 = " +
              r"\SI{%s(%s)}{\volt}$" % (str(round(ave2[0],3)),
                                        str(round(ave2[1],4))[-2:]))
     
     # plot y3 against x
     plt.plot(x, y3, style, linewidth=l,
-             label=y3label + r": Offset: $U^{env}_0 = " +
+             label=y3label + " -- Offset:\n" + r"$U^{env}_0 = " +
              r"\SI{%s(%s)}{\volt}$" % (str(round(ave3[0],3)),
                                        str(round(ave3[1],4))[-2:]))
     
@@ -938,7 +941,7 @@ def plot_x3y_averages(fn, x, xlabel, y1 , y1label, y2 , y2label, y3 , y3label, y
     plt.ylim([-0.05,0.55])
     
     # place a Legend in the plot
-    leg = set_legend(fsize, msize, opac, location, False)
+    leg = set_legend(fsize, msize, opac, location, True)
     
     # display grid
     #plt.minorticks_on
@@ -949,7 +952,7 @@ def plot_x3y_averages(fn, x, xlabel, y1 , y1label, y2 , y2label, y3 , y3label, y
     set_log_axis(xlog, ylog)
     
     # save the plot in file
-    write_file(fn)
+    write_file_leg(fn, leg)
     plt.close()
     
 

@@ -65,7 +65,7 @@ def ImportData():
 plt.savefig_pdf = 0
 plt.savefig_png = 1
 
-fsize = 11.0
+fsize = 13.0
 msize = 5.0
 opac = 0.8
 location = 5
@@ -73,13 +73,13 @@ location = 5
 
 FIDONOFF = 0    # ========== FERTIG ==========
 RabiONOFF = 0    # ========== FERTIG ==========
-OffsetONOFF = 0    # ========== FERTIG ==========
+OffsetONOFF = 1    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
 SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
 PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
-ALLES = 1
+ALLES = 0
 
 if ALLES == 1:
     FIDONOFF = 1
@@ -115,7 +115,7 @@ if OffsetONOFF == 1:
                           r"Spannung $/\SI{}{\volt}$",
                           r"Bestimmung des Offset -- Messung " +
                           "ohne Puls: " + r"$f=\SI{21.16158}{\mega\hertz}$",
-                          style, fsize, msize, opac, location, False, False)
+                          style, fsize+3, msize, opac, location, False, False)
     
     print ("    ======== Done ========\n")
 
@@ -170,8 +170,6 @@ if RabiONOFF == 1:
                           r"$\SI{21.15158}{\mega\hertz}$",
                           style, fsize, msize, opac, location, False, False)
     
-    plt.leg_anchor_x = 0
-    plt.leg_anchor_y = -0.8
     plt.plot_xy_errorlist("Rabi_freq12",
                           [Rabi_freq1[0], Rabi_freq1[0],
                           Rabi_freq2[0], Rabi_freq2[0]],
@@ -206,7 +204,7 @@ if SaettigungONOFF == 1:
                       Saettigung[2], "Envelope",
                       r"Sättigungs -- Zurückgewinnung: " +
                       r"$f=\SI{21.16158}{\mega\hertz}$",
-                      style, fsize, msize, opac, location, False, False)
+                      style, fsize+3, msize, opac, location, False, False)
     
     print ("    ======== Done ========\n")
 
@@ -224,7 +222,7 @@ if PolarisationONOFF == 1:
                       Polarisation[2], "Envelope",
                       r"Polarisations -- Zurückgewinnung: " +
                       r"$f=\SI{21.16158}{\mega\hertz}$",
-                      style, fsize, msize, opac, location, False, False)
+                      style, fsize+3, msize, opac, location, False, False)
     
     print ("    ======== Done ========\n")
 
@@ -243,7 +241,7 @@ if HomoTransRelaxONOFF == 1:
                       "Homogene Transversale Relaxationszeit $T_2$: " +
                       r"$f=\SI{21.16133}{\mega\hertz}$" +
                       "\nHahn-Spinecho-Sequenz",
-                      ".", fsize, msize, opac, location, False, False)
+                      ".", fsize+3, msize, opac, location, False, False)
     HomoTransRelaxHahn_bsp= [Bild[30], Bild[31]]
     i = 0
     while i < len(HomoTransRelaxHahn_bsp):
