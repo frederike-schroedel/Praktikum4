@@ -73,13 +73,13 @@ location = 5
 
 FIDONOFF = 0    # ========== FERTIG ==========
 RabiONOFF = 0    # ========== FERTIG ==========
-OffsetONOFF = 1    # ========== FERTIG ==========
+OffsetONOFF = 0    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
-SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
-PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
+SaettigungONOFF = 1    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
+PolarisationONOFF = 1    # ========== FERTIG ========== sieht aber scheisse aus
 HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
-ALLES = 0
+ALLES = 1
 
 if ALLES == 1:
     FIDONOFF = 1
@@ -134,7 +134,7 @@ if Roh_PulsONOFF == 1:
                      Roh_Puls[i][0]*1e6, r"Zeit $/\SI{}{\micro\second}$",
                      Roh_Puls[i][1], "Envelope",
                      Roh_Puls[i][2], "Signal Direkt",
-                     r"Spannung $/\SI{}{\volt}$",
+                     r"Magnetisierung $/\SI{}{\volt}$",
                      "Bild des rohen Pulses",
                      style, fsize, msize, opac, location, False, False)
         i += 1
@@ -152,7 +152,7 @@ if RabiONOFF == 1:
                           [Rabi_freq1[0], Rabi_freq1[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0]],
-                          r"Spannung $/\SI{}{\volt}$",
+                          r"Magnetisierung $/\SI{}{\volt}$",
                           [Rabi_freq1[2], Rabi_freq1[4]],
                           ["Envelope", "I"],
                           r"Rabi-Oszillation -- Frequenz: " +
@@ -163,7 +163,7 @@ if RabiONOFF == 1:
                           [Rabi_freq2[0], Rabi_freq2[0]],
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
-                          r"Spannung $/\SI{}{\volt}$",
+                          r"Magnetisierung $/\SI{}{\volt}$",
                           [Rabi_freq2[2], Rabi_freq2[4]],
                           ["Envelope", "I"],
                           r"Rabi-Oszillation -- Frequenz: " +
@@ -176,7 +176,7 @@ if RabiONOFF == 1:
                           r"$A_{len} / \SI{}{\micro\second}$",
                           [Rabi_freq1[1]-aveEnv[0], Rabi_freq1[3]-aveI[0],
                            Rabi_freq2[1]-aveEnv[0], Rabi_freq2[3]-aveI[0]],
-                          r"Spannung $/\SI{}{\volt}$",
+                          r"Magnetisierung $/\SI{}{\volt}$",
                           [Rabi_freq1[2], Rabi_freq1[4],
                            Rabi_freq2[2], Rabi_freq2[4]],
                           [r"Envelope $f=\SI{21.16158}{\mega\hertz}$",
@@ -200,7 +200,7 @@ if SaettigungONOFF == 1:
     plt.plot_xy_error("SaettigungsZurueckgewinnung",
                       Saettigung[0],
                       r"Verzögerungszeit $/\SI{}{\milli\second}$",
-                      Saettigung[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
+                      Saettigung[1]-aveEnv[0], r"Magnetisierung $/\SI{}{\volt}$",
                       Saettigung[2], "Envelope",
                       r"Sättigungs -- Zurückgewinnung: " +
                       r"$f=\SI{21.16158}{\mega\hertz}$",
@@ -218,7 +218,7 @@ if PolarisationONOFF == 1:
     plt.plot_xy_error("PolarisationsZurueckgewinnung",
                       Polarisation[0],
                       r"Verzögerungszeit $/\SI{}{\micro\second}$",
-                      Polarisation[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
+                      Polarisation[1]-aveEnv[0], r"Magnetisierung $/\SI{}{\volt}$",
                       Polarisation[2], "Envelope",
                       r"Polarisations -- Zurückgewinnung: " +
                       r"$f=\SI{21.16158}{\mega\hertz}$",
@@ -236,7 +236,7 @@ if HomoTransRelaxONOFF == 1:
     plt.plot_xy_error("HomoTransRelax_Hahn",
                       HomoTransRelaxHahn[0],
                       r"Verzögerungszeit $/\SI{}{\milli\second}$",
-                      HomoTransRelaxHahn[1]-aveEnv[0], r"Spannung $/\SI{}{\volt}$",
+                      HomoTransRelaxHahn[1]-aveEnv[0], r"Magnetisierung $/\SI{}{\volt}$",
                       HomoTransRelaxHahn[2], "Envelope",
                       "Homogene Transversale Relaxationszeit $T_2$: " +
                       r"$f=\SI{21.16133}{\mega\hertz}$" +
@@ -249,7 +249,7 @@ if HomoTransRelaxONOFF == 1:
                      HomoTransRelaxHahn_bsp[i][0]*1e3,
                      r"Zeit $/\SI{}{\milli\second}$",
                      HomoTransRelaxHahn_bsp[i][1]-aveEnv[0], "Envelope",
-                     r"Spannung $/\SI{}{\volt}$",
+                     r"Magnetisierung $/\SI{}{\volt}$",
                      "Homogene Transversale Relaxationszeit $T_2$: " +
                      r"$f=\SI{21.16133}{\mega\hertz}$" +
                      "\nHahn-Spinecho-Sequenz: Beispiel %g" % (i+1),
@@ -272,7 +272,7 @@ if HomoTransRelaxONOFF == 1:
                      HomoTransRelaxCarr[i][0]*1e3,
                      r"Zeit $/\SI{}{\milli\second}$",
                      HomoTransRelaxCarr[i][1]-aveEnv[0], "Envelope",
-                     r"Spannung $/\SI{}{\volt}$",
+                     r"Magnetisierung $/\SI{}{\volt}$",
                      "Homogene Transversale Relaxationszeit $T_2$: " +
                      r"$f=\SI{21.16133}{\mega\hertz}$" +
                      "\nCarr-Purcell-Sequenz: " + zusatzinfo[i] + tau[i],
@@ -294,7 +294,7 @@ if HomoTransRelaxONOFF == 1:
                      HomoTransRelaxMG[i][0]*1e3,
                      r"Zeit $/\SI{}{\milli\second}$",
                      HomoTransRelaxMG[i][1]-aveEnv[0], "Envelope",
-                     r"Spannung $/\SI{}{\volt}$",
+                     r"Magnetisierung $/\SI{}{\volt}$",
                      "Homogene Transversale Relaxationszeit $T_2$: " +
                      r"$f=\SI{21.16133}{\mega\hertz}$" +
                      "\nMeiboom-Gill-Sequenz: " + zusatzinfo[i] + tau[i],
@@ -305,7 +305,7 @@ if HomoTransRelaxONOFF == 1:
                      HomoTransRelaxMG[i][1]-aveEnv[0], "Envelope",
                      HomoTransRelaxMG[i][2]-aveQ[0], "Q",
                      HomoTransRelaxMG[i][3]-aveI[0], "I",
-                     r"Spannung $/\SI{}{\volt}$",
+                     r"Magnetisierung $/\SI{}{\volt}$",
                      "Homogene Transversale Relaxationszeit $T_2$: " +
                      r"$f=\SI{21.16133}{\mega\hertz}$" +
                      "\nMeiboom-Gill-Sequenz: " + zusatzinfo[i] + tau[i],
@@ -329,7 +329,7 @@ if FIDONOFF == 1:
                  FID[i][1]-aveEnv[0], "Envelope",
                  FID[i][2]-aveQ[0], "Q",
                  FID[i][3]-aveI[0], "I",
-                 r"Spannung $/\SI{}{\volt}$",
+                 r"Magnetisierung $/\SI{}{\volt}$",
                  "Free Induction Decay: " +
                  r"$f=\SI{21.16158}{\mega\hertz}$",
                  style, fsize, msize, opac, location, False, False)
@@ -340,7 +340,7 @@ if FIDONOFF == 1:
                           FID[i][0]*1e3,
                           r"Zeit $/\SI{}{\milli\second}$",
                           FID[i][1]-aveEnv[0], "Envelope",
-                          r"Spannung $/\SI{}{\volt}$",
+                          r"Magnetisierung $/\SI{}{\volt}$",
                           "Free Induction Decay: " +
                           r"$f=\SI{21.16133}{\mega\hertz}$",
                           "-", fsize, 2, opac, location, False, False)

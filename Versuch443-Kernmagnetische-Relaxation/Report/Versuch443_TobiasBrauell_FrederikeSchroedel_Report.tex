@@ -323,7 +323,8 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}*{Effektive Transversale Relaxationszeit $T_{2}^{*}$}
+      \begin{subsection}[Effektive Transversale Relaxationszeit]
+        {Effektive Transversale Relaxationszeit $T_{2}^{*}$}
         \label{chpEffTransRelax}
         Die effektive transversale Relaxationszeit $T_{2}^{*}$ setzt sich
         aus der inhomogenen transversalen Relaxationszeit
@@ -412,11 +413,11 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}*{Sättigungs--Zurückgewinnung}
+      \begin{subsection}{Sättigungs--Zurückgewinnung}
         \label{chpLongRelaxSaettigung}
         Bei der Sättigungs--Zurückgewinnungs - Methode wird zunächst mit einem
-        $\frac{\pi}{2}$ - Puls...
-        \todo{was genau passiert hier? Erklärungen!}
+        $\frac{\pi}{2}$ - Puls... \todo{was genau passiert hier? Erklärungen!}
+        
         Die für diese Methode benutzte Sequenz ist in \cref{eqSaettigungSequenz}
         noch einmal notiert.
         \begin{equation}
@@ -446,8 +447,7 @@
         \begin{equation}
           \label{eqSaettigung}
           M(\tau)=M_{0}\left(1-\exp\left(-\frac{\tau}{T_{1}}\right)\right)
-        \end{equation}
-        \todo{Woher kommt diese Form?}
+        \end{equation} \todo{Woher kommt diese Form?}
         Die angepasste Funktion ist in \cref{figSaettigung} zusammen mit den
         Daten abgebildet.
         Aus den Parametern dieser Anpassung erhalten wir nun die zu bestimmende
@@ -467,7 +467,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}*{Polarisations--Zurückgewinnung}
+      \begin{subsection}{Polarisations--Zurückgewinnung}
         \label{chpLongRelaxPolarisation}
         \todo{Erklärungen!}
         Die Messungen bei dieser Methode ähneln denen der Sättigungs--
@@ -480,16 +480,14 @@
         \begin{equation}
           \label{eqPolarisationSequenz}
           \pi \rightarrow \tau \frac{\pi}{2} \rightarrow \mathtt{FID}
-        \end{equation}
-        \todo{Warum? woher?}
+        \end{equation} \todo{Warum? woher?}
         An die gemessenen Spannungen passen wir bei der Polarisations--
         Zurückgewinnungs - Methode eine Funktion von der Form der
         \cref{eqPolarisation} an.
         \begin{equation}
           \label{eqPolarisation}
           M(\tau)=M_{0}\left(1-2\cdot\exp\left(-\frac{\tau}{T_{1}}\right)\right)
-        \end{equation}
-        \todo{Warum? woher?}
+        \end{equation} \todo{Warum? woher?}
         Sowohl die Messwerte als auch die angepasste Funktion sind, wie zuvor,
         in \cref{figPolarisation} dargestellt und gegen die variierte
         Verzögerungszeit $\tau$ aufgetragen.
@@ -510,7 +508,8 @@
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
-      \todo[inline]{Vergleiche beide Methoden}
+      \todo[inline]{Vergleiche beide Methoden! aber was genau soll man da sagen
+      bzw.\ vergleichen?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -534,7 +533,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}*{Hahn--Spinecho - Sequenz}
+      \begin{subsection}{Hahn--Spinecho - Sequenz}
         \label{chpHomoTransRelaxHahn}
         Zunächst befassen wir uns mit der \textit{Hahn--Spinecho} - Sequenz
         (\cref{eqHahnSequenz}).
@@ -599,7 +598,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}*{Carr--Purcell--Spinecho - Sequenz}
+      \begin{subsection}{Carr--Purcell--Spinecho - Sequenz}
         \label{chpHomoTransRelaxCarr}
         Bei der Messung der homogenen transversalen Relaxationszeit mithilfe der
         \textit{Carr--Purcell} - Sequenz benutzen wir eine Sequenz von
@@ -658,7 +657,7 @@
         unterschiedlichen Magnetfeld - Gradienten gefunden.
         Wie sich $T_{2}$ mit der Verzögerungszeit und dem
         Magnetfeld - Gradienten ändert ist in \cref{tabCarr} notiert.
-        \todo[inline]{Erklärungen???}
+        \todo[inline]{Erklärungen??? Idee warum das so ist??}
         \begin{table}[htb]
           \centering
           \rowcolors{2}{}{lightgray!30}
@@ -684,7 +683,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{subsection}*{Meiboom--Gill--Spinecho - Sequenz}
+      \begin{subsection}{Meiboom--Gill--Spinecho - Sequenz}
         \label{chpHomoTransRelaxMG}
         Die dritte und letzte Sequenz, mit der die homogene transversale
         Relaxationszeit $T_{2}$ in diesem Versuch gemessen werden soll, ist die
@@ -758,7 +757,8 @@
             \label{figMG_envQI1}
           \end{minipage}
         \end{figure}
-        \todo[inline]{Beobachtung der Bilder noch erklären.}
+        \todo[inline]{Beobachtung der unteren Bilder noch erklären.
+          Wieso oszilliert es nicht mehr?}
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -772,10 +772,33 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{section}{Diskussion}
+    \begin{section}{Zusammenfassung und Diskussion der Ergebnisse}
       \label{chpAuswertungDiskussion}
       
       
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}[Longitudinale Relaxationszeit]
+        {Longitudinale Relaxationszeit $T_{1}$}
+        \label{chpAuswertungDiskussionLong}
+        
+        
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      
+      
+      
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{subsection}[Transversale Relaxationszeit]
+        {Transversale Relaxationszeit $T_{2}$}
+        \label{chpAuswertungDiskussionTrans}
+        
+        
+      \end{subsection}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -645,6 +645,8 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     
+    plt.ylim(0,12)
+    
     # place a Legend in the plot
     leg = set_legend(fsize, msize, opac, location, True)
     
