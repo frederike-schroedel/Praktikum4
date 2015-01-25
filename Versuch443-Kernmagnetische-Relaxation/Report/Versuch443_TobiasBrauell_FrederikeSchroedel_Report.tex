@@ -257,8 +257,8 @@
       Für den $\frac{\pi}{2}$ - Puls gilt, dass dieser genau der halben Länge
       des $\pi$ - Pulses, also $A_{len}=\SI{2.72}{\micro\second}$, entspricht.
       
-      \todo{Fertig?}
-      \todo{oder ist das schon im aufbau gemacht worden?}
+      \todo{Fertig? oder ist das schon im aufbau gemacht worden? Wie hängen
+      Envelope, Q und I signal zusammen?}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,7 +285,6 @@
         \label{eqFID}
         M(\tau)=M_{0}\exp{\left(-\frac{\tau}{T_{2}^{*}}+c\right)},
       \end{equation}
-      \todo{ist die Funktion okay oder soll ich das c wieder raus nehmen?}
       mit einer Versatzvariablen $c$ um den leicht verschobenen exponentiellen
       Abfall zu kompensieren, an.
       \Cref{figFIDenv} stellt das FID - Signal und die daran angepasste Kurve
@@ -308,8 +307,9 @@
       eingestellt.
       Bei welcher Frequenz eine Messung aufgenommen wurde ist jeweils im Titel
       der Graphiken festgehalten.
-      \todo{fehlt noch was zu T2*. und ist das HIER tatsächlich richtig
-        oder besser nachher wenn T2* tatsächlich gebraucht wird?}
+      \todo[inline]{fehlt noch was zu T2*. und ist das HIER tatsächlich richtig
+        oder besser nachher wenn T2* tatsächlich gebraucht wird? Und was
+        erwarten wir aus der theorie als antwort der probe auf einen pi/2 puls?}
       
 %       \begin{figure}[htb]
 %         \centering
@@ -384,10 +384,19 @@
       Für eine Pulslänge um die des $\pi$ - Pulses nimmt die Amplitude wieder
       ab um dann bei der Länge entsprechend eines $\frac{3\pi}{4}$ - Pulses
       wieder ein Maximum erreicht.
-      Das In--Phase - Signal...
-      \todo{haben wir bei den unteren Oszillationen ein vorzeichen übersehen
-        oder soll das auch ein sinus betrag sein? Martin hat da eine normale
-        sinus schwingung!}
+      
+      Die Werte unserer Messung des In--Phase - Signales entsprachen zu beginn
+      ebenfalls einer Betragsfunktion des Sinus.
+      Dies machte für uns allerdings während der Auswertung wenig Sinn, da
+      dieses Signal eigentlich ein mit einem wechselnden Vorzeichen behaftet
+      seien sollte.
+      Daher gehen wir davon aus, dass wir entweder beim ablesen der Messwerte am
+      Oszilloskop das wechselnde Vorzeichen übersehen haben oder aber das
+      Oszilloskop dort an einer anderen Stelle des Signales getriggert hat
+      und uns damit ein Phasen verschobenes Bild angezeigt hat.
+      Aus diesem Grund haben wir nachträglich die Vorzeichen angepasst um eine
+      tatsächliche Sinus Oszillation zu erhalten.
+      \todo[inline]{Interpretieren der daten!}
       
     \end{section}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -407,7 +416,8 @@
       vergleichen wollen.
       Die Relaxationszeit $T_{1}$ kann hierbei sowohl mit der
       Sättigungs--Zurückgewinnungs- als auch mit der Polarisations--
-      Zurückgewinnungs - Methode über die Höhe des FID - Signales bestimmt werden.
+      Zurückgewinnungs - Methode über die Höhe des FID - Signales bestimmt
+      werden.
       
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -416,7 +426,8 @@
       \begin{subsection}{Sättigungs--Zurückgewinnung}
         \label{chpLongRelaxSaettigung}
         Bei der Sättigungs--Zurückgewinnungs - Methode wird zunächst mit einem
-        $\frac{\pi}{2}$ - Puls... \todo{was genau passiert hier? Erklärungen!}
+        $\frac{\pi}{2}$ - Puls... \todo{was genau passiert hier? Erklärungen
+          in der Theorie!}
         
         Die für diese Methode benutzte Sequenz ist in \cref{eqSaettigungSequenz}
         noch einmal notiert.
@@ -447,7 +458,7 @@
         \begin{equation}
           \label{eqSaettigung}
           M(\tau)=M_{0}\left(1-\exp\left(-\frac{\tau}{T_{1}}\right)\right)
-        \end{equation} \todo{Woher kommt diese Form?}
+        \end{equation} \todo{Woher kommt diese Form? Theorie!}
         Die angepasste Funktion ist in \cref{figSaettigung} zusammen mit den
         Daten abgebildet.
         Aus den Parametern dieser Anpassung erhalten wir nun die zu bestimmende
@@ -469,7 +480,7 @@
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \begin{subsection}{Polarisations--Zurückgewinnung}
         \label{chpLongRelaxPolarisation}
-        \todo{Erklärungen!}
+        \todo{Erklärungen in der Theorie!}
         Die Messungen bei dieser Methode ähneln denen der Sättigungs--
         Zurückgewinnungs - Methode bis auf die verwendete Sequenz und die an die
         Messwerte angepasste Funktion.
@@ -480,14 +491,15 @@
         \begin{equation}
           \label{eqPolarisationSequenz}
           \pi \rightarrow \tau \frac{\pi}{2} \rightarrow \mathtt{FID}
-        \end{equation} \todo{Warum? woher?}
+        \end{equation}
+        Die Messdaten 
         An die gemessenen Spannungen passen wir bei der Polarisations--
         Zurückgewinnungs - Methode eine Funktion von der Form der
         \cref{eqPolarisation} an.
         \begin{equation}
           \label{eqPolarisation}
           M(\tau)=M_{0}\left(1-2\cdot\exp\left(-\frac{\tau}{T_{1}}\right)\right)
-        \end{equation} \todo{Warum? woher?}
+        \end{equation} \todo{Warum? woher? Theorie!}
         Sowohl die Messwerte als auch die angepasste Funktion sind, wie zuvor,
         in \cref{figPolarisation} dargestellt und gegen die variierte
         Verzögerungszeit $\tau$ aufgetragen.
@@ -503,7 +515,6 @@
         Aus den Parametern der Anpassung von \cref{eqPolarisation} erhalten
         wir nun die longitudinale Relaxationszeit
         $T_{1}=\SI{34,474(27)}{\milli\second}$ und $M_{0}=\SI{9,885(3)}{\volt}$.
-        \todo{und? gefällt uns die Funktion?}
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -657,7 +668,8 @@
         unterschiedlichen Magnetfeld - Gradienten gefunden.
         Wie sich $T_{2}$ mit der Verzögerungszeit und dem
         Magnetfeld - Gradienten ändert ist in \cref{tabCarr} notiert.
-        \todo[inline]{Erklärungen??? Idee warum das so ist??}
+        \todo[inline]{Erklärungen??? Idee warum das so ist?? und welchen
+          Einfluss hat der gradient tatsächlich?}
         \begin{table}[htb]
           \centering
           \rowcolors{2}{}{lightgray!30}
@@ -758,7 +770,7 @@
           \end{minipage}
         \end{figure}
         \todo[inline]{Beobachtung der unteren Bilder noch erklären.
-          Wieso oszilliert es nicht mehr?}
+          Wieso oszilliert es nicht mehr? }
         
       \end{subsection}
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

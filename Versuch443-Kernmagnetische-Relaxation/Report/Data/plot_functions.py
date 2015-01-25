@@ -136,7 +136,7 @@ def f_mg(x, M0, T2):
     return f
 
 def f_rabi_a(x, a, b, d):
-    if a < 4.0 and b > 0.4 and d < 2.5:
+    if 1:#a < 4.0 and b > 0.4 and d < 2.5:
         return (a*np.sin(b*x))+d
     else:
         return 1e5
@@ -618,8 +618,8 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     if fn[0:3] == "Pol":
         T = 1
         func = f_pol
-        x = x[1:]
-        y = y[1:]
+        #x = x[1:]
+        #y = y[1:]
         func_form = r"$M(\tau)=M_0\left(1-2\exp{\left(-\frac{\tau}{T_1}\right)}\right)$"
     
     if fn[0:3] == "Hom":
@@ -645,7 +645,7 @@ def plot_xy_error(fn, x, xlabel, y , ylabel, yerror, label, title, style, fsize,
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     
-    plt.ylim(0,12)
+    #plt.ylim(0,12)
     
     # place a Legend in the plot
     leg = set_legend(fsize, msize, opac, location, True)
@@ -663,7 +663,7 @@ def plot_xy_errorlist(fn, xlist, xlabel, ylist , ylabel, yerrorlist, labels, tit
     plt.figure()
     
     colors = ["red", "green", "blue", "orange"]
-    func = [f_rabi_b, f_rabi_b, f_rabi_b, f_rabi_b]
+    func = [f_rabi_b, f_rabi_a, f_rabi_b, f_rabi_a]
     func_form = [r"$f(x)=a |\sin{\left(b x\right)}|+d$",
                  r"$f(x)=a \sin{\left(b x\right)}+d$",
                  r"$f(x)=a |\sin{\left(b x\right)}|+d$",

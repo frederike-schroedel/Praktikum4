@@ -72,14 +72,14 @@ location = 5
 
 
 FIDONOFF = 0    # ========== FERTIG ==========
-RabiONOFF = 0    # ========== FERTIG ==========
+RabiONOFF = 1    # ========== FERTIG ==========
 OffsetONOFF = 0    # ========== FERTIG ==========
 Roh_PulsONOFF = 0    # ========== FERTIG ==========
-SaettigungONOFF = 1    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
-PolarisationONOFF = 1    # ========== FERTIG ========== sieht aber scheisse aus
+SaettigungONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus und gibt einen overflow
+PolarisationONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 HomoTransRelaxONOFF = 0    # ========== FERTIG ========== sieht aber scheisse aus
 
-ALLES = 1
+ALLES = 0
 
 if ALLES == 1:
     FIDONOFF = 1
@@ -134,8 +134,8 @@ if Roh_PulsONOFF == 1:
                      Roh_Puls[i][0]*1e6, r"Zeit $/\SI{}{\micro\second}$",
                      Roh_Puls[i][1], "Envelope",
                      Roh_Puls[i][2], "Signal Direkt",
-                     r"Magnetisierung $/\SI{}{\volt}$",
-                     "Bild des rohen Pulses",
+                     r"Spannung $/\SI{}{\volt}$",
+                     "Spannungsverlauf des rohen Pulses",
                      style, fsize, msize, opac, location, False, False)
         i += 1
     
