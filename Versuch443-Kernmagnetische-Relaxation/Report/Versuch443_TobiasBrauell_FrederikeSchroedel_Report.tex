@@ -190,11 +190,42 @@
         \end{subsection}
 
         \begin{subsection}{Rabi-Oszillation}
+            Wenn man ein quantenmechanisches System anregt, also von außen stört, kommt es zur Rabi-Oszillation.
+            Dies ist eine Oszillation eines Zweizustandsystems.
+            Wir nutzen als Anregung einen RF-Puls in einer Spule, wobei wir uns bemühen mit der Frequenz des Pulses die Lamorfrequenz zu legen.
+            Im resonanten Anregungsfall 
 
         \end{subsection}
     \end{section}
 
+    \begin{section}{Messmethoden}
+        \begin{subsection}{Longitudinale Relaxationszeit}
+            Zur Messung der Longitudinalen Relaxationszeit $T_1$ nutzen wir zwei Methoden, die Sättigungs-Zurückgewinnung und die Polarsations-Zurückgewinnung.
 
+            Bei der Sättigungs-Zurückgewinnung nutzen wir zwei $\frac \pi 2$ Pulse zwischen denen wir die Verzögerungszeit $\tau$ warten.
+            Durch den ersten Puls kommt es zu einer Kippung in die transversale Ebne, aus der die Magnetisierung auf Grund der Relaxation zurück wandert. 
+            Nach der zu variierenden Zeit $\tau$ nutzten wir den zweiten $\frac \pi 2$ Puls um die Magnetisierung weiter zu drehen.
+            Das erhaltene Signal wird gemessen.
+            Wenn wir an die gemessenen Daten die Formel \todo{referenz Mz(t)}
+            anpassen, lässt sich $T_1$ ermitteln.
+            Wir erwarten also, dass wir für größere $\tau$ einen größeren transversalen Anteil messen können, da bei kleinen $\tau$ die Magnetisierung weiterhin einen großen Anteil parallel zur $z$-Achse hat.
+
+            Bei der Polarisations-Zurückgewinnung nutzt man als erst einen $\pi$ und dann nach der Zeit $\tau$ einen $\frac \pi 2$ Puls. 
+            Somit entspricht es für kleine $\tau$ in etwa einen $\frac 3{4\pi}$ Puls.
+            Zu erwarten ist auch in diesen Fall ein exponentielles Verhalten, allerdings ist der Maximalwert am Anfang negativ, da nach dem $\frac 3{4\pi}$ Puls die Magnetisierung den negativen Maximalwert erreicht.
+            \[
+                M(t) = M_0\left( 1-2\mathrm e^{-\frac t{T_1}}\right)
+            \]
+
+        \end{subsection}
+
+        \begin{subsection}{Transversale Relaxationszeit}
+            Wie oben bereits besprochen unterscheiden wir zwischen der Effektiven und der Homogenen transversalen Relaxationszeit.
+
+
+        \end{subsection}
+
+    \end{section}
     
   \end{chapter}
   %%%%%%%%%%%%%%%%%%%%
