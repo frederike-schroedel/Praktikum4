@@ -221,7 +221,22 @@
 
         \begin{subsection}{Transversale Relaxationszeit}
             Wie oben bereits besprochen unterscheiden wir zwischen der Effektiven und der Homogenen transversalen Relaxationszeit.
+            Die effektive transversale Relaxationszeit lässt sich recht einfach bestimmen, indem man ein freien Induktionszerfall nach einem einzelnen $\frac \pi 2$ Puls misst.
+            Aus dem exponentiellen Abfall der Magnetisierung lässt sich diese leicht bestimmen.
 
+            Um nun an die homogene transversale Relaxationszeit zu gelangen muss nun der inhomogene Teil experimetell entfernt werden.
+            Hierfür ist das Hahn-Spinecho als sinnvoll.
+            Mit einem $\frac \pi 2$ Puls kippen wir die Magnetisierung in die $x-y$-Ebene, inder die Spins wie zuvor beschrieben mit leichtvariierender Lamorfrequenz um die $z$-Achse präzessieren.
+            Um nun den Effekt, welchen die inhomogenitäten auf die Lamorfrequenz hat auszugleichen, nutzt man nach der Zeit $\tau$ einen $\pi$ Puls um die Spins in transversaler Ebene zu drehen. 
+            Wenn man nun erneut die Verzögerungszeit $\tau$ wartet, sollten die Spins die zuvor auseinander gelaufen sind wider zusammen gelaufen sein.
+            So lässt sich allerdings nur die ortsabhänige Abweichung der Lamorfrequenz ausgleichen.
+            Wenn wir also nach Ablauf dieser Sequenz mit der Zeit $2\tau$ die Stärke des Echos messen, werden wir weiterhin eine Abnahme der Magnetisierung feststellen, welche auf der Spin-Spin-Wechselwirkung beruht und uns die gesuchte Relaxationszeit $T_2$ liefert. 
+
+            Um an $T_2$ zu gelangen, werden wir zwei verschieden Sequenzen nutzen:
+            die Carr-Purcell-Sequenz und die Meiboom-Gill-Sequenz.
+            Beiden Sequenzen beginnen wie oben beschrieben und lassen dann im wechsel weiter Verzögerungszeiten $\tau$ und $\pi$ Pulse folgen, wobei die Carr-Purrcell-Sequenz immer in die gleiche Richtung dreht und die Meibomm-Gill-Sequenz bei jedem $\pi$ Puls das Vorzeichen, also die Richtung ändert.
+            In beiden Fällen erhält man aufeinanderfolgende Abfallende Echos, an die sich eine Exponentialfunktion anpassen lässt, über welche das $T_2$ bestimmt werden kann.
+            Die Meiboom-Gill-Sequenz hat allerdings den Vorteil, dass eventuelle Fehler in der Puls länge sich nicht auf addieren sonder sich bei jedem wechsel des Vorzeichens wieder korriegieren.
 
         \end{subsection}
 
