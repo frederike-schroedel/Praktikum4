@@ -160,6 +160,37 @@
         \begin{subsection}{Das rotierende Bezugssystem und das gepulst Magnetfeld}
             Im weiteren Verlauf nutzen wir statt des ruhenden Laborsystem ein rotierendes Inertialsystem, welches wie das magnetische Moment mit der Lamorfrequenz um die Z-Achse präzessiert.
 
+            Wenn nun von außen ein gepulstes transversales Wechselfeld erzeugt, welches auch mit der Lamorfrequenz angelegt wird, so kann dieses die magnetische Flussdicht so verändern, dass diese parallel zur neuen $x*$-Achse liegt.
+            Wenn dieser Puls bestimmte Länge und Stärke hat, so wir das magnetische Moment genau so lange mit der $x*$-Achse mitgeführt, das es von der $z*$-Achse auf $y*$ gerät.
+            Diese Kippung beträgt dann \SI{90}{\degree}, also $\frac \pi 2$, so dass das magnetische Moment nun in der $x*-y*$-Ebene liegt.
+            Wenn man nun die makroskopische Magnetisierung des Laborsystems mit Hilfe einer Messspule beobachtest, so stellt man fest, dass die Magnetisierung auf der festen $x$-Achse osziliert. 
+            Diese Oszillation mit der Lamorfrequenz erhält man, da das System weiterhin um die $z$-Achse präzessiert.
+
+            Man kann diesen Impuls auch so verlängern, dass das magnetische Moment nicht nur um $\frac \pi 2$ sondern um $\pi$ gekippt wird. \todo
+            
+        \end{subsection}
+
+        \begin{subsection}{Transversale Relaxation}
+            Nicht alle Spins präzessieren mit der gleichen Geschwindigkeit.
+            Dieser unterschiede sind rcht klein, reichen aber aus, damit die Spins nach einiger Zeit "auseinander laufen". 
+            Hierdurch nimmt die gemessene Magnetisierung mit der Zeit ab und verschwindet irgendwann.
+            Man nennt diesen zerlaufen der Magnetisierung freien Induktionszerfall, FID.
+            Dieser Effekt tritt auf, da die Lamorfrequenz, auf Grund von leichten Inhomogenitäten, ortsabhängig ist und die magnetischen Momente der Spins sich untereinander beeinflussen. 
+            Der Anteil der durch das äußere Magnetfeld entsteht, kann, da diese Inhomognität konstant ist, später umgekehrt werden.
+            Der zweite Effekt lässt sich nicht umkehren, ist aber für jede Probe charakteristisch.
+            Um diese beide Effekte beschreiben zu können nutzen wir zwei Relaxationszeiten, die homogene transversale Relaxationszeit $T_2$ und die effektive transversale Relaxationszeit $T_2*$.
+
+            Die effektive transversale Relaxationszeit $T_2*$ beschreibt den exponentiellen Abfall der Magnetisierung. Sie setzt sich wie folgt zusammen:
+            \[
+                \frac 1 {T_2*} = \frac 1T_2 + \frac 1{T_{2,\text{inhom}}}
+            \]
+            Der Anteil der inhomogenen Flussdichte ist größer (der exponentielle Abfall schneller) als der von $T_2$, weswegen $T_2*$ kleiner ist als $T_2$.  
+            
+            Außerdem gilt $T_1 \gg T_2$.
+        \end{subsection}
+
+        \begin{subsection}{Rabi-Oszillation}
+
         \end{subsection}
     \end{section}
 
